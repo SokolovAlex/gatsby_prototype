@@ -1,0 +1,21 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M20 0H0" transform="translate(0 58.5)" stroke="#AECAD6" stroke-miterlimit="10"/>
+<path d="M20 0H0" transform="translate(44 58.5)" stroke="#AECAD6" stroke-miterlimit="10"/>
+<path d="M0 0V55" transform="translate(32.1 4)" stroke="#AECAD6" stroke-miterlimit="10"/>
+<path d="M44.8 44.9L0 0" transform="translate(7.79999 13.6)" stroke="#AECAD6" stroke-miterlimit="10"/>
+<path d="M21 42C32.598 42 42 32.598 42 21C42 9.40202 32.598 0 21 0C9.40202 0 0 9.40202 0 21C0 32.598 9.40202 42 21 42Z" transform="translate(11 17)" fill="white"/>
+<path d="M8 0H0V6H8V0Z" transform="translate(28 48)" fill="#5C8495"/>
+<path d="M24 0H0V5H24V0Z" transform="translate(20 54)" fill="#5C8495"/>
+<path d="M7.5 17.9C3.3 17.9 0 14.5 0 10.4V7.5C0 3.3 3.4 0 7.5 0H24.4C28.6 0 31.9 3.4 31.9 7.5V10.4C31.9 14.6 28.5 17.9 24.4 17.9H7.5Z" transform="translate(16 29.1)" fill="white"/>
+<path d="M25.5 2C29.1 2 32 4.9 32 8.5V11.4C32 15 29.1 17.9 25.5 17.9H8.5C4.9 17.9 2 15 2 11.4V8.5C2 4.9 4.9 2 8.5 2H25.5ZM25.5 0H8.5C3.8 0 0 3.8 0 8.5V11.4C0 16.1 3.8 19.9 8.5 19.9H25.4C30.1 19.9 33.9 16.1 33.9 11.4V8.5C34 3.8 30.2 0 25.5 0Z" transform="translate(15 28)" fill="#5C8495"/>
+<path d="M6 12C9.31371 12 12 9.31371 12 6C12 2.68629 9.31371 0 6 0C2.68629 0 0 2.68629 0 6C0 9.31371 2.68629 12 6 12Z" transform="translate(26.1 32)" fill="#456776"/>
+<path d="M4 8C6.20914 8 8 6.20914 8 4C8 1.79086 6.20914 0 4 0C1.79086 0 0 1.79086 0 4C0 6.20914 1.79086 8 4 8Z" transform="translate(28.1 34)" fill="#F27179"/>
+<path d="M24.3 2.7C20.8 1 16.9 0 12.8 0C8.2 0 3.8 1.2 0 3.3" transform="translate(19.3 12)" stroke="#AECAD6" stroke-miterlimit="10"/>
+<path d="M4.4 0C1.7 4.2 0 9.1 0 14.5" transform="translate(6.09998 23.5)" stroke="#AECAD6" stroke-miterlimit="10"/>
+<path d="M3.7 4.4C2.6 2.8 1.4 1.3 0 0" transform="translate(50.1 19.3)" stroke="#AECAD6" stroke-miterlimit="10"/>
+<path d="M0 15.4C3.2 11.1 5 5.8 5 0" transform="translate(53.1 38)" stroke="#AECAD6" stroke-miterlimit="10"/>
+<path d="M0 0C1.3 3.3 3.2 6.3 5.5 8.9" transform="translate(3.39996 49.6)" stroke="#AECAD6" stroke-miterlimit="10"/>
+<path d="M0 18.3C3.8 13.2 6 6.8 6 0" transform="translate(57.1 38)" stroke="#AECAD6" stroke-miterlimit="10"/>
+<path d="M5.8 0C2.2 5 0 11.2 0 17.9" transform="translate(1.09998 20.1)" stroke="#AECAD6" stroke-miterlimit="10"/>
+<path d="M6 0H0V6H6V0Z" transform="translate(29.1 9)" fill="#F27179"/>
+</svg>
