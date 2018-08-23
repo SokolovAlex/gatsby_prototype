@@ -1,9 +1,7 @@
 import React from 'react'
-import Link from 'gatsby-link'
 
 const FooterTemplate = (data) => {
     const isCompact = true;
-
     return isCompact ? compactFooter(data) : bigFooter(data);
 }
 
@@ -14,7 +12,7 @@ const compactFooter = (data) => {
 
     return (<section id="site-footer" className="site-footer compact">
             <div className="container">
-                <div ng-if="$ctrl.data.footerTop.length > 0">
+                <div>
                     { data.footerTop }
                 </div>
 
@@ -66,14 +64,14 @@ const compactFooter = (data) => {
 
 const bigFooter = (data) => {
     return (
-    <section className="footer-selector">
-        <div className="container">
-            <a href="#" class="close-selector"><i className="font-icons icon-cancel"></i></a>
-            <div className="section-col-l-4 reset-l country-list">
-                { fields.Body }
+        <section className="footer-selector">
+            <div className="container">
+                <a href="#" class="close-selector"><i className="font-icons icon-cancel"></i></a>
+                <div className="section-col-l-4 reset-l country-list">
+                    { data._fields.Body }
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
     )
 }
 
@@ -81,7 +79,7 @@ const getCopyLink = (data) => {
     const isB2B = true;
     return isB2B
         ? <span>{ data.copyright }</span>
-        : <span>{ data.fields.copyright }</span>;
+        : <span>{ data._fields.copyright }</span>;
 }
 
 export default FooterTemplate

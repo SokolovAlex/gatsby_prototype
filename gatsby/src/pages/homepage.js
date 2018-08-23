@@ -1,12 +1,25 @@
 import React from 'react'
 import { withIntl } from '../i18n';
 import Layout from '../components/layout';
+// import siteBar from '../components/site-bar';
+// import homepageBanner from '../components/homepage-banner';
 import footer from '../components/footer/footer';
 
 // import siteBar from '../components/site-bar/site-bar'
 
 const ThirdPage = ({data}) => (
     <Layout>
+        { siteBar(data) }
+        { homepageBanner(data) }
+
+        <div class="main no-bg">
+            {/* <promo-section resource="promo-above-hmc"></promo-section>
+            <renew-and-about></renew-and-about>
+            <promo-section resource="promo-above-stats"></promo-section>
+            <malware-stats></malware-stats>
+            <promo-section resource="promo-above-footer"></promo-section> */}
+        </div>
+
         { footer(data.footerJson) }
     </Layout>
 )
@@ -18,5 +31,6 @@ export const pageQuery = graphql`
     footerJson {
         ...footerFragment
     }
+
   }
 `
