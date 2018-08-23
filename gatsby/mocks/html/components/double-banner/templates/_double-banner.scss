@@ -1,0 +1,28 @@
+.double-banner {
+  display: flex;
+  margin-bottom: 40px;
+
+  &-item {
+    padding: 80px 10px;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    flex-basis: 50%;
+    align-items: stretch;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+@media (max-width: 769px) {
+  .double-banner {
+    display: block;
+
+    &-item {
+      display: block;
+
+      a {
+        display: inline-block;
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+<section class="others-section lightgreen-background">
+		<div class="container">
+			<div class="row">
+				<div class="col-l-6">
+					<div class="row">
+						<div class="col-s-4">
+							<figure class="product-icon">
+								<img ng-src="{{::$ctrl.data.leftImg}}" alt="{{::$ctrl.data.leftTitle}}">
+							</figure>
+						</div>
+						<div class="col-s-8">
+							<h4 class="section-title" ng-bind="::$ctrl.data.leftTitle"></h4>
+							<p ng-bind="::$ctrl.data.leftDescription"></p>
+							<a  ng-href="{{::$ctrl.data.leftCTAUrl}}"
+									class="button transparent"
+									ng-bind="::$ctrl.data.leftCTAText"></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-l-6">
+					<div class="row">
+						<div class="col-s-4">
+							<figure class="product-icon">
+								<img ng-src="{{::$ctrl.data.rightImg}}" alt="{{::$ctrl.data.leftTitle}}">
+							</figure>
+						</div>
+						<div class="col-s-8">
+							<h4 class="section-title" ng-bind="::$ctrl.data.rightTitle"></h4>
+							<p ng-bind="::$ctrl.data.rightDescription"></p>
+							<a  ng-href="{{::$ctrl.data.rightCTAUrl}}"
+									class="button transparent"
+									ng-bind="::$ctrl.data.rightCTAText"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>

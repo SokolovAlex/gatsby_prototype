@@ -1,0 +1,48 @@
+<div id="hmc-modal" class="white-popup hmc-start-screen">
+	<div class="modal-header modal-header-no-steps">
+		<a href="" class="modal-button modal-back" ng-if="ngDialogData.stepHistory.length > 2" ng-click="ngDialogData.backOneStep()">
+			<span class="font-icons icon-arrow-left"></span><span class="text"></span>
+		</a>
+		<a href="" class="modal-button modal-close" ng-click="ngDialogData.closePopup()"><span class="font-icons icon-cancel"></span></a>
+	</div>
+	<div class="hmc-main">
+		<div class="container">
+			<h3 class="section-title">{{ngDialogData.data.header}}</h3>
+			<div class="hmc-section variant-3">
+				<div class="row">
+					<div class="hmc-desc col-l-6">
+						<p class="hmc-steps">{{ngDialogData.data.step}}</p>
+						<p class="hmc-question" ng-bind-html="ngDialogData.data.desc|html"></p>
+						<p class="note desktop-only" ng-bind-html="ngDialogData.data.note|html"></p>
+					</div>
+					<div class="hmc-select col-l-6 hmc-embedded">
+						<form name="areaMailboxes" novalidate>
+							<div class="form-element divider">
+								<label for="ws">{{ngDialogData.data.optionOneDesc}}</label>
+								<select ng-if="ngDialogData.checkCustomLocale()" ng-model="ngDialogData.area_mailboxes.devices" ng-options="n for n in ngDialogData.selectRangeOne">
+									<option value="">{{ngDialogData.data.optionOne}}</option>
+								</select>
+								<input ng-if="!ngDialogData.checkCustomLocale()" type="number" id="ws" name="devices" placeholder="{{ngDialogData.data.optionOne}}"
+									   min="{{ngDialogData.data.minOne}}" step="{{ngDialogData.data.incOne}}" ng-model="ngDialogData.area_mailboxes.devices"
+									   ng-class="{'error': areaMailboxes.devices.$invalid}">
+							</div>
+							<div class="form-element divider">
+								<label for="pm">{{ngDialogData.data.optionTwoDesc}}</label>
+								<select ng-if="ngDialogData.checkCustomLocale()" ng-model="ngDialogData.area_mailboxes.nodes" ng-options="n for n in ngDialogData.selectRangeTwo">
+									<option value="">{{ngDialogData.data.optionTwo}}</option>
+								</select>
+								<input ng-if="!ngDialogData.checkCustomLocale()" type="number" id="pm" name="nodes" placeholder="{{ngDialogData.data.optionTwo}}"
+									   min="{{ngDialogData.data.minTwo}}" step="{{ngDialogData.data.incTwo}}" ng-model="ngDialogData.area_mailboxes.nodes"
+									   ng-class="{'error': areaMailboxes.nodes.$invalid}">
+							</div>
+							<div class="form-element buttons">
+								<button type="submit" ng-click="ngDialogData.checkAndChangeStep()" class="button green hmc-open" value="Continue">{{ngDialogData.data.btnText}}</button>
+							</div>
+						</form>
+					</div>
+				</div>
+				<p class="note mobile-only" ng-bind-html="ngDialogData.data.note|html"></p>
+			</div>
+		</div>
+	</div>
+</div>

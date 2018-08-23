@@ -1,0 +1,37 @@
+<section class="resource-documents {{$ctrl.data.sectionBlockClass}}" ng-if="$ctrl.data">
+  <div class="container">
+    <div ng-if="$ctrl.data.title.length || $ctrl.data.sectionDescription.length" class="secondary-top-description">
+      <h4 class="section-title">{{$ctrl.data.title}}</h4>
+
+      <item-description ng-bind-html="$ctrl.data.sectionDescription">
+        {{$ctrl.data.sectionDescription | html}}
+      </item-description>
+    </div>
+
+    <div class="row">
+      <div class="col-l-6 clear {{'carousel-' + $ctrl.scopeId}}" ng-class="{'slider-disabled' : $ctrl.data.resourceDeckItems === 1}" ng-repeat="deckItem in $ctrl.data.resourceDeckItems track by $index">
+
+        <figure ng-class="{'item-cover': deckItem.itemType == 'pdf', 'item-video': deckItem.itemType === 'video'}">
+          <a ng-class="{'pdf-pages icon-doc icon-pdf': deckItem.itemType === 'pdf',
+                       'mfp-iframe popup-link': deckItem.itemType === 'video'}" href="{{deckItem.itemUrl}}">
+            <span ng-if="deckItem.itemType === 'video'" class="meta duration">{{deckItem.metaData}}</span>
+            <img ng-src="{{deckItem.coverGraphic | addLocalRoot}}" alt="{{deckItem.itemDescriptionTitle}}" title="{{deckItem.itemDescriptionTitle}}" />
+            <span ng-if="deckItem.itemType === 'pdf'" class="pages"></span>
+          </a>
+
+          <a ng-if="deckItem.itemType === 'pdf'" href="{{deckItem.itemUrl}}">{{deckItem.itemTriggerButtonText}}</a>
+        </figure>
+
+        <div ng-class="{'divider-right' : ($index % 2 == 0),
+                       'video': deckItem.itemType === 'video'}" class="item-description">
+          <a href="{{deckItem.itemUrl}}" ng-class="{'mfp-iframe popup-link' : deckItem.itemType === 'video'}" class="title">{{deckItem.itemDescriptionTitle}}</a>
+          <span ng-if="deckItem.itemType === 'pdf'" class="info">{{deckItem.metaData}}</span>
+
+          <item-description ng-bind-html="deckItem.itemDescription" ng-if="deckItem.itemDescription.length">
+            {{deckItem.itemDescription}}
+          </item-description>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

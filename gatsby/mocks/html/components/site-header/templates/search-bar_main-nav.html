@@ -1,0 +1,24 @@
+<!--form action="#"-->
+<a ng-class="{ 'active' : $ctrl.active }" ng-click="$ctrl.searchTrigger($event)" class="inactive search-button">
+  <i class="font-icons icon-search"></i>
+</a>
+
+<form ng-submit="$event.preventDefault()">
+  <input ng-model="$ctrl.searchBar" ng-model-options="{ debounce: 200 }"
+     ng-change="$ctrl.search()"
+     ng-keypress='$ctrl.goToSearchPage($event)'
+     type="text" placeholder="{{$ctrl.uiStrings.searchTypeEnterText || 'Type and hit enter...'}}"
+     name="s"
+     id="search-main-nav"
+     value=""
+     autocomplete="off">
+</form>
+
+<a ng-click="$ctrl.closeSearchTrigger($event)" class="close-search">
+  <i class="font-icons icon-cancel"></i>
+</a>
+<ul ng-if="$ctrl.searchBar">
+    <li ng-repeat="item in $ctrl.autocompleteQ" ng-if="$index>0">
+        <div href="" ng-click="$ctrl.searchBar = item; $ctrl.goToSearchPage()" ng-bind-html="$ctrl.autocompleteQhtml[$index] | html"></div>
+    </li>
+</ul>

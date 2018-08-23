@@ -1,0 +1,28 @@
+<div class="articles-section">
+    <section ng-repeat="article in $ctrl.articles" class="section">
+        <div class="container">
+          <div class="row">
+            <h3 class="section-title" ng-bind="article.atricleTitle"></h3>
+          </div>
+        </div>
+        <div class="container">
+        	<div class="row">
+                <div class="col-l-7">
+                    <div ng-bind-html="article.description"></div>
+                    <a  ng-if="article.solutionLink"
+                    ng-href="{{article.solutionLink}}"
+                    ng-bind="article.solutionText"
+                    target="{{article.isExternal[0] == 'True' ? '_blank' : ''}}"
+                    class="button transparent text-green"></a>
+                </div>
+        		<figure ng-if="article.image" class="col-l-5">
+                    <img ng-src="{{article.image}}" alt="{{article.atricleTitle}}">
+                </figure>
+                <div ng-if="article.youtubeID" class="col-l-5">
+                    <iframe width="410" height="235" ng-src="{{$ctrl.parseYoutubeUrl(article.youtubeID)}}" frameborder="0" allowfullscreen></iframe>
+                    <p class="note" ng-bind="article.youtubeDescription"></p>
+                </div>
+        	</div>
+        </div>
+    </section>
+</div>

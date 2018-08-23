@@ -1,0 +1,57 @@
+<header id="site-header" class="site-header">
+    <div class="container">
+
+        <a href ng-click="mobileNavTrigger($event);" class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
+
+        <div class="site-title">
+            <a href="/" title="Kaspersky Lab" rel="home">
+                Kaspersky
+                <i class="kaspersky-logo"></i>
+            </a>
+        </div>
+        <div class="crime-stopper-logo" ng-if="$ctrl.hasCrimeStopperLogo()">
+            <figure>
+                <a ng-href="{{$ctrl.data.crimeStopperLogoUrl}}">
+                    <img ng-src="{{$ctrl.data.crimeStopperLogo | addLocalRoot}}" alt="crime_stopper_logo" />
+                </a>
+            </figure>
+            <h5><span>{{$ctrl.data.crimeStopperLogoAlt}}</span></h5>
+        </div>
+        <ul class="menu-utility" ng-if="$ctrl.showMenuUtility">
+            <site-header-scroll-nav ng-if="$ctrl.scrollNavItems" items="$ctrl.scrollNavItems"></site-header-scroll-nav>
+    
+            <li ng-if="$ctrl.data.rightMenuItem.cartLink" class="cart">
+                <a href="{{$ctrl.data.rightMenuItem.cartLink}}">
+                    <i class="font-icons icon-cart"></i>
+                </a>
+            </li>
+
+            <currency-selector></currency-selector>
+
+            <li ng-if="$ctrl.rightMenuItem.menuText" class="my-kaspersky" ng-class="{'dropdown': $ctrl.rightMenuItem.menuItems.length != 0}">
+                <a href="{{$ctrl.rightMenuItem.menuLink}}" target="_blank">{{$ctrl.rightMenuItem.menuText}}</a>
+                <ul ng-if="$ctrl.rightMenuItem.menuItems.length != 0">
+                    <li ng-repeat="item in $ctrl.rightMenuItem.menuItems">
+                        <a ng-if="item.isExternal != 'Yes'" href="{{item.link}}"><i class="font-icons {{item.class}}"></i>{{item.text}}</a>
+                        <a ng-if="item.isExternal == 'Yes'" href="{{item.link}}" target="_blank"><i class="font-icons {{item.class}}"></i>{{item.text}}</a>
+                    </li>
+                </ul>
+            </li>
+            <li ng-if="$ctrl.hideGetInTouchCta()">
+                <span class="red-item">
+                    <a ng-if="!$ctrl.utm" href="" ng-click="$ctrl.navigateUserTo($ctrl.rightMenuItem.ctaLink)" class="button red">{{::$ctrl.rightMenuItem.ctaText}}</a>
+                    <a ng-if="$ctrl.utm" ng-href="{{::$ctrl.rightMenuItem.ctaLink}}{{$ctrl.utm}}" class="button red">{{::$ctrl.rightMenuItem.ctaText}}</a>
+                </span>
+            </li>
+        </ul>
+
+        <div class="clear"></div>
+
+        <main-nav ng-if="!$ctrl.hideMainNav"></main-nav>
+    </div>
+</header>
+<mobile-nav ng-if="$ctrl.isMobile"></mobile-nav>

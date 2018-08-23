@@ -1,0 +1,77 @@
+/***************************************
+	Certificates List
+***************************************/
+
+.note-wrapper {
+  margin-top: 1em;
+}
+
+.post-item-list {
+  .container > hr {
+    margin-bottom: 2em;
+  }
+
+  h3 + small {
+    text-transform: uppercase;
+    font-size: .625em;
+    color: #bababa;
+    float: left;
+    margin-top: -.5em;
+  }
+
+  .small-thumbnail {
+    max-width: 100px;
+    margin-bottom: 1em;
+  }
+}
+
+.content .light-blue-info-box {
+  background-color: $lightblue;
+  border: 1px solid $borderblue;
+  width: 100%;
+  color: $blue;
+  padding: 1.5em 2em;
+  text-align: center;
+  margin-bottom: 1em;
+
+  &.right {
+    float: right;
+    margin-left: 2em;
+  }
+
+  &.left {
+    float: left;
+    margin-right: 2em;
+  }
+
+  p {
+    text-align: center;
+    color: $blue;
+    font-size: .8em;
+    margin: .5em 0 0;
+  }
+
+  .font-icons.big {
+    font-size: 3em;
+    margin: 0 .1em;
+    cursor: default;
+  }
+}
+
+@include media(769px) {
+  .post-item-list {
+    .small-thumbnail {
+      max-width: 125px;
+    }
+  }
+}
+
+@include media(460px) {
+  .content .light-blue-info-box {
+    width: 300px;
+  }
+}
+
+.certificates-details h3 {
+  color: $kgreen;
+}

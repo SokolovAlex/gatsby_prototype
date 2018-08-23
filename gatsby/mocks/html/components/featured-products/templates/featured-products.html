@@ -1,0 +1,16 @@
+<section class="featured-section" id="featured-section">
+
+    <div class="container">
+        <ul class="product-list no-gutter section-col-l-3">
+            <li ng-repeat="product in $ctrl.products">
+
+                <buyblock-radio ng-if="$ctrl.state == 'b2c'" template="b2c-homepage" product-name="{{product}}" highlighted="{{product == $ctrl.highlighted}}" component="{{$ctrl.component}}"></buyblock-radio>
+
+                <buyblock-vsb-dropdown ng-if="$ctrl.state == 'vsb'" template="smb-prod-list" product-name="{{product}}" component="{{$ctrl.component}}"></buyblock-vsb-dropdown>
+
+                <buyblock-radio ng-if="$ctrl.state == 'hd'" template="home-downloads" product-name="{{product}}" component="{{$ctrl.component}}"></buyblock-radio>
+
+            </li>
+        </ul>
+    </div>
+</section><!-- /featured-section -->

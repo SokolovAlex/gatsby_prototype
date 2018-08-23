@@ -1,0 +1,47 @@
+<header id="page-header" class="page-header" style="z-index:8;">
+    <div class="container">
+        <div class="page-info">
+			<ul class="quick-menu">
+				<callback-form></callback-form>
+			</ul>
+            <breadcrumb ng-if="$ctrl.data.hideBreadcrumbs != 'Yes'"></breadcrumb>
+        </div>
+        <div class="page-headline">
+            <h3 class="page-surtitle">{{$ctrl.productInfo.prodKasperskyTitle}}</h3>
+            <h1 class="page-title" ng-if="!$ctrl.productInfo.prodAddTitle">{{$ctrl.productInfo.prodMainTitle}}</h1>
+            <h1 class="page-title" ng-if="$ctrl.productInfo.prodAddTitle && $ctrl.productInfo.prodAddTitle != 'Total'" ng-switch="$ctrl.isEndPointDownloadPage()">
+                <span ng-switch-when="false">{{$ctrl.productInfo.prodMainTitle}} | {{$ctrl.productInfo.prodAddTitle}}</span>
+                <span ng-switch-when="true">{{$ctrl.productInfo.prodMainTitle}} {{$ctrl.productInfo.prodAddTitle}}</span>
+            </h1>
+            <h1 class="page-title" ng-if="$ctrl.productInfo.prodAddTitle && $ctrl.productInfo.prodAddTitle == 'Total'">{{$ctrl.productInfo.prodAddTitle}} {{$ctrl.productInfo.prodMainTitle}}</h1>
+        </div>
+    </div>
+</header>
+
+<section class="downloads-section">
+    <div class="container">
+        <p ng-bind-html="$ctrl.productInfo.description|html">{{$ctrl.productInfo.description}}</p>
+        
+        <div class="dl-table">
+            <div class="table-head">
+                <div class="row no-gutter">
+                    <div class="cell">
+                        <p>{{$ctrl.data.latestVersionText}}</p>
+                    </div>
+                </div><!-- /row -->
+            </div>
+            <div class="row no-gutter" ng-repeat="product in $ctrl.data.products">
+                <div class="cell col-l-10">
+                    <p>{{product.productName}}</p>
+                </div>
+                <div class="cell col-l-2">
+                    <div class="form-element buttons">
+                        <a class="button red desktop-only" ng-href="{{product.buttonLink}}">{{product.buttonText}}</a>
+                        <a class="button red mobile-only" ng-href="{{product.buttonLink}}">{{product.buttonText}}</a>
+                    </div>
+                </div>
+            </div><!-- /row -->
+        </div><!-- /dl-table -->
+        <bottom-note ng-bind-html="$ctrl.data.bottomNote|html">{{$ctrl.data.bottomNote}}</bottom-note>
+    </div>
+</section>

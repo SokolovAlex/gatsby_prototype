@@ -1,0 +1,42 @@
+<section class="reviews-slider" ng-if="$ctrl.data">
+    <div class="container">
+        <div class="row">
+            <div class="col-l-5 reviews-description">
+                <div class="row">
+                    <div class="col-l-10">
+                        <div class="divider">
+                            <h4 class="section-title" ng-if="$ctrl.data.titleLink">
+                                <a ng-href="{{::$ctrl.data.titleLink}}" target="_blank">
+                                    {{$ctrl.data.reviewsTitle}}
+                                </a>
+                            </h4>
+                            <h4 class="section-title" ng-if="!$ctrl.data.titleLink">
+                                    {{$ctrl.data.reviewsTitle}}
+                            </h4>
+                            <div ng-bind-html="$ctrl.data.reviewsText | html"></div>
+                            <p><a ng-href="{{$ctrl.data.reviewsButtonLink}}" class="button green" target="_blank">{{$ctrl.data.reviewsButtonText}}</a></p>
+                        </div>
+                        <p class="note">{{$ctrl.data.poweredByText}}</p>
+                        <a ng-href="{{$ctrl.data.poweredByLink}}" target="_blank"><img class="logo-small" ng-src="{{$ctrl.data.poweredByImg}}" alt="TrustPilot"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-l-7">
+                <ul class="reviews-list">
+                    <li ng-repeat="reviewGroup in $ctrl.reviews">
+                        <div class="reviews-item">
+                            <div ng-repeat="review in reviewGroup" class="reviews-personal">
+                                <h5>{{review.title}}</h5>
+                                <blockquote ng-bind-html="review.text"></blockquote>
+                                <div class="starbar medium">
+                                    <span class="font-icons icon-star" ng-repeat="star in $ctrl.starsArr" ng-class="{'empty': $index + 1 > review.stars}"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <a ng-href="{{$ctrl.data.viewAllReviewsLink}}" class="reviews-all-link" target="_blank">{{$ctrl.data.viewAllReviewsText}}</a>
+            </div>
+        </div>
+    </div>
+</section>

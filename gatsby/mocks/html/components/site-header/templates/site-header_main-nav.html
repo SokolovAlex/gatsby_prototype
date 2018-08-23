@@ -1,0 +1,29 @@
+<nav class="main-nav" ng-show="$ctrl.showMenu">
+    <ul class="main-menu">
+        <li ng-repeat="item in $ctrl.siteHeader.mainNavItems" name="item-{{$index}}"
+            ng-class="{active: $ctrl.activeState === $index,
+                        b2c: item.megaMenuItem.menuType === 'b2c',
+                        mega: item.megaMenuItem.menuType !== 'res',
+                        'res-small': item.megaMenuItem.menuType === 'res',
+                        'mega-small': item.megaMenuItem.menuType === 'vsb' || item.megaMenuItem.menuType === 'smb',
+                        dropdown: item.megaMenuItem && !item.mobile_nav_disable.length,
+                        'mega-float': !item.megaMenuItem.mega_menu_secondary_nav }"
+            ng-click="$ctrl.makeActive($index)"
+            ng-mouseenter="$ctrl.getInnerItems($event)" ng-mouseleave="$ctrl.getInnerItems($event)">
+
+            <a  ng-href="{{item.link}}">{{item.text}}</a>
+            <ul ng-include
+                ng-class="{'ent': item.megaMenuItem.menuType === 'ent', 'extended-ent': item.megaMenuItem.menuType === 'ent-featured'}"
+                src="$ctrl.getTemplateUrl(item.megaMenuItem.menuType)"
+                ng-if="item.megaMenuItem && !item.mobile_nav_disable.length"></ul>
+        </li>
+
+        <li class="search" ng-if="!$ctrl.hideSearch">
+            <search-bar></search-bar>
+        </li>
+        <li class="quick-menu" ng-if="$ctrl.hideSearch">
+            <span ng-if="$ctrl.hideGetInTouchCta()" class="red-item"><a href="" ng-click="$ctrl.navigateUserTo($ctrl.entData.ctaLink)">{{::$ctrl.entData.ctaText}}</a></span>
+            <span ng-if="$ctrl.utm" class="red-item"><a ng-href="{{::$ctrl.entData.ctaLink}}{{$ctrl.utm}}">{{::$ctrl.entData.ctaText}}</a></span>
+        </li>
+    </ul>
+</nav>

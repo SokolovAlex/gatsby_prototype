@@ -1,0 +1,92 @@
+<div class="product-tiers">
+    <header class="divider">
+        <figure>
+            <img ng-src="{{::$ctrl.product.bbImage}}" data-test="buyblock-box--{{$ctrl.product.shortName}}" alt="" />
+            <span class="label-icon"><img ng-src="{{::$ctrl.product.smallSizeImage}}"></span>
+        </figure>
+        <div class="product-name" data-test="buyblock-title--{{$ctrl.product.shortName}}">
+            <h4 class="product-tier-subtitle">{{::$ctrl.product.prodKasperskyTitle}} {{::$ctrl.product.prodMainTitle}}</h4>
+            <h3 class="product-tier-title purple">{{::$ctrl.product.prodAddTitle}}</h3>
+        </div>
+        <div class="meta reviews" ng-if="$ctrl.product.bvId" data-test="buyblock-reviews--{{$ctrl.product.shortName}}">
+            <bazaarvoice product-id="{{::$ctrl.product.bvId}}"></bazaarvoice>
+        </div>
+    </header>
+    <div class="features-checklist divider" ng-bind-html="$ctrl.overrideProductDesc || $ctrl.product.description"></div>
+    <div class="buy-block" ng-if="$ctrl.productPricesExist">
+        <div class="price">
+            <p data-test="buyblock-price--{{$ctrl.product.shortName}}">{{$ctrl.selectedOption.price | customCurrency}}{{$ctrl.disclaimerObj.asterisk}}</p>
+            <p class="price-old" ng-if="$ctrl.selectedOption.price_striked">
+				<span class="price-cut" data-test="buyblock-price-cut--{{$ctrl.product.shortName}}">{{$ctrl.selectedOption.price_striked | customCurrency}}{{$ctrl.disclaimerObj.asterisk}}</span>
+				<span class="price-saving" ng-if="$ctrl.getSavings('rate')" ng-bind-html="$ctrl.getSavings('rate')" data-test="buyblock-price-saving--{{$ctrl.product.shortName}}"></span>
+			</p>
+        </div>
+        <buyblock-user-account account-info-override="{{$ctrl.product.accountInfo}}"
+                               description-popup="{{$ctrl.product.accountDesc}}"
+                               label="{{$ctrl.product.userAccountText}}"
+                               count="$ctrl.selectedOption['user-accounts']"></buyblock-user-account>
+        <div id="spinner" class="uil-ring-css" ng-if="!$ctrl.isBBReady"></div>
+        <div class="buyblock--status" ng-class="{'buyblock--not-ready': !$ctrl.isBBReady}">
+          <form>
+			  <div class="tab-nav-small" ng-if="$ctrl.monthlyAvailable">
+				  <ul class="tabs tabs-red tabs-fixed tabs-title-wrapper">
+					  <li class="tab-title" ng-click="$ctrl.switchTerm('Month')" ng-class="{'selected': $ctrl.isActive('Month')}" data-test="buyblock-monthly--{{$ctrl.product.shortName}}">
+						  <a href="">{{$ctrl.buyblockData.tabMonthly}}</a>
+					  </li>
+					  <li class="tab-title" ng-click="$ctrl.switchTerm('Year')" ng-class="{'selected': $ctrl.isActive('Year')}" data-test="buyblock-yearly--{{$ctrl.product.shortName}}">
+						  <a href="">{{$ctrl.buyblockData.tabYearly}}</a>
+					  </li>
+				  </ul>
+			  </div>
+              <div class="radio-group-wrapper">
+                  <div class="radio-group">
+                      <div class="form-element radio" ng-repeat="radio in $ctrl.priceList | filter:$ctrl.radioFilter | filter:$ctrl.showTerm | limitTo:$ctrl.limitTo">
+                        <input  type="radio"
+                                ng-model="$ctrl.selectedID"
+                                ng-value='{{radio.id}}'
+                                id="{{$ctrl.$id}}-{{radio.product_id}}-{{radio.id}}"
+                                name="radio-item3"
+                                ng-change="$ctrl.setSelectedOption()">
+                          <label  for="{{$ctrl.$id}}-{{radio.product_id}}-{{radio.id}}"
+                                  data-test="buyblock-option--{{$ctrl.product.shortName}}-{{$index}}-{{radio.autorenew}}">
+							  <span class="choose"><span ng-if="!$ctrl.hidePack">{{radio.pack}}</span> <span>{{radio.term}}</span></span>
+                              <span class="price">
+                                  <span class="price-new">{{radio.price | customCurrency}}{{$ctrl.disclaimerObj.asterisk}}</span>
+                              </span>
+                          </label>
+                      </div>
+                  </div>
+              </div>
+          </form>
+          <div class="form-element buttons">
+			  <div class="form-element checkbox text-center no-margin" ng-class="{selected: $ctrl.autorenew}">
+				  <div ng-if="$ctrl.showAR == 'true' && $ctrl.hideArCheckbox !== 'true'">
+					  <label class="yes" data-test="buyblock-renewalchkbox--{{$ctrl.product.shortName}}">
+						  <input type="checkbox" checked="checked" ng-model="$ctrl.autorenew" ng-change="$ctrl.applyOption()" ng-click="$ctrl.registerOnce(true)">
+						  {{$ctrl.buyblockData.autoRenewal}}
+					  </label>
+					  <span ng-click="$ctrl.showARPopup()" class="font-icons icon-help tooltip" data-test="buyblock-renewal--{{$ctrl.product.shortName}}"></span>
+				  </div>
+				  <div class="show-only-ar" ng-if="$ctrl.showOnlyAR && $ctrl.showAR != 'true'">
+					  <label ng-click="$ctrl.showARPopup()" data-test="buyblock-renewal--{{$ctrl.product.shortName}}">{{$ctrl.buyblockData.autoRenewalOnly}}</label>
+				  </div>
+            </div>
+            <a ng-href="{{$ctrl.buyLink}}" ng-click="$ctrl.addSalesTrackingParameters(($event))" data-omniture-sale-button-type="Buy" data-omniture-product-name="{{$ctrl.productName}}" data-test="buyblock-buy--{{$ctrl.product.shortName}}">
+              <div class="button red">{{$ctrl.updatedBuyButtonText}}</div>
+            </a>
+          </div>
+        </div>
+        <a ng-if="$ctrl.hasTrialButton()" ng-href="{{$ctrl.product.freeTrialLink}}" data-test="buyblock-free-trial--{{$ctrl.product.shortName}}" class="button transparent text-klgreen full-width">{{$ctrl.buyblockData.tryFor}}</a>
+
+        <p ng-show="$ctrl.showMoreDevices" data-test="buyblock-more-devices--{{$ctrl.product.shortName}}" class="more-devices">
+            <a class="more open-buyblock-popup" ng-click="$ctrl.moreDevicesPopup()" href="">{{$ctrl.product.needMore || $ctrl.buyblockData.needMore}}</a>
+        </p>
+
+        <!-- ksc disclaimers -->
+        <kscloud-disclaimers ng-if="$ctrl.buyblockData.kscDisclaimerText" disclaimer-text="$ctrl.buyblockData.kscDisclaimerText" types="[3,4]"  data-test="buyblock-disclaimer--{{$ctrl.product.shortName}}"></kscloud-disclaimers>
+        <p ng-if="$ctrl.disclaimerObj.disclaimer" ng-bind-html="$ctrl.disclaimerObj.disclaimer|html" class="disclaimer-ksc"></p>
+    </div><!-- /buy-block -->
+    <form ng-if="!$ctrl.productPricesExist">
+        <div class="buy-block" ng-bind-html="$ctrl.buyblockUnavailableText"></div>
+    </form>
+</div>

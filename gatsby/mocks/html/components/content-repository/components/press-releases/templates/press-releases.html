@@ -1,0 +1,47 @@
+<section class="about-us-item-list-2" id="about-us-news">
+    <div class="container">
+        <form class="search-form row">
+            <div class="col-l-8">
+                <div class="search-box-wrap">
+                    <!--<input class="search-box" type="text" placeholder="Search Press Releases">-->
+                    <!--<button class="search-btn font-icons icon-search" type="button"></button>-->
+                    <!--<button class="submit-btn" type="submit">Search</button>-->
+                </div>
+            </div>
+            <div class="col-l-4">
+                <div class="search-submit-wrap">
+                    <select class="sortby-btn" ng-model="$ctrl.selector" ng-change="$ctrl.changeFilter($ctrl.selector)">
+                            <option ng-repeat="defaultOption in $ctrl.filterDefaultSelections" ng-value="defaultOption" subcategory="">{{defaultOption}}</option>
+                            <option ng-repeat="item in $ctrl.filterSelections" ng-value="item" subcategory="{{$ctrl.getSubCat(item)}}">{{item}}</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+        <ul class="search-results">
+            <li dir-paginate="item in $ctrl.resources | orderBy: '-date_publication_start' | itemsPerPage: $ctrl.pageSize"
+                total-items=$ctrl.resourcesTotalCount
+                current-page="$ctrl.currentPage"
+                pagination-id="pressReleasePagination">
+                <!--<a ui-sref="press-releases.details({path:$ctrl.getUserFriendlyUrl(item)})">-->
+                <!--<figure class="career-img-wrap" ng-style="{'background-image': 'url(' + item.image + ')'}">-->
+                <!--<img class="career-img" ng-src="{{item.image | addLocalRoot}}">-->
+                <!--</figure>-->
+                <!--</a>-->
+                <div class="career-content-wrap">
+                    <h3><a ui-sref="press-releases.details({path:$ctrl.getUserFriendlyUrl(item)})">{{item.title}}</a></h3>
+                    <p>&lrm;{{item.date_publication_start | date : 'longDate'}} - {{item.subcategoryTitle}}</p>
+                    <p class="career-desc" ng-bind-html="item.summary"></p>
+                    <a class="career-apply-link" ui-sref="press-releases.details({path:$ctrl.getUserFriendlyUrl(item)})">{{$ctrl.prData.prReadMore || 'Read More'}} &gt;</a>
+                </div>
+            </li>
+        </ul>
+        <div class="item-list-footer">
+            <dir-pagination-controls boundary-links="true" pagination-id="pressReleasePagination"
+                                     template-url="/apps/kapp/pages/content-repo/press-releases-pagination.html"
+                                     on-page-change="$ctrl.pageChangeHandler(newPageNumber)">
+
+            </dir-pagination-controls>
+            <social-sharing use-press-release-template="true"></social-sharing>
+        </div>
+    </div>
+</section>

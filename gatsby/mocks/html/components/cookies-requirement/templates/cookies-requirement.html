@@ -1,0 +1,8 @@
+<section class="notification-bar transparent dark bottom" ng-if="$ctrl.show">
+	<div class="container">
+		<div class="description-left">
+			<p ng-bind-html="$ctrl.data.cookieDesc"></p>
+		</div>
+		<a href="" class="button green close" ng-click="$ctrl.accept()">{{$ctrl.data.cookieBtn}}</a>
+	</div>
+</section>

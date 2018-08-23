@@ -1,0 +1,115 @@
+<div class="buy-box-wrapper">
+    <div class="buy-block" ng-if="$ctrl.productPricesExist">
+        <form>
+            <div class="radio-group divider">
+              <div class="form-element radio" ng-repeat="radio in $ctrl.priceList | filter:$ctrl.radioFilter | limitTo:$ctrl.limitTo">
+                  <input  type="radio"
+                          ng-model="$ctrl.selectedID"
+                          ng-value='{{radio.id}}'
+                          id="{{$ctrl.$id}}-{{radio.product_id}}-{{radio.id}}"
+                          name="radio-item3"
+                          ng-change="$ctrl.setSelectedOption()">
+                  <label for="{{$ctrl.$id}}-{{radio.product_id}}-{{radio.id}}">
+                      <span class="choose">{{radio.pack}} <span>{{radio.term}}</span></span>
+                      <span class="price">
+                          <span class="price-new">{{radio.price | customCurrency}}{{$ctrl.disclaimerObj.asterisk}}</span>
+                      </span>
+                  </label>
+              </div>
+            </div>
+            <div class="form-element checkbox text-center no-margin" ng-class="{selected: $ctrl.autorenew}" ng-if="$ctrl.showAR == 'true'">
+                <label class="yes" data-test="buyblock-renewalchkbox--{{$ctrl.product.shortName}}">
+                    <input type="checkbox" checked="checked" ng-model="$ctrl.autorenew" ng-change="$ctrl.applyOption()" ng-click="$ctrl.registerOnce(true)">
+                    {{$ctrl.buyblockData.autoRenewal}}
+                </label>
+                <span ng-click="$ctrl.showARPopup()" class="font-icons icon-help tooltip" data-test="buyblock-renewal--{{$ctrl.product.shortName}}"></span>
+            </div>
+            <div class="price">
+               <span style="font-weight: 300;color: #777; text-decoration: line-through;" class="price-old" ng-if="$ctrl.selectedOption.price_striked">
+                    <span class="price-cut">{{$ctrl.selectedOption.price_striked | customCurrency}}{{$ctrl.disclaimerObj.asterisk}}</span>
+                   <!--<span class="price-saving" ng-bind-html="$ctrl.buyblockData.saveRate">{{$ctrl.buyblockData.saveRate | html}}</span>-->
+               </span>
+                <span style="color: #ED2939; font-size:1.5em">{{$ctrl.selectedOption.price | customCurrency}}{{$ctrl.disclaimerObj.asterisk}}</span>
+
+            </div>
+            <div class="form-element buttons">
+                <div class="form-element buttons">
+                    <a ng-href="{{$ctrl.buyLink}}" ng-click="$ctrl.addSalesTrackingParameters($event)" data-omniture-sale-button-type="Buy" data-omniture-product-name="{{$ctrl.productName}}">
+                        <div class="button red">{{$ctrl.buyblockData.buyText}}</div>
+                    </a>
+                </div>
+                <!--<a ng-hide="$ctrl.product.shortName == 'kpm'" href="{{$ctrl.product.freeTrialLink}}" class="button transparent text-green full-width">{{$ctrl.buyblockData.tryFor}}</a>-->
+                <!--<div style="text-align:center;">-->
+                <!--<a ng-hide="$ctrl.product.shortName != 'kpm'" href="{{$ctrl.product.bbSettings.downloadForPcLink}}" class="button green full-width" data-omniture-sale-button-type="Product Update Gplay">{{$ctrl.product.bbSettings.downloadForPcText}}</a>-->
+                <!--<a ng-hide="$ctrl.product.shortName != 'kpm'" href="{{$ctrl.product.bbSettings.downloadForMacLink}}" class="button green full-width" data-omniture-sale-button-type="Product Update Gplay">{{$ctrl.product.bbSettings.downloadForMacText}}</a>-->
+                <!--<a ng-hide="$ctrl.product.shortName != 'kpm'" href="{{$ctrl.product.bbSettings.downloadFromGplayLink}}" class="green full-width" target="_blank" data-omniture-sale-button-type="Product Update Gplay"><img ng-src="content/en-global/images/download-badge-google-play.png" alt="{{$ctrl.product.bbSettings.downloadFromGplayText}}"></a>-->
+                <!--<a ng-hide="$ctrl.product.shortName != 'kpm'" href="{{$ctrl.product.bbSettings.downloadFromIstoreLink}}" class="green full-width" target="_blank" data-omniture-sale-button-type="Product Update iStore"><img ng-src="content/en-global/images/download-badge-app-store.png" alt="{{$ctrl.product.bbSettings.downloadFromIstoreText}}"></a>-->
+                <!--</div>-->
+            </div>
+        </form>
+        <div class="buy-block-footer">
+            <p ng-show="$ctrl.showMoreDevices">
+                <a class="more open-buyblock-popup" href="#buyblock-popup">{{$ctrl.buyblockData.needMore}}</a>
+            </p>
+            <p ng-if="$ctrl.disclaimerObj.disclaimer" ng-bind-html="$ctrl.disclaimerObj.disclaimer|html"></p>
+        </div><!-- /buy-block-footer -->
+    </div><!-- /buy-block -->
+    <div class="buy-block" ng-if="!$ctrl.productPricesExist">
+        <product-unavailable-block ng-switch="$ctrl.buyblockData.buyblock_not_available_msg.length > 0">
+            <product-unavailable-msg ng-switch-when="true" ng-bind-html="$ctrl.buyblockData.buyblock_not_available_msg"></product-unavailable-msg>
+            <p ng-switch-default>This product is currently unavailable in your region. Please <a href="/about/contact">contact us</a> for further details.</p>
+        </product-unavailable-block>
+    </div>
+</div>
+<div id="buyblock-popup" class="mfp-hide buy-block-popup">
+    <div class="container">
+        <div class="buy-box-wrapper">
+            <button title="Close (Esc)" type="button" class="buy-block-close-btn mfp-close">×</button>
+            <div class="buy-block">
+                <div class="price divider">
+                    <p>{{$ctrl.selectedOption.price | customCurrency}}{{$ctrl.disclaimerObj.asterisk}}</p>
+                    <p class="price-old" ng-if="$ctrl.selectedOption.price_striked">
+                        <span class="price-cut">{{$ctrl.selectedOption.price_striked | customCurrency}}{{$ctrl.disclaimerObj.asterisk}}</span>
+                        <span class="price-saving" ng-bind-html="$ctrl.buyblockData.saveRate">{{$ctrl.buyblockData.saveRate | html}}</span>
+                    </p>
+                </div>
+                <form>
+                  <div class="form-element radio" ng-repeat="radio in $ctrl.priceList | filter: {'autorenew': $ctrl.autorenew}">
+                      <input  type="radio"
+                              ng-model="$ctrl.selectedID"
+                              ng-value='{{radio.id}}'
+                              id="{{$ctrl.$id}}-{{radio.product_id}}-{{radio.id}}"
+                              name="radio-item3"
+                              ng-change="$ctrl.setSelectedOption()">
+                      <label for="{{$ctrl.$id}}-{{radio.product_id}}-{{radio.id}}">
+                          <span class="choose">{{radio.pack}} <span>{{radio.term}}</span></span>
+                          <span class="price">
+                              <span class="price-new">{{radio.price | customCurrency}}{{$ctrl.disclaimerObj.asterisk}}</span>
+                          </span>
+                      </label>
+                  </div>
+                    <div class="form-element checkbox text-center no-margin" ng-class="{selected: $ctrl.autorenew}" ng-if="$ctrl.showAR == 'true'" ng-click="$ctrl.registerOnce()">
+                        <label class="yes" data-test="buyblock-renewalchkbox--{{$ctrl.product.shortName}}">
+                            <input type="checkbox" checked="checked" ng-model="$ctrl.autorenew" ng-change="$ctrl.setselectedOption()" ng-click="$ctrl.registerOnce(true)">
+                            {{$ctrl.buyblockData.autoRenewal}}
+                        </label>
+                        <span ng-click="$ctrl.showARPopup()" data-test="buyblock-renewal--{{$ctrl.product.shortName}}" class="font-icons icon-help tooltip"></span>
+                    </div>
+                    <div class="price">
+                        <p>{{$ctrl.selectedOption.price | customCurrency}}{{$ctrl.disclaimerObj.asterisk}}</p>
+                        <p class="price-old" ng-if="$ctrl.selectedOption.price_striked">
+                            <span class="price-cut">{{$ctrl.selectedOption.price_striked | customCurrency}}{{$ctrl.disclaimerObj.asterisk}}</span>
+                            <span class="price-saving" ng-bind-html="$ctrl.buyblockData.saveRate">{{$ctrl.buyblockData.saveRate | html}}</span>
+                        </p>
+                    </div>
+                    <div class="form-element buttons">
+                        <a ng-href="{{$ctrl.buyLink}}" ng-click="$ctrl.addSalesTrackingParameters($event)" data-omniture-sale-button-type="Buy" data-omniture-product-name="{{$ctrl.productName}}">
+                            <div class="button red">{{$ctrl.buyblockData.buyText}}</div>
+                        </a>
+                    </div>
+                    <p ng-if="$ctrl.disclaimerObj.disclaimer">{{$ctrl.disclaimerObj.disclaimer}}</p>
+                </form>
+            </div><!-- /buy-block -->
+        </div> <!-- /buy-block wrapper -->
+    </div>
+</div>

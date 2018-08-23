@@ -1,0 +1,23 @@
+<section class="blogs-section grey-background">
+    <div class="container">
+        <h4 class="section-title">{{$ctrl.blogData.blogSectionTitle}}</h4>
+        <ul class="blogs-list section-col-s-2 reset-l section-col-l-4">
+            <li ng-repeat="item in $ctrl.resources">
+                <figure><a href="{{item.resourceLink}}"><img ng-src="{{item.resourceImage | addLocalRoot}}" ng-attr-alt="{{item.resourceImageAlt}}"></a></figure>
+                <h2><a href="{{item.resourceLink}}">{{item.resourceTitle}}</a></h2>
+                <p ng-bind-html="item.resourceExcerpt"></p>
+                <a class="badge" href="{{item.resourceLink}}">
+                    <img ng-src="{{item.resourceLogo | addLocalRoot}}" alt="eugene">
+                    <span>{{item.resourceSubTitle}}</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="blogs-list small-list section-col-s-2 reset-l section-col-l-4">
+            <li ng-repeat="item in $ctrl.resources">
+                <figure><a href="{{item.resourceLink}}"><img ng-src="{{item.resourceLogo | addLocalRoot}}" alt="eugene"></a></figure>
+                <h2><a href="{{item.resourceLink}}">{{item.resourceSubTitle}}</a></h2>
+                <p ng-bind-html="item.resourceExcerptSummary"></p>
+            </li>
+        </ul>
+    </div>
+</section>

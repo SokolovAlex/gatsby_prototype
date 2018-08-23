@@ -1,0 +1,14 @@
+<div class="ar-popup__overlay" ng-class="{'ar-popup__overlay_active': $ctrl.popupActive, 'ar-popup__overlay_checked': $ctrl.onceChecked}" ng-click="$ctrl.popupActive = false"></div>
+<div class="ar-popup__content" ng-class="{'ar-popup__content_active': $ctrl.popupActive, 'ar-popup__content_checked': $ctrl.onceChecked}">
+    <span class="ar-popup__close" ng-click="$ctrl.popupActive = false"></span>
+    <h3>{{$ctrl.buyblockData.arTitle}}</h3>
+    <div ng-bind-html="$ctrl.buyblockData.arContent | html"></div>
+    <div class="ar-popup__buttons" ng-if="$ctrl.arPopupButtons == 'true'">
+        <a class="button green full-width" ng-click="$ctrl.ARcheck(true)" ng-attr-data-test="{{$ctrl.popupActive ? 'buyblock-ar-renew-auto' : undefined }}">{{$ctrl.buyblockData.renewAutomatically}}</a>
+        <a class="button transparent text-green full-width" ng-click="$ctrl.ARcheck(false)" ng-attr-data-test="{{$ctrl.popupActive ? 'buyblock-ar-renew-manual' : undefined}}">{{$ctrl.buyblockData.renewManually}}</a>
+    </div>
+    <div class="ar-popup__asterisk">
+        <span class="ar-popup__asterisk-symbol">*</span>
+        <span ng-bind-html="$ctrl.buyblockData.arAsterisk | html"></span>
+    </div>
+</div>

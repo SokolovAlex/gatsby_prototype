@@ -1,0 +1,115 @@
+/***************************************
+	Notification Geo
+***************************************/
+
+.world-map-background {
+  background-image: url("../i/web_green_world.png");
+  background-position: 0 18%;
+  background-color: rgb(1, 109, 93);
+}
+
+.notification-wrapper {
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-width: 100%;
+  position: relative;
+  z-index: 1000;
+
+  .container {
+    padding: 1.5em .6em;
+  }
+
+  .notification-inner {
+    text-align: center;
+  }
+
+  .notification-close {
+    position: absolute;
+    right: 0;
+    top: 1.5em;
+    text-decoration: none;
+    color: #fff;
+    box-shadow: 0 0 1px transparent;
+    font-size: .8em;
+  }
+
+  p {
+    font-size: 1.1em;
+    color: rgba(255, 255, 255, .9);
+  }
+
+  .notification-ctas {
+    margin-top: 1.5em;
+
+    .btn-col {
+      .button {
+        display: block;
+        margin-left: 0;
+      }
+    }
+
+    .button {
+      &.transparent {
+        color: rgba(255, 255, 255, .8);
+        border-color: rgba(255, 255, 255, .8);
+      }
+    }
+  }
+
+  .mobile-navigation-opened & {
+    display: none;
+  }
+}
+
+@include media(769px) {
+  .notification-wrapper {
+    .notification-ctas {
+      .button {
+        margin-left: 1em;
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+
+    .notification-inner {
+      max-width: 35em;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .geo-notification-popup {
+    .ngdialog-content {
+      .notification-wrapper {
+        padding: 4em 3em;
+
+        .container {
+          padding: 1.5em 0;
+        }
+      }
+    }
+  }
+}
+
+.geo-notification-popup {
+  align-items: center;
+  justify-content: center;
+
+  .ngdialog-content {
+    padding: 0;
+
+    .notification-wrapper {
+      padding: 4em 1em;
+
+      .notification-close {
+        right: 1em;
+      }
+
+      .container {
+        position: static;
+      }
+    }
+  }
+}

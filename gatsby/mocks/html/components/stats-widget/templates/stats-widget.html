@@ -1,0 +1,50 @@
+<section ng-if="$ctrl.data && $ctrl.locale !== 'ja-jp'" class="brand-section lightgreen-background no-margin">
+    <div class="container">
+        <div class="row">
+            <div class="col-l-6">
+                <ul class="stat-list large-stat">
+                    <li>
+                        <figure class="col-l-4">
+                            <img ng-src="{{$ctrl.data.icon}}"
+                                alt="icon-user" title="icon-user" /></figure>
+                        <div class="col-l-8">
+                            <p class="stat-number">
+                              <strong ng-bind-html="$ctrl.data.leftColHead"></strong>
+                              <span ng-bind-html="$ctrl.data.leftColSubHead"></span>
+                            </p>
+                            <p ng-bind-html="$ctrl.data.leftColText"></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-l-6">
+                <ul class="stat-list section-col-2">
+                    <li>
+                        <p class="stat-number">
+                          <strong ng-bind-html="$ctrl.data.rightColHead1"></strong>
+                        </p>
+                        <p ng-bind-html="$ctrl.data.rightColText1"></p>
+                    </li>
+                    <li>
+                        <p class="stat-number">
+                          <strong ng-bind-html="$ctrl.data.rightColHead2"></strong>
+                        </p>
+                        <p ng-bind-html="$ctrl.data.rightColText2"></p>
+                    </li>
+                    <li>
+                        <p class="stat-number">
+                          <strong ng-bind-html="$ctrl.data.rightColHead3"></strong>
+                        </p>
+                        <p ng-bind-html="$ctrl.data.rightColText3"></p>
+                    </li>
+                    <li>
+                        <p class="stat-number">
+                          <strong ng-bind-html="$ctrl.data.rightColHead4"></strong>
+                        </p>
+                        <p ng-bind-html="$ctrl.data.rightColText4"></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,76 @@
+<product-scripts-injector product-data="{{$ctrl.product | json:0}}" price-value="{{$ctrl.currentValue | json:0}}" min="{{$ctrl.minValue}}" max="{{$ctrl.maxValue}}"></product-scripts-injector>
+<div class="buy-box-wrapper">
+    <div ng-if="$ctrl.productPricesExist || $ctrl.isTotalOrHybridCloud" class="buy-block">
+
+        <div ng-if="$ctrl.isTotalOrHybridCloud && $ctrl.productInfo.bbSettings.button_group[0].button_text">
+          <p>{{::$ctrl.productInfo.bbSettings.button_group[0].button_paragraph}}</p>
+          <div class="form-element buttons">
+            <a ng-href="{{::$ctrl.productInfo.bbSettings.button_group[0].button_link}}">
+              <div class="button red" style="padding: 1em 0 !important;">{{::$ctrl.productInfo.bbSettings.button_group[0].button_text}}</div>
+            </a>
+          </div>
+        </div>
+        <div class="price" ng-if="$ctrl.productPricesExist"><!-- keep for total -->
+			<p data-test="buyblock-price--{{$ctrl.product.shortName}}" ng-style="{'font-size' : ($ctrl.currentValue.price | customCurrency).length >= 15 ? '1.65em' : '2em'}">{{$ctrl.currentValue.price | customCurrency}}{{$ctrl.disclaimerObj.asterisk}}</p>
+			<p class="price-old" ng-if="$ctrl.currentValue.price_striked">
+                <span class="price-cut" data-test="buyblock-price-cut--{{$ctrl.product.shortName}}">{{$ctrl.currentValue.price_striked | customCurrency}}{{$ctrl.disclaimerObj.asterisk}}</span>
+				<span class="price-saving" ng-if="$ctrl.getSavings('text')" ng-bind-html="$ctrl.getSavings('text')" data-test="buyblock-price-saving--{{$ctrl.product.shortName}}"></span>
+			</p>
+        </div>
+		<form name="formName" ng-if="$ctrl.productPricesExist"><!-- keep for total -->
+			<div ng-if="$ctrl.isCustomLocale" class="form-element">
+                <label ng-if="$ctrl.product.hidePriceDescription[0] !== 'true'" data-test="buyblock-price-description--{{$ctrl.product.shortName}}">{{$ctrl.product.b2bDesktopsFromOverride || $ctrl.buyblockData.enterDesktopsFrom}} {{$ctrl.minValue}} {{$ctrl.buyblockData.to}} {{$ctrl.maxValue}}</label>
+				<select class="device-number" ng-model="$ctrl.packValue" ng-options="pack for pack in $ctrl.packArr" ng-change="$ctrl.setCurrentValue()"
+						data-test="buyblock-device-number--{{$ctrl.product.shortName}}-{{pack}}"></select>
+            </div>
+			<div ng-if="!$ctrl.isCustomLocale" class="form-element">
+				<label ng-if="$ctrl.product.hidePriceDescription[0] !== 'true'" data-test="buyblock-price-description--{{$ctrl.product.shortName}}">{{$ctrl.product.b2bDesktopsFromOverride || $ctrl.buyblockData.enterDesktopsFrom}} {{$ctrl.minValue}} {{$ctrl.buyblockData.to}} {{$ctrl.maxValue}}</label>
+				<input class="device-number"
+					   min="{{$ctrl.minValue}}"
+					   required
+					   ng-change="$ctrl.setCurrentValue()"
+					   ng-model="$ctrl.packValue"
+					   type="number"
+					   data-test="buyblock-device-number--{{$ctrl.product.shortName}}-{{pack}}"
+					   placeholder="{{$ctrl.buyblockData.enterDesktopsFrom}} {{$ctrl.minValue}} {{$ctrl.buyblockData.to}} {{$ctrl.maxValue}}" />
+			</div>
+            <div class="form-element">
+				<select class="years" ng-model="$ctrl.termValue" ng-options="term for term in $ctrl.termArr" ng-change="$ctrl.setCurrentValue()"
+						data-test="buyblock-years--{{$ctrl.product.shortName}}-{{term}}"></select>
+            </div>
+			<div class="form-element buttons">
+				<a data-test="buyblock-buy--{{$ctrl.product.shortName}}" ng-href="{{$ctrl.buyLink}}" ng-click="$ctrl.addSalesTrackingParameters($event)" data-omniture-sale-button-type="Buy" data-omniture-product-name="{{$ctrl.productName}}">
+					<div class="button red">{{$ctrl.buyblockData.buyText}}</div>
+				</a>
+			</div>
+			<p ng-if="$ctrl.disclaimerObj.disclaimer" ng-bind-html="$ctrl.disclaimerObj.disclaimer|html"></p>
+        </form>
+        <div class="buy-block-footer wrapper text-center">
+            <p>
+				<override-position ng-switch="$ctrl.isTotal && $ctrl.locale === 'ru-ru'">
+					<span ng-switch-default ng-if="$ctrl.productInfo.bbSettings.needMoreOverride !== '\u0026nbsp;'" ng-bind-html="$ctrl.productInfo.bbSettings.needMoreOverride ? $ctrl.productInfo.bbSettings.needMoreOverride : $ctrl.buyblockData.needMore"></span>
+					<a ng-if="$ctrl.product.KnowledgeBaseLink" ng-href="{{$ctrl.product.KnowledgeBaseLink}}" data-test="buyblock-knowledge--{{$ctrl.product.shortName}}" class="green">{{$ctrl.product.KnowledgeBaseLinkText}}</a>
+					<a ng-if="$ctrl.product.findPartnerLink" ng-href="{{$ctrl.product.findPartnerLink}}" data-test="buyblock-partner--{{$ctrl.product.shortName}}" target="{{$ctrl.product.findPartnerIsExternal[0] == 'Yes' ? '_blank' : ''}}" class="green">{{$ctrl.product.findPartnerText}}</a>
+					<span ng-switch-when="true" ng-if="$ctrl.productInfo.bbSettings.needMoreOverride !== '\u0026nbsp;' && $ctrl.locale === 'ru-ru'" ng-bind-html="$ctrl.productInfo.bbSettings.needMoreOverride ? $ctrl.productInfo.bbSettings.needMoreOverride : $ctrl.buyblockData.needMore"></span>
+				</override-position>
+            </p>
+        </div><!-- /buy-block-footer -->
+    </div><!-- /buy-block -->
+    <div ng-if="($ctrl.productPricesExist || $ctrl.isTotalOrHybridCloud) && $ctrl.hasTrialButton()" class="buy-block-footer text-center">
+        <p>
+            <span>{{$ctrl.buyblockData.notSure}}</span>
+			      <a ng-href="{{$ctrl.product.freeTrialLink}}" data-test="buyblock-free-trial--{{$ctrl.product.shortName}}" ng-class="$ctrl.product.freeTrialButtonClass ? $ctrl.product.freeTrialButtonClass : 'button transparent text-green full-width'">{{$ctrl.buyblockData.tryFor}}</a>
+        </p>
+    </div><!-- /buy-block-footer -->
+	<div class="buy-block" ng-if="!$ctrl.productPricesExist && !$ctrl.isTotalOrHybridCloud">
+		<product-unavailable-block ng-switch="$ctrl.buyblockData.buyblock_not_available_b2b_msg.length > 0" ng-if="$ctrl.curState != 'vsb' && $ctrl.curState != 'smb' || $ctrl.isCustomLocale">
+			<product-unavailable-msg ng-switch-when="true" ng-bind-html="$ctrl.buyblockData.buyblock_not_available_b2b_msg"></product-unavailable-msg>
+			<p ng-switch-default>This product is currently unavailable in your region. Please <a href="/about/contact">contact us</a> for further details.</p>
+		</product-unavailable-block>
+		<product-unavailable-block ng-switch on="$ctrl.buyblockData.unavailableMsgType" ng-if="($ctrl.curState == 'vsb' || $ctrl.curState == 'smb') && !$ctrl.isCustomLocale">
+			<product-unavailable-msg ng-switch-when="b2b" ng-bind-html="$ctrl.buyblockData.buyblock_not_available_b2b_msg"></product-unavailable-msg>
+			<product-unavailable-msg ng-switch-when="b2c" ng-bind-html="$ctrl.buyblockData.buyblock_not_available_msg"></product-unavailable-msg>
+			<p ng-switch-default>This product is currently unavailable in your region. Please <a href="/about/contact">contact us</a> for further details.</p>
+		</product-unavailable-block>
+	</div><!-- /buy-block -->
+</div>

@@ -1,0 +1,19 @@
+<div class="news-letter-popup"
+     ng-class="{'nlp-opened': $ctrl.opened}"
+     ng-if="$ctrl.show"
+     ng-style="{width: $ctrl.opened && $ctrl.popupWidth, maxHeight: $ctrl.opened && $ctrl.popupMaxHeight}"
+     ng-show="$ctrl.loaded">
+    <div ng-show="$ctrl.opened"
+         class="nlp-openedState">
+        <i class="nlp-closeBtn font-icons icon-cancel" ng-click="$ctrl.close()"></i>
+
+        <div class="nlp-header" ng-bind-html="$ctrl.header"></div>
+        <form id="mktoForm_{{$ctrl.formNr}}"></form>
+        <div class="nlp-footer" ng-bind-html="$ctrl.footer"></div>
+    </div>
+
+    <div ng-show="!$ctrl.opened"
+         class="nlp-closedState">
+        <i class="nlp-openBtn font-icons icon-mail" ng-click="$ctrl.open()"></i>
+    </div>
+</div>

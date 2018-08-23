@@ -1,0 +1,10 @@
+<section class="requirements-section {{$ctrl.data.sectionClass}}" ng-if="$ctrl.data.textBlock">
+	<div class="container" ng-class="{'toggle-container': $ctrl.data.useToggling != 'False'}">
+		<h3 class="section-title" ng-bind-html="$ctrl.data.header | html">{{$ctrl.data.header}}</h3>
+		<div ng-bind-html="$ctrl.data.textBlock | html"  ng-class="{'toggle-content': $ctrl.data.useToggling != 'False'}"></div>
+		<div class="section-footer" ng-if="$ctrl.data.readMoreToggleBtnText">
+      		<a href="#" class="button transparent text-green toggle-button read-more">{{$ctrl.data.readMoreToggleBtnText}}</a>
+      		<a href="#" class="button transparent text-green toggle-button read-less">{{$ctrl.data.readLessToggleBtnText}}</a>
+    	</div>
+	</div>
+</section>

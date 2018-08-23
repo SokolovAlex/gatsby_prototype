@@ -1,0 +1,63 @@
+<div class="buy-block one-price" ng-if="$ctrl.product.bbSettings.purchaseType != 'Free' && $ctrl.productPricesExist && !$ctrl.product.fullHtmlOverride">
+    <div class="price">
+        <p data-test="buyblock-price--{{$ctrl.product.shortName}}">{{$ctrl.selectedOption.price | customCurrency}}{{$ctrl.disclaimerObj.asterisk}}</p>
+        <p class="price-old" ng-if="$ctrl.selectedOption.price_striked">
+            <span class="price-cut" data-test="buyblock-price-cut--{{$ctrl.product.shortName}}">{{$ctrl.selectedOption.price_striked | customCurrency}}{{$ctrl.disclaimerObj.asterisk}}</span>
+            <span class="price-saving" ng-if="$ctrl.getSavings('rate')" ng-bind-html="$ctrl.getSavings('rate')" data-test="buyblock-price-saving--{{$ctrl.product.shortName}}"></span>
+        </p>
+    </div>
+    <buyblock-user-account account-info-override="{{$ctrl.product.accountInfo}}"
+                           description-popup="{{$ctrl.product.accountDesc}}"
+                           label="{{$ctrl.product.userAccountText}}"
+                           count="$ctrl.selectedOption['user-accounts']"></buyblock-user-account>
+    <form>
+        <div class="form-element buttons">
+            <a ng-href="{{$ctrl.buyLink}}" data-omniture-product-name="{{::$ctrl.productName}}" data-omniture-sale-button-type="Buy" data-test="buyblock-buy--{{$ctrl.product.shortName}}">
+              <div class="button green">{{$ctrl.updatedBuyButtonText || "Buy Now"}}</div>
+            </a>
+        </div>
+    </form>
+    <a ng-if="$ctrl.product.shortName !== 'kisa' && $ctrl.hasTrialButton()"
+       ng-href="{{::$ctrl.product.freeTrialLink}}"
+       class="button transparent text-green full-width">
+        {{::$ctrl.buyblockData.tryFor}}
+    </a>
+    <a ng-if="$ctrl.product.shortName === 'kisa' && $ctrl.hasTrialButton()"
+       ng-href="{{::$ctrl.product.freeTrialLink}}" data-test="buyblock-free-trial--{{$ctrl.product.shortName}}"
+       class="button transparent text-green full-width">
+        {{::$ctrl.product.freeTrialText}}
+    </a>
+    <a ng-if="$ctrl.product.shortName === 'kisa' && $ctrl.stateName !== 'home-security' && $ctrl.product.bbSettings.downloadFromGplayLink"
+       style="display:block; text-align:center; height:49px"
+       ng-href="{{::$ctrl.product.bbSettings.downloadFromGplayLink}}"
+       class="green full-width"
+       target="_blank" data-test="buyblock-pc-gplay--{{$ctrl.product.shortName}}"
+       data-omniture-sale-button-type="Product Update Gplay">
+        <img ng-src="{{'content/en-global/images/download-badge-google-play.png' | addLocalRoot}}"
+             alt="{{::$ctrl.product.bbSettings.downloadFromGplayText}}" title="{{::$ctrl.product.bbSettings.downloadFromGplayText}}">
+    </a>
+	<div class="form-element buttons" ng-if="$ctrl.product.shortName !== 'kisa' && !$ctrl.hasTrialButton()">&nbsp;</div>
+    <p ng-if="$ctrl.disclaimerObj.disclaimer" ng-bind-html="$ctrl.disclaimerObj.disclaimer|html"></p>
+</div>
+
+<div class="buy-block" ng-if="$ctrl.product.bbSettings.purchaseType != 'Free' && !$ctrl.productPricesExist" ng-bind-html="$ctrl.buyblockUnavailableText"></div>
+
+<div class="buy-block buy-block--free" ng-if="$ctrl.product.bbSettings.purchaseType == 'Free' && !$ctrl.product.fullHtmlOverride">
+    <div class="price">
+        <p data-test="buyblock-price--{{$ctrl.product.shortName}}">{{$ctrl.buyblockData.freeProduct}}</p>
+    </div>
+    <div class="form-element buttons buyblock-user-account-placeholder"></div>
+
+    <a ng-if="!$ctrl.product.bbSettings.downloadFromGplayLink" ng-href="{{$ctrl.product.updateLink}}" data-test="buyblock-update-link--{{$ctrl.product.shortName}}">
+        <div class="button green">{{$ctrl.product.updateText}}</div>
+    </a>
+    <a style="display:block;text-align:center;" ng-show="$ctrl.product.bbSettings.downloadFromGplayLink" ng-href="{{::$ctrl.product.bbSettings.downloadFromGplayLink}}" class="green full-width"
+       target="_blank" data-omniture-sale-button-type="Product Update Gplay" data-test="buyblock-pc-gplay--{{$ctrl.product.shortName}}">
+        <img ng-src="{{'content/en-global/images/download-badge-google-play.png' | addLocalRoot}}"
+             alt="{{::$ctrl.product.bbSettings.downloadFromGplayText}}" title="{{::$ctrl.product.bbSettings.downloadFromGplayText}}">
+    </a>
+    <a ng-if="$ctrl.hasTrialButton()" ng-href="{{::$ctrl.product.freeTrialLink}}" data-test="buyblock-free-trial--{{$ctrl.product.shortName}}" class="button transparent full-width" data-omniture-sale-button-type="Buy">{{::$ctrl.product.freeTrialText}}</a>
+
+</div>
+
+<div class="buy-block" ng-if="$ctrl.product.fullHtmlOverride" ng-bind-html="$ctrl.product.fullHtmlOverride"></div>

@@ -1,0 +1,22 @@
+<div ng-class="{'bv-slides' : $ctrl.productId}" class="reviews-list">
+    <div ng-repeat="reviews in ::$ctrl.bv.Results | filter:q | orderBy:$ctrl.reviewOrderBy:$ctrl.reverse | chunkBy:2 | limitTo:3" class="slider-review section-col-s-1 reset-l section-col-l-2">
+        <div ng-repeat="review in reviews | limitTo:2" class="slider-item">
+            <div class="review-rating-title">
+                <div class="starbar">
+                    <span ng-repeat="star in ::$ctrl.getStars($ctrl.starsRange) track by $index" ng-class="::$ctrl.litStars($index, review.Rating)"></span>
+                </div>
+
+                <h2 class="review-title">{{::review.Title}}</h2>
+            </div>
+            <div class="post-info">
+                <div class="review-date">{{::review.SubmissionTime | date : 'longDate'}}</div>
+                <p class="review-author">{{::$ctrl.bvData.bvLocBy}} {{::review.UserNickname || 'User'}}</p>
+            </div>
+
+            <p class="ellipsis review-text">{{::review.ReviewText}}</p>
+            <div class="review-source">
+                <p>{{::$ctrl.bvData.bvLocFrom}} {{::$ctrl.productName}}</p>
+            </div>
+        </div>
+    </div>
+</div>

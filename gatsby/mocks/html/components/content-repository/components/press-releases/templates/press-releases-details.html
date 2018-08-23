@@ -1,0 +1,19 @@
+<press-details-header summary="{{$ctrl.details.summary}}"
+                      title="{{$ctrl.details.title}}"
+                      date-publication-start="{{$ctrl.details.date_publication_start | date: 'longDate'}}"
+                      bread-crumb-link="/about/press-releases"
+                      bread-crumb-title="Press Releases"
+                      content-name="press-center-header">
+</press-details-header>
+
+<section class="about-us-content" id="about-us-content">
+    <div class="container">
+        <div class="content-inner">
+
+            <p ng-bind-html="$ctrl.getTrustAsHtml()"></p>
+            <social-sharing use-press-detail-template="true"></social-sharing>
+        </div>
+    </div>
+</section>
+<press-articles-bottombar related-article-category="{{$ctrl.details.subcategory[0]['description']}}"
+                          use-press-detail-template="true"></press-articles-bottombar>

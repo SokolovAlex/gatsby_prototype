@@ -1,0 +1,88 @@
+/* callback form */
+.quick-menu {
+  .sticky-element:before {
+    display: none;
+  }
+}
+
+.sticky-header-on {
+  #callback-button {
+    position: fixed;
+    top: 51px;
+  }
+}
+
+.ngdialog {
+  &.ngdialog-flyout {
+    &.ngdialog-callback-form {
+      &.ngdialog-callback-form {
+        .ngdialog-overlay {
+          background: rgba(214, 214, 214, .8);
+        }
+
+        .ngdialog-content {
+          max-width: 500px;
+          margin: 3em auto;
+          padding: 0;
+
+          .modal-title {
+            font-weight: 400;
+          }
+
+          .modal-header {
+            position: relative;
+            background: #eee;
+
+            @include clearfix;
+
+            .modal-button {
+              -webkit-transition: all .15s ease-in;
+              -moz-transition: all .15s ease-in;
+              transition: all .15s ease-in;
+              position: relative;
+              display: block;
+              font-size: .75em;
+              padding: 1.5em;
+              color: #999;
+
+              &.modal-close {
+                float: right;
+                border-left: 1px solid #ddd;
+              }
+
+              &:hover {
+                background-color: #fff;
+                color: #006d5c;
+              }
+            }
+          }
+
+          .callback-wrapper {
+            padding: 2em 2em 1em;
+
+            .section-description {
+              @include clearfix;
+              display: block;
+              margin-bottom: 1.5em;
+              padding-bottom: 1em;
+              border-bottom: 1px solid rgb(231, 231, 231);
+            }
+          }
+
+          .mktoForm {
+            button[type="submit"] {
+              &.mktoButton {
+                background: rgb(0, 107, 92);
+                border: 0;
+                border-radius: 0;
+                color: #fff;
+                font-size: .75em !important;
+                font-family: "MuseoSans", Arial, Helvetica, sans-serif !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+<section ng-if="$ctrl.data" class="product-promo-section dark-bg center">
+    <div class="container">
+        <div class="double-banner">
+            <div class="double-banner-item" ng-repeat="banner in $ctrl.data.banner" ng-style="{'background-image': 'url(' + banner.bgImg + ')'}">
+                <h3 class="section-title" ng-if="banner.bannerTitle" ng-bind-html="banner.bannerTitle"></h3>
+                <h2 class="product-desc" ng-if="banner.bannerText" ng-bind-html="banner.bannerText"></h2>
+
+                <a ng-repeat="button in banner.buttons" href="{{button.link}}" class="button transparent" ng-attr-target="{{link.isExternal == 'Yes' ? '_blank' : ''}}">{{button.text}}</a>
+            </div>
+        </div>
+    </div>
+</section>

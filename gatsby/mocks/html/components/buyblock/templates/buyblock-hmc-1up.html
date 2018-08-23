@@ -1,0 +1,36 @@
+<div class="buy-box-wrapper">
+    <div class="buy-block" ng-if="$ctrl.productPricesExist">
+        <div class="price divider">
+            <p data-test="buyblock-price--{{$ctrl.product.shortName}}">{{$ctrl.selectedOption.price | customCurrency}}{{$ctrl.disclaimerObj.asterisk}}</p>
+            <p class="price-old" ng-if="$ctrl.selectedOption.price_striked">
+                <span class="price-cut" ng-if="$ctrl.selectedOption.price_striked" data-test="buyblock-price-cut--{{$ctrl.product.shortName}}">{{$ctrl.selectedOption.price_striked | customCurrency}}{{$ctrl.disclaimerObj.asterisk}}</span>
+                <span class="price-saving" ng-if="$ctrl.getSavings('rate') && $ctrl.currentValue.price_striked" ng-bind-html="$ctrl.getSavings('rate')" data-test="buyblock-price-saving--{{$ctrl.product.shortName}}"></span>
+            </p>
+        </div>
+        <buyblock-user-account account-info-override="{{$ctrl.product.accountInfo}}"
+                               description-popup="{{$ctrl.product.accountDesc}}"
+                               label="{{$ctrl.product.userAccountText}}"
+                               count="$ctrl.selectedOption['user-accounts']"></buyblock-user-account>
+        <form ng-submit="$event.preventDefault()">
+            <div class="detail" ng-if="$ctrl.selectedOption">
+                <p><span ng-if="!$ctrl.hidePack">{{$ctrl.selectedOption.pack}}, </span>{{$ctrl.selectedOption.term}}</p>
+            </div>
+            <div class="form-element buttons">
+                <a  data-hmc-action="buy"
+                    ng-href="{{$ctrl.buyLink}}"
+                    ng-click="$ctrl.addSalesTrackingParameters(($event))"
+                    data-omniture-sale-button-type="Buy"
+                    data-omniture-product-name="{{$ctrl.productName}}"
+                    data-test="buyblock-buy--{{$ctrl.product.shortName}}"
+                    class="button red">{{hmcUI.hmcUIBuyNowText || $ctrl.buyblockData.buyText || "Buy Now"}}</a>
+            </div>
+            <p ng-if="$ctrl.disclaimerObj.disclaimer" ng-bind-html="$ctrl.disclaimerObj.disclaimer|html" style="text-align:center;"></p>
+        </form>
+    </div><!-- /buy-block -->
+    <div class="buy-block" ng-if="$ctrl.product.bbSettings.purchaseType != 'Free' && !$ctrl.productPricesExist">
+        <product-unavailable-block ng-switch="$ctrl.buyblockData.buyblock_not_available_msg.length > 0">
+            <product-unavailable-msg ng-switch-when="true" ng-bind-html="$ctrl.buyblockData.buyblock_not_available_msg"></product-unavailable-msg>
+            <p ng-switch-default>This product is currently unavailable in your region. Please <a href="/about/contact">contact us</a> for further details.</p>
+        </product-unavailable-block>
+    </div><!-- /buy-block -->
+</div>

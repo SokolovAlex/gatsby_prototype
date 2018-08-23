@@ -1,0 +1,44 @@
+<div id="hmc-modal" class="white-popup hmc-start-screen">
+	<div class="modal-header modal-header-no-steps">
+		<a href="" class="modal-button modal-back" ng-if="ngDialogData.stepHistory.length > 2" ng-click="ngDialogData.backOneStep()">
+			<span class="font-icons icon-arrow-left"></span><span class="text"></span>
+		</a>
+		<a href="" class="modal-button modal-close" ng-click="ngDialogData.closePopup()"><span class="font-icons icon-cancel"></span></a>
+	</div>
+	<div class="hmc-main">
+		<div class="container">
+			<h3 class="section-title">{{ngDialogData.data.header}}</h3>
+			<p ng-bind-html="ngDialogData.data.desc|html"></p>
+			<div class="featured-section">
+				<ul class="product-list">
+					<li>
+						<div class="product-item horizontal-item">
+							<div class="row">
+								<div class="col-l-7">
+									<header>
+										<figure>
+											<a ng-href="{{ngDialogData.products[0].prodPageLink}}">
+												<img ng-src="{{ngDialogData.products[0].prodIcon | addLocalRoot}}" alt="{{ngDialogData.products[0].title}}">
+											</a>
+										</figure>
+										<h2 class="product-title">
+											<a ng-href="{{ngDialogData.products[0].prodPageLink}}">
+												<span class="surtitle">{{ngDialogData.products[0].prodKasperskyTitle}}</span>
+												<span>{{ngDialogData.products[0].prodMainTitle}} {{ngDialogData.products[0].prodAddTitle}}</span>
+											</a>
+										</h2>
+										<p class="desc" ng-bind-html="ngDialogData.products[0].overrideProdDescHmc || ngDialogData.products[0].longDesc | html"></p>
+									</header>
+								</div>
+								<div class="col-l-4 shift-l-1 text-right">
+									<buyblock-vsb-dropdown product-info="ngDialogData.products[0]" template="hmc-universal" selected-pack="{{ngDialogData.selectedPack}}"></buyblock-vsb-dropdown>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<p class="note" ng-bind-html="ngDialogData.data.note|html"></p>
+		</div>
+	</div>
+</div>

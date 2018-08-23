@@ -1,0 +1,52 @@
+.notification-bar {
+  &.transparent.dark {
+    color: #fff;
+    font-size: .8em;
+    padding-bottom: .5em;
+    padding-top: 1em;
+    background-color: #333;
+    background-color: rgba(0, 0, 0, .8);
+
+    p {
+      color: #fff;
+      margin-bottom: .5em;
+
+      a {
+        color: #fff;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &.bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 500;
+  }
+
+  .button.close {
+    position: relative;
+    float: right;
+    width: 100%;
+    text-decoration: none;
+  }
+
+  .description-left {
+    width: 100%;
+    float: left;
+  }
+}
+
+@include media(600px) {
+  .notification-bar {
+    .button.close {
+      margin-right: -15px;
+      width: auto;
+    }
+
+    .description-left {
+      width: 80%;
+    }
+  }
+}

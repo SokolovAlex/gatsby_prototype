@@ -1,0 +1,94 @@
+<section class="homepage-main" ng-if="$ctrl.data">
+    <!--HMC-->
+    <section class="hmc-section variant-2 no-margin">
+        <div class="container">
+            <div class="row">
+                <div class="hmc-desc col-l-5">
+                    <h4>{{$ctrl.data.hmcTitle}}</h4>
+                    <div class="row">
+                        <div class="col-l-5">
+                            <img class="thumbnail" ng-src="{{$ctrl.data.hmcImg | addLocalRoot}}" alt="{{$ctrl.data.hmcImg}}">
+                        </div>
+                        <div class="col-l-7">
+                            <h5 class="text-green">{{$ctrl.data.hmcSubTitle}}</h5>
+                            <p>{{$ctrl.data.hmcDesc}}</p>
+                        </div>
+                    </div>
+                </div>
+                <hmc-homepage component="hmc-component" class="hmc-selector col-l-7 hmc-embedded"></hmc-homepage>
+            </div><!-- /row -->
+        </div>
+    </section>
+    <!--HMC-->
+
+    <promo-section resource="promo-above-renew"></promo-section>
+    <trustpilot-reviews></trustpilot-reviews>
+
+   	<!--DOWNLOAD MOBILE-->
+    <div class="renew-license mobile">
+        <div class="container">
+            <h4>{{$ctrl.data.protectMobileTitle}}</h4>
+            <img class="photo" ng-src="{{$ctrl.data.protectMobileImage | addLocalRoot}}">
+            <div ng-bind-html="$ctrl.data.protectMobileTextBlock">{{$ctrl.data.protectMobileTextBlock | html}}</div>
+            <a ng-repeat="protectMobileButton in $ctrl.data.protectMobileButtons" href="{{protectMobileButton.link}}" class="button {{protectMobileButton.class}}">{{protectMobileButton.text}}</a>
+        </div>
+    </div>
+    <!--DOWNLOAD MOBILE-->
+
+    <!--RENEW MOBILE-->
+    <div class="renew-license divider">
+        <div class="container">
+            <h4>{{$ctrl.data.renewTitle}}</h4>
+            <div ng-bind-html="$ctrl.data.renewTextBlock">{{$ctrl.data.renewTextBlock | html}}</div>
+            <a ng-repeat="renewButton in $ctrl.data.renewButtons" href="{{renewButton.link}}" class="button {{renewButton.class}}">{{renewButton.text}}</a>
+        </div>
+    </div>
+    <!--RENEW MOBILE-->
+
+    <!--RENEW ABOUT DESKTOP-->
+    <div class="renew-and-about">
+        <div class="container">
+            <div class="col renew-col">
+                <h4>{{$ctrl.data.renewTitle}}</h4>
+                <div ng-bind-html="$ctrl.data.renewTextBlock">{{$ctrl.data.renewTextBlock | html}}</div>
+                <a ng-repeat="renewButton in $ctrl.data.renewButtons" href="{{renewButton.link}}" class="button {{renewButton.class}}" data-test="homepage-cta--lrc-{{$index}}">{{renewButton.text}}</a>
+            </div>
+            <div class="col about-col">
+                <div class="quote-section">
+                    <blockquote>
+                        <p>“{{$ctrl.data.aboutQuoteText}}”</p>
+                        <cite>
+                            <strong>- {{$ctrl.data.aboutQuoteAuthor}}</strong>
+                            <span>{{$ctrl.data.aboutQuoteAuthorTitle}}</span>
+                        </cite>
+                    </blockquote>
+                    <div class="footer-wrap">
+                        <img class="photo" ng-src="{{$ctrl.data.aboutQuoteImage | addLocalRoot}}">
+                        <a ng-repeat="aboutButton in $ctrl.data.aboutButtons" href="{{aboutButton.link}}" class="button {{aboutButton.class}}" data-test="homepage-cta--about-{{$index}}">{{aboutButton.text}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--RENEW ABOUT DESKTOP-->
+
+    <!--ABOUT MOBILE-->
+    <div class="divider no-margin mobile-only">
+        <div class="container">
+            <div class="quote-section">
+                <blockquote>
+                    <p>“{{$ctrl.data.aboutQuoteText}}”</p>
+                    <cite>
+                        <strong>- {{$ctrl.data.aboutQuoteAuthor}}</strong>
+                        <span>{{$ctrl.data.aboutQuoteAuthorTitle}}</span>
+                    </cite>
+                </blockquote>
+                <div class="footer-wrap">
+                    <img class="photo" ng-src="{{$ctrl.data.aboutQuoteImageMobile | addLocalRoot}}">
+                    <a ng-repeat="aboutButton in $ctrl.data.aboutButtons" href="{{aboutButton.link}}" class="button {{aboutButton.class}}">{{aboutButton.text}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--ABOUT MOBILE-->
+</section>

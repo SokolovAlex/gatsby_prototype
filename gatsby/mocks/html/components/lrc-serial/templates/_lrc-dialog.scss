@@ -1,0 +1,76 @@
+
+/***************************************
+	LRC Dialog
+***************************************/
+.ngdialog.ngdialog-flyout .ngdialog-content {
+  padding: 0;
+}
+
+.ngdialog--lrc-dialog {
+  .ngdialog-content {
+    max-width: 1030px;
+    margin: 14vh auto;
+  }
+
+  .ngdialog-overlay {
+    background: rgba(210, 210, 210, .8);
+  }
+}
+
+.license-modal {
+  & > .row {
+    display: flex;
+    flex-wrap: wrap;
+
+    & > .col {
+      padding-top: 2em;
+
+      &:last-child {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding-left: 1em;
+        padding-right: 1em;
+        background-color: #FBFBFB;
+      }
+    }
+  }
+
+  .container {
+    padding: 0;
+    max-width: 53em;
+    padding-bottom: 1.5em;
+  }
+
+  .blue-wrapper {
+    padding: 3em 2em 2em !important;
+    margin-bottom: 1em;
+
+    .text-red {
+      max-width: 334px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.2;
+    }
+  }
+
+  .contact {
+    h5 {
+      margin-bottom: 0;
+    }
+    text-align: left;
+
+    .icon-list {
+      color: #535353;
+
+      li {
+        line-height: 1.5;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .skip-btn {
+    display: inline-block;
+  }
+}

@@ -1,0 +1,103 @@
+<product-scripts-injector product-data="{{$ctrl.product | json:0}}" price-value="{{$ctrl.currentValue | json:0}}" cut-price="{{$ctrl.priceList | json:0}}"></product-scripts-injector>
+<div class="buy-box-wrapper move-up">
+    <div class="buy-block" ng-if="$ctrl.productPricesExist">
+        <div class="promobox" ng-if="$ctrl.product.buyblockPromo" ng-bind-html="$ctrl.product.buyblockPromo" data-test="buyblock-promoline--{{$ctrl.product.shortName}}"></div>
+        <div class="price">
+            <p data-test="buyblock-price--{{$ctrl.product.shortName}}" ng-style="{'font-size' : ($ctrl.currentValue.price | customCurrency).length >= 15 ? '1.75em' : '2em'}">{{$ctrl.currentValue.price | customCurrency}}{{$ctrl.disclaimerObj.asterisk}}</p>
+            <p class="price-old" ng-if="$ctrl.currentValue.price_striked">
+                <span class="price-cut" data-test="buyblock-price-cut--{{$ctrl.product.shortName}}">{{$ctrl.currentValue.price_striked | customCurrency}}{{$ctrl.disclaimerObj.asterisk}}</span>
+                <span class="price-saving" ng-if="$ctrl.getSavings('text') !== 'undefined' && !$ctrl.isCustomLocale || $ctrl.locale === 'en-us'" ng-bind-html="$ctrl.getSavings('text')"
+					  data-test="buyblock-price-saving--{{$ctrl.product.shortName}}"></span>
+            </p>
+        </div>
+
+        <form name="formName">
+            <div ng-if="$ctrl.isCustomLocale" class="form-element">
+                <div class="b2b-prices-description" ng-if="$ctrl.packValue && $ctrl.locale !== 'fr-fr'" data-test="buyblock-price-description--{{$ctrl.product.shortName}}">
+                    {{$ctrl.buyblockData.enterDesktopsFrom}} <span ng-if="$ctrl.locale !== 'ja-jp'">{{$ctrl.minValue}} {{$ctrl.buyblockData.to}} {{$ctrl.maxValue}}</span>
+                </div>
+                <div class="b2b-prices-description" ng-if="$ctrl.packValue && $ctrl.locale === 'fr-fr'" data-test="buyblock-price-description--{{$ctrl.product.shortName}}">
+                    {{$ctrl.buyblockData.from}} {{$ctrl.minValue}} {{$ctrl.buyblockData.to}} {{$ctrl.maxValue}} {{$ctrl.buyblockData.enterDesktopsFromPost}}
+                </div>
+                <select class="device-number"
+                        ng-model="$ctrl.packValue"
+                        ng-options="pack for pack in $ctrl.packArr"
+                        ng-change="$ctrl.setCurrentValue()"
+						data-test="buyblock-device-number--{{$ctrl.product.shortName}}-{{pack}}"></select>
+            </div>
+            <div ng-if="!$ctrl.isCustomLocale" class="form-element">
+                <div class="b2b-prices-description">
+                    {{$ctrl.buyblockData.enterDesktopsFrom}} {{$ctrl.minValue}} {{$ctrl.buyblockData.to}} {{$ctrl.maxValue}}
+                </div>
+                <!--<select class="device-number" ng-model="$ctrl.packValue" ng-options="pack for pack in $ctrl.packArr" ng-change="$ctrl.setCurrentValue()"></select>-->
+                <input  class="device-number"
+                        min="{{$ctrl.minValue}}"
+                        required
+                        ng-change="$ctrl.setCurrentValue()"
+                        ng-model="$ctrl.packValue"
+                        type="number"
+						data-test="buyblock-device-number--{{$ctrl.product.shortName}}-{{pack}}"
+                        placeholder="{{$ctrl.buyblockData.enterDesktopsFrom}} {{$ctrl.minValue}} {{$ctrl.buyblockData.to}} {{$ctrl.maxValue}}" />
+            </div>
+            <div class="form-element">
+                <select class="years"
+                        ng-model="$ctrl.termValue"
+                        ng-options="pack for pack in $ctrl.termArr"
+                        ng-change="$ctrl.setCurrentValue()"
+						data-test="buyblock-years--{{$ctrl.product.shortName}}-{{term}}"></select>
+            </div>
+            <div class="form-element checkbox text-center" ng-class="{'selected': $ctrl.autorenew}">
+              <div ng-if="$ctrl.renewalAvailable && $ctrl.showAR == 'true' && $ctrl.hideArCheckbox !== 'true'">
+                <label class="yes" data-test="buyblock-renewalchkbox--{{$ctrl.product.shortName}}">
+                    <input type="checkbox"
+                           ng-model="$ctrl.autorenew"
+                           ng-change="$ctrl.setCurrentValue()"
+                           ng-click="$ctrl.registerOnce(true)">
+                    {{$ctrl.buyblockData.autoRenewal}}
+                </label>
+                <span ng-click="$ctrl.showARPopup()" data-test="buyblock-renewal--{{$ctrl.product.shortName}}" class="font-icons icon-help tooltip"></span>
+              </div>
+            </div>
+
+            <div class="details-list">
+                <p class="title">{{$ctrl.buyblockData.licenseCovers}}</p>
+                <ul>
+                    <li ng-repeat="pack in $ctrl.currentValuePack">
+                        {{pack}}
+                    </li>
+                    <li class="important">{{$ctrl.buyblockData.protectedFor}} {{$ctrl.currentValue.term}}</li>
+                </ul>
+            </div>
+            <div class="form-element buttons">
+                <a ng-href="{{$ctrl.buyLink}}"
+                   ng-click="$ctrl.addSalesTrackingParameters(($event))"
+                   data-test="buyblock-buy--{{$ctrl.product.shortName}}" data-omniture-sale-button-type="Buy" data-omniture-product-name="{{$ctrl.productName}}">
+                    <div class="button red">{{$ctrl.buyblockData.buyText}}</div>
+                </a>
+            </div>
+            <p ng-if="$ctrl.disclaimerObj.disclaimer" ng-bind-html="$ctrl.disclaimerObj.disclaimer|html"></p>
+        </form>
+    </div><!-- /buy-block -->
+    <div class="buy-block" ng-if="!$ctrl.productPricesExist">
+        <product-unavailable-block ng-switch="$ctrl.buyblockData.buyblock_not_available_msg.length > 0" ng-if="$ctrl.curState != 'vsb' && $ctrl.curState != 'smb' || $ctrl.isCustomLocale">
+            <product-unavailable-msg ng-switch-when="true" ng-bind-html="$ctrl.buyblockData.buyblock_not_available_msg"></product-unavailable-msg>
+            <p ng-switch-default>This product is currently unavailable in your region. Please <a href="/about/contact">contact us</a> for further details.</p>
+        </product-unavailable-block>
+        <product-unavailable-block ng-switch on="$ctrl.buyblockData.unavailableMsgType" ng-if="($ctrl.curState == 'vsb' || $ctrl.curState == 'smb') && !$ctrl.isCustomLocale">
+            <product-unavailable-msg ng-switch-when="b2c" ng-bind-html="$ctrl.buyblockData.buyblock_not_available_msg"></product-unavailable-msg>
+            <product-unavailable-msg ng-switch-when="b2b" ng-bind-html="$ctrl.buyblockData.buyblock_not_available_b2b_msg"></product-unavailable-msg>
+            <p ng-switch-default>This product is currently unavailable in your region. Please <a href="/about/contact">contact us</a> for further details.</p>
+        </product-unavailable-block>
+    </div>
+    <div class="buy-block-footer text-center">
+        <p ng-if="$ctrl.hasTrialButton()">
+            <span>{{$ctrl.buyblockData.notSure}}</span>
+            <a ng-href="{{$ctrl.product.freeTrialLink}}" data-test="buyblock-free-trial--{{$ctrl.product.shortName}}" class="button transparent text-green full-width">{{$ctrl.buyblockData.tryFor}}</a>
+        </p>
+        <p>
+            <a ng-if="$ctrl.product.renewLink" ng-href="{{$ctrl.product.renewLink}}" data-test="buyblock-renew-link--{{$ctrl.product.shortName}}" class="green">{{$ctrl.buyblockData.renew}}</a>
+            <a ng-if="$ctrl.product.findPartnerLink" ng-href="{{$ctrl.product.findPartnerLink}}" data-test="buyblock-partner--{{$ctrl.product.shortName}}" target="{{$ctrl.product.findPartnerIsExternal[0] == 'Yes' ? '_blank' : ''}}">{{$ctrl.product.findPartnerText}}</a>
+        </p>
+    </div><!-- /buy-block-footer -->
+    <div class="promo-guarantee" ng-bind-html="$ctrl.buyblockData.moneyBack | html"></div>
+</div>

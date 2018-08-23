@@ -1,0 +1,20 @@
+<header class="about-us-page-header semi-hero" ng-style="{'background-image': 'url(' + $ctrl.headerData.headerBgImg + ')'}">
+    <div class="container">
+        <div class="page-info">
+            <breadcrumb></breadcrumb>
+        </div>
+        <div class="page-headline">
+            <div class="page-headline-inner">
+                <div class="page-headline-text">
+                    <span class="page-date">{{$ctrl.datePublicationStart}}</span>
+                    <h1 class="page-title" ng-bind-html="$ctrl.title"></h1>
+                    <h2 class="page-desc" ng-bind-html="$ctrl.summary"></h2>
+                    <anchor-link ng-repeat="ctaButton in $ctrl.headerData.buttons">
+                        <a ng-if="ctaButton.isExternal != 'Yes'" class="cta-scroll" href><i class="font-icons icon-thin-arrow-down-2"></i></a>
+                        <a ng-if="ctaButton.isExternal == 'Yes'" class="cta-scroll" href><i class="font-icons icon-thin-arrow-down-2"></i></a>
+                    </anchor-link>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,10 @@
+<div class="content col-l-2">
+    <img class="small-thumbnail" ng-src="{{::$ctrl.certInfo.thumb}}" title="{{::$ctrl.certInfo.title}}" alt="{{::$ctrl.certInfo.title}}">
+</div>
+<div class="content col-l-2">
+    <h3 ng-bind="::$ctrl.certInfo.title"></h3>
+    <small>{{::$ctrl.certInfo.date_publication_start | date : 'longDate'}}</small>
+</div>
+<div class="content col-l-8">
+    <p ng-bind-html="::$ctrl.certInfo.body"></p>
+</div>

@@ -1,0 +1,136 @@
+<div class="main" ng-cloak>
+    <page-header id="page-header"></page-header>
+
+    <section class="category-selector-section" ng-if="$ctrl.categories.length > 1 && $ctrl.locale !== 'ru-ru' && $ctrl.locale !== 'ja-jp'">
+        <div class="container">
+            <div class="category-selector-wrapper">
+                <p>{{$ctrl.category | uppercase}}:</p>
+                <ul class="category-nav">
+                    <li ng-class="{'active': item === $ctrl.selectorModel}"
+                        ng-repeat="item in $ctrl.categories" ng-click="$ctrl.changeSelector(item)">
+                        <a href>{{item}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="regular-section">
+        <div class="container">
+            <div class="row">
+                <div class="content col-l-7 col-xl-8">
+                    <ul class="articles-list image-aside" ng-show="$ctrl.resources.length">
+                        <!--SMB-->
+                        <li ng-if="$ctrl.repoType==='smb'" dir-paginate="item in $ctrl.resources | itemsPerPage: $ctrl.pageSize"
+                            current-page="$ctrl.currentPage" total-items=$ctrl.resourcesTotalCount pagination-id="resourceCategoryPagination">
+                            <figure ng-if="!item.isVideoContent">
+                                <a ui-sref="smb-resources-category.details({category: $ctrl.category,path:$ctrl.getUserFriendlyUrl(item)})">
+                                    <img ng-src="{{item.thumb | addLocalRoot}}" alt="{{item.thumb}}">
+                                </a>
+                            </figure>
+                            <figure ng-if="item.isVideoContent">
+                                <a class="thumbnail" style="height: 79px;">
+                                    <iframe width="640" height="150" ng-src="{{item.video | trustUrl}}" frameborder="0" allowfullscreen></iframe>
+                                </a>
+                            </figure>
+                            <h2>
+                                <a ui-sref="smb-resources-category.details({category: $ctrl.category,path:$ctrl.getUserFriendlyUrl(item) })">{{item.title}}</a>
+                            </h2>
+                            <p class="meta category" ng-if="$ctrl.locale !== 'ru-ru'">
+                                <a ui-sref="smb-resources-category.details({category: $ctrl.category, path:$ctrl.getUserFriendlyUrl(item)})">{{item.subcategoryTitle}}</a>
+                            </p>
+                            <p ng-bind-html="item.summary"></p>
+                            <a  class="button transparent icon-doc"
+                                ng-class="item.link.class.length ? item.link.class : 'icon-pdf'"
+                                target="_blank"
+                                href="{{item.link.link}}"
+                                ng-hide="item.isVideoContent"
+                                ng-bind="::item.link.text"></a>
+                        </li>
+
+                        <!--VSB-->
+                        <li ng-if="$ctrl.repoType==='vsb'" dir-paginate="item in $ctrl.resources | itemsPerPage: $ctrl.pageSize"
+                            current-page="$ctrl.currentPage" total-items=$ctrl.resourcesTotalCount pagination-id="resourceCategoryPagination">
+                            <figure ng-if="!item.isVideoContent">
+                                <a ui-sref="resources-category.details({category: $ctrl.category,path:$ctrl.getUserFriendlyUrl(item)})">
+                                    <img ng-src="{{item.thumb | addLocalRoot}}" alt="{{item.thumb}}">
+                                </a>
+                            </figure>
+                            <figure ng-if="item.isVideoContent">
+                                <a class="thumbnail" style="height: 79px;">
+                                    <iframe width="640" height="150" ng-src="{{item.video | trustUrl}}" frameborder="0" allowfullscreen></iframe>
+                                </a>
+                            </figure>
+                            <h2>
+                                <a ui-sref="resources-category.details({category: $ctrl.category,path:$ctrl.getUserFriendlyUrl(item) })">{{item.title}}</a>
+                            </h2>
+                            <p class="meta category" ng-if="$ctrl.locale !== 'ru-ru'">
+                                <a ui-sref="resources-category.details({category: $ctrl.category, path:$ctrl.getUserFriendlyUrl(item)})">{{item.subcategoryTitle}}</a>
+                            </p>
+                            <p ng-bind-html="item.summary"></p>
+                            <a  class="button transparent icon-doc"
+                                ng-class="item.link.class.length ? item.link.class : 'icon-pdf'"
+                                target="_blank"
+                                href="{{item.link.link}}"
+                                ng-hide="item.isVideoContent"
+                                download
+                                ng-bind="::item.link.text"></a>
+                        </li>
+                        <!--B2C-->
+                        <li ng-if="$ctrl.repoType==='b2c'" dir-paginate="item in $ctrl.resources | itemsPerPage: $ctrl.pageSize"
+                            current-page="$ctrl.currentPage" total-items=$ctrl.resourcesTotalCount pagination-id="resourceCategoryPagination">
+                            <figure ng-if="!item.isVideoContent">
+                                <a ui-sref="b2c-resource-center.category-details({category: $ctrl.category,path:$ctrl.getUserFriendlyUrl(item)})">
+                                    <img ng-src="{{item.thumb | addLocalRoot}}" alt="{{item.thumb}}">
+                                </a>
+                            </figure>
+                            <figure ng-if="item.isVideoContent">
+                                <a class="thumbnail" style="height: 79px;">
+                                    <iframe width="640" height="150" ng-src="{{item.video | trustUrl}}" frameborder="0" allowfullscreen></iframe>
+                                </a>
+                            </figure>
+                            <h2>
+                                <a ui-sref="b2c-resource-center.category-details({category: $ctrl.category, path:$ctrl.getUserFriendlyUrl(item)})">{{item.title}}</a>
+                            </h2>
+                            <p class="meta date">{{item.date_publication_start | date:'shortDate'}}</p>
+                            <p ng-bind-html="item.summary"></p>
+                            <a ui-sref="b2c-resource-center.category-details({category: $ctrl.category,path:$ctrl.getUserFriendlyUrl(item)})"
+                               class="button transparent">{{$ctrl.translations.prReadMore || 'Read more'}} &gt;</a>
+                        </li>
+                        <!--About-->
+                        <li ng-if="$ctrl.repoType === 'about'" dir-paginate="item in $ctrl.resources | itemsPerPage: $ctrl.pageSize"
+                            current-page="$ctrl.currentPage" total-items="$ctrl.resourcesTotalCount" pagination-id="resourceCategoryPagination">
+
+                            <figure ng-if="!item.isVideoContent">
+                                <a ui-sref="policy-blog-category.details({category: $ctrl.category,path:$ctrl.getUserFriendlyUrl(item)})">
+                                    <img ng-src="{{item.thumb | addLocalRoot}}" alt="{{item.thumb}}">
+                                </a>
+                            </figure>
+                            <figure ng-if="item.isVideoContent">
+                                <a class="thumbnail" style="height: 79px;">
+                                    <iframe width="640" height="150" ng-src="{{item.video | trustUrl}}" frameborder="0" allowfullscreen></iframe>
+                                </a>
+                            </figure>
+                            <h2>
+                                <a ui-sref="policy-blog-category.details({category: $ctrl.category, path:$ctrl.getUserFriendlyUrl(item)})">{{item.title}}</a>
+                            </h2>
+                            <p class="meta date">{{item.date_publication_start | date:'shortDate'}}</p>
+                            <p ng-bind-html="item.summary"></p>
+                            <a ui-sref="policy-blog-category.details({category: $ctrl.category,path:$ctrl.getUserFriendlyUrl(item)})"
+                               class="button transparent">{{$ctrl.translations.prReadMore || 'Read more'}} &gt;</a>
+                        </li>
+
+                    </ul>
+                    <div class="pagination" ng-show="$ctrl.resources.length">
+                        <dir-pagination-controls boundary-links="true" pagination-id="resourceCategoryPagination" on-page-change="$ctrl.pageChangeHandler(newPageNumber)"></dir-pagination-controls>
+                    </div>
+                    <span ng-show="!$ctrl.hasResources" ng-bind="$ctrl.translations.resouceNotAvailable || 'Resources not available.'"></span>
+                </div>
+                <div class="sidebar col-l-5 col-xl-4">
+                    <resources-article-sidebar category="$ctrl.category" repo-type="$ctrl.repoType"></resources-article-sidebar>
+                </div><!-- /sidebar -->
+            </div>
+        </div>
+    </section>
+
+
+</div>

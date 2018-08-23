@@ -1,0 +1,25 @@
+/***************************************
+    Articles-section
+***************************************/
+.articles-section {
+  section {
+    margin-top: 0;
+    padding: 4em 0;
+
+    .container {
+      padding-bottom: 0;
+    }
+
+    &:nth-of-type(even) {
+      background: #f8f8f8;
+
+      .col-l-7 {
+        float: right;
+      }
+    }
+
+    .note {
+      margin-top: .9em;
+    }
+  }
+}

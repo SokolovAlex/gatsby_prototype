@@ -1,0 +1,33 @@
+<a id="hmc-section" class="offset"></a>
+<section class="hmc-section">
+  <div class="container divider">
+    <div class="row">
+      <h3 class="section-title">{{$ctrl.step1.hmcStep1Title}}</h3>
+      <div class="hmc-desc col-l-4">
+        <b2c-hmc-block content-name="hmc-block"></b2c-hmc-block>
+      </div>
+
+      <div ng-class="{'hmc-template-v2': $ctrl.template === 'v2'}" class="hmc-selector col-l-8">
+        <div class="hmc-label" ng-bind-html="$ctrl.step1.hmcStep1LabelTitle | html"></div>
+
+        <form class="required">
+          <div id="hmc-os-selection">
+            <div ng-click="$ctrl.selectCheckbox($event)" data-hmc-action="os-selection" data-mh="checkbox-group" ng-repeat="OS in $ctrl.step1.hmcOSSelect" class="form-element checkbox">
+              <input type="checkbox" ng-attr-name="{{OS.hmcOSId}}" ng-attr-value="{{OS.hmcOSId}}" ng-attr-id="{{OS.hmcOSId}}">
+              <label ng-attr-for="{{OS.hmcOSId}}" ng-class="OS.hmcOsClassName">{{OS.hmcOS}}</label>
+            </div>
+          </div>
+
+          <div class="form-element buttons">
+            <input ng-disabled="!$ctrl.requiredOptionActive" data-hmc-action="start" ng-click="$ctrl.getSelectedOS($event);" type="submit" class="button transparent hmc-next-button" ng-attr-value="{{$ctrl.hmcUI.hmcUIStartText}}" disabled>
+
+            <button ng-disabled="!$ctrl.requiredOptionActive" data-hmc-action="start" ng-click="$ctrl.getSelectedOS($event);" type="submit" href="#" class="button red hmc-next-button" ng-attr-value="{{$ctrl.hmcUI.hmcUIStartText}}">{{$ctrl.hmcUI.hmcUIStartText}}</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+    <!-- /row -->
+  </div>
+</section>
+<!-- /help-choose -->

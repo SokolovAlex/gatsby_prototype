@@ -8,7 +8,11 @@
     "gatsby": "^1.9.247",
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-react-helmet": "^2.0.10",
+    "gatsby-plugin-sass": "^1.0.26",
     "gatsby-source-filesystem": "^1.5.39",
+    "gatsby-transformer-json": "^1.0.20",
+    "gulp": "^3.9.1",
+    "gulp-modify": "^0.1.1",
     "intl": "^1.2.5",
     "react-helmet": "^5.2.0",
     "react-intl": "^2.4.0"

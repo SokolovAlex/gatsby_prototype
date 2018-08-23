@@ -1,0 +1,1507 @@
+/***************************************
+  Help me choose
+***************************************/
+
+.hmc-selector {
+  margin-bottom: .75em;
+  background: #f8f8f8 url(../i/bg-pattern.jpg) 50% 50% no-repeat;
+  background-size: cover;
+  box-shadow: 0 2px 0 0 rgba(0, 0, 0, .05);
+
+  &.hmc-template-v2 {
+    box-shadow: none;
+
+    #hmc-os-selection {
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .form-element.buttons {
+      background-color: #fff;
+      padding-top: 1.5em;
+
+      button.button {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      input.button {
+        display: none;
+      }
+    }
+  }
+
+  .hmc-label {
+    padding: 1em 1.25em;
+    border-right: 1px solid #e5e5e5;
+    border-left: 1px solid #e5e5e5;
+    overflow: hidden;
+
+    p {
+      margin-bottom: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #444;
+
+      span {
+        display: block;
+        font-size: .875em;
+        font-weight: 300;
+        color: #777;
+      }
+    }
+
+    .top-description {
+      float: left;
+    }
+
+    a.select-all {
+      font-size: .8em;
+      float: right;
+      margin-top: .5em;
+      color: #80A3B3;
+
+      i.font-icons {
+        margin-right: .5em;
+        float: left;
+      }
+
+      &:hover {
+        color: $darkblue;
+        cursor: pointer;
+
+        @include transition(all .15s ease-in);
+      }
+    }
+  }
+
+  form {
+    @include outer-container-no-gutter;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+
+    .checkbox {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+
+      label {
+        width: 100%;
+      }
+
+      &:after {
+        display: none;
+      }
+    }
+
+    .form-element {
+      margin-bottom: 0;
+      font-size: 1em;
+
+      @include span-columns(6, no-gutter);
+
+      &.checkbox {
+        input {
+          display: none;
+        }
+
+        label {
+          display: block;
+          margin: 0;
+          padding: 1.25em .5em;
+          text-align: center;
+          font-size: em(14);
+          color: #777;
+          border-right: 1px solid #e5e5e5;
+          border-top: 1px solid #e5e5e5;
+          cursor: pointer;
+
+          .font-icons {
+            display: block;
+          }
+
+          &:before {
+            display: none;
+          }
+
+          &.a-phone {
+            .font-icons {
+              padding-top: .55em;
+              font-size: 2em;
+
+              &:before {
+                content: "\e931";
+              }
+            }
+          }
+
+          &.a-tablet {
+            .font-icons {
+              padding-top: .55em;
+              font-size: 2em;
+
+              &:before {
+                content: "\e933";
+              }
+            }
+          }
+
+          &.mac {
+            .font-icons {
+              padding-top: .25em;
+              font-size: 2.5em;
+
+              &:before {
+                content: "\e930";
+              }
+            }
+          }
+
+          &.pc {
+            .font-icons {
+              padding-top: .16em;
+              font-size: 2.75em;
+
+              &:before {
+                content: "\e932";
+              }
+            }
+          }
+
+          &.hmc-shop,
+          &.hmc-family,
+          &.hmc-security,
+          &.hmc-logins,
+          &.hmc-lock,
+          &.bell,
+          &.hmc-checks {
+            .font-icons {
+              padding-top: .25em;
+              font-size: 2.5em;
+            }
+          }
+
+          &.hmc-id,
+          &.hmc-speed {
+            .font-icons {
+              padding-top: .55em;
+              font-size: 2em;
+            }
+          }
+        }
+
+        &:nth-child(2n-1) {
+          label {
+            border-left: 1px solid #e5e5e5;
+          }
+        }
+
+        &:hover {
+          label {
+            color: $kgreen;
+            background: #fff;
+          }
+        }
+
+        &.selected {
+          label {
+            background: $bordergreen;
+            color: #fff;
+          }
+        }
+      }
+
+      &.buttons {
+        @include span-columns(12, no-gutter);
+        clear: both;
+
+        input {
+          margin-bottom: 0;
+          font-size: .875em;
+          color: $kgreen;
+          background: #fff;
+          border-color: #e5e5e5;
+
+          &:hover {
+            border-color: $bordergreen;
+          }
+        }
+      }
+    }
+  }
+
+  .hmc-label {
+    width: 100%;
+  }
+}
+
+.hmc-select {
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="date"],
+  input[type="search"],
+  input[type="time"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="number"],
+  select,
+  textarea {
+    margin: 0;
+    font-size: 1em;
+    background: $lightblue;
+    border: 1px solid $borderblue;
+  }
+
+  .larger-field {
+    input {
+      height: 3.75em;
+      line-height: 2.75em;
+    }
+
+    &.select-wrapper {
+      select {
+        padding-right: 3em;
+        height: 3.75em;
+        line-height: 2.75em;
+      }
+
+      &:before {
+        top: 2em;
+      }
+    }
+  }
+
+  .form-element {
+    &.divider {
+      padding-bottom: 0;
+      margin-bottom: 1em;
+      border: none;
+    }
+
+    &.radiobox {
+      &.selected {
+        label {
+          &:before {
+            background: $bordergreen;
+            border-color: #fff;
+          }
+        }
+      }
+    }
+
+    &.checkbox,
+    &.radiobox {
+      label {
+        margin: 0;
+        padding: .75em .75em .75em 3em;
+        font-size: 1em;
+        background: $lightblue;
+        border: 1px solid $borderblue;
+
+        &:before {
+          left: 1em;
+          top: 50%;
+          margin-top: -.6em;
+        }
+
+        &:hover {
+          color: $kgreen;
+          background: #F2F7FB;
+        }
+      }
+
+      &.selected {
+        label {
+          color: #fff;
+          background: $bordergreen;
+          border-color: rgba(255, 255, 255, .1);
+        }
+      }
+    }
+
+    &.select-wrapper {
+      select {
+        margin: 0;
+        padding-left: 1em;
+        font-size: 1em;
+        background: $lightblue;
+        border: 1px solid $borderblue;
+      }
+
+      &:before {
+        top: 1.5em;
+        font-size: .75em;
+      }
+    }
+
+    &.buttons {
+      margin-top: 1.5em;
+
+      .button {
+        float: right;
+      }
+    }
+  }
+
+  .form-element-group {
+    .form-element,
+    .form-element.checkbox,
+    .form-element.radiobox,
+    .form-element.select-wrapper {
+      * {
+        border-top-color: transparent;
+      }
+
+      &:first-child {
+        * {
+          border-top-color: $borderblue;
+        }
+      }
+    }
+
+    &.divider {
+      padding-bottom: 0;
+      margin-bottom: 1em;
+      border: none;
+    }
+  }
+}
+
+.hmc-product-form {
+  .form-body {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+
+    > * {
+      flex-grow: 1;
+    }
+
+    .hmc-products-section.hor-list {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+
+      > * {
+        flex-grow: 1;
+      }
+    }
+
+    &.row {
+      > * {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+
+        > * {
+          flex-grow: 1;
+        }
+      }
+    }
+  }
+}
+
+.hmc-section {
+  margin-left: 0;
+  margin-right: 0;
+  opacity: 1;
+
+  @include transition(all .15s ease-in);
+
+  .hmc-desc {
+    h4 {
+      margin-bottom: .75em;
+      line-height: 1.5;
+      font-family: $museoslab;
+      font-weight: 500;
+      color: #777;
+      text-transform: none;
+    }
+
+    p {
+      font-size: .875em;
+      color: #777;
+    }
+  }
+
+  &.variant-2 {
+    .container {
+      padding-bottom: 2.5em;
+    }
+
+    .hmc-desc {
+      text-align: center;
+
+      h4 {
+        font-family: $museosans;
+      }
+
+      .row {
+        padding: 1em 0;
+      }
+    }
+
+    .hmc-selector {
+      background: #F8FCFF;
+      box-shadow: 0 3px 0 0 rgba(223, 234, 240, .25);
+
+      .hmc-label {
+        border: none;
+        background: #DFEAF0;
+      }
+
+      form {
+        border-right: 1px solid #DFEAF0;
+
+        .form-element {
+          &.checkbox {
+            label {
+              padding-top: 1.5em;
+              padding-bottom: 1em;
+              border: none;
+              color: #444;
+              border-top: 1px solid #DFEAF0;
+              border-left: 1px solid #DFEAF0;
+              font-size: .8125em;
+
+              .font-icons {
+                margin-bottom: 1rem;
+                color: #333;
+              }
+
+              &:hover {
+                color: $kgreen;
+                background: #F2F7FB;
+
+                .font-icons {
+                  color: $kgreen;
+                }
+              }
+            }
+
+            &.selected {
+              label {
+                color: #fff;
+                background: $bordergreen;
+
+                .font-icons {
+                  color: #fff;
+                }
+              }
+            }
+          }
+
+          &.buttons {
+            input {
+              font-size: .75em;
+              color: $kgreen;
+              border-right: none;
+              border-color: #DFEAF0;
+              background: #fff;
+
+              &:hover {
+                color: #fff;
+                border-bottom-color: $kgreen;
+                background: $kgreen;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.variant-3 {
+    .container {
+      position: relative;
+      padding-bottom: 3em;
+      background: none;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -5%;
+        right: -5%;
+        bottom: 0;
+        background: url("../i/hmc-bg.png") 0 -1em no-repeat;
+      }
+
+      > * {
+        position: relative;
+        z-index: 10;
+      }
+    }
+
+    .hmc-desc {
+      margin-bottom: 0;
+
+      .hmc-steps {
+        color: #aaa;
+        font-size: .75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+
+        + .hmc-question {
+          margin-top: -.5em;
+        }
+      }
+
+      .hmc-question {
+        font-size: 1.25em;
+        font-weight: 500;
+        color: #444;
+        margin-bottom: 1em;
+
+        span.note {
+          display: block;
+          margin-top: .5em;
+          margin-bottom: .75em;
+          padding-top: 1em;
+        }
+      }
+
+      .note {
+        position: relative;
+        padding-top: 1em;
+        font-size: .75rem;
+        color: #aaa;
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 50%;
+          width: 50px;
+          margin-left: -25px;
+          height: 1px;
+          background: #eee;
+        }
+      }
+    }
+  }
+
+  &.fade-out {
+    margin-left: -15px;
+    margin-right: 15px;
+    opacity: 0;
+
+    @include transition(all .15s ease-in);
+  }
+
+  &.inactive {
+    margin-left: 15px;
+    margin-right: -15px;
+    opacity: 0;
+  }
+
+  &.inactive-previous {
+    margin-left: -15px;
+    margin-right: 15px;
+    opacity: 0;
+  }
+
+  &.fade-in {
+    margin-left: 0;
+    margin-right: 0;
+    opacity: 1;
+
+    @include transition(all .15s ease-in);
+  }
+}
+
+.modal-header {
+  &.modal-header-no-steps {
+    height: 50px;
+  }
+}
+
+.homepage-main {
+  .hmc-desc {
+    h4 {
+      font-weight: 300;
+      color: #373737;
+    }
+
+    h5.text-green {
+      font-weight: 300;
+    }
+  }
+}
+
+.hmc-template-v2 {
+  .hmc-picker {
+    .form-element {
+      .hmc-pick {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        background: $lightblue;
+        border-radius: 0;
+        border: 1px solid $borderblue;
+        font-size: 1rem;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+
+        @include transition(all .15s ease-in);
+
+        > * {
+          flex-grow: 1;
+        }
+
+        .hmc-pick-container {
+          padding: 1.5em .5em;
+          font-size: 1em;
+          font-weight: 300;
+          color: #666;
+        }
+
+        .font-icons {
+          display: block;
+          margin-bottom: .75em;
+          text-align: center;
+          font-size: 1.75em;
+          color: #000;
+        }
+
+        &:before {
+          content: "";
+          float: left;
+          width: 0;
+        }
+
+        &:hover {
+          color: #fff;
+          background: $bordergreen;
+          border-color: $bordergreen;
+
+          > *,
+          .font-icons {
+            color: #fff;
+          }
+        }
+
+        &.hmc-pick-smaller {
+          font-size: .875rem;
+        }
+
+        &.hmc-pick-small {
+          font-size: .75rem;
+        }
+      }
+    }
+
+    .row {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: flex-start;
+      align-items: stretch;
+
+      > * {
+        margin-bottom: .75em;
+      }
+    }
+
+    .hmc-pick-connector-wrapper {
+      width: 0;
+      margin-left: 0;
+      position: relative;
+      right: -1.5%;
+
+      &.pos-top {
+        .hmc-pick-connector {
+          top: -.35em;
+        }
+      }
+
+      &.pos-bottom {
+        .hmc-pick-connector {
+          top: auto;
+          bottom: -.35em;
+          margin-top: auto;
+          margin-bottom: -1.4em;
+        }
+      }
+
+      &.pos-horizontal {
+        width: 100%;
+        height: 0;
+      }
+    }
+
+    .hmc-pick-connector {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -1.4em;
+      margin-top: -1.4em;
+      width: 2.8em;
+      height: 2.8em;
+      display: table;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #fff;
+      z-index: 10;
+      box-shadow: 0 2px 0 0 rgba(0, 0, 0, .05);
+
+      span {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        font-size: .625em;
+        font-weight: 500;
+      }
+    }
+
+    .form-element-group {
+      .form-element {
+        &.checkbox {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .form-element {
+      &.checkbox {
+        display: block;
+
+        .hmc-pick {
+          .hmc-pick-container {
+            text-align: center;
+          }
+
+          &:before {
+            display: none;
+          }
+
+          &:hover {
+            background: $lightblue;
+            border-color: $bordergreen;
+
+            .hmc-pick-container {
+              color: $kgreen;
+            }
+
+            .font-icons {
+              color: $kgreen;
+            }
+          }
+        }
+
+        &.selected {
+          .hmc-pick {
+            color: #fff;
+            background-color: $bordergreen;
+            border-color: $bordergreen;
+
+            .font-icons,
+            .hmc-pick-container {
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.hmc-form-footer {
+  margin-top: 1em;
+
+  p {
+    font-size: .875em;
+  }
+
+  .text-center {
+    button {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+.hmc-template-v2 {
+  .section-title {
+    text-transform: none;
+  }
+
+  .hmc-main {
+    .button {
+      width: auto;
+    }
+  }
+
+  .buy-block {
+    .button {
+      width: 100%;
+    }
+  }
+
+  .checkbox {
+    label {
+      display: block;
+    }
+  }
+}
+
+.hmc-main {
+  .featured-section {
+    margin-bottom: 1.5em;
+  }
+
+  .product-item {
+    &.horizontal-item {
+      .row {
+        margin-right: inherit;
+      }
+
+      .desc {
+        margin-top: .75em;
+        font-size: .875em;
+      }
+
+      .check-list {
+        margin-bottom: .25em;
+
+        > li {
+          margin-bottom: .5em;
+        }
+      }
+
+      li {
+        font-size: .875em;
+        color: #555;
+        font-weight: 300;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hmc-picker {
+    .hmc-pick-connector-wrapper {
+      &.mobile-horizontal {
+        width: 100%;
+        height: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hmc-selector form .form-element.buttons button.button {
+    display: none;
+  }
+}
+
+@include media(769px) {
+  .hmc-main {
+    h3.section-title {
+      margin-bottom: 1.5em;
+    }
+
+    .hmc-section {
+      &.variant-3 {
+        margin-bottom: 2em;
+      }
+    }
+  }
+
+  .hmc-selector {
+    .hmc-label {
+      p {
+        span {
+          display: inline;
+        }
+      }
+    }
+
+    form {
+      .form-element {
+        @include span-columns(3, no-gutter);
+
+        &.checkbox {
+          &:nth-child(2n-1) {
+            label {
+              border-left: none;
+            }
+          }
+
+          &:nth-child(4n-3) {
+            label {
+              border-left: 1px solid #e5e5e5;
+            }
+          }
+        }
+
+        &.buttons {
+          input {
+            padding-right: 3em;
+            text-align: right;
+          }
+
+          button {
+            &.button {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .hmc-section {
+    .container {
+      padding-bottom: 0;
+      background: url(../i/photo-solution.jpg) 0 100% no-repeat;
+    }
+
+    .hmc-desc {
+      margin-bottom: 4em;
+    }
+
+    .hmc-selector {
+      margin-bottom: 4em;
+    }
+
+    &.variant-2 {
+      .container {
+        background: none;
+      }
+
+      .hmc-desc {
+        text-align: left;
+        margin-bottom: .75em;
+      }
+
+      .hmc-selector {
+        margin-bottom: .75em;
+
+        form {
+          .form-element {
+            &.checkbox {
+              &:nth-child(-n+4) {
+                label {
+                  border-top-color: #EEF3F6;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.variant-3 {
+      .container {
+        padding-bottom: 4.5em;
+      }
+
+      h3.section-title {
+        margin-bottom: 1.5em;
+      }
+
+      .hmc-desc {
+        .hmc-steps {
+          + .hmc-question {
+            margin-top: -.25em;
+          }
+        }
+
+        .hmc-question {
+          font-size: 1.5rem;
+        }
+
+        .note {
+          margin-top: 2em;
+        }
+      }
+    }
+  }
+
+  .hmc-picker {
+    .hmc-pick {
+      &:before {
+        padding-bottom: 90%;
+      }
+    }
+  }
+}
+
+/***************************************
+  Quote section
+***************************************/
+
+blockquote {
+  p {
+    font-family: $museosans;
+  }
+}
+
+.featured-quote {
+  position: relative;
+  font-size: 1em;
+
+  p {
+    &:before {
+      content: "";
+      position: absolute;
+      top: -.5em;
+      left: -1.5em;
+      z-index: 0;
+      width: 64px;
+      height: 50px;
+      background: url("../i/icons/icon-quote.png") no-repeat;
+      opacity: .05;
+    }
+  }
+
+  footer {
+    text-align: right;
+
+    cite {
+      font-size: 1em;
+    }
+
+    .starbar {
+      &:before {
+        content: "";
+        display: block;
+      }
+    }
+
+    img {
+      margin-left: 1em;
+      width: 3em;
+      border-radius: 100%;
+      vertical-align: middle;
+    }
+  }
+}
+
+@include media(992px) {
+  .featured-quote {
+    &.narrow-wrapper {
+      footer {
+        img {
+          margin-right: -3em;
+        }
+      }
+    }
+  }
+}
+
+/***************************************
+  HMC Modal
+***************************************/
+
+.modal-open {
+  i.font-icons {
+    position: relative;
+    top: -.1em;
+    margin-left: .25em;
+    display: inline-block;
+    vertical-align: middle;
+    color: #bbb;
+    font-size: 1.25em;
+
+    @include transition(all .15s ease-in);
+  }
+
+  &:hover {
+    i.font-icons {
+      color: #777;
+    }
+  }
+}
+
+.white-popup {
+  background: #fff;
+}
+
+.modal-header {
+  position: relative;
+  min-height: 3.125em;
+  background: #eee;
+
+  .modal-title {
+    margin: 0;
+    font-size: .75em;
+    padding: 1.3em 1.5em;
+    color: #999;
+    font-weight: 700;
+  }
+
+  .modal-button {
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    display: block;
+    font-size: .75em;
+    padding: 1.5em;
+    color: #999;
+    background: #eee;
+
+    @include transition(all .15s ease-in);
+
+    .font-icons {
+      vertical-align: middle;
+    }
+
+    .text {
+      display: none;
+      padding-left: .5em;
+      font-weight: 700;
+      text-transform: uppercase;
+      vertical-align: middle;
+    }
+
+    &.modal-back {
+      left: 0;
+      border-right: 1px solid #ddd;
+    }
+
+    &.modal-close {
+      right: 0;
+      border-left: 1px solid #ddd;
+
+      .font-icons {
+        &:before {
+          font-size: 1.125em;
+        }
+      }
+    }
+
+    &:hover {
+      background-color: #fff;
+      color: $kgreen;
+    }
+  }
+}
+
+.modal-promo-popup {
+  background: url(../i/bg-pattern.jpg) 50% 50% no-repeat #f8f8f8;
+
+  .container {
+    padding-bottom: 2em;
+  }
+}
+
+.modal-main {
+  padding-top: 2em;
+
+  .section-headline {
+    margin-bottom: 2em;
+
+    .page-title {
+      margin-bottom: .15em;
+      text-transform: none;
+      font-family: $museosans;
+      font-size: 1.75em;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #333;
+
+      & + .button {
+        margin-top: 1.5em;
+      }
+
+      &.text-green {
+        color: $kgreen;
+      }
+
+      &.text-red {
+        color: $kred;
+      }
+    }
+
+    .page-desc {
+      margin-bottom: 0;
+      line-height: 1.2;
+      font-size: 1.25em;
+      font-weight: 100;
+      font-family: $museosans;
+      text-transform: none;
+
+      & + .button {
+        margin-top: 1.5em;
+      }
+
+      &.text-green {
+        color: $kgreen;
+      }
+
+      &.text-red {
+        color: $kred;
+      }
+    }
+
+    p {
+      margin: 1em 0 0;
+      font-family: $museosans;
+    }
+  }
+
+  @include media(769px) {
+    .section-headline {
+      .page-title {
+        padding: 0;
+        line-height: 1.1;
+        font-size: em(48);
+
+        &:before {
+          display: none;
+        }
+      }
+
+      .page-desc {
+        padding: 0;
+        font-size: em(32);
+        color: #666;
+
+        &:before {
+          display: none;
+        }
+      }
+
+      p {
+        font-size: 1.25em;
+      }
+    }
+  }
+}
+
+#default-modal {
+  > .divider {
+    margin-bottom: 2.5em;
+  }
+
+  .container {
+    padding: 0;
+    max-width: 53em;
+    padding-bottom: 1.5em;
+
+    &.divider {
+      margin-bottom: 2em;
+    }
+  }
+}
+
+.modal-grid-section {
+  > .row {
+    > [class*="col-"] {
+      margin-bottom: 2.25em;
+      border-bottom: 1px solid #e5e5e5;
+    }
+  }
+}
+
+@include media(769px) {
+  .modal-header {
+    .modal-button {
+      .text {
+        display: inline;
+      }
+    }
+  }
+
+  .modal-grid-section {
+    > .row {
+      > [class*="col-"] {
+        margin-bottom: 0;
+        border-bottom: none;
+        border-left: 1px solid #e5e5e5;
+
+        &:first-child {
+          border-left-color: transparent;
+        }
+      }
+
+      > .col-l-4,
+      > .col-l-5,
+      > .col-l-6,
+      > .col-l-7,
+      > .col-l-8,
+      > .col-xl-4,
+      > .col-xl-5,
+      > .col-xl-6,
+      > .col-xl-7,
+      > .col-xl-8 {
+        .container {
+          width: 66%;
+        }
+      }
+    }
+  }
+
+  .divider + .modal-grid-section {
+    margin-top: -2.5em;
+
+    > .row {
+      > [class*="col-"] {
+        padding-top: 2.5em;
+      }
+    }
+  }
+}
+
+/***************************************
+  HMC banner popup
+***************************************/
+
+.narrow-modal {
+  display: none;
+}
+
+.hmc-template-v2 {
+  &.hmc-promo-popup-v2 {
+    max-width: $site-width*2/3;
+    margin: 0 auto;
+
+    .hmc-main {
+      display: none;
+    }
+
+    .narrow-modal {
+      display: block;
+    }
+  }
+}
+
+.hmc-auto-popup:not(.hmc-template-v2) {
+  &.hmc-auto-popup-base {
+    .hmc-main {
+      padding-top: 0;
+    }
+  }
+
+  .hmc-main {
+    background: #fff;
+
+    .hmc-selector {
+      .hmc-label {
+        background: url("../i/bg-pattern.jpg") 50% 50% no-repeat #f8f8f8;
+        background-size: cover;
+        border: 1px solid #e7e7e7;
+      }
+    }
+
+    .promo-header {
+      padding-top: 45px;
+      padding-bottom: 25px;
+      border-top: 1px solid #e6e6e6;
+      margin-bottom: 4em !important;
+
+      h2.title {
+        color: #006d5c;
+        font-size: 24px;
+        font-weight: 900;
+        text-transform: uppercase;
+        line-height: 1;
+      }
+
+      p {
+        color: #006d5C;
+        font-size: 18px;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .hmc-midsection {
+    margin-top: 20px;
+    margin-bottom: 25px;
+    display: block;
+
+    .hmc-midsection-promo-image {
+      width: auto;
+      float: left;
+    }
+
+    h3.title {
+      color: #444;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.8em;
+      margin-top: 20px;
+
+      .highlighted {
+        font-weight: 900;
+        color: #006d5c;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hmc-banner-popup-active {
+    display: none;
+  }
+
+  .hmc-auto-popup {
+    .hmc-midsection {
+      .hmc-midsection-promo-image {
+        float: none;
+      }
+    }
+  }
+}
+
+html.hmc-mobile-banner-active-default.ngdialog-open {
+  overflow: visible;
+
+  > body.ngdialog-open {
+    @extend html.hmc-mobile-banner-active-default.ngdialog-open;
+  }
+
+  .ngdialog-content {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    margin: 0;
+    padding: 0;
+    width: auto;
+
+    .hmc-main {
+      margin: 0;
+      padding: 0;
+    }
+
+    .white-popup {
+      margin: 0 auto;
+
+      .container {
+        padding: .6em 0;
+        color: #fff;
+
+        .title {
+          color: #fff;
+          font-size: 1.1em;
+        }
+      }
+    }
+  }
+
+  .ngdialog-close {
+    border-radius: 30px;
+    color: #fff;
+  }
+
+  .ngdialog-overlay {
+    background: transparent;
+    -webkit-animation: none !important;
+    animation: none !important;
+  }
+
+  .green-background {
+    p {
+      opacity: 1;
+    }
+  }
+}

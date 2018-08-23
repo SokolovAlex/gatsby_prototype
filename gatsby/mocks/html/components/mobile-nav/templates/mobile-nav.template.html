@@ -1,0 +1,89 @@
+<div class="mobile-menu-wrapper">
+	<ul class="mobile-nav" data-back="{{$ctrl.data.nav_ui_back_btn}}">
+		<li class="title">
+			<span>{{$ctrl.data.nav_ui_panel_main_title}}</span>
+		</li>
+
+		<li ng-class="{'parent' : $ctrl.data.nav_panel[$index].nav_panel_component}"
+			ng-repeat-start="panel in $ctrl.data.nav_panel track by $index"
+			data-parent="{{panel.nav_panel_title}}"
+			ng-init="dataIcon = panel.nav_panel_class.length ? 'font-icons ' + panel.nav_panel_class : ''"
+			data-icon="{{dataIcon}}"
+			data-url="{{panel.nav_panel_href}}"
+			ng-click="$ctrl.getInnerItems(panel)">
+			<a ng-href="{{panel.nav_panel_href.length ? panel.nav_panel_href : '#'}}">
+				<i ng-if="panel.nav_panel_class" class="font-icons {{panel.nav_panel_class}}"></i>
+				<span>{{panel.nav_panel_link_title}}</span>
+				<small>{{panel.nav_panel_subtitle}}</small>
+			</a>
+
+			<ul ng-if="panel.nav_panel_component" class="submenu">
+				<li ng-class="{'parent': innerPanel.megaMenuItem}"
+					ng-repeat="innerPanel in panel.nav_panel_component.mainNavItem"
+					data-parent="{{innerPanel.text}}"
+					data-url="{{innerPanel.link}}">
+					<a ng-href="{{innerPanel.link}}">{{innerPanel.text}}</a>
+
+					<ul ng-if="innerPanel.megaMenuItem" class="submenu">
+
+						<li ng-repeat="subMenuItem in innerPanel.megaMenuItem.product track by $index">
+							<a ng-attr-target="{{isExternal === 'True' ? '_blank' : ''}}"
+							   ng-href="{{subMenuItem.prodPageLink || subMenuItem.megaMenuProdLink}}" class="js-mobile-nav-link">
+								<small ng-bind-html="subMenuItem.prodKasperskyTitle || subMenuItem.megaMenuKasperskyTitle"
+									   class="green-top"></small>
+								<span ng-if="subMenuItem.prodMainTitle">{{subMenuItem.prodMainTitle}} <span class="inline" ng-if="subMenuItem.shortName != 'office-365'">{{subMenuItem.prodAddTitle}}</span></span>
+								<span ng-if="subMenuItem.megaMenuProdTitle">{{subMenuItem.megaMenuProdTitle}}</span>
+							</a>
+						</li>
+
+						<li ng-repeat="subMenuItem in innerPanel.megaMenuItem.megaMenuGroups track by $index">
+							<a ng-repeat="item in subMenuItem.groupProduct track by $index" ng-href="{{item.megaMenuProdLink}}">
+								<small ng-bind-html="item.prodKasperskyTitle || item.megaMenuKasperskyTitle"
+									   class="green-top"></small>
+								<span>{{item.megaMenuProdTitle}}</span>
+							</a>
+						</li>
+
+						<li ng-repeat="subMenuItem in innerPanel.megaMenuItem.customLinks track by $index">
+							<a ng-href="{{subMenuItem.link}}">{{subMenuItem.text}}</a>
+						</li>
+
+						<li ng-if="innerPanel.megaMenuItem.mega_menu_secondary_nav.secondary_nav_side_title" class="title">
+							<span>{{innerPanel.megaMenuItem.mega_menu_secondary_nav.secondary_nav_side_title}}</span>
+						</li>
+
+						<li ng-repeat="secondaryNavItem in innerPanel.megaMenuItem.mega_menu_secondary_nav.secondary_nav_side_links track by $index">
+							<a ng-href="{{secondaryNavItem.link}}">{{secondaryNavItem.text}}</a>
+						</li>
+
+					</ul>
+				</li>
+
+				<li ng-if="panel.nav_panel_component.rightMenuItem !== undefined && panel.nav_panel_component.rightMenuItem.menuText.length"
+					ng-class="{'parent' : panel.nav_panel_component.rightMenuItem.menuItems.length !== 0}"
+					ng-attr-data-parent="{{panel.nav_panel_component.rightMenuItem.menuText}}">
+					<a ng-href="{{panel.nav_panel_component.rightMenuItem.menuLink}}">{{panel.nav_panel_component.rightMenuItem.menuText}}</a>
+					<ul class="submenu" ng-if="panel.nav_panel_component.rightMenuItem.menuItems.length !== 0">
+						<li ng-repeat="item in panel.nav_panel_component.rightMenuItem.menuItems">
+							<a ng-if="item.isExternal != 'Yes'" ng-href="{{item.link}}"><i class="font-icons {{item.class}}"></i>{{item.text}}</a>
+							<a ng-if="item.isExternal == 'Yes'" ng-href="{{item.link}}" target="_blank"><i class="font-icons {{item.class}}"></i>{{item.text}}</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+
+		<li ng-repeat-end ng-if="$index === 3" class="splitter"></li>
+
+		<li class="parent" ng-attr-data-parent="{{$ctrl.localization.currency_line || 'Currency'}}"
+			ng-show="$ctrl.showCurrencySelector">
+			<a href>{{$ctrl.localization.currency_line || 'Currency'}}</a>
+			<ul class="submenu">
+				<li ng-repeat="currency in $ctrl.currencies | unique:'currency'"
+					ng-class="{'menu-item-check': currency.name === $ctrl.currentCurrency.name}">
+					<a href ng-click="$ctrl.setCurrency(currency)">{{currency.displayName}}</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</div>

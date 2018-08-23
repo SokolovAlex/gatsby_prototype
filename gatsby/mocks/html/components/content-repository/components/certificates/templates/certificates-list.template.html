@@ -1,0 +1,43 @@
+<section class="category-selector-section active">
+	<div class="container">
+		<div class="category-selector-wrapper row no-gutter dropdown-2">
+			<div class="col-l-6">
+				<p>{{::$ctrl.translations.filterCertificates}} ({{$ctrl.resourcesTotalCount}} {{::$ctrl.translations.certificatesTotal}})</p>
+			</div>
+			<div class="col-l-6">
+				<form action="#">
+					<div class="form-element dropdown-filter select-wrapper">
+						<!-- <select ng-model="$ctrl.selectorModel" ng-change="$ctrl.changeSelector()" ng-if="$ctrl.categoriesList.categoriesList.length > 1">
+							<option value="" ng-bind="$ctrl.translations.certificatesAllTypes"></option>
+							<option ng-repeat="category in $ctrl.categoriesList.categoriesList" value="{{category | stripHtmlTags}}">{{category}}</option>
+						</select>
+					Temporarily remove for RU launch -->
+					</div>
+					<div class="form-element dropdown-filter select-wrapper">
+						<select ng-model="$ctrl.startDate" class="device-number" ng-change="$ctrl.changeSelector()">
+							<option value="" ng-bind="::$ctrl.translations.certificatesAllDates"></option>
+							<option value="{{year | stripHtmlTags}}" ng-repeat="year in $ctrl.defaultYears | orderBy: '-'">{{year}}</option>
+						</select>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="post-item-list">
+    <div class="container">
+        <div class="row" dir-paginate="item in $ctrl.resources | orderBy: '-date_publication_start' | itemsPerPage: $ctrl.pageSize"
+             total-items=$ctrl.resourcesTotalCount
+             current-page="$ctrl.currentPage"
+             pagination-id="certificatesPagination">
+            <certificates-details cert-info="item" class="certificates-details"></certificates-details>
+            <hr>
+        </div>
+        <div class="pagination" ng-show="$ctrl.resources.length">
+            <dir-pagination-controls boundary-links="true" pagination-id="certificatesPagination" on-page-change="$ctrl.pageChangeHandler(newPageNumber)"></dir-pagination-controls>
+        </div>
+        <span ng-show="!$ctrl.hasResources" ng-bind="$ctrl.translations.resouceNotAvailable || 'Resources not available.'"></span>
+    </div>
+</div>

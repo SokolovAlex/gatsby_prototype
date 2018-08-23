@@ -1,0 +1,35 @@
+<section class="license-section">
+    <div class="container divider">
+        <div class="narrow-wrapper">
+            <h3 class="section-title">{{$ctrl.data.title}}</h3>
+            <desc ng-bind-html="$ctrl.data.desc|html">{{$ctrl.data.desc}}</desc>
+            <div class="blue-wrapper text-center">
+                <h3>{{$ctrl.data.subTitle}}</h3>
+                <form name="serialForm" class="row no-gutter" novalidate>
+                    <div class="form-element col-m-8">
+                        <input type="text" name="serial" ng-model="$ctrl.serial"
+                               ng-change="$ctrl.editInput($ctrl.serial,'{{$ctrl.serial}}')"
+                               required
+                               ng-pattern="/^([a-z]|[0-9]|-)+$/i"
+                               maxlength="36"
+
+                        >
+
+                        <div ng-messages="serialForm.serial.$error" role="alert" ng-if="serialForm.serial.$dirty">
+                            <div ng-message="required">{{$ctrl.translations.lrcFieldCannotBeEmpty || 'The field cannot be empty'}}</div>
+                            <div ng-message="pattern">{{$ctrl.translations.lrcInvalidFormat || 'Invalid format! The license information that you enter must be in the format XXXX-XXXXXX-XXXXXXXX. Please try again.'}}</div>
+                        </div>
+                        <div ng-if="$ctrl.error && !serialForm.$invalid">{{$ctrl.error}}</div>
+                    </div>
+                    <div class="form-element buttons col-m-4">
+                        <div class="button green" ng-click="$ctrl.sendSerial($event)" data-test="lrc-cta--validate">{{$ctrl.data.buttonText}}</div>
+                    </div>
+                </form>
+            </div>
+
+            <p class="text-center">
+                <small><a href="{{$ctrl.data.infoLink}}">{{$ctrl.data.infoLinkText}}</a></small>
+            </p>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,23 @@
+<buyblock-user-account account-info-override="{{$ctrl.product.accountInfo}}"
+                       description-popup="{{$ctrl.product.accountDesc}}"
+                       label="{{$ctrl.product.userAccountText}}"
+                       count="$ctrl.currentValue['user-accounts']"></buyblock-user-account>
+<div class="product-item product-small image-top" ng-if="$ctrl.free != 'True' && $ctrl.product.bbSettings.purchaseType != 'Free' && $ctrl.productPricesExist && !$ctrl.product.fullHtmlOverride">
+    <a ng-if="$ctrl.priceList.length > 0" ng-href="{{$ctrl.buyLink}}" data-omniture-product-name="{{$ctrl.productName}}" data-omniture-sale-button-type="Buy" data-test="buyblock-buy--{{$ctrl.product.shortName}}"><div class="button green full-width">{{$ctrl.buyblockData.buyText || "Buy Now"}}</div></a>
+    <a ng-if="$ctrl.priceList.length === 0" ng-click="$ctrl.navigateUserTo('page-header', $event, false, 60)"><div class="button green full-width">{{$ctrl.buyblockData.buyText || "Buy Now"}}</div></a>
+    <div class="price">
+        <p data-test="buyblock-price--{{$ctrl.product.shortName}}">{{$ctrl.currentValue.price | customCurrency}}
+            <span class="note" ng-bind-html="$ctrl.description"></span>
+        </p>
+    </div>
+</div>
+<div class="buy-block" ng-if="$ctrl.product.bbSettings.purchaseType != 'Free' && !$ctrl.productPricesExist && !$ctrl.product.fullHtmlOverride">
+    <product-unavailable-block ng-switch="$ctrl.buyblockData.buyblock_not_available_msg.length > 0">
+        <product-unavailable-msg ng-switch-when="true" ng-bind-html="$ctrl.buyblockData.buyblock_not_available_msg"></product-unavailable-msg>
+        <p ng-switch-default>This product is currently unavailable in your region. Please <a href="/about/contact">contact us</a> for further details.</p>
+    </product-unavailable-block>
+</div>
+
+<div class="product-item product-small image-top" ng-if="$ctrl.free == 'True' && $ctrl.product.bbSettings.purchaseType != 'Free' && $ctrl.productPricesExist && !$ctrl.product.fullHtmlOverride">
+    <a ng-click="$ctrl.navigateUserTo($ctrl.product.bbSettings.downloadFromGplayLink, $event, false, 60)" data-test="buyblock-free-version--{{$ctrl.product.shortName}}" class="button transparent text-green full-width">{{$ctrl.product.bbSettings.downloadFromGplayText}}</a>
+</div>

@@ -1,0 +1,81 @@
+<div class="widget" ng-if="$ctrl.resources.length">
+    <h4 ng-if="$ctrl.repoType==='smb' || $ctrl.repoType==='vsb'" ng-bind="::$ctrl.translations.latestArticles || 'Latest Articles'"></h4>
+    <h4 ng-if="$ctrl.repoType==='b2c'" ng-bind="::$ctrl.translations.featuredArticles || 'Featured Articles'"></h4>
+    <ul class="secondary-articles-list image-aside">
+        <!--SMB-->
+        <li ng-repeat="item in $ctrl.resources | orderBy: 'pubDate' | limitTo : 5" ng-if="$ctrl.repoType==='smb'">
+            <figure ng-if="!item.isVideoContent">
+                <a href ui-sref="smb-resources-category.details({category: item.categoryName, path:$ctrl.getUserFriendlyUrl(item.url)})"
+                   class="thumbnail" ng-style="{'background-image': 'url(' + item.image + ')'}">
+                    <img ng-src="{{item.thumb | addLocalRoot}}" ng-attr-alt="{{item.thumb}}">
+                </a>
+            </figure>
+            <figure ng-if="item.isVideoContent">
+                <a class="thumbnail" style="height: 79px;" href ui-sref="smb-resources-category.details({category: item.categoryName, path:$ctrl.getUserFriendlyUrl(item.url)})">
+                    <iframe width="640" height="79" ng-src="{{item.video | trustUrl}}" frameborder="0" allowfullscreen></iframe>
+                </a>
+            </figure>
+            <h2>
+                <a href ui-sref="smb-resources-category.details({category: item.categoryName, path:$ctrl.getUserFriendlyUrl(item.url)})">{{item.title}}</a>
+            </h2>
+            <p class="meta date">{{item.date_publication_start | date: 'shortDate'}}</p>
+        </li>
+
+        <!--VSB-->
+        <li ng-repeat="item in $ctrl.resources | orderBy: 'pubDate' | limitTo : 5" ng-if="$ctrl.repoType==='vsb'">
+            <figure ng-if="!item.isVideoContent">
+                <a href ui-sref="resources-category.details({category: item.categoryName, path:$ctrl.getUserFriendlyUrl(item.url)})"
+                   class="thumbnail" ng-style="{'background-image': 'url(' + item.image + ')'}">
+                    <img ng-src="{{item.thumb | addLocalRoot}}" ng-attr-alt="{{item.thumb}}">
+                </a>
+            </figure>
+            <figure ng-if="item.isVideoContent">
+                <a class="thumbnail" style="height: 79px;" href ui-sref="resources-category.details({category: item.categoryName, path:$ctrl.getUserFriendlyUrl(item.url)})">
+                    <iframe width="640" height="79" ng-src="{{item.video | trustUrl}}" frameborder="0" allowfullscreen></iframe>
+                </a>
+            </figure>
+            <h2>
+                <a href ui-sref="resources-category.details({category: item.categoryName, path:$ctrl.getUserFriendlyUrl(item.url)})">{{item.title}}</a>
+            </h2>
+            <p class="meta date">{{item.date_publication_start | date: 'shortDate'}}</p>
+        </li>
+
+        <!--B2C-->
+        <li ng-repeat="item in $ctrl.resources | orderBy: 'pubDate' | limitTo : 5" ng-if="$ctrl.repoType==='b2c'">
+            <figure ng-if="!item.isVideoContent">
+                <a href ui-sref="b2c-resource-center.category-details({category: item.categoryName, path:$ctrl.getUserFriendlyUrl(item.url)})"
+                   class="thumbnail" ng-style="{'background-image': 'url(' + item.image + ')'}">
+                    <img ng-src="{{item.thumb | addLocalRoot}}" ng-attr-alt="{{item.thumb}}">
+                </a>
+            </figure>
+            <figure ng-if="item.isVideoContent">
+                <a class="thumbnail" style="height: 79px;" ui-sref="b2c-resource-center.category-details({category: item.categoryName, path:$ctrl.getUserFriendlyUrl(item.url)})">
+                    <iframe width="640" height="79" ng-src="{{item.video | trustUrl}}" frameborder="0" allowfullscreen></iframe>
+                </a>
+            </figure>
+            <h2>
+                <a href ui-sref="b2c-resource-center.category-details({category: item.categoryName, path:$ctrl.getUserFriendlyUrl(item.url)})">{{item.title}}</a>
+            </h2>
+            <p class="meta date">{{item.date_publication_start | date: 'shortDate'}}</p>
+        </li>
+        
+        <!--About-->
+        <li ng-repeat="item in $ctrl.resources | orderBy: 'pubDate' | limitTo : 5" ng-if="$ctrl.repoType==='about'">
+            <figure ng-if="!item.isVideoContent">
+                <a href ui-sref="policy-blog-category.details({category: item.categoryName, path:$ctrl.getUserFriendlyUrl(item.url)})"
+                   class="thumbnail" ng-style="{'background-image': 'url(' + item.image + ')'}">
+                    <img ng-src="{{item.thumb | addLocalRoot}}" ng-attr-alt="{{item.thumb}}">
+                </a>
+            </figure>
+            <figure ng-if="item.isVideoContent">
+                <a class="thumbnail" style="height: 79px;" ui-sref="policy-blog-category.details({category: item.categoryName, path:$ctrl.getUserFriendlyUrl(item.url)})">
+                    <iframe width="640" height="79" ng-src="{{item.video | trustUrl}}" frameborder="0" allowfullscreen></iframe>
+                </a>
+            </figure>
+            <h2>
+                <a href ui-sref="policy-blog-category.details({category: item.categoryName, path:$ctrl.getUserFriendlyUrl(item.url)})">{{item.title}}</a>
+            </h2>
+            <p class="meta date">{{item.date_publication_start | date: 'shortDate'}}</p>
+        </li>
+    </ul>
+</div><!-- /widget -->

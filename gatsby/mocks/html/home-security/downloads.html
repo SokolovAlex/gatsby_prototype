@@ -1,0 +1,12 @@
+<div class="main">
+	<products-carousel ng-if="showMobile"></products-carousel>
+	<page-header show-breadcrumb="Yes" id="page-header"></page-header>
+	<downloads-promo resource="downloads-promo-below-header"></downloads-promo>
+	<featured-products></featured-products>
+	<downloads-promo></downloads-promo>
+	<products-carousel ng-if="!showMobile"></products-carousel>
+	<downloads-promo resource="downloads-promo-below-carousel"></downloads-promo>
+	<products-carousel resource="freetools-carousel"></products-carousel>
+	<secondary-list></secondary-list>
+	<software-docs></software-docs>
+</div>

@@ -1,0 +1,19 @@
+<div class="notification-wrapper world-map-background" ng-if="!$ctrl.bannerHidden && !$ctrl.overlayEnabled">
+	<div class="container">
+		<div class="notification-inner">
+			<notification-content ng-bind-html="$ctrl.data.notificationContent"></notification-content>
+
+			<div class="notification-ctas section-col-m-2 reset-l section-col-l-2">
+				<div class="btn-col">
+					<a class="button transparent" href="#" ng-click="$ctrl.closeNotification($event)">{{$ctrl.data.stayCTA}}</a>
+				</div>
+				<div class="btn-col">
+					<a class="button red" href="#" ng-click="$ctrl.applyOption($event)">{{$ctrl.regionObj.name || $ctrl.targetUrl.host}}</a>
+				</div>
+			</div>
+		</div>
+		
+		<a href="#" data-notification-type="{{$ctrl.regionObj.lang}}" class="notification-button notification-close" ng-click="$ctrl.closeNotification($event)">&#x2716;</a>
+	</div>
+</div>
+

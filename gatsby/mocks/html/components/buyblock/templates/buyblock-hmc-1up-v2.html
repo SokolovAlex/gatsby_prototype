@@ -1,0 +1,55 @@
+<div class="buy-block" ng-if="$ctrl.productPricesExist">
+    <form ng-submit="$event.preventDefault()">
+        <div class="detail" ng-if="$ctrl.selectedOption">
+            <p><span ng-if="!$ctrl.hidePack">{{$ctrl.selectedOption.pack}}, </span>{{$ctrl.selectedOption.term}}</p>
+        </div>
+        <div class="price">
+            <p data-test="buyblock-price--{{$ctrl.product.shortName}}">{{$ctrl.selectedOption.price | customCurrency}}{{$ctrl.disclaimerObj.asterisk}}</p>
+            <p class="price-old" ng-if="$ctrl.selectedOption.price_striked">
+                <span class="price-cut" ng-if="$ctrl.selectedOption.price_striked">{{$ctrl.selectedOption.price_striked | customCurrency}}{{$ctrl.disclaimerObj.asterisk}}</span>
+                <span class="price-saving" ng-if="$ctrl.getSavings('rate') && $ctrl.currentValue.price_striked" ng-bind-html="$ctrl.getSavings('rate')"></span>
+            </p>
+        </div>
+        <buyblock-user-account account-info-override="{{$ctrl.product.accountInfo}}"
+                               description-popup="{{$ctrl.product.accountDesc}}"
+                               label="{{$ctrl.product.userAccountText}}"
+                               count="$ctrl.selectedOption['user-accounts']"></buyblock-user-account>
+        <div class="form-element buttons">
+            <a  data-hmc-action="buy"
+                ng-href="{{$ctrl.buyLink}}"
+                ng-click="$ctrl.addSalesTrackingParameters(($event))"
+                data-omniture-sale-button-type="Buy"
+                data-omniture-product-name="{{$ctrl.productName}}"
+                data-test="buyblock-buy--{{$ctrl.product.shortName}}"
+                class="button red">{{hmcUI.hmcUIBuyNowText || $ctrl.buyblockData.buyText || "Buy Now"}}</a>
+        </div>
+
+        <a ng-if="$ctrl.product.shortName !== 'kisa' && $ctrl.hasTrialButton()"
+           ng-href="{{::$ctrl.product.freeTrialLink}}"
+           class="button transparent text-green full-width">
+            {{::$ctrl.buyblockData.tryFor}}
+        </a>
+        <a ng-if="$ctrl.product.shortName === 'kisa' && $ctrl.hasTrialButton()"
+           ng-href="{{::$ctrl.product.freeTrialLink}}"
+           class="button transparent text-green full-width">
+            {{::$ctrl.product.freeTrialText}}
+        </a>
+        <a ng-if="$ctrl.product.shortName === 'kisa' && $ctrl.stateName !== 'home-security' && $ctrl.product.bbSettings.downloadFromGplayLink"
+           style="display:block; text-align:center;"
+           ng-href="{{::$ctrl.product.bbSettings.downloadFromGplayLink}}"
+           class="green full-width"
+           target="_blank"
+           data-omniture-sale-button-type="Product Update Gplay">
+            <img ng-src="{{'content/en-global/images/download-badge-google-play.png' | addLocalRoot}}"
+                 alt="{{::$ctrl.product.bbSettings.downloadFromGplayText}}" title="{{::$ctrl.product.bbSettings.downloadFromGplayText}}">
+        </a>
+
+        <p ng-if="$ctrl.disclaimerObj.disclaimer" style="text-align:center;">{{$ctrl.disclaimerObj.disclaimer}}</p>
+    </form>
+</div><!-- /buy-block -->
+<div class="buy-block" ng-if="$ctrl.product.bbSettings.purchaseType != 'Free' && !$ctrl.productPricesExist">
+    <product-unavailable-block ng-switch="$ctrl.buyblockData.buyblock_not_available_msg.length > 0">
+        <product-unavailable-msg ng-switch-when="true" ng-bind-html="$ctrl.buyblockData.buyblock_not_available_msg"></product-unavailable-msg>
+        <p ng-switch-default>This product is currently unavailable in your region. Please <a href="/about/contact">contact us</a> for further details.</p>
+    </product-unavailable-block>
+</div><!-- /buy-block -->

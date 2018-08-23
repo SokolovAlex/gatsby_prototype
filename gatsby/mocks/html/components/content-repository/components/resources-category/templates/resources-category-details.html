@@ -1,0 +1,54 @@
+<header id="page-header" class="page-header repo-header">
+    <div class="container">
+        <div class="page-info">
+            <breadcrumb></breadcrumb>
+        </div>
+        <div class="page-headline" ng-if="!$ctrl.details.isVideoContent">
+            <h1 class="page-title" ng-bind-html="$ctrl.details.title"></h1>
+            <h2 ng-if="$ctrl.repoType === 'about'" class="page-desc">{{$ctrl.repoTranslations.publishedOn}} {{$ctrl.details.pubDate | date:mm/dd/yyyy}}</h4>
+            <h2 class="page-desc" ng-bind-html="$ctrl.titleSummary"></h2>
+        </div>
+        <div class="page-headline" ng-if="$ctrl.details.isVideoContent">
+            <resources-category-details-header page-description="{{$ctrl.details.title}}"
+            content-name="resources-category-details-header"></resources-category-details-header>
+        </div>
+    </div>
+</header>
+<section class="regular-section" ng-if="!$ctrl.details.isVideoContent">
+    <div class="container">
+        <div class="row">
+            <div class="content col-l-7 col-xl-8">
+                <figure class="featured-image" ng-if="$ctrl.showOriginalImage">
+                    <img ng-src="{{$ctrl.details.image}}" alt="{{$ctrl.details.image}}">
+                </figure>
+                <p ng-bind-html="$ctrl.updatedBody | html">{{$ctrl.updatedBody}}</p>
+                <p ng-if="$ctrl.details.link.link"><a class="button transparent icon-doc" ng-class="$ctrl.details.link.class.length ? $ctrl.details.link.class : 'icon-pdf'" href="{{$ctrl.details.link.link}}" target="_blank">{{$ctrl.details.link.text}}</a></p>
+                <social-sharing template="{{$ctrl.repoType === 'about' ? 'about' : ''}}" use-about-template="true"></social-sharing>
+            </div><!-- /content -->
+
+            <div class="sidebar col-l-5 col-xl-4">
+                <resources-article-sidebar repo-type="$ctrl.repoType" category="$ctrl.category"></resources-article-sidebar>
+            </div><!-- /sidebar -->
+        </div>
+    </div>
+</section>
+
+<section class="video-section" ng-if="$ctrl.details.isVideoContent">
+    <div class="container">
+        <div class="row">
+            <div class="video-item col-l-8">
+                <div class="video-container">
+                    <iframe width="640" height="360" ng-src="{{$ctrl.details.video | trustUrl}}" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <!--<h2>{{$ctrl.details.title}}</h2>-->
+                <p class="meta date">{{::$ctrl.repoTranslations.publishedOn || 'Published on'}} <strong>{{$ctrl.details.date_publication_start | date: 'shortDate'}}</strong></p>
+                <p>{{$ctrl.details.summary}}</p>
+
+                <social-sharing use-about-template="true"></social-sharing>
+            </div>
+            <aside class="sidebar col-l-4">
+                <video-side-bar></video-side-bar>
+            </aside>
+        </div>
+    </div>
+</section>

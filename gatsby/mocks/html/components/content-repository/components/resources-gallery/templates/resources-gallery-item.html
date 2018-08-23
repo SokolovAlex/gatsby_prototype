@@ -1,0 +1,53 @@
+<div class="item" ng-class="{'featured': $index === 0, 'grid-sizer': $index === 1 }"
+     ng-repeat="item in $ctrl.filteredResources" pagination-id="resourceCenterPagination">
+    <!--SMB-->
+    <div class="article" ng-if="$ctrl.repoType === 'smb'">
+        <figure><a href ui-sref="smb-resources-category({category:item.resource.resourceLink})" class="thumbnail" ng-style="{'background-image': 'url(' + item.resource.resourceImage + ')'}">
+                <img ng-src="{{item.resource.resourceImage | addLocalRoot}}" alt="{{item.resource.resourceImage}}">
+        </a>
+        </figure>
+        <h2><a href ui-sref="smb-resources-category({category:item.resource.resourceLink})"
+               ng-bind-html="item.resource.resourceSummary"></a>
+        </h2>
+        <p class="meta category"><a href ui-sref="smb-resources-category({category:item.resource.resourceLink})"
+                                    ng-bind-html="item.resource.resourceTitle"></a>
+        </p>
+    </div>
+    <!--VSB-->
+    <div class="article" ng-if="$ctrl.repoType === 'vsb'">
+        <figure><a href ui-sref="resources-category({category:item.resource.resourceLink})" class="thumbnail" ng-style="{'background-image': 'url(' + item.resource.resourceImage + ')'}">
+            <img ng-src="{{item.resource.resourceImage | addLocalRoot}}" alt="{{item.resource.resourceImage}}">
+        </a>
+        </figure>
+        <h2><a href ui-sref="resources-category({category:item.resource.resourceLink})"
+               ng-bind-html="item.resource.resourceSummary"></a>
+        </h2>
+        <p class="meta category"><a href ui-sref="resources-category({category:item.resource.resourceLink})"
+                                    ng-bind-html="item.resource.resourceTitle"></a>
+        </p>
+    </div>
+    <!--B2C-->
+    <div class="article" ng-if="$ctrl.repoType === 'b2c'">
+        <figure><a href ui-sref="b2c-resource-center.category({category:item.resource.resourceLink})" class="thumbnail" ng-style="{'background-image': 'url(' + item.resource.resourceImage + ')'}"><img
+                ng-src="{{item.resource.resourceImage | addLocalRoot}}" alt="item.resource.resourceImage"></a>
+        </figure>
+        <h2><a href ui-sref="b2c-resource-center.category({category:item.resource.resourceLink})"
+               ng-bind-html="item.resource.resourceSummary"></a></h2>
+        <p class="meta category">
+            <a href ui-sref="b2c-resource-center.category({category:item.resource.resourceLink})"
+               ng-bind-html="item.resource.resourceTitle"></a>
+        </p>
+    </div>
+    <!--About-->
+    <div class="article" ng-if="$ctrl.repoType === 'about'">
+        <figure><a href ui-sref="policy-blog-category({category:item.resource.resourceLink})" class="thumbnail" ng-style="{'background-image': 'url(' + item.resource.resourceImage + ')'}"><img
+                ng-src="{{item.resource.resourceImage | addLocalRoot}}" alt="item.resource.resourceImage"></a>
+        </figure>
+        <h2><a href ui-sref="policy-blog-category({category:item.resource.resourceLink})"
+               ng-bind-html="item.resource.resourceSummary"></a></h2>
+        <p class="meta category">
+            <a href ui-sref="policy-blog-category.category({category:item.resource.resourceLink})"
+               ng-bind-html="item.resource.resourceTitle"></a>
+        </p>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<section class="steps-section lrc-steps">
+    <div class="container divider">
+        <h3 class="section-title text-center">{{$ctrl.data.title}}</h3>
+        <div class="tab-nav tab-centered" ng-if="$ctrl.data.steps.length > 1">
+            <ul class="tabs tabs-title-wrapper reinit-slick" data-tab="license-tabs">
+                <li class="tab-title" ng-repeat="step in $ctrl.data.steps track by $index" ng-class="{'selected': $index == 0}">
+                    <a href="#{{step.tabName}}" ng-if="step.tabName">{{step.title}}</a>
+                </li>
+            </ul>
+            <div ng-if="step.title" class="tab-label">{{step.title}}</div>
+        </div>
+        <ul class="tab-content-wrapper" data-tab="license-tabs">
+            <li id="{{step.tabName}}" class="tab-content-single" ng-repeat="step in $ctrl.data.steps track by $index" ng-class="{'tab-show': $index == 0}">
+                <ol class="steps-list section-col-l-{{step.desc.length}}">
+                    <li ng-repeat="item in step.desc track by $index">
+                        <p ng-bind-html="item"></p>
+                    </li>
+                </ol>
+                <div class="previews-large gallery-slider-2 popup-gallery">
+                    <div ng-repeat="item in step.img track by $index">
+                        <a ng-href="{{item}}">
+                            <img ng-src="{{item | addLocalRoot}}" alt="{{item}}" />
+                        </a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>

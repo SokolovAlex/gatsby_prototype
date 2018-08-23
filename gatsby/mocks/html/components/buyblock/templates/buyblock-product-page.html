@@ -1,0 +1,155 @@
+<product-scripts-injector product-data="{{$ctrl.product | json:0}}" price-value="{{$ctrl.selectedOption | json:0}}" min="{{$ctrl.minValue}}"
+                          max="{{$ctrl.maxValue}}" cut-price="{{$ctrl.priceList | json:0}}"></product-scripts-injector>
+<div class="buy-box-wrapper" ng-if="!$ctrl.product.fullHtmlOverride">
+
+    <div class="cards-section" ng-if="$ctrl.type != 'short'" ng-bind-html="$ctrl.buyblockData.bbHeader">{{$ctrl.buyblockData.bbHeader | html}}</div>
+    <div class="buy-block" ng-if="$ctrl.productPricesExist">
+      <div id="spinner" class="uil-ring-css" ng-if="!$ctrl.isBBReady"></div>
+      <div ng-class="{'buyblock--not-ready': !$ctrl.isBBReady}">
+        <div class="promobox" ng-if="$ctrl.product.buyblockPromo" ng-bind-html="$ctrl.isBundleActive ? $ctrl.buyblockData.saveNow : $ctrl.product.buyblockPromo" data-test="buyblock-promoline--{{$ctrl.product.shortName}}"></div>
+        <div class="price divider">
+            <p data-test="buyblock-price--{{$ctrl.product.shortName}}">{{$ctrl.selectedOption.price | customCurrency}}{{$ctrl.disclaimerObj.asterisk}}</p>
+            <p class="price-old" ng-if="$ctrl.selectedOption.price_striked">
+                <span class="price-cut" data-test="buyblock-price-cut--{{$ctrl.product.shortName}}">{{$ctrl.selectedOption.price_striked | customCurrency}}{{$ctrl.disclaimerObj.asterisk}}</span>
+                <span class="price-saving" ng-if="$ctrl.getSavings('rate')" ng-bind-html="$ctrl.getSavings('rate')" data-test="buyblock-price-saving--{{$ctrl.product.shortName}}"></span>
+            </p>
+        </div>
+          <buyblock-user-account product-name="{{$ctrl.product.shortName}}"
+                                 account-info-override="{{$ctrl.product.accountInfo}}"
+                                 description-popup="{{$ctrl.product.accountDesc}}"
+                                 label="{{$ctrl.product.userAccountText}}"
+                                 count="$ctrl.selectedOption['user-accounts']"></buyblock-user-account>
+        <form>
+			<div class="tab-nav-small" ng-if="$ctrl.monthlyAvailable">
+				<ul class="tabs tabs-red tabs-fixed tabs-title-wrapper">
+					<li class="tab-title" ng-click="$ctrl.switchTerm('Month')" ng-class="{'selected': $ctrl.isActive('Month')}" data-test="buyblock-monthly--{{$ctrl.product.shortName}}">
+						<a href="">{{$ctrl.buyblockData.tabMonthly}}</a>
+					</li>
+					<li class="tab-title" ng-click="$ctrl.switchTerm('Year')" ng-class="{'selected': $ctrl.isActive('Year')}" data-test="buyblock-yearly--{{$ctrl.product.shortName}}">
+						<a href="">{{$ctrl.buyblockData.tabYearly}}</a>
+					</li>
+				</ul>
+			</div>
+            <div class="radio-group">
+              <div class="form-element radio" ng-repeat="radio in $ctrl.priceList | filter:$ctrl.radioFilter | filter:$ctrl.showTerm | limitTo:$ctrl.limitTo">
+                  <input  type="radio"
+                          ng-model="$ctrl.selectedID"
+                          ng-value='{{radio.id}}'
+                          id="{{$ctrl.$id}}-{{radio.product_id}}-{{radio.id}}"
+                          name="radio-item3"
+                          ng-change="$ctrl.setSelectedOption()">
+                  <label  for="{{$ctrl.$id}}-{{radio.product_id}}-{{radio.id}}"
+                          data-test="buyblock-option--{{$ctrl.product.shortName}}-{{$index}}-{{radio.autorenew}}">
+					  <span class="choose"><span ng-if="!$ctrl.hidePack">{{radio.pack}}</span> <span>{{radio.term}}</span></span>
+                      <span class="price">
+                          <span class="price-new">{{radio.price | customCurrency}}{{$ctrl.disclaimerObj.asterisk}}</span>
+                      </span>
+                  </label>
+              </div>
+            </div>
+            <div class="form-element checkbox text-center no-margin" ng-class="{selected: $ctrl.autorenew}" ng-if="$ctrl.showAR == 'true' && $ctrl.hideArCheckbox !== 'true'">
+                <label class="yes" data-test="buyblock-renewalchkbox--{{$ctrl.product.shortName}}">
+                    <input type="checkbox" checked="checked" ng-model="$ctrl.autorenew" ng-change="$ctrl.applyOption()" ng-click="$ctrl.registerOnce(true)">
+                    {{$ctrl.buyblockData.autoRenewal}}
+                </label>
+                <span ng-click="$ctrl.showARPopup()" class="font-icons icon-help tooltip" data-test="buyblock-renewal--{{$ctrl.product.shortName}}"></span>
+            </div>
+
+            <div class="bundle-container container" ng-if="$ctrl.hasBundle">
+              <label class="yes" data-test="buyblock-bundlecheckbox--{{$ctrl.product.shortName}}">
+                  <input type="checkbox" checked="checked" ng-model="$ctrl.bundlecheckbox" ng-change="$ctrl.handleBundleChange()">
+                  {{::$ctrl.product.bundleText}}
+              </label>
+              <div ng-bind-html="::$ctrl.product.bundleDesc"></div>
+            </div>
+            <div class="form-element buttons">
+                <div class="form-element buttons">
+                    <a ng-href="{{$ctrl.buyLink}}" ng-click="$ctrl.addSalesTrackingParameters($event)" data-omniture-sale-button-type="Buy" data-omniture-product-name="{{$ctrl.productName}}" data-test="buyblock-buy--{{$ctrl.product.shortName}}">
+                        <div class="button red">{{$ctrl.buyblockData.buyText}}</div>
+                    </a>
+                </div>
+                <a ng-hide="($ctrl.product.shortName === 'kpm'
+                            || $ctrl.product.shortName === 'ksec'
+                            || ($ctrl.product.shortName === 'kisa' && $ctrl.product.bbSettings.downloadFromGplayLink))
+                            || !$ctrl.hasTrialButton()"
+                   ng-href="{{$ctrl.product.freeTrialLink}}"
+                   class="button transparent text-green full-width"
+                   ng-attr-data-test="{{($ctrl.product.shortName === 'kpm'
+                            || $ctrl.product.shortName === 'ksec'
+                            || ($ctrl.product.shortName === 'kisa' && $ctrl.product.bbSettings.downloadFromGplayLink))
+                            || !$ctrl.hasTrialButton() ? undefined : 'buyblock-free-trial--' + $ctrl.product.shortName}}">{{$ctrl.buyblockData.tryFor}}</a>
+                <a ng-show="($ctrl.product.shortName === 'kpm' && $ctrl.product.freeTrialLink && $ctrl.product.template == '2' && $ctrl.hasTrialButton())"
+                   ng-href="{{$ctrl.product.freeTrialLink}}"
+                   ng-class="$ctrl.product.freeTrialButtonClass ? $ctrl.product.freeTrialButtonClass : 'button green full-width'"
+                   ng-attr-data-test="{{($ctrl.product.shortName === 'kpm'
+                                      && $ctrl.product.freeTrialLink && $ctrl.product.template == '2'
+                                      && $ctrl.hasTrialButton()) ? 'buyblock-free-trial--' + $ctrl.product.shortName : undefined}}">{{$ctrl.product.freeTrialText}}</a>
+
+                <a ng-if="$ctrl.product.shortName == 'ksec' && $ctrl.product.bbSettings.downloadFromGplayText"
+                   ng-click="$ctrl.navigateUserTo($ctrl.product.bbSettings.downloadFromGplayLink, $event, false, 60)"
+                   ng-attr-data-test="{{$ctrl.product.shortName == 'ksec' && $ctrl.product.bbSettings.downloadFromGplayText && 'buyblock-free-trial--' + $ctrl.product.shortName}}"
+                   class="button transparent text-green full-width">{{$ctrl.product.bbSettings.downloadFromGplayText}}</a>
+                <div class="text-center">
+                    <a ng-show="$ctrl.product.shortName == 'kpm' && $ctrl.product.template != '2'" ng-href="{{::$ctrl.product.bbSettings.downloadForPcLink}}"
+                       class="button green full-width" data-omniture-sale-button-type="Product Update Gplay" ng-attr-data-test="{{$ctrl.product.bbSettings.downloadForPcText && 'buyblock-pc-gplay--' + $ctrl.product.shortName}}">{{::$ctrl.product.bbSettings.downloadForPcText}}</a>
+                    <a ng-show="$ctrl.product.shortName == 'kpm' && $ctrl.product.template != '2'" ng-href="{{::$ctrl.product.bbSettings.downloadForMacLink}}"
+                       class="button green full-width" data-omniture-sale-button-type="Product Update Gplay" ng-attr-data-test="{{$ctrl.product.bbSettings.downloadForMacText && 'buyblock-mac-gplay--' + $ctrl.product.shortName}}">{{::$ctrl.product.bbSettings.downloadForMacText}}</a>
+
+                    <!-- button group -->
+                    <a ng-repeat-start="button in ::$ctrl.product.bbSettings.button_group track by $index"
+                       ng-href="{{::button.button_link}}"
+                       ng-class="button.button_classname !== undefined ? button.button_classname : 'button green full-width'"
+                       ng-attr-target="{{button.button_target !== undefined ? '_blank' : ''}}"
+                       ng-attr-title="{{button.button_text}}"
+                       ng-attr-data-test="{{button.button_text && 'buyblock-button-group--' + $ctrl.product.shortName}}"
+                       data-omniture-sale-button-type="{{::button.button_omniture_value}}">
+
+                       <btn-inner ng-switch="button.button_image !== undefined">
+                           <inner ng-switch-when="true"><img ng-attr-alt="{{::button.button_text}}" ng-src="{{::button.button_image}}"></inner>
+                           <inner ng-switch-default>{{::button.button_text}}</inner>
+                       </btn-inner>
+                    </a>
+
+                    <button-text ng-repeat-end ng-bind-html="button.button_paragraph"></button-text>
+
+                    <a ng-show="(($ctrl.product.shortName == 'kpm' && $ctrl.product.template != '2') || $ctrl.product.shortName == 'kisa' && $ctrl.product.bbSettings.downloadFromGplayLink) && $ctrl.product.otaInstall.otaEnabled[0] !== 'true'"
+                       ng-href="{{::$ctrl.product.bbSettings.downloadFromGplayLink}}" class="green full-width" target="_blank" data-omniture-sale-button-type="Product Update Gplay"
+                       ng-attr-data-test="{{$ctrl.product.bbSettings.downloadFromGplayLink && 'buyblock-pc-gplay--' + $ctrl.product.shortName}}">
+                        <img ng-src="{{'content/en-global/images/download-badge-google-play.png' | addLocalRoot}}"
+                             alt="{{::$ctrl.product.bbSettings.downloadFromGplayText}}" title="{{::$ctrl.product.bbSettings.downloadFromGplayText}}">
+                    </a>
+
+                    <a ng-show="$ctrl.product.shortName == 'kpm' && $ctrl.product.template != '2'"
+                       ng-href="{{::$ctrl.product.bbSettings.downloadFromIstoreLink}}" class="green full-width" target="_blank" data-omniture-sale-button-type="Product Update iStore"
+                       ng-attr-data-test="{{$ctrl.product.bbSettings.downloadFromIstoreLink && 'buyblock-mac-istore--' + $ctrl.product.shortName}}">
+                        <img ng-src="{{$ctrl.product.bbSettings.downloadFromIstoreLink && 'content/en-global/images/download-badge-app-store.png' | addLocalRoot}}"
+                             alt="{{::$ctrl.product.bbSettings.downloadFromIstoreText}}" title="{{::$ctrl.product.bbSettings.downloadFromIstoreText}}">
+                    </a>
+
+                    <over-the-air-install ng-if="$ctrl.product.otaInstall.otaEnabled[0] === 'true'" ota-data="{{$ctrl.product.otaInstall | json:0}}"></over-the-air-install>
+                </div>
+            </div>
+        </form>
+        <div class="buy-block-footer">
+            <p ng-if="$ctrl.type !== 'short' && $ctrl.locale !== 'ru-ru'">
+                <span>{{$ctrl.buyblockData.forExistingUsers}}</span>
+                <a href="/renewal-center/home" class="green" ng-attr-data-test="{{$ctrl.buyblockData.renew && 'buyblock-renew-link--' + $ctrl.product.shortName}}">{{$ctrl.buyblockData.renew}}</a>
+                <a ng-href="{{$ctrl.productInfo.updateLink}}" ng-hide="$ctrl.product.shortName == 'kpm'" ng-attr-data-test="{{$ctrl.buyblockData.update && 'buyblock-update-link--' + $ctrl.product.shortName}}">{{$ctrl.buyblockData.update}}</a>
+            </p>
+            <p ng-show="$ctrl.showMoreDevices && $ctrl.type !== 'short'">
+                <a class="more open-buyblock-popup" ng-click="$ctrl.moreDevicesPopup()" href="" ng-attr-data-test="{{$ctrl.showMoreDevices && $ctrl.type !== 'short' ? 'buyblock-more-devices--' + $ctrl.product.shortName : undefined}}">{{$ctrl.product.needMore || $ctrl.buyblockData.needMore}}</a>
+            </p>
+            <p ng-if="$ctrl.disclaimerObj.disclaimer" ng-bind-html="$ctrl.disclaimerObj.disclaimer|html"></p>
+        </div><!-- /buy-block-footer -->
+      </div>
+    </div><!-- /buy-block -->
+    <div class="buy-block" ng-if="!$ctrl.productPricesExist">
+        <product-unavailable-block ng-switch="$ctrl.buyblockData.buyblock_not_available_msg.length > 0">
+            <product-unavailable-msg ng-switch-when="true" ng-bind-html="$ctrl.buyblockData.buyblock_not_available_msg"></product-unavailable-msg>
+            <p ng-switch-default>This product is currently unavailable in your region. Please <a href="/about/contact">contact us</a> for further details.</p>
+        </product-unavailable-block>
+    </div>
+</div>
+<div class="buy-box-wrapper" ng-if="$ctrl.product.fullHtmlOverride" >
+    <div class="buy-block" ng-bind-html="$ctrl.product.fullHtmlOverride"></div>
+</div>

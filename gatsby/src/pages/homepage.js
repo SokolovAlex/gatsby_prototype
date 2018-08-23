@@ -1,20 +1,22 @@
 import React from 'react'
-import { FormattedMessage } from 'react-intl'
-import { withIntl, Link } from '../i18n'
-import HpLayout from '../components/homepage'
+import { withIntl } from '../i18n';
+import Layout from '../components/layout';
+import footer from '../components/footer/footer';
 
-const ThirdPage = () => (
-  <HpLayout>
-    <h1>
-      <FormattedMessage id="title2.subtitle" />
-    </h1>
-    <p>
-      <FormattedMessage id="welcome2" />
-    </p>
-    <Link to="/">
-      <FormattedMessage id="goback" />
-    </Link>
-  </HpLayout>
+// import siteBar from '../components/site-bar/site-bar'
+
+const ThirdPage = ({data}) => (
+    <Layout>
+        { footer(data.footerJson) }
+    </Layout>
 )
 
 export default withIntl(ThirdPage)
+
+export const pageQuery = graphql`
+  query FooterTemplate {
+    footerJson {
+        ...footerFragment
+    }
+  }
+`

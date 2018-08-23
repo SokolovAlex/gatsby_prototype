@@ -1,0 +1,97 @@
+<section id="site-footer" class="site-footer compact" ng-show="$ctrl.smallFooter">
+    <div class="container">
+        <div ng-if="$ctrl.data.footerTop.length > 0" ng-bind-html="::$ctrl.data.footerTop"></div>
+
+        <div class="footer-links">
+            <footer>
+                <links>
+                    <content>
+                        <p class="copy">
+                            &copy;&nbsp;{{$ctrl.year | date:'yyyy'}}
+                            <span ng-if="$ctrl.isB2B" ng-bind-html="$ctrl.data.copyright | html"></span>
+                            <span ng-if="!$ctrl.isB2B" ng-bind-html="$ctrl.generalFooterData.copyright | html"></span>
+                        </p>
+                    </content>
+                </links>
+            </footer>
+            <ul class="featured-pages">
+                <li ng-repeat="link in $ctrl.data.shortViewLinks"><a
+                        ng-attr-target="{{link.isExternal=='Yes' ? '_blank' : undefined}}" href="{{link.link}}">{{link.text}}</a>
+                </li>
+                <li ng-if="$ctrl.displayRssLink"><a ui-sref="{{ $ctrl.data.rssLink.link || 'rss-feeds' }}">{{
+                    $ctrl.data.rssLink.text || 'RSS Feeds'}}</a></li>
+            </ul>
+        </div>
+        <div class="footer-secondary">
+            <div class="social-links">
+                <a ng-repeat="item in $ctrl.generalFooterData.socialIcons track by $index" href="{{item.link}}"
+                   target="_blank" class="social">
+                    <i class="font-icons" ng-class="item.icon"></i>
+                </a>
+            </div>
+            <form action="#">
+                <p class="mobile-label">{{$ctrl.generalFooterData.mobileLabel}}</p>
+                <div class="country-selector-button font-icons" ng-click="$ctrl.toggleSelector($event)">
+                    <p>{{$ctrl.cCountry}}</p>
+                    <span class="arrow"></span>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<section id="site-footer" class="site-footer" ng-show="$ctrl.bigFooter">
+    <div class="container">
+        <div class="footer-links">
+            <div class="featured-pages">
+                <ul>
+                    <li ng-repeat="block in $ctrl.data.leftSetOfBlocks">
+                        <h3 ng-bind-html="block.title"></h3>
+                        <p>{{block.description}}</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="contact-pages">
+                <ul class="right">
+                    <li class="contact-block">
+                        <h3 ng-bind-html="$ctrl.data.contactUsBlock.title"></h3>
+                        <p ng-bind-html="$ctrl.data.contactUsBlock.description"></p>
+                    </li>
+                    <li class="lab-shop-block" ng-if="$ctrl.data.footerRightSideBlock">
+                        <h3 ng-bind-html="$ctrl.data.footerRightSideBlock.title"></h3>
+                        <p ng-bind-html="$ctrl.data.footerRightSideBlock.description"></p>
+                    </li>
+                    <li class="site-footer-social-icons">
+                        <h3 ng-bind-html="$ctrl.generalFooterData.socialBlockHeading"></h3>
+                        <div>
+                            <a ng-repeat="item in $ctrl.generalFooterData.socialIcons track by $index" href="{{item.link}}" target="_blank" class="social">
+                                <i class="font-icons" ng-class="item.icon"></i>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <footer>
+            <links>
+                <content>
+                    <p class="copy">
+                        &copy;&nbsp;{{$ctrl.year | date:'yyyy'}}
+                        <span ng-bind-html="$ctrl.generalFooterData.copyright">{{$ctrl.generalFooterData.copyright | html}}</span>
+                    </p>
+                </content>
+            </links>
+            <div class="country-selector-button font-icons" ng-click="$ctrl.toggleSelector($event)">
+                <p>{{$ctrl.cCountry}}</p>
+                <span class="arrow"></span>
+            </div>
+        </footer>
+    </div>
+</section>
+
+<section class="footer-selector">
+    <div class="container">
+        <a href="#" class="close-selector" ng-click="$ctrl.closeSelector($event)"><i class="font-icons icon-cancel"></i></a>
+        <div class="section-col-l-4 reset-l country-list" ng-bind-html="$ctrl.cSelector | html"></div>
+    </div>
+</section>

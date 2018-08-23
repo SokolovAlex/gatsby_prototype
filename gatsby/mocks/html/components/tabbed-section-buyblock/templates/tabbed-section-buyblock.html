@@ -1,0 +1,42 @@
+<section class="regular-section">
+    <div class="container">
+        <div class="row">
+            <div class="content col-l-7 col-xl-8">
+                <div class="tab-nav">
+                    <ul class="tabs tabs-title-wrapper" data-tab="top-tabs">
+                        <li ng-if="$first" ng-repeat="tab in $ctrl.data.tabs" class="tab-title selected"><a href="#tab-{{tab.tabTitle}}">{{tab.tabTitle}}</a></li>
+                        <li ng-if="$index != 0" ng-repeat="tab in $ctrl.data.tabs" class="tab-title"><a href="#tab-{{tab.tabTitle}}">{{tab.tabTitle}}</a></li>
+                    </ul>
+                </div>
+                <ul class="tab-content-wrapper" data-tab="top-tabs">
+                    <li ng-if="$first" ng-repeat="tab in $ctrl.data.tabs" id="tab-{{tab.tabTitle}}" class="tab-content-single tab-show">
+                        <div ng-bind-html="tab.tabTextBlock"></div>
+                        <ul ng-if="tab.accordions != null"  class="accordion-section">
+                            <li ng-repeat="accordion in tab.accordions" class="accordion-wrapper">
+                                <h4>{{accordion.header}}</h4>
+                                <div class="accordion-content">
+                                    <div ng-bind-html="accordion.content"></div>
+                                </div>
+                            </li>
+                        </ul><!-- /accordion-section -->
+                    </li>
+                    <li ng-if="$index != 0" ng-repeat="tab in $ctrl.data.tabs" id="tab-{{tab.tabTitle}}" class="tab-content-single">
+                        <div ng-bind-html="tab.tabTextBlock"></div>
+                        <ul ng-if="tab.accordions != null"  class="accordion-section">
+                            <li ng-repeat="accordion in tab.accordions" class="accordion-wrapper">
+                                <h4>{{accordion.header}}</h4>
+                                <div class="accordion-content">
+                                    <div ng-bind-html="accordion.content"></div>
+                                </div>
+                            </li>
+                        </ul><!-- /accordion-section -->
+                    </li>
+                </ul>
+            </div><!-- /content -->
+            
+            <!--PRODUCT SIDEBAR PLACEHOLDER-->
+            <product-sidebar></product-sidebar><!-- /sidebar -->
+            <!--PRODUCT SIDEBAR PLACEHOLDER-->
+        </div>
+    </div>
+</section>

@@ -1,0 +1,26 @@
+<li class="first">
+	<ul class="featured featured-big">
+		<li class="title"><h6>Products & Services</h6></li>
+		<li>
+			<figure><a ng-href="{{item.megaMenuItem.product[0].prodPageLink}}"><img ng-src="{{item.megaMenuItem.product[0].smallBoxShot}}" alt="product-box-KSOS" /></a></figure>
+			<a ng-href="{{item.megaMenuItem.product[0].prodPageLink}}"><span class="surtitle">{{item.megaMenuItem.product[0].prodKasperskyTitle}}</span>{{item.megaMenuItem.product[0].prodMainTitle}}</a>
+			<div class="desc">
+				<p ng-bind-html="item.megaMenuItem.product[0].shortDesc"></p>
+				<p><a ng-href="{{item.megaMenuItem.product[0].learnMoreLink}}">{{item.megaMenuItem.product[0].learnMoreText}}</a> /
+				<a ng-href="{{item.megaMenuItem.product[0].freeTrialLink}}">{{item.megaMenuItem.product[0].freeTrialText}}</a></p>
+			</div>
+		</li>
+	</ul>
+</li>
+<li>
+	<ul class="featured featured-small">
+		<li ng-repeat="product in item.megaMenuItem.product" ng-if="!$first">
+			<figure><a ng-href="{{product.prodPageLink}}"><img ng-src="{{product.prodIcon | addLocalRoot}}" alt="product-icon-core" /></a></figure>
+			<a ng-href="{{product.prodPageLink}}">{{product.prodAddTitle}}</a>
+			<div class="desc">
+				<p ng-bind-html="product.prodMainTitle"></p>
+				<p><a ng-href="{{product.learnMoreLink}}">{{product.learnMoreText}}</a> / <a ng-href="{{product.freeTrialLink}}">{{product.freeTrialText}}</a></p>
+			</div>
+		</li>
+	</ul>
+</li>

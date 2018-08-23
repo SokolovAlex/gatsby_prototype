@@ -1,0 +1,55 @@
+<div id="buyblock-popup-{{ngDialogData.$id}}" class="buy-block-popup">
+    <div class="container">
+        <div class="buy-box-wrapper">
+            <div class="buy-block">
+                <div class="price divider">
+                    <p>{{ngDialogData.selectedOption.price | customCurrency}}{{ngDialogData.disclaimerObj.asterisk}}</p>
+                    <p class="price-old" ng-if="ngDialogData.selectedOption.price_striked">
+                        <span class="price-cut">{{ngDialogData.selectedOption.price_striked | customCurrency}}{{ngDialogData.disclaimerObj.asterisk}}</span>
+                        <span class="price-saving" ng-if="$ctrl.getSavings('rate')" ng-bind-html="$ctrl.getSavings('rate')"></span>
+                    </p>
+                </div>
+                <buyblock-user-account account-info-override="{{$ctrl.product.accountInfo}}"
+                                       description-popup="{{$ctrl.product.accountDesc}}"
+                                       label="{{$ctrl.product.userAccountText}}"
+                                       count="$ctrl.selectedOption['user-accounts']"></buyblock-user-account>
+                <form>
+                    <div class="radio-group">
+                      <div class="form-element radio" ng-repeat="radio in ngDialogData.priceList | filter: {'autorenew': ngDialogData.autorenew}">
+                              <input  type="radio"
+                                      ng-model="ngDialogData.selectedID"
+                                      ng-value='{{radio.id}}'
+                                      id="{{ngDialogData.$id}}-{{radio.product_id}}-{{radio.id}}"
+                                      name="radio-item3"
+                                      ng-change="ngDialogData.setSelectedOption()">
+                              <label  for="{{ngDialogData.$id}}-{{radio.product_id}}-{{radio.id}}"
+                                      data-test="buyblock-option--{{$ctrl.product.shortName}}-{{$index}}-{{radio.autorenew}}">
+                              <span class="choose">{{radio.pack}} <span>{{radio.term}}</span></span>
+                              <span class="price">
+                                  <span class="price-new">{{radio.price | customCurrency}}{{ngDialogData.disclaimerObj.asterisk}}</span>
+                              </span>
+                          </label>
+                      </div>
+                    </div>
+                    <div class="form-element checkbox text-center no-margin" ng-class="{selected: ngDialogData.autorenew}" ng-if="ngDialogData.showAR == 'true' && ngDialogData.hideArCheckbox !== 'true'" ng-click="ngDialogData.registerOnce()">
+                        <label class="yes" data-test="buyblock-renewalchkbox--{{$ctrl.product.shortName}}">
+                            <input type="checkbox" checked="checked" ng-model="ngDialogData.autorenew" ng-change="ngDialogData.applyOption()" ng-click="ngDialogData.registerOnce(true)">
+                            {{ngDialogData.buyblockData.autoRenewal}}
+                        </label>
+                        <span ng-click="ngDialogData.showARPopup()" class="font-icons icon-help tooltip" data-test="buyblock-renewal--{{$ctrl.product.shortName}}"></span>
+                    </div>
+                    <div class="form-element buttons">
+                        <a ng-if="ngDialogData.locale != 'en-us'" ng-href="{{ngDialogData.buyLink}}" ng-if="" ng-click="ngDialogData.addSalesTrackingParameters($event)" data-omniture-sale-button-type="Buy" data-omniture-product-name="{{ngDialogData.productName}}">
+                            <div class="button red">{{::ngDialogData.buyButtonText || ngDialogData.buyblockData.buyText}}</div>
+                        </a>
+
+                        <a ng-if="ngDialogData.locale === 'en-us'" ng-href="{{ngDialogData.buyLink}}" ng-click="ngDialogData.addSalesTrackingParameters(($event))" data-omniture-sale-button-type="Buy" data-omniture-product-name="{{ngDialogData.productName}}">
+                            <div class="button" ng-class="{'green': ngDialogData.highlightButton != 'true', 'red': ngDialogData.highlightButton == 'true'}">{{::ngDialogData.buyButtonText || ngDialogData.buyblockData.buyText}}</div>
+                        </a>
+                    </div>
+                    <p ng-if="ngDialogData.disclaimerObj.disclaimer" style="text-align:center;">{{ngDialogData.disclaimerObj.disclaimer}}</p>
+                </form>
+            </div><!-- /buy-block -->
+        </div> <!-- /buy-block wrapper -->
+    </div>
+</div>

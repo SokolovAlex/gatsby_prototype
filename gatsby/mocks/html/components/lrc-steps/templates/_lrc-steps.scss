@@ -1,0 +1,76 @@
+/***************************************
+	Steps
+***************************************/
+
+.lrc-steps {
+  .steps-list {
+    counter-reset: item;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+
+    > li {
+      display: block;
+      margin: 0 3% 0 0;
+      padding: .5em 1.5em .5em 4em;
+
+      &:before {
+        float: left;
+        margin-left: -2em;
+        width: 1.6em;
+        font-size: 2em;
+        text-align: right;
+        font-weight: 100;
+        color: #bbb;
+        content: counter(item);
+        padding-right: 0;
+      }
+
+      p {
+        font-size: .875em;
+      }
+    }
+  }
+}
+
+.main {
+  > {
+    *:last-child {
+      .steps-section {
+        .container {
+          &.divider {
+            border-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Some stuff related to LOST DAYS */
+.disclaimer-text {
+  border: 1px solid rgba(85, 85, 85, .2);
+  color: #666;
+  padding: 2em;
+}
+
+@include media(769px) {
+  .lrc-steps {
+    .steps-list {
+      > li {
+        padding-left: 4em;
+        border-left: 1px solid #eee;
+
+        &:before {
+          width: 1.6em;
+          margin-left: -2em;
+        }
+
+        &:nth-child(3n-2) {
+          border-left: 0;
+        }
+      }
+    }
+  }
+}

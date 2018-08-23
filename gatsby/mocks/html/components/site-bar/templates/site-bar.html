@@ -1,0 +1,6 @@
+<section class="notification-bar" ng-class="$ctrl.data.colour" ng-if="$ctrl.data.active === 'Yes' && $ctrl.showSitebar">
+	<div class="container">
+		<div class="notification-bar-content" ng-bind-html="$ctrl.data.desc"></div>
+		<div class="close" ng-click="$ctrl.closeBar()">&#10006;&#xFE0E;</div>
+	</div>
+</section>

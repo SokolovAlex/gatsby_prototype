@@ -1,0 +1,98 @@
+<header id="page-header" class="page-header">
+    <div class="container">
+        <div class="page-info">
+			<ul class="quick-menu">
+				<callback-form></callback-form>
+			</ul>
+            <breadcrumb ng-if="$ctrl.data.hideBreadcrumbs != 'Yes'"></breadcrumb>
+        </div>
+        <div class="page-headline">
+            <h3 class="page-surtitle">{{$ctrl.productInfo.prodKasperskyTitle}}</h3>
+            <h1 class="page-title" ng-if="!$ctrl.productInfo.prodAddTitle">{{$ctrl.productInfo.prodMainTitle}}</h1>
+            <h1 class="page-title" ng-if="$ctrl.productInfo.prodAddTitle">{{$ctrl.productInfo.prodMainTitle}} | {{$ctrl.productInfo.prodAddTitle}}</h1>
+        </div>
+    </div>
+</header>
+
+<section class="downloads-section product-updates-section">
+    <div class="container">
+        <p ng-bind-html="$ctrl.productInfo.description|html"></p>
+        <p ng-bind-html="$ctrl.data.gdprDesc|html"></p>
+
+        <div class="dl-table" ng-repeat="products in $ctrl.downloadData track by $index">
+            <div ng-repeat="product in products track by $index">
+                <div class="table-head" ng-if="product">
+                    <div class="row">
+                        <h2 class="col-l-6 product-name" ng-if="$first" ng-bind-html="product.name|html">{{product.name}}</h2>
+
+                        <div class="ng-scope col-l-6 select-region text-right" ng-if="$ctrl.showDownloadLocale && $ctrl.isGlobalLocale()">
+                            <div class="cell col-l-6">
+                                <p>
+                                    <span>Select your Region:</span>
+                                </p>
+                            </div>
+                            <div class="cell col-l-6">
+                                <div class="form-element">
+                                    <select ng-model="$ctrl.downloadLocale" ng-options="locale as locale.name for locale in $ctrl.downloadLocales"
+                                            ng-change="$ctrl.changeRegion($ctrl.downloadLocale)">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row no-gutter">
+                        <div class="cell">
+                            <p>{{product.linkLabel}}</p>
+                        </div>
+                    </div><!-- /row -->
+                </div>
+                <div class="row no-gutter" ng-repeat="package in product.groups track by $index">
+                    <div class="cell col-l-6">
+                        <p>
+                            <!-- update builds -->
+                            <span ng-if="package.release_version.major">{{$ctrl.data.versionText}} {{package.release_version.major}} ({{package.release_version.major}}.{{package.release_version.minor}}.{{package.release_version.build}}{{package.release_version.subrevision}})</span>
+                            <!-- platform -->
+                            <span ng-if="package.platform_group_name"> {{ $ctrl.translations.dlForText || 'for' }} {{package.platform_group_name}}</span>
+                            <!-- package -->
+                            <span ng-if="!package.release_version.major && package.display_name">{{package.platform_group_loc_name || package.display_name}}</span>
+                            <span ng-if="package.release_version.major && package.display_name">({{package.platform_group_loc_name || package.display_name}})</span>
+                            <!-- release notes -->
+                            <span ng-if="!package.release_version.major && !package.display_name">{{$ctrl.data.releaseNotesText}}</span>
+                        </p>
+                    </div>
+                    <div class="cell" ng-class="$ctrl.data.gdprIcon ? 'col-l-5' : 'col-l-6'">
+                        <div class="form-element" ng-class="$ctrl.data.gdprIcon ? 'col-l-7' : 'col-l-8'">
+                            <select ng-model="item"
+                                    ng-init="item = $ctrl.displayDropdownDefault(package.downloads)">
+                                <option  ng-selected="{{local.language_with_sublocale == $ctrl.languageLocalNameDefault}}"
+                                         ng-repeat="local in package.downloads | filter: $ctrl.displayDropdownOption" value="{{local.download_url}}">{{local.alphabet_loc_name != null && !$ctrl.isCNLocale() ? local.alphabet_loc_name + ' ' : ''}}{{local.language_loc_name}}</option>
+                            </select>
+                        </div>
+                        <div class="form-element buttons col-l-4">
+                            <a
+                              ng-attr-data-omniture-product-name="{{product.display_omniture ? product.name : undefined}}"
+                              data-omniture-download-url="{{product.name === 'Kaspersky Internet Security for Android' && $ctrl.data.KISAndroidBuildUrl ? $ctrl.data.KISAndroidBuildUrl : item}}"
+                              ng-attr-data-omniture-download-button-type="{{product.display_omniture ? product.link_type : undefined}}"
+                              class="button red desktop-only"
+                              ng-click="$ctrl.geoIPOverrideForProductUpdates(package,product.name,item,$event)"
+                              ng-attr-target="{{product.name === 'Kaspersky Internet Security for Android' && $ctrl.data.KISAndroidBuildUrl ? '_blank' : product.display_omniture ? '' : '_blank'}}">{{$ctrl.data.buttonText}}</a>
+                            <a ng-attr-data-omniture-product-name="{{product.display_omniture ? product.name : undefined}}"
+                               data-omniture-download-url="{{product.name === 'Kaspersky Internet Security for Android' && $ctrl.data.KISAndroidBuildUrl ? $ctrl.data.KISAndroidBuildUrl : item}}"
+                               ng-attr-data-omniture-download-button-type="{{product.display_omniture ? product.link_type : undefined}}"
+                               class="button red mobile-only"
+                               ng-click="$ctrl.geoIPOverrideForProductUpdates(package,product.name,item,$event)"
+                               ng-attr-target="{{product.name === 'Kaspersky Internet Security for Android' && $ctrl.data.KISAndroidBuildUrl ? '_blank' : product.display_omniture ? '' : '_blank'}}">{{$ctrl.data.buttonText}}</a>
+                        </div>
+                    </div>
+					<div ng-if="$ctrl.data.gdprProducts && $ctrl.data.gdprProducts.indexOf($parent.$parent.$index) > -1 &&
+								$ctrl.data.gdprProdDist[$parent.$parent.$index].indexOf($index) > -1 && $parent.$index === 0" class="icon-gdpr">
+						<figure><img ng-src="{{$ctrl.data.gdprIcon | addLocalRoot}}" alt="GDPR_icon" /></figure>
+					</div>
+                </div><!-- /row -->
+            </div>
+            <br>
+        </div><!-- /dl-table -->
+
+        <bottom-note ng-bind-html="$ctrl.data.bottomNote|html">{{$ctrl.data.bottomNote}}</bottom-note>
+    </div>
+</section>

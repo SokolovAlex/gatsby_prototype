@@ -1,0 +1,136 @@
+<a id="compare-section" class="offset"></a>
+<section class="compare-section">
+    <div class="container">
+        <h3 class="section-title" ng-if="$ctrl.header.header">{{$ctrl.header.header}}</h3>
+
+        <ul class="comparison-nav" data-comparison-chart="v1">
+            <li class="nav-prev">
+                <a href="#" class="product-title" data-comparison-nav-direction="prev"></a>
+            </li>
+            <li class="nav-next">
+                <a href="#" class="product-title" data-comparison-nav-direction="next">
+                    <span class="surtitle" ng-bind-html="$ctrl.data[1].prodKasperskyTitle"></span>{{$ctrl.data[1].prodMainTitle}}<span class="subtitle">{{$ctrl.data[1].prodAddTitle}}</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="comparison-chart chart-{{$ctrl.data.length}}up featured-col-{{$ctrl.data.length+1}}" data-comparison-chart="v1" data-comparison-default="column-2">
+            <div class="row-header">
+                <div class="row-item">
+                    <div class="column-1">
+                    </div><!-- /column-1 -->
+                    <div ng-repeat="product in $ctrl.data" class="column-product column-{{$index+2}}" data-column="{{$index+2}}">
+                        <div class="product-item product-small">
+                            <div class="promoline" ng-show="$last && $ctrl.buyblockData.promoline"><p ng-bind-html="$ctrl.isBundleActive && product.shortName === $ctrl.bundleProductName ? $ctrl.buyblockData.saveNow : $ctrl.buyblockData.promoline"></p></div>
+                            <!--<buyblock-dropdown product-name="{{product.shortName}}"></buyblock-dropdown>-->
+                            <buyblock-radio
+                                    ng-if="$ctrl.locale !== 'en-us'"
+                                    set-buyblock-value-by-product="$ctrl.setBuyblockValueByProduct(product,term,pack,autorenew)"
+                                    template="b2c-homepage"
+                                    product-name="{{product.shortName}}"
+                                    compare="true"
+                                    component="{{$ctrl.component}}"></buyblock-radio>
+                            <buyblock-radio
+                                    ng-if="$ctrl.locale === 'en-us'"
+                                    set-buyblock-value-by-product="$ctrl.setBuyblockValueByProduct(product,term,pack,autorenew)"
+                                    template="v101"
+                                    product-name="{{product.shortName}}"
+                                    compare="true"
+                                    purchase-type="Purchase"
+                                    selected-term="{{$ctrl.term}}"
+                                    hide-ar="true"
+                                    component="{{$ctrl.component}}"></buyblock-radio>
+                            <!-- /buy-block -->
+                        </div>
+                    </div>
+                </div><!-- /row-item -->
+            </div><!-- /row-header -->
+
+            <div class="row-body" ng-if="$ctrl.data.features" ng-bind-html="$ctrl.data.features | html"></div>
+            <div class="row-body" id="compare" ng-if="!$ctrl.data.features">
+                <div class="row-group">
+                    <div class="row-item" ng-repeat="feature in $ctrl.featureSet">
+                        <div class="column-1">
+                            <div class="product-feature show-icon">
+                                <figure>
+                                    <img ng-src="{{feature.image | addLocalRoot}}" alt="{{feature.name}}" title="{{feature.name}}" />
+                                    <div class="font-icons"></div>
+                                </figure>
+                                <div class="feature-desc">
+                                    <p>{{feature.name}}<span>{{feature.description}}</span></p>
+                                </div>
+                            </div>
+                        </div><!-- /column-1 -->
+                        <div ng-repeat="product in $ctrl.data" ng-class="'column-'+($index+2)" class="column-product">
+                            <div ng-class="{'feature-checked': (product.productFeatures | filter:{name: feature.name}).length}" class="product-feature show-icon">
+                                <figure>
+                                    <img ng-if="(product.productFeatures | filter:{name: feature.name}).length" ng-src="{{feature.image | addLocalRoot}}" alt="{{feature.name}}" title="{{feature.name}}" />
+                                    <div class="font-icons"></div>
+                                </figure>
+                                <div class="feature-desc">
+                                    <p>{{feature.name}}<span>{{feature.description}}</span></p>
+                                </div>
+                            </div>
+                        </div><!-- /column-2 -->
+                    </div><!-- /row-item -->
+                </div>
+            </div><!-- /row-body -->
+
+            <div class="row-footer">
+                <div class="row-item">
+                    <div class="column-1"></div><!-- /column-1 -->
+                    <div ng-repeat="product in $ctrl.data" ng-class="'column-'+($index+2)" class="column-product">
+                        <div class="product-item product-small product-footer">
+                            <header class="divider">
+                                <figure>
+									<a ng-href="{{product.prodPageLink}}">
+										<img ng-src="{{product.fullSizeImage | addLocalRoot}}" alt="{{product.title}}" title="{{product.title}}" data-test="buyblock-box--{{product.shortName}}" />
+									</a>
+								</figure>
+                                <h2 class="product-title">
+                                    <a ng-class="{ 'feat' : $last}" ng-href="{{product.prodPageLink}}">
+                                        <span class="surtitle" ng-bind-html="product.prodKasperskyTitle"></span>
+                                        <span>{{product.prodMainTitle}}</span>
+                                        <span class="subtitle" ng-if="product.prodAddTitle">{{product.prodAddTitle}}</span>
+                                    </a>
+                                </h2>
+                            </header>
+                            <buyblock-radio
+                                    value-to-set="$ctrl.bbData[product.shortName]"
+                                    product-name="{{product.shortName}}"
+                                    template="one-price"
+                                    purchase-type="Purchase"
+                                    hide-price-disclaimer="true"
+                                    selected-term="{{$ctrl.term}}"
+                                    component="{{$ctrl.component}}">
+                            </buyblock-radio>
+                            <!-- /buy-block -->
+                        </div>
+                    </div><!-- /column-2 -->
+                </div><!-- /row-item -->
+            </div><!-- /row-footer -->
+
+            <div id="disclaimer" ng-if="$ctrl.header.compareDisclaimer != null" class="row-body">
+                <div class="row-group">
+                    <div class="row-item disclaimer">
+                    	<div class="column-1">
+                        	<div class="product-feature" ng-bind-html="$ctrl.header.compareDisclaimer">{{$ctrl.header.compareDisclaimer | html}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /comparison-chart -->
+
+        <ul class="comparison-nav" data-comparison-chart="v1">
+            <li class="nav-prev">
+                <a href="#" class="product-title" data-comparison-nav-direction="prev"></a>
+            </li>
+            <li class="nav-next">
+                <a href="#" class="product-title" data-comparison-nav-direction="next">
+                    <span class="surtitle" ng-bind-html="$ctrl.data[1].prodKasperskyTitle"></span>{{$ctrl.data[1].prodMainTitle}}<span class="subtitle">{{$ctrl.data[1].prodAddTitle}}</span>
+                </a>
+            </li>
+        </ul>
+
+    </div>
+</section>

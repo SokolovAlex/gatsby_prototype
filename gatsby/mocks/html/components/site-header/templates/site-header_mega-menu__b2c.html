@@ -1,0 +1,29 @@
+<li class="first">
+	<ul class="featured featured-b2c section-col-l-3 no-gutter">
+		<li ng-repeat="product in item.megaMenuItem.product" ng-class="{'promo-menu-item': product.promoM == 'True'}">
+			<span class="label red" ng-if="product.promoM == 'True' && $ctrl.generalData.new">{{$ctrl.generalData.new}}</span>
+			<!--<div class="thumb" style="background-image:url({{product.fullSizeImage | addLocalRoot}})"></div>-->
+			<a ng-href="{{product.prodPageLink}}"><span class="surtitle" ng-bind-html="product.prodKasperskyTitle"></span>{{product.prodMainTitle}}<span class="subtitle" ng-show="product.prodAddTitle">{{product.prodAddTitle}}</span></a>
+			<div class="desc">
+				<p ng-bind-html="product.overrideProdDescNav || product.shortDesc"></p>
+				<p><a ng-href="{{product.learnMoreLink}}">{{product.learnMoreText}}</a> / <a ng-href="{{product.freeTrialLink}}">{{product.freeTrialText}}</a></p>
+			</div>
+		</li>
+
+	</ul>
+</li>
+<li ng-if="item.megaMenuItem.hasCustomHtmlSideBlock[0] !== 'true'">
+	<ul class="regular">
+		<li ng-if="item.megaMenuItem.mega_menu_secondary_nav.secondary_nav_side_title" class="title">
+			<h6>{{item.megaMenuItem.mega_menu_secondary_nav.secondary_nav_side_title}}</h6>
+			<p ng-if="item.megaMenuItem.mega_menu_secondary_nav.secondary_nav_side_subtitle">{{item.megaMenuItem.mega_menu_secondary_nav.secondary_nav_side_subtitle}}</p>
+		</li>
+		<li ng-repeat="item in item.megaMenuItem.mega_menu_secondary_nav.secondary_nav_side_links" ng-hide="item.text == 'Kaspersky Secure Connection' && $ctrl.isVPN">
+			<a ng-href="{{item.link}}">
+				{{item.text}}
+				<small class="tag" ng-if="item.new">{{item.new}}</small>
+			</a>
+		</li>
+	</ul>
+</li>
+<li ng-if="item.megaMenuItem.hasCustomHtmlSideBlock[0] === 'true'" ng-bind-html="item.megaMenuItem.megaSideBlock1|html">{{item.megaMenuItem.megaSideBlock1}}</li>

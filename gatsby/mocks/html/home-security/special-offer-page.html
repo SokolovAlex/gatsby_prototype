@@ -1,0 +1,18 @@
+<div class="main">
+    <page-header show-breadcrumb="Yes" id="page-header"></page-header>
+    <section class="post-section active">
+        <div class="container divider-top">
+            <div class="row invert-columns">
+                <div class="content col-l-8 col-xl-9" ng-bind-html="$ctrl.offerData.body"></div><!-- /content -->
+
+                <aside class="sidebar col-l-4 col-xl-3">
+                    <div class="widget post-info">
+                        <div ng-if="$ctrl.offerData.targetedAt" ng-bind-html="$ctrl.offerData.targetedAt"></div>
+                        <div ng-if="$ctrl.offerData.dates" ng-bind-html="$ctrl.offerData.dates"></div>
+                        <div ng-if="$ctrl.offerData.company" ng-bind-html="$ctrl.offerData.company"></div>
+                    </div><!-- /widget -->
+                </aside><!-- /sidebar -->
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,63 @@
+<div class="price divider">
+    <p data-test="buyblock-price--{{$ctrl.product.shortName}}" ng-style="{'font-size' : ($ctrl.currentValue.price | customCurrency).length >= 15 ? '1.75em' : '2em'}">{{$ctrl.currentValue.price | customCurrency}}<span ng-if="$ctrl.showLabelFR"> HT</span>{{$ctrl.disclaimerObj.asterisk}}</p>
+    <p class="price-old" ng-if="$ctrl.currentValue.price_striked">
+        <span class="price-cut" data-test="buyblock-price-cut--{{$ctrl.product.shortName}}">{{$ctrl.currentValue.price_striked | customCurrency}}{{$ctrl.disclaimerObj.asterisk}}</span>
+        <span class="price-saving" ng-if="$ctrl.currentValue.price_striked && $ctrl.buyblockData.saveRate" data-test="buyblock-price-saving--{{$ctrl.product.shortName}}">
+			<span>{{$ctrl.buyblockData.saveRate}}</span> {{$ctrl.currentValue.price_striked - $ctrl.currentValue.price | customCurrency}}
+		</span>
+    </p>
+</div>
+<buyblock-user-account account-info-override="{{$ctrl.product.accountInfo}}"
+                       description-popup="{{$ctrl.product.accountDesc}}"
+                       label="{{$ctrl.product.userAccountText}}"
+                       count="$ctrl.currentValue['user-accounts']"></buyblock-user-account>
+<form ng-if="$ctrl.productPricesExist">
+    <div class="form-element">
+        <select class="device-number" ng-if="!$ctrl.hidePack" tabindex="-1" aria-hidden="true" ng-model="$ctrl.packValue" ng-options="pack for pack in $ctrl.packArr" ng-change="$ctrl.setCurrentValue()" data-test="buyblock-packs--{{$ctrl.product.shortName}}"></select>
+    </div>
+    <div class="form-element">
+        <select class="years" tabindex="-1" aria-hidden="true" ng-model="$ctrl.termValue" ng-options="pack for pack in $ctrl.termArr" ng-change="$ctrl.setCurrentValue()" data-test="buyblock-terms--{{$ctrl.product.shortName}}"></select>
+    </div>
+    <div class="form-element checkbox text-center" ng-class="{selected: $ctrl.autorenew}">
+      <div ng-if="$ctrl.renewalAvailable && $ctrl.showAR == 'true'">
+          <label class="yes" data-test="buyblock-renewalchkbox--{{$ctrl.product.shortName}}">
+            <input type="checkbox" ng-model="$ctrl.autorenew" ng-checked="true" ng-change="$ctrl.setCurrentValue()" ng-click="$ctrl.registerOnce(true)">
+            {{$ctrl.buyblockData.autoRenewal}}
+        </label>
+        <span ng-click="$ctrl.showARPopup()" class="font-icons icon-help tooltip" data-test="buyblock-renewal--{{$ctrl.product.shortName}}"></span>
+      </div>
+    </div>
+    <div class="details-list" ng-if="$ctrl.locale === 'en-us'">
+        <p class="title">{{$ctrl.buyblockData.licenseCovers}}</p>
+        <ul>
+            <li ng-repeat="pack in $ctrl.currentValuePack">
+                {{pack}}
+            </li>
+            <li class="important">{{$ctrl.buyblockData.protectedFor}} {{$ctrl.currentValue.term}}</li>
+        </ul>
+    </div>
+    <div class="form-element buttons">
+        <a ng-href="{{$ctrl.buyLink}}" ng-click="$ctrl.addSalesTrackingParameters($event)" data-omniture-sale-button-type="{{$ctrl.omnitureText}}" data-omniture-product-name="{{$ctrl.productName}}" data-test="buyblock-buy--{{$ctrl.product.shortName}}">
+            <div class="button green" ng-if="$ctrl.purchaseType == 'Renewal' && !$ctrl.upgradeButton">{{$ctrl.buyblockData.renewText}}</div>
+            <div class="button green" ng-if="$ctrl.purchaseType == 'Purchase' && !$ctrl.upgradeButton">{{$ctrl.buyblockData.buyText}}</div>
+            <div class="button green" ng-if="$ctrl.upgradeButton || $ctrl.purchaseType=='Upgrade'">{{$ctrl.buyblockData.upgradeText}}</div>
+        </a>
+        <a ng-href="{{::$ctrl.product.freeTrialLink}}" ng-if="$ctrl.showBbTrialButton" data-test="buyblock-free-trial--{{$ctrl.product.shortName}}" class="button transparent text-green full-width">{{::$ctrl.buyblockData.tryFor}}</a>
+    </div>
+    <p ng-if="$ctrl.disclaimerObj.disclaimer" ng-bind-html="$ctrl.disclaimerObj.disclaimer|html" class="text-center"></p>
+</form>
+<form ng-if="$ctrl.product.bbSettings.purchaseType != 'Free' && !$ctrl.productPricesExist">
+    <product-unavailable-block ng-switch="$ctrl.buyblockData.buyblock_not_available_msg.length > 0" ng-if="$ctrl.curState != 'vsb' && $ctrl.curState != 'smb'">
+        <product-unavailable-msg ng-switch-when="true" ng-bind-html="$ctrl.buyblockData.buyblock_not_available_msg"></product-unavailable-msg>
+        <p ng-switch-default>This product is currently unavailable in your region. Please <a href="/about/contact">contact us</a> for further details.</p>
+    </product-unavailable-block>
+    <product-unavailable-block ng-switch on="$ctrl.buyblockData.unavailableMsgType" ng-if="$ctrl.curState == 'vsb' || $ctrl.curState == 'smb'">
+        <product-unavailable-msg ng-switch-when="b2b" ng-bind-html="$ctrl.buyblockData.buyblock_not_available_b2b_msg"></product-unavailable-msg>
+        <product-unavailable-msg ng-switch-when="b2c" ng-bind-html="$ctrl.buyblockData.buyblock_not_available_msg"></product-unavailable-msg>
+        <p ng-switch-default>This product is currently unavailable in your region. Please <a href="/about/contact">contact us</a> for further details.</p>
+    </product-unavailable-block>
+</form>
+
+<!-- ksc disclaimers -->
+
+<kscloud-disclaimers ng-if="$ctrl.buyblockData.kscDisclaimerText && ($ctrl.product.shortName == 'ksc-family' || $ctrl.product.shortName == 'ksc-personal') && $ctrl.kscDisclaimer" disclaimer-text="$ctrl.buyblockData.kscDisclaimerText" types="[3,4]"></kscloud-disclaimers>

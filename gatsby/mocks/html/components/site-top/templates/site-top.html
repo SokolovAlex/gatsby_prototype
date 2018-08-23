@@ -1,0 +1,17 @@
+<div id="site-top" class="site-top">
+	<div class="container">
+		<nav class="site-nav">
+			<div class="label">
+				<p ng-bind-html="$ctrl.data.label | xpm:'Content':'label'"></p>
+			</div>
+			<ul class="site-selector">
+				<li ng-repeat="section in $ctrl.data.sections" ng-class="{active: $ctrl.getActiveItem(section.link)}">
+					  <a xpm="sections[{{$index+1}}]/custom:link" href="{{section.link}}">
+						  <i class="font-icons" ng-class="section.css"></i>
+						  <span ng-bind-html="section.text | xpm:'Content':'sections[cnt]/custom:text':$index+1"></span>
+					  </a>
+       			 </li>
+			</ul>
+		</nav>
+	</div>
+</div>

@@ -1,0 +1,14 @@
+<div class="account-info"
+     ng-class="{'account-info_empty': !$ctrl.accountInfoOverride && !$ctrl.showAccountLabel}">
+    <span ng-if="$ctrl.showAccountOverride" data-test="buyblock-user-account--{{$ctrl.productName}}">{{$ctrl.accountInfoOverride}}</span>
+    <span ng-if="$ctrl.showAccountLabel" data-test="buyblock-user-account--{{$ctrl.productName}}">
+        <span ng-if="$ctrl.label!==$ctrl.pluralizedLabel">{{$ctrl.pluralizedLabel}}</span>
+        <span ng-if="$ctrl.label===$ctrl.pluralizedLabel">
+            <span>{{::$ctrl.label}}</span>
+            <span>{{$ctrl.count}}</span>
+        </span>
+    </span>
+    <span ng-if="$ctrl.showPopupIcon"
+          ng-click="$ctrl.openDescriptionPopup()"
+          class="open-buyblock-popup font-icons icon-help tooltip"></span>
+</div>

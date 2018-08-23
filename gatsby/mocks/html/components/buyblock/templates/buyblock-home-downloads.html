@@ -1,0 +1,30 @@
+<div class="product-item" ng-class="{'featured-item': $ctrl.highlighted == 'true'}">
+    <div class="promoline" ng-if="$ctrl.highlighted == 'true'" ng-bind-html="$ctrl.getPromoline()"></div>
+    <header class="divider">
+        <figure><a ng-href="{{$ctrl.product.prodPageLink}}"><img ng-class="{'cursorDefault': $ctrl.hideProductLinks}" ng-src="{{$ctrl.product.fullSizeImage | addLocalRoot}}" alt="{{::$ctrl.product.title}}" title="{{::$ctrl.product.title}}" /></a></figure>
+        <div class="tagline"><p ng-if="$ctrl.product.summary != null">{{$ctrl.product.summary}}</p></div>
+        <h2 class="product-title" data-product-name="{{$ctrl.productName}}">
+            <a ng-class="{'cursorDefault': $ctrl.hideProductLinks}" ng-href="{{$ctrl.product.prodPageLink}}">
+                <span class="surtitle" ng-bind-html="$ctrl.product.prodKasperskyTitle"></span>
+                <span>{{$ctrl.product.prodMainTitle}}</span>
+                <span class="subtitle" ng-if="$ctrl.product.prodAddTitle">{{$ctrl.product.prodAddTitle}}</span>
+            </a>
+        </h2>
+    </header>
+    <div class="desc">
+        <p ng-bind-html="$ctrl.product.shortDesc | html"></p>
+        <div class="meta reviews" ng-if="$ctrl.product.bvId">
+            <bazaarvoice product-id="{{$ctrl.product.bvId}}"></bazaarvoice>
+        </div>
+    </div>
+    <div class="buy-block">
+        <div class="form-element buttons">
+            <div class="form-element buttons">
+                <a ng-if="$ctrl.hasTrialButton()" ng-href="{{$ctrl.product.freeTrialLink}}">
+                    <div class="button red">{{$ctrl.product.freeTrialText}}</div>
+                </a>
+            </div>
+            <a href="{{$ctrl.product.updateLink}}" class="button transparent text-green full-width">{{$ctrl.product.updateText}}</a>
+        </div>
+    </div><!-- /buy-block -->
+</div><!-- /product-item -->

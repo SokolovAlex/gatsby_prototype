@@ -1,0 +1,82 @@
+<section ng-if="$ctrl.data && $ctrl.template != 'smb' && $ctrl.template != 'ent' && $ctrl.template != 'ent-3.0' && $ctrl.template != 'ksc'" class="product-promo-section grey-background {{$ctrl.data.class}}" id="product-promo" ng-style="{'background-image': 'url(' + $ctrl.data.bgImg + ')'}">
+	<div class="container">
+		<div class="product-desc-section">
+			<figure><img  ng-src="{{$ctrl.product.fullSizeImage | addLocalRoot}}" alt="{{$ctrl.product.prodMainTitle}}" title="{{$ctrl.product.prodMainTitle}}" /></figure>
+			<h2 class="product-title">
+				<span class="surtitle">{{$ctrl.product.prodKasperskyTitle}}</span><span>{{$ctrl.product.prodMainTitle}}</span>
+			</h2>
+			<div class="product-desc" ng-bind-html="$ctrl.data.promoDesc"></div>
+			<div class="section-footer">
+				<a ng-if="$ctrl.data.learnMore.link && $ctrl.data.learnMore.text" href="{{$ctrl.data.learnMore.link}}" class="button {{$ctrl.data.learnMore.class}}" data-omniture-cta-name="KSC Promo > Learn More">{{$ctrl.data.learnMore.text}}</a>
+				<a ng-if="$ctrl.data.freeTrial.link && $ctrl.data.freeTrial.text" href="{{$ctrl.data.freeTrial.link}}" class="button {{$ctrl.data.freeTrial.class}}" data-omniture-cta-name="KSC Promo > Download">{{$ctrl.data.freeTrial.text}}</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section  ng-if="$ctrl.data && $ctrl.template === 'ksc'"
+  				class="product-promo-section grey-background {{$ctrl.data.class}}"
+  				id="product-promo"
+  				ng-style="{'background-image': 'url(' + $ctrl.data.bgImg + '), linear-gradient(to bottom,' + ($ctrl.data.bgColor || '#fff') + ' 0%,#fff 100%)'}">
+
+	<div class="container">
+		<div class="row">
+			<div class="ksc-page-header" ng-if="$ctrl.headerTitle">
+				<h1 ng-bind-html="::$ctrl.headerTitle"></h1>
+			</div>
+			<div class="product-desc-section">
+				<figure>
+					<img  ng-src="{{$ctrl.product.fullSizeImage | addLocalRoot}}"
+					  		alt="{{$ctrl.product.prodMainTitle}}"
+					  		title="{{$ctrl.product.prodMainTitle}}"/>
+				</figure>
+				<h2 class="product-title">
+					{{$ctrl.product.prodKasperskyTitle}}<br>{{$ctrl.product.prodMainTitle}}</span>
+				</h2>
+			</div>
+		</div>
+		<div class="row">
+
+			<div class="product-desc" ng-class="{'product-desc-small': $ctrl.data.promoDesc.length > 120}">
+				<div ng-bind-html="$ctrl.data.promoDesc"></div>
+			</div>
+			<div class="side-ctas">
+				<a  ng-if="$ctrl.data.learnMore.link && $ctrl.data.learnMore.text"
+					  href="{{$ctrl.data.learnMore.link}}"
+					  class="button {{$ctrl.data.learnMore.class}}"
+					  data-omniture-cta-name="{{$ctrl.analyticsPrefix}} > Buy Now">{{$ctrl.data.learnMore.text}}</a>
+				<a  ng-if="$ctrl.data.freeTrial.link && $ctrl.data.freeTrial.text"
+					  href="{{$ctrl.data.freeTrial.link}}"
+					  class="button {{$ctrl.data.freeTrial.class}}"
+					  data-omniture-cta-name="{{$ctrl.analyticsPrefix}} > Learn More">{{$ctrl.data.freeTrial.text}}</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section ng-if="$ctrl.data && $ctrl.template == 'smb'" class="product-promo-section dark-bg center grey-background {{$ctrl.data.class}}" id="product-promo" ng-style="{'background-image': 'url(' + $ctrl.data.bgImg + ')'}">
+	<div class="container">
+		<h3 class="section-title" ng-if="$ctrl.data.promoTitle">{{$ctrl.data.promoTitle}}</h3>
+		<h2 class="product-desc" ng-if="$ctrl.data.promoDesc" ng-bind-html="$ctrl.data.promoDesc"></h2>
+
+		<a href="{{$ctrl.data.learnMore.link}}" class="button white">{{$ctrl.data.learnMore.text}}</a>
+	</div>
+</section>
+
+<section ng-if="$ctrl.data && $ctrl.template == 'ent'" class="product-promo-section dark-bg narrow grey-background no-margin {{$ctrl.data.class}}" id="product-promo" ng-style="{'background-image': 'url(' + $ctrl.data.bgImg + ')'}">
+	<div class="container">
+		<div ng-bind-html="$ctrl.data.promoDesc" class="narrow-desc"></div>
+		<div class="narrow-link">
+			<a href="{{$ctrl.data.learnMore.link}}" class="button white">{{$ctrl.data.learnMore.text}}</a>
+		</div>
+	</div>
+</section>
+
+<section ng-if="$ctrl.data && $ctrl.template == 'ent-3.0'" class="product-promo-section center {{$ctrl.data.class}}" id="product-promo" ng-style="{'background-image': 'url(' + $ctrl.data.bgImg + ')'}">
+	<div class="container">
+		<h3 class="section-title" ng-if="$ctrl.data.promoTitle">{{$ctrl.data.promoTitle}}</h3>
+		<h2 class="product-desc" ng-if="$ctrl.data.promoDesc" ng-bind-html="$ctrl.data.promoDesc"></h2>
+
+		<a href="{{$ctrl.data.learnMore.link}}" class="button white">{{$ctrl.data.learnMore.text}}</a>
+	</div>
+</section>

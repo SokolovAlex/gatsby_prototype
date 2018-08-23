@@ -1,0 +1,14 @@
+<header ng-if="$ctrl.showMessage">
+    <div class="site-top" style="height: 115px;">
+        <div class="container">
+            <nav class="site-nav">
+                <div class="label" style="margin-right: 10px;">
+                    <p>{{$ctrl.message}}</p>
+                </div>
+                <div>
+                    <button class="button red" ng-click="$ctrl.button.accept()">{{$ctrl.button.text}}</button>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
