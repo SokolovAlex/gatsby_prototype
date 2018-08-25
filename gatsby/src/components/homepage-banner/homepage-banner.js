@@ -1,4 +1,5 @@
 import React from 'react'
+const classSet = React.addons.classSet;
 
 const HomeBannerTemplate = (data) => {
     const isMobile = true;
@@ -7,6 +8,7 @@ const HomeBannerTemplate = (data) => {
 
 const desktopBanner = (data) => {
     const locale = 'ru';
+    const searchBar = 'searchBar';
 
     return (
     <header className="homepage-hero-header-desktop">
@@ -18,8 +20,8 @@ const desktopBanner = (data) => {
             >
             <div className="green-overlay business" data-test="homepage-banner--b2b"></div>
             <div className="side-cta-box business">
-                <a href="">{ className.bsnsCategory.type }</a>
-                <p>{ className.bsnsCategory.text1 }</p>
+                <a href="">{ data.bsnsCategory.type }</a>
+                <p>{ data.bsnsCategory.text1 }</p>
             </div>
             <div className="gray-overlay"></div>
             <div className="side-screen business" ng-show="$ctrl.onHoverBusiness">
@@ -28,186 +30,220 @@ const desktopBanner = (data) => {
                 <ul className="cta-list">
                     { data.bsnsCategory.productType.map((type, locale, index)=> (
                              <li data-screen="mid-screen-business-{type.productClassIdentifier}">
-                                <a className="cta" href="{type.url}" 
+                                <a className="cta" href={type.url}
                                     data-test="homepage-cta--{type.productClassIdentifier}">
                                     { getLocale(type, locale, index) }
-                                    <div class="cta-title business">
+                                    <div className="cta-title business">
                                         <b>{type.typeShort}</b>
                                         <span>{type.employee}</span>
                                     </div>
-                                    <span class="cta-green-text business">{type.buttonText}</span>
+                                    <span className="cta-green-text business">{type.buttonText}</span>
                                 </a>
                             </li>
                         )
                     )}
 
                 </ul>
-				<a class="all-products" ng-if="$ctrl.locale === 'ja-jp'" ng-href="{{$ctrl.data.homeCategory.buttonUrl}}">
-					{{$ctrl.data.homeCategory.buttonText}}
-				</a>
-                <p class="bottom-copy" ng-bind-html="$ctrl.data.bsnsCategory.text3"></p>
+                { locale === 'ja-jp' &&
+                    <a className="all-products"
+                        href={data.homeCategory.buttonUrl}>
+                        {data.homeCategory.buttonText}
+                    </a>
+                }
+                <p className="bottom-copy">
+                    { data.bsnsCategory.text3 }
+                </p>
             </div>
         </div>
-        <div class="hero-mid-col">
-            <div class="border-left"></div>
-            <div class="border-right"></div>
-            <div class="top-nav" id="top-nav">
-                <form ng-submit="$event.preventDefault()" class="top-nav-search-form">
+        <div className="hero-mid-col">
+            <div className="border-left"></div>
+            <div className="border-right"></div>
+            <div className="top-nav" id="top-nav">
+                <form className="top-nav-search-form">
                     <label for="homepage-header-search-input"
-                           class="top-nav-search-btn font-icons icon-search"
-                           ng-click="$ctrl.displaySearch()"></label>
-                    <div class="search-input-wrap">
-                        <input ng-model="$ctrl.searchBar" ng-model-options="{ debounce: 200 }"
-                               ng-change="$ctrl.search()"
-                               ng-keypress='$ctrl.goToSearchPage($event)'
-                               type="text"
-                               placeholder="{{$ctrl.data.searchText}}"
-                               name="s"
-                               id="homepage-header-search-input"
-                               value=""
-                               autocomplete="off">
+                           className="top-nav-search-btn font-icons icon-search">
+                    </label>
+                    <div className="search-input-wrap">
+                        <input type="text"
+                            placeholder={data.searchText}
+                            id="homepage-header-search-input"
+                            value={searchBar}
+                            autocomplete="off"/>
                     </div>
-                    <div ng-if="$ctrl.searchBar && $ctrl.autocompleteQ.length>1" class="search-bar">
-                        <span class="font-icons icon-cancel" ng-click="$ctrl.displaySearch()"></span>
+                    <div className="search-bar">
+                        <span className="font-icons icon-cancel"></span>
                         <ul>
-                            <li ng-repeat="item in $ctrl.autocompleteQ | limitTo:9" ng-if="$index>0">
-                                <div ng-click="$ctrl.searchBar = item; $ctrl.goToSearchPage()" ng-bind-html="$ctrl.autocompleteQhtml[$index] | html"></div>
+                            <li>
+                                <div>
+                                    { "autocompleteQhtml" }
+                                </div>
                             </li>
                         </ul>
                     </div>
                 </form>
 
-                <ul class="top-nav-hideonsearch">
-                    <li ng-repeat="topButton in $ctrl.data.topButtons" ng-class="{'top-nav-support': $index==1, 'top-nav-mykaspersky': $index==2}">
-                        <a ng-if="topButton.isExternal != 'Yes'" ng-href="{{topButton.link}}" ng-class="{'top-nav-support': $index==1, 'top-nav-mykaspersky': $index==2}">
-                            {{topButton.text}} <i ng-if="$index==2" class="font-icons icon-arrow-down"></i>
-                        </a>
-                        <a ng-if="topButton.isExternal == 'Yes'" ng-href="{{topButton.link}}" ng-class="{'top-nav-support': $index==1, 'top-nav-mykaspersky': $index==2}" target="_blank">
-                            {{topButton.text}} <i ng-if="$index==2" class="font-icons icon-arrow-down"></i>
-                        </a>
-                        <ul ng-if="$index==2">
-                            <li ng-repeat="myKaspersky in $ctrl.data.mykasperskyLinks">
-                                <a ng-href="{{myKaspersky.link}}" target="_blank" ng-click="$index === 2 && $ctrl.data.myKasperskyBalancer[0] === 'True' ? $ctrl.openLRCDialog($event) : ''">
-                                  <i ng-class="{'font-icons icon-devices': $index==0, 'font-icons icon-subscriptions': $index==1, 'font-icons icon-card': $index==2}"></i>
-                                    {{myKaspersky.text}}
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                <ul className="top-nav-hideonsearch">
+                    { data.topButtons.map((topButton, i) =>
+                        renderTopButton(topButton, i)
+                    )}
                 </ul>
             </div>
-            <div class="mid-screen-wrap">
-                <div class="mid-screen mid-screen-intro active">
-                    <img class="logo" ng-src="{{$ctrl.data.klLogo | addLocalRoot}}">
-                    <h2 ng-bind-html="$ctrl.data.middleText"></h2>
+            <div className="mid-screen-wrap">
+                <div className="mid-screen mid-screen-intro active">
+                    <img className="logo" src={ data.klLogo }/>
+                    <h2>{ data.middleText }</h2>
                 </div>
-                <div ng-repeat="category in $ctrl.data.productCategories">
-                    <div ng-repeat="type in category.productType" class="mid-screen" ng-class="{
-                    'mid-screen-business-{{type.productClassIdentifier}}': $parent.$index==0,
-                    'mid-screen-{{type.productClassIdentifier}}': $parent.$index==1}">
-                        <img class="focus-img" ng-src="{{type.image | addLocalRoot}}">
-                        <h2 class="business">{{type.typeFull}}</h2>
-                        <p class="subtitle" ng-if="type.employee">({{type.employee}})</p>
-                        <p class="desc" ng-if="type.text1">{{type.text1}}</p>
+                
+                { data.productCategories.map((category, i) => (
+                    <div>
+                        { category.productType.map((type) => (
+                            <div className={ getScreenClasses(type, i) }>
+                                <img className="focus-img" src={type.image}/>
+                                <h2 className="business">{type.typeFull}</h2>
+                                { type.employee &&
+                                    <p className="subtitle">({type.employee})</p>
+                                }
+                                { type.text1 &&
+                                    <p className="desc">({type.text1})</p>
+                                }
+                            </div>
+                        ))}
                     </div>
-                </div>
-                <div class="mid-small-logo">
+                ))}
+
+                <div className="mid-small-logo">
                     <span></span>
-                    <img ng-src="{{$ctrl.data.klLogo | addLocalRoot}}">
+                    <img src={ data.klLogo }/>
                 </div>
+
             </div>
-            <div class="select-product-type">
-                <span class="left"></span>
-                <span class="right"></span>
-                <p>{{$ctrl.data.selectText}}</p>
+            <div className="select-product-type">
+                <span className="left"></span>
+                <span className="right"></span>
+                <p>{ data.selectText }</p>
             </div>
         </div>
-        <div class="hero-side-col home"
-             ng-style="{'background-image': 'url(/' + $ctrl.data.homeCategory.image + ')'}"
-             ng-mouseenter="$ctrl.handleHomeHoverIn()"
-             ng-mouseleave="$ctrl.handleHomeHoverOut()">
-            <div class="green-overlay home" data-test="homepage-banner--b2c"></div>
-            <div class="side-cta-box home">
-                <a ng-href="">{{$ctrl.data.homeCategory.type}}</a>
-                <p>{{$ctrl.data.homeCategory.text1}}</p>
+        <div className="hero-side-col home"
+             style={{'background-image': 'url(/' + data.homeCategory.image + ')'}}>
+            <div className="green-overlay home" data-test="homepage-banner--b2c"></div>
+            <div className="side-cta-box home">
+                <a href="">{data.homeCategory.type}</a>
+                <p>{data.homeCategory.text1}</p>
             </div>
-            <div class="gray-overlay"></div>
-            <div class="side-screen home" ng-show="$ctrl.onHoverHome">
-                <h2 data-test="homepage-label--b2c">{{$ctrl.data.homeCategory.type}}</h2>
-                <h3>{{$ctrl.data.homeCategory.text2}}</h3>
-                <ul class="cta-list">
-                    <li ng-repeat="type in $ctrl.data.homeCategory.productType" data-screen="mid-screen-{{type.productClassIdentifier}}">
-                        <a class="cta" ng-href="{{type.url}}" data-test="homepage-cta--{{type.productClassIdentifier}}">
-							             <i ng-if="$ctrl.locale === 'ja-jp'"
-                              class="font-icons business-{{type.productClassIdentifier}}"
-							                ng-class="{'icon-{{type.productClassIdentifier}}-business': $index!=2, 'icon-{{type.productClassIdentifier}}': $index==2}"></i>
-                            <i ng-if="$ctrl.locale !== 'ja-jp'" class="font-icons {{type.productClassIdentifier}}"
-                               ng-class="{'icon-screen': $index==0, 'icon-laptop': $index==1,'icon-mobile':$index==2}"></i>
+            <div className="gray-overlay"></div>
+            <div className="side-screen home">
+                <h2 data-test="homepage-label--b2c">{data.homeCategory.type}</h2>
+                <h3>{data.homeCategory.text2}</h3>
+                <ul className="cta-list">
+
+                    { data.homeCategory.productType.map((type, i) => (
+
+                    <li data-screen={`mid-screen-${type.productClassIdentifier}`}>
+                        <a class="cta" href={type.url}
+                        data-test={`homepage-cta--${type.productClassIdentifier}`}>
+                            { locale === 'ja-jp' &&
+                                <i className={getJpTypeClasses(type, i)}></i>
+                            }
+                            { locale !== 'ja-jp' &&
+                                <i className={getTypeClasses(type, i)}></i>
+                            }
                             <div class="cta-title home">
-                                <b>{{type.typeShort}}</b>
-                                <span>{{type.employee}}</span>
+                                <b>{type.typeShort}</b>
+                                <span>{type.employee}</span>
                             </div>
-                            <span class="cta-green-text business">{{type.buttonText}}</span>
+                            <span class="cta-green-text business">{type.buttonText}</span>
                         </a>
                     </li>
+                    ))}
+
                 </ul>
-                <a class="all-products" ng-if="$ctrl.locale !== 'ja-jp'" ng-href="{{$ctrl.data.homeCategory.buttonUrl}}">
-                    {{$ctrl.data.homeCategory.buttonText}}
-                </a>
-                <p class="bottom-copy" ng-bind-html="$ctrl.data.homeCategory.text3"></p>
+                { locale !== 'ja-jp' &&
+                     <a className="all-products"
+                        href={data.homeCategory.buttonUrl}>
+                        {data.homeCategory.buttonText}
+                    </a>
+                }
+                <p className="bottom-copy">
+                    {data.homeCategory.text3}
+                </p>
             </div>
         </div>
     </div>
 </header>)
 }
 
-const bigFooter = (data) => {
-   <header class="homepage-hero-header-mobile" ng-if="$ctrl.isMobile">
-   <site-header></site-header>
-   <div class="screen screen-intro" ng-style="{'background-image': 'url(' + $ctrl.data.mobileImage + ')'}">
-       <div class="container">
-           <h2 ng-bind-html="$ctrl.data.middleText"></h2>
-           <span class="solutions-for">{{$ctrl.data.mobileText}}</span>
-           <ul class="cta-list">
-               <li ng-repeat="category in $ctrl.data.productCategories">
-                   <a ng-class="{'cta business': $ctrl.getTabsOrder($index) === 0, 'cta home': $ctrl.getTabsOrder($index) === 1 }" href="#">
-                       {{category.typeMobile}}
-                   </a>
-               </li>
-           </ul>
-       </div>
-   </div>
-   <div ng-repeat="category in $ctrl.data.productCategories" class="screen" ng-class="{'screen-business': $ctrl.getTabsOrder($index) === 0, 'screen-home': $ctrl.getTabsOrder($index) === 1}" ng-style="{'background-image': 'url(' + category.imageMobile + ')'}">
-       <i class="back-btn"></i>
-       <div class="container">
-           <h2>{{category.type}}</h2>
-           <h3>{{category.text2}}</h3>
-           <ul class="cta-list">
-               <li ng-repeat="type in category.productType" ng-class="{'business': $ctrl.getTabsOrder($parent.$index === 0), 'home': $ctrl.getTabsOrder($parent.$index) === 1}">
-                   <a ng-class="{'cta': $ctrl.getTabsOrder($parent.$index) === 0, 'cta home': $ctrl.getTabsOrder($parent.$index) === 1}" href="{{type.url}}">
-                                   <i ng-if="$ctrl.getTabsOrder($parent.$index) === 0" class="font-icons business-{{type.productClassIdentifier}}"
-                                      ng-class="{'icon-{{type.productClassIdentifier}}-business': $index!=2, 'icon-{{type.productClassIdentifier}}': $index==2}"></i>
-                                   <i ng-if="$ctrl.getTabsOrder($parent.$index) === 1" class="font-icons {{type.productClassIdentifier}}"
-                                      ng-class="{'icon-screen': $index==0, 'icon-laptop': $index==1,'icon-mobile':$index==2}"></i>
-                       <div class="cta-title" ng-class="{'cta-title business': $ctrl.getTabsOrder($parent.$index) === 0, 'cta-title home': $ctrl.getTabsOrder($parent.$index) === 1}">
-                           <b>{{type.typeShort}}</b>
-                           <span>{{type.employee}}</span>
-                       </div>
-                       <span ng-class="{'cta-green-text business': $ctrl.getTabsOrder($parent.$index) === 0, 'cta-green-text home': $ctrl.getTabsOrder($parent.$index) === 1}">{{type.buttonText}}</span>
-                   </a>
-               </li>
-           </ul>
-           <a ng-if="$ctrl.getTabsOrder($index) === 1" class="all-products" href="{{category.buttonUrl}}">
-               {{category.buttonText}}
-           </a>
-           <p class="bottom-copy" ng-bind-html="category.text3">
-               {{category.text3 | html}}
-           </p>
-       </div>
-   </div>
-</header>
+const getTypeClasses = (type, i) => {
+    return classSet({
+        'font-icons': true,
+        [type.productClassIdentifier]: true,
+        'icon-screen': i === 0,
+        'icon-laptop': i === 1,
+        'icon-mobile': i === 2,
+    });
 }
 
+const getJpTypeClasses = (type, i) => {
+    return classSet({
+        'font-icons': true,
+        [`business-${type.productClassIdentifier}`]: true,
+        [`icon-${type.productClassIdentifier}-business`]: i !== 2,
+        [`icon-${type.productClassIdentifier}`]: i === 2,
+    });
+}
+
+const getScreenClasses = (type, i) => {
+    return classSet({
+        'mid-screen': true,
+        [`mid-screen-business-${type.productClassIdentifier}`]: i == 0,
+        [`mid-screen-${type.productClassIdentifier}`]: i == 1,
+    });
+}
+
+const renderTopButton = (btn, i) => {
+    const classes = classSet({
+        'top-nav-support': i==1,
+        'top-nav-mykaspersky': i==2
+    });
+
+    const linkClasses = classSet({
+        'font-icons icon-devices': i==0,
+        'font-icons icon-subscriptions': i==1,
+        'font-icons icon-card': i==2
+    });
+
+    (<li className={classes}>
+        { btn.isExternal != 'Yes' &&
+            <a href={btn.link} className={classes}>
+                {btn.text}
+                { i === 2 &&
+                    <i className="font-icons icon-arrow-down"></i>
+                }
+            </a>
+        }
+
+        { btn.isExternal != 'Yes' &&
+            <a href={btn.link} className={classes} target="_blank">
+                {btn.text}
+                { i === 2 &&
+                    <i className="font-icons icon-arrow-down"></i>
+                }
+            </a>
+        }
+
+         { i = 2 &&
+            <ul>
+                { data.mykasperskyLinks.map((link) =>
+                    <li>
+                        <a href={ link.link } target="_blank">
+                        <i className={linkClasses}></i>
+                            { link.text }
+                        </a>
+                    </li>
+                )}
+            </ul>
+        }
+    </li>)
+}
 
 const getLocale = (type, locale, index) => {
     if (locale !== 'ja-jp') {
@@ -218,49 +254,117 @@ const getLocale = (type, locale, index) => {
         return (<i className="font-icons {type.productClassIdentifier} {'icon-screen': index==0, 'icon-laptop': index==1,'icon-mobile':index==2}"></i>)
     }
 }
-</div>
 
 export default HomeBannerTemplate
 
 //https://www.gatsbyjs.org/docs/querying-with-graphql/
 export const query = graphql`
-  fragment HomepageBannerFragment on FooterJson {
+  fragment homepageBannerFragment on homepageJson {
     title
     pubdate
-    schemaName
     _fields {
-      footerTop
-      leftSetOfBlocks {
+        klLogo
+        searchText
+        topButtons{
+            text
+            link
+            class
+            isExternal
+        }
+        mykasperskyLinks {
+            text
+            link
+            isExternal
+        }
+        myKasperskyBalancer
+        middleText
+        mobileImage
+        productCategories {
+            type
+            typeMobile
+            image
+            text1
+            imageMobile
+            text2
+            text3
+            productType {
+            typeShort
+            typeFull
+            image
+            employee
+            text1
+            url
+            buttonText
+            productClassIdentifier
+            }
+            buttonText
+            buttonUrl
+        }
+        awardText
+        awardsImages {
+            image
+            imageLink
+            imageCaption
+        }
+        stats{
+            statNumber
+            protectedText
+            byText
+            textBlock
+        }
+        promotions {
+            sectionClass
+            backgroundImage
+            textBlock
+            ctaButton {
+            text
+            link
+            class
+            }
+            backgroundImageForMobile
+            backgroundImageForTablet
+        }
         title
         description
-      }
-      contactUsBlock {
-        title
-        description
-      }
-      socialBlockHeading
-      socialIcons {
-        link
-        icon
-      }
-      copyright
-      mobileLabel
-      shortViewLinks {
-        text
-        link
-      }
-      rssLink {
-        hide
-      }
-      countrySelector
-      Body
-      footerRightSideBlock {
-        title
-        description
-      }
-      copyright_smb
-      copyright_vsb
-      copyright_ent
+        breadcrumbs {
+            title
+            link
+        }
+        aboutButtons {
+            text
+            link
+            class
+        }
+        aboutQuoteImageMobile
+        aboutQuoteImage
+        aboutQuoteAuthorTitle
+        aboutQuoteAuthor
+        aboutQuoteText
+        protectMobileButtons {
+            text
+            link
+            class
+        }
+        protectMobileTextBlock
+        protectMobileImage
+        protectMobileTitle
+        renewButtons {
+            text
+            link
+            class
+        }
+        renewTextBlock
+        renewTitle
+        hmcImg
+        hmcDesc
+        hmcSubTitle
+        hmcTitle
+        linkedComponents{
+            id
+            title
+            pubdate
+            schemaName
+        }
     }
-  }
+}
 `;
