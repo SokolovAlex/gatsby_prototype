@@ -1,5 +1,6 @@
 import React from 'react'
-const classSet = React.addons.classSet;
+// const classSet = React.addons.classSet;
+const classSet = require('classnames');
 
 const HomeBannerTemplate = (data) => {
     const isMobile = true;
@@ -24,24 +25,23 @@ const desktopBanner = (data) => {
                 <p>{ data.bsnsCategory.text1 }</p>
             </div>
             <div className="gray-overlay"></div>
-            <div className="side-screen business" ng-show="$ctrl.onHoverBusiness">
+            <div className="side-screen business">
                 <h2 data-test="homepage-label--b2b">{ data.bsnsCategory.type}</h2>
                 <h3>{data.bsnsCategory.text2}</h3>
                 <ul className="cta-list">
                     { data.bsnsCategory.productType.map((type, locale, index)=> (
-                             <li data-screen="mid-screen-business-{type.productClassIdentifier}">
-                                <a className="cta" href={type.url}
-                                    data-test="homepage-cta--{type.productClassIdentifier}">
-                                    { getLocale(type, locale, index) }
-                                    <div className="cta-title business">
-                                        <b>{type.typeShort}</b>
-                                        <span>{type.employee}</span>
-                                    </div>
-                                    <span className="cta-green-text business">{type.buttonText}</span>
-                                </a>
-                            </li>
-                        )
-                    )}
+                            <li data-screen="mid-screen-business-{type.productClassIdentifier}">
+                            <a className="cta" href={type.url}
+                                data-test="homepage-cta--{type.productClassIdentifier}">
+                                { getLocale(type, locale, index) }
+                                <div className="cta-title business">
+                                    <b>{type.typeShort}</b>
+                                    <span>{type.employee}</span>
+                                </div>
+                                <span className="cta-green-text business">{type.buttonText}</span>
+                            </a>
+                        </li>
+                    ))}
 
                 </ul>
                 { locale === 'ja-jp' &&
@@ -138,22 +138,22 @@ const desktopBanner = (data) => {
 
                     { data.homeCategory.productType.map((type, i) => (
 
-                    <li data-screen={`mid-screen-${type.productClassIdentifier}`}>
-                        <a class="cta" href={type.url}
-                        data-test={`homepage-cta--${type.productClassIdentifier}`}>
-                            { locale === 'ja-jp' &&
-                                <i className={getJpTypeClasses(type, i)}></i>
-                            }
-                            { locale !== 'ja-jp' &&
-                                <i className={getTypeClasses(type, i)}></i>
-                            }
-                            <div class="cta-title home">
-                                <b>{type.typeShort}</b>
-                                <span>{type.employee}</span>
-                            </div>
-                            <span class="cta-green-text business">{type.buttonText}</span>
-                        </a>
-                    </li>
+                        <li data-screen={`mid-screen-${type.productClassIdentifier}`}>
+                            <a class="cta" href={type.url}
+                            data-test={`homepage-cta--${type.productClassIdentifier}`}>
+                                { locale === 'ja-jp' &&
+                                    <i className={getJpTypeClasses(type, i)}></i>
+                                }
+                                { locale !== 'ja-jp' &&
+                                    <i className={getTypeClasses(type, i)}></i>
+                                }
+                                <div class="cta-title home">
+                                    <b>{type.typeShort}</b>
+                                    <span>{type.employee}</span>
+                                </div>
+                                <span class="cta-green-text business">{type.buttonText}</span>
+                            </a>
+                        </li>
                     ))}
 
                 </ul>
@@ -170,6 +170,121 @@ const desktopBanner = (data) => {
         </div>
     </div>
 </header>)
+}
+
+const mobileBanner = (data) => {
+    const locale = 'ru';
+    const searchBar = 'searchBar';
+
+    return (
+    <header className="homepage-hero-header-mobile">
+        <site-header>!</site-header>
+        <div className="screen screen-intro" 
+            style={{'background-image': 'url(' + data.mobileImage + ')'}}>
+            <div className="container">
+                <h2>{data.middleText}</h2>
+                <span className="solutions-for">{data.mobileText}</span>
+
+                <ul className="cta-list">
+                     { data.productCategories.map((category, i) => (
+                        <li>
+                            <a className={ getCtaClasses(caegory, i) } href="#">
+                                {category.typeMobile}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </div>
+
+        { data.productCategories.map((category, i) => (
+            <div className={getScreenClasses(category, i)} styles={{'background-image': 'url(' + category.imageMobile + ')'}}>
+                <i className="back-btn"></i>
+                <div className="container">
+                    <h2>{category.type}</h2>
+                    <h3>{category.text2}</h3>
+                    <ul className="cta-list">
+
+                        { category.productType.map((type) => (
+                            <li className={ TypeClasses(i) }>
+                                <a className={ TypeLinkClasses(i)} href={type.url}>
+                                    { getTabsOrder(i) === 0 &&
+                                        <i className={ getJpTypeClasses(type, i)}></i>
+                                    }
+                                    { getTabsOrder(i) === 1 &&
+                                        <i className={ getTypeClasses(type, i)}></i>
+                                    }
+                                    <div className={TitleClasses(i)}>
+                                        <b>{type.typeShort}</b>
+                                        <span>{type.employee}</span>
+                                    </div>
+                                    <span >{{type.buttonText}}</span>
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                    { getTabsOrder(i) === 1 &&
+                        <a className="all-products" href={category.buttonUrl}>
+                            {category.buttonText}
+                        </a>
+                    }
+                    <p className="bottom-copy">
+                        { category.text3 }
+                    </p>
+                </div>
+            </div>
+        ))}
+    </header>);
+}
+
+const TitleClasses = (i) => {
+    return classSet({
+        'cta-green-text': true,
+        'business': getTabsOrder(i) === 0,
+        'home': getTabsOrder(i) === 1
+    });
+}
+
+const TitleClasses = (i) => {
+    return classSet({
+        'cta-title': true,
+        'cta-title busines': getTabsOrder(i) === 0,
+        'cta-title home': getTabsOrder(i) === 1
+    });
+}
+
+const TypeLinkClasses = (i) => {
+    return classSet({
+        cta: getTabsOrder(i) === 0,
+        'cta home': getTabsOrder(i) === 1
+    });
+}
+
+const TypeClasses = (i) => {
+    return classSet({
+        business: getTabsOrder(i) === 0,
+        home: getTabsOrder(i) === 1
+    });
+}
+
+const getScreenClasses = (data, i) => {
+    return classSet({
+        screen: true,
+        'screen-business': getTabsOrder($index) === 0,
+        'screen-home': getTabsOrder(i) === 1
+    });
+}
+
+const getCtaClasses = (data, i) => {
+    return classSet({
+        'cta business': getTabsOrder(i) === 0,
+        'cta home': getTabsOrder(i) === 1 
+    });
+}
+
+function getTabsOrder(order) {
+    if (ctrl.locale === 'ja-jp') return Math.abs(order - 1);
+    return order;
 }
 
 const getTypeClasses = (type, i) => {
@@ -259,7 +374,7 @@ export default HomeBannerTemplate
 
 //https://www.gatsbyjs.org/docs/querying-with-graphql/
 export const query = graphql`
-  fragment homepageBannerFragment on homepageJson {
+  fragment homepageBannerFragment on HomepageJson {
     title
     pubdate
     _fields {
