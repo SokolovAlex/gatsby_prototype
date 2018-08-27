@@ -3,6 +3,9 @@ import React from 'react'
 const classSet = require('classnames');
 
 const HomeBannerTemplate = (data) => {
+    if (!data) {
+        return;
+    }
     const isMobile = true;
     return isMobile ? mobileBanner(data) : desktopBanner(data);
 }
@@ -10,13 +13,14 @@ const HomeBannerTemplate = (data) => {
 const desktopBanner = (data) => {
     const locale = 'ru';
     const searchBar = 'searchBar';
+    const fields = data._fields;
 
     return (
     <header className="homepage-hero-header-desktop">
     <div className="hero-header-inner">
         <div className="hero-side-col business"
             style={{
-                backgroundImage: 'url(/' + $ctrl.data.bsnsCategory.image + ')'
+                backgroundImage: 'url(/' + data.bsnsCategory.image + ')'
               }}
             >
             <div className="green-overlay business" data-test="homepage-banner--b2b"></div>
@@ -97,7 +101,7 @@ const desktopBanner = (data) => {
                 { data.productCategories.map((category, i) => (
                     <div>
                         { category.productType.map((type) => (
-                            <div className={ getScreenClasses(type, i) }>
+                            <div className={ getMidScreenClasses(type, i) }>
                                 <img className="focus-img" src={type.image}/>
                                 <h2 className="business">{type.typeFull}</h2>
                                 { type.employee &&
@@ -124,7 +128,7 @@ const desktopBanner = (data) => {
             </div>
         </div>
         <div className="hero-side-col home"
-             style={{'background-image': 'url(/' + data.homeCategory.image + ')'}}>
+             styles={{'background-image': 'url(/' + data.homeCategory.image + ')'}}>
             <div className="green-overlay home" data-test="homepage-banner--b2c"></div>
             <div className="side-cta-box home">
                 <a href="">{data.homeCategory.type}</a>
@@ -173,20 +177,19 @@ const desktopBanner = (data) => {
 }
 
 const mobileBanner = (data) => {
-    const locale = 'ru';
-    const searchBar = 'searchBar';
+    const fields = data._fields;
 
     return (
     <header className="homepage-hero-header-mobile">
         <site-header>!</site-header>
         <div className="screen screen-intro" 
-            style={{'background-image': 'url(' + data.mobileImage + ')'}}>
+            styles={{'background-image': 'url(' + data.mobileImage + ')'}}>
             <div className="container">
                 <h2>{data.middleText}</h2>
                 <span className="solutions-for">{data.mobileText}</span>
 
                 <ul className="cta-list">
-                     { data.productCategories.map((category, i) => (
+                     { fields.productCategories.map((category, i) => (
                         <li>
                             <a className={ getCtaClasses(caegory, i) } href="#">
                                 {category.typeMobile}
@@ -197,7 +200,7 @@ const mobileBanner = (data) => {
             </div>
         </div>
 
-        { data.productCategories.map((category, i) => (
+        { fields.productCategories.map((category, i) => (
             <div className={getScreenClasses(category, i)} styles={{'background-image': 'url(' + category.imageMobile + ')'}}>
                 <i className="back-btn"></i>
                 <div className="container">
@@ -218,7 +221,7 @@ const mobileBanner = (data) => {
                                         <b>{type.typeShort}</b>
                                         <span>{type.employee}</span>
                                     </div>
-                                    <span >{{type.buttonText}}</span>
+                                    <span className={btnClasses(i)}>{type.buttonText}</span>
                                 </a>
                             </li>
                         ))}
@@ -237,7 +240,7 @@ const mobileBanner = (data) => {
     </header>);
 }
 
-const TitleClasses = (i) => {
+const btnClasses = (i) => {
     return classSet({
         'cta-green-text': true,
         'business': getTabsOrder(i) === 0,
@@ -306,7 +309,7 @@ const getJpTypeClasses = (type, i) => {
     });
 }
 
-const getScreenClasses = (type, i) => {
+const getMidScreenClasses = (type, i) => {
     return classSet({
         'mid-screen': true,
         [`mid-screen-business-${type.productClassIdentifier}`]: i == 0,
@@ -372,9 +375,9 @@ const getLocale = (type, locale, index) => {
 
 export default HomeBannerTemplate
 
-//https://www.gatsbyjs.org/docs/querying-with-graphql/
+https://www.gatsbyjs.org/docs/querying-with-graphql/
 export const query = graphql`
-  fragment homepageBannerFragment on HomepageJson {
+  fragment homepageBannerFragment on HomepageBannerJson {
     title
     pubdate
     _fields {

@@ -7,10 +7,10 @@ import footer from '../components/footer/footer';
 
 // import siteBar from '../components/site-bar/site-bar'
 
-const ThirdPage = ({data}) => (
+const HomePage = ({data}) => (
     <Layout>
         { siteBar(data) }
-        { homepageBanner(data.homepageBannerJson) }
+        { homepageBanner(data.homepageJson) }
 
         <div class="main no-bg">
             {/* <promo-section resource="promo-above-hmc"></promo-section>
@@ -24,7 +24,7 @@ const ThirdPage = ({data}) => (
     </Layout>
 )
 
-export default withIntl(ThirdPage)
+export default withIntl(HomePage)
 
 export const pageQuery = graphql`
   query FooterTemplate {
@@ -36,3 +36,4 @@ export const pageQuery = graphql`
     }
   }
 `
+   
