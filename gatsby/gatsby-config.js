@@ -1,3 +1,5 @@
+const config = require('./config');
+
 module.exports = {
     siteMetadata: {
         title: 'KL corp',
@@ -9,9 +11,7 @@ module.exports = {
             resolve: 'gatsby-source-filesystem',
             options: {
                 name: 'data',
-                path: `${__dirname}/src/data2/com/content/`,
-                // path: `${__dirname}/src/data/tv/`,
-                //path: `${__dirname}/src/data/example`,
+                path: config.dataPath,
             },
         },
     ],
