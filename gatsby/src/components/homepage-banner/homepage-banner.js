@@ -375,114 +375,114 @@ const getLocale = (type, locale, index) => {
 
 export default HomeBannerTemplate
 
-https://www.gatsbyjs.org/docs/querying-with-graphql/
-export const query = graphql`
-  fragment homepageBannerFragment on HomepageBannerJson {
-    title
-    pubdate
-    _fields {
-        klLogo
-        searchText
-        topButtons{
-            text
-            link
-            class
-            isExternal
-        }
-        mykasperskyLinks {
-            text
-            link
-            isExternal
-        }
-        myKasperskyBalancer
-        middleText
-        mobileImage
-        productCategories {
-            type
-            typeMobile
-            image
-            text1
-            imageMobile
-            text2
-            text3
-            productType {
-            typeShort
-            typeFull
-            image
-            employee
-            text1
-            url
-            buttonText
-            productClassIdentifier
-            }
-            buttonText
-            buttonUrl
-        }
-        awardText
-        awardsImages {
-            image
-            imageLink
-            imageCaption
-        }
-        stats{
-            statNumber
-            protectedText
-            byText
-            textBlock
-        }
-        promotions {
-            sectionClass
-            backgroundImage
-            textBlock
-            ctaButton {
-            text
-            link
-            class
-            }
-            backgroundImageForMobile
-            backgroundImageForTablet
-        }
-        title
-        description
-        breadcrumbs {
-            title
-            link
-        }
-        aboutButtons {
-            text
-            link
-            class
-        }
-        aboutQuoteImageMobile
-        aboutQuoteImage
-        aboutQuoteAuthorTitle
-        aboutQuoteAuthor
-        aboutQuoteText
-        protectMobileButtons {
-            text
-            link
-            class
-        }
-        protectMobileTextBlock
-        protectMobileImage
-        protectMobileTitle
-        renewButtons {
-            text
-            link
-            class
-        }
-        renewTextBlock
-        renewTitle
-        hmcImg
-        hmcDesc
-        hmcSubTitle
-        hmcTitle
-        linkedComponents{
-            id
-            title
-            pubdate
-            schemaName
-        }
-    }
-}
-`;
+// https://www.gatsbyjs.org/docs/querying-with-graphql/
+// export const query = graphql`
+//   fragment homepageBannerFragment on HomepageBanner {
+//     title
+//     pubdate
+//     _fields {
+//         klLogo
+//         searchText
+//         topButtons{
+//             text
+//             link
+//             class
+//             isExternal
+//         }
+//         mykasperskyLinks {
+//             text
+//             link
+//             isExternal
+//         }
+//         myKasperskyBalancer
+//         middleText
+//         mobileImage
+//         productCategories {
+//             type
+//             typeMobile
+//             image
+//             text1
+//             imageMobile
+//             text2
+//             text3
+//             productType {
+//             typeShort
+//             typeFull
+//             image
+//             employee
+//             text1
+//             url
+//             buttonText
+//             productClassIdentifier
+//             }
+//             buttonText
+//             buttonUrl
+//         }
+//         awardText
+//         awardsImages {
+//             image
+//             imageLink
+//             imageCaption
+//         }
+//         stats{
+//             statNumber
+//             protectedText
+//             byText
+//             textBlock
+//         }
+//         promotions {
+//             sectionClass
+//             backgroundImage
+//             textBlock
+//             ctaButton {
+//             text
+//             link
+//             class
+//             }
+//             backgroundImageForMobile
+//             backgroundImageForTablet
+//         }
+//         title
+//         description
+//         breadcrumbs {
+//             title
+//             link
+//         }
+//         aboutButtons {
+//             text
+//             link
+//             class
+//         }
+//         aboutQuoteImageMobile
+//         aboutQuoteImage
+//         aboutQuoteAuthorTitle
+//         aboutQuoteAuthor
+//         aboutQuoteText
+//         protectMobileButtons {
+//             text
+//             link
+//             class
+//         }
+//         protectMobileTextBlock
+//         protectMobileImage
+//         protectMobileTitle
+//         renewButtons {
+//             text
+//             link
+//             class
+//         }
+//         renewTextBlock
+//         renewTitle
+//         hmcImg
+//         hmcDesc
+//         hmcSubTitle
+//         hmcTitle
+//         linkedComponents{
+//             id
+//             title
+//             pubdate
+//             schemaName
+//         }
+//     }
+// }
+// `;

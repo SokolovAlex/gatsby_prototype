@@ -6,6 +6,7 @@
   "dependencies": {
     "browser-lang": "0.0.1",
     "classnames": "^2.2.6",
+    "del": "^3.0.0",
     "gatsby": "^1.9.277",
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-react-helmet": "^2.0.10",
@@ -18,7 +19,6 @@
     "intl": "^1.2.5",
     "react-helmet": "^5.2.0",
     "react-intl": "^2.4.0",
-    "rimraf": "^2.6.2",
     "yargs": "^12.0.1"
   },
   "keywords": [

@@ -26,13 +26,13 @@ const HomePage = ({data}) => (
 
 export default withIntl(HomePage)
 
-export const pageQuery = graphql`
-  query FooterTemplate {
-    footerJson {
-        ...footerFragment
-    }
-    homepageBannerJson {
-        ...homepageBannerFragment
-    }
-  }
-`
+// export const pageQuery = graphql`
+//   query FooterTemplate {
+//     homepageFooterJson {
+//         ...footerFragment
+//     }
+//     enGlobalHomepageHomepageBannerJson {
+//         ...homepageBannerFragment
+//     }
+//   }
+// `

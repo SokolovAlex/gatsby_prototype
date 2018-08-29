@@ -85,44 +85,44 @@ const getCopyLink = (data) => {
 export default FooterTemplate
 
 //https://www.gatsbyjs.org/docs/querying-with-graphql/
-export const query = graphql`
-  fragment footerFragment on FooterJson {
-    title
-    pubdate
-    schemaName
-    _fields {
-      footerTop
-      leftSetOfBlocks {
-        title
-        description
-      }
-      contactUsBlock {
-        title
-        description
-      }
-      socialBlockHeading
-      socialIcons {
-        link
-        icon
-      }
-      copyright
-      mobileLabel
-      shortViewLinks {
-        text
-        link
-      }
-      rssLink {
-        hide
-      }
-      countrySelector
-      Body
-      footerRightSideBlock {
-        title
-        description
-      }
-      copyright_smb
-      copyright_vsb
-      copyright_ent
-    }
-  }
-`;
+// export const query = graphql`
+//   fragment footerFragment on FooterJson {
+//     title
+//     pubdate
+//     schemaName
+//     _fields {
+//       footerTop
+//       leftSetOfBlocks {
+//         title
+//         description
+//       }
+//       contactUsBlock {
+//         title
+//         description
+//       }
+//       socialBlockHeading
+//       socialIcons {
+//         link
+//         icon
+//       }
+//       copyright
+//       mobileLabel
+//       shortViewLinks {
+//         text
+//         link
+//       }
+//       rssLink {
+//         hide
+//       }
+//       countrySelector
+//       Body
+//       footerRightSideBlock {
+//         title
+//         description
+//       }
+//       copyright_smb
+//       copyright_vsb
+//       copyright_ent
+//     }
+//   }
+// `;
