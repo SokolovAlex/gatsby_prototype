@@ -5,7 +5,7 @@ import { injectIntl } from 'react-intl'
 const Layout = ({ children, data, intl }) => (
   <div>
     <Helmet
-      title={intl.formatMessage({ id: 'title2.subtitle' })}
+      title={ "wadawd" }
       meta={[
         { name: 'description', content: intl.formatMessage({ id: 'welcome' }) },
         {
@@ -26,8 +26,8 @@ const Layout = ({ children, data, intl }) => (
                 <a href="/" title="Kaspersky Lab" rel="home">Kaspersky 
                 <i className="kaspersky-logo"></i></a>
                 </div>
-                <ul className="menu-utility" ng-if="$ctrl.showMenuUtility">
-                    <li ng-if="$ctrl.data.rightMenuItem.cartLink" className="cart">
+                <ul className="menu-utility" >
+                    <li className="cart">
                         <a href="https://allsoft.kaspersky.ru/basket">
                             <i className="font-icons icon-cart"></i>
                             </a></li>

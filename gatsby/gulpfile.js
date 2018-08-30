@@ -1,8 +1,8 @@
 const gulp = require('gulp');
 const path = require('path');
+const { createFolder, saveFile } = require('./src/utils/filesystem');
 const fs = require('fs');
 const globby = require('globby');
-const modify = require('gulp-modify');
 const config = require('./config');
 const del = require('del');
 const mapping = require('./src/data/mapping');
@@ -12,36 +12,25 @@ const internal_field = {
     modified: '_fields'
 };
 
-const createFolder = (path) => {
-    if (!fs.existsSync(path)){
-        fs.mkdirSync(path);
-    }
+const modify = async () => {
+    const paths = await globby([`${config.dataPath}**/*.json`])
+    paths.forEach(filepath => {
+        const content = fs.readFileSync(filepath);
+        const json = JSON.parse(content);
+        if (internal_field.key in json) {
+            json[internal_field.modified] = json[internal_field.key];
+            delete json[internal_field.key];
+        }
+        saveFile(filepath, JSON.stringify(json));
+    });
 };
 
-gulp.task('modify', async () => {
-    gulp.src(`${config.dataPath}/**/*.json`)
-        .pipe(modify({
-            fileModifier: (file, contents) => {
-                const json = JSON.parse(contents);
-                if (internal_field.key in json) {
-                    json[internal_field.modified] = json[internal_field.key];
-                    delete json[internal_field.key];
-                }
-                return JSON.stringify(json);
-            }
-        }))
-        .pipe(gulp.dest(config.dataPath));
-});
-
-gulp.task('clean', async () => {
+const clean = async () => {
     await del([config.clearPath]);
-    console.log('clean');
-});
+};
 
-gulp.task('repack', async () => {
-    console.log('repack1');
+const repack = async () => {
     const paths = await globby([`${config.dataPathOrigin}**/*.json`]);
-    console.log('repack2');
     createFolder(`${__dirname}/src/data/new`);
     createFolder(`${__dirname}/src/data/new/com`);
 
@@ -58,7 +47,6 @@ gulp.task('repack', async () => {
         const entityKey = `${oneBeforeDirName}${lastDir}_${filename}`;
         const entityName = mapping[entityKey] || entityKey;
 
-        console.log('------->', entityKey);
         const newDir = path.join(config.dataPath, entityName);
         createFolder(newDir);
 
@@ -66,15 +54,17 @@ gulp.task('repack', async () => {
             filepath,
             path.join(newDir, `${filename}.json`)
         );
-        console.log(000000000);
     });
-});
+};
 
-gulp.task('prepare', async () => {
-    console.log(1);
-    await gulp.start('clean');
-    console.log(2);
-    await gulp.start('repack');
-    console.log(3);
-    //await gulp.start('modify');
+gulp.task('modify', modify);
+
+gulp.task('clean', clean);
+
+gulp.task('repack', repack);
+
+gulp.task('default', async () => {
+    await clean();
+    await repack();
+    await modify();
 });

@@ -28,8 +28,8 @@ const compactFooter = (data) => {
                     </links>
                 </footer>
                 <ul className="featured-pages">
-                    { fields.shortViewLinks.map(link => (
-                            <li>
+                    { fields.shortViewLinks.map((link , i)=> (
+                            <li key={i}>
                                 <a href={link.link}>{ link.text }</a>
                             </li>
                         ))}
@@ -43,8 +43,8 @@ const compactFooter = (data) => {
             <div className="footer-secondary">
                 <div className="social-links">
                     {
-                        fields.socialIcons.map(item => (
-                            <a href={item.link} target="_blank" className="social">
+                        fields.socialIcons.map((item, i)=> (
+                            <a href={item.link} key={i} target="_blank" className="social">
                                 <i className="font-icons {item.icon}"></i>
                             </a>
                         ))
@@ -84,45 +84,37 @@ const getCopyLink = (data) => {
 
 export default FooterTemplate
 
-//https://www.gatsbyjs.org/docs/querying-with-graphql/
-// export const query = graphql`
-//   fragment footerFragment on FooterJson {
-//     title
-//     pubdate
-//     schemaName
-//     _fields {
-//       footerTop
-//       leftSetOfBlocks {
-//         title
-//         description
-//       }
-//       contactUsBlock {
-//         title
-//         description
-//       }
-//       socialBlockHeading
-//       socialIcons {
-//         link
-//         icon
-//       }
-//       copyright
-//       mobileLabel
-//       shortViewLinks {
-//         text
-//         link
-//       }
-//       rssLink {
-//         hide
-//       }
-//       countrySelector
-//       Body
-//       footerRightSideBlock {
-//         title
-//         description
-//       }
-//       copyright_smb
-//       copyright_vsb
-//       copyright_ent
-//     }
-//   }
-// `;
+// https://www.gatsbyjs.org/docs/querying-with-graphql/
+export const query = graphql`
+  fragment footerFragment on HomepageFooterJson {
+    title
+    pubdate
+    schemaName
+    _fields {
+      footerTop
+      leftSetOfBlocks {
+        title
+        description
+      }
+      contactUsBlock {
+        title
+        description
+      }
+      socialBlockHeading
+      socialIcons {
+        link
+        icon
+      }
+      copyright
+      mobileLabel
+      shortViewLinks {
+        text
+        link
+      }
+      rssLink {
+        hide
+      }
+      countrySelector
+    }
+  }
+`;

@@ -1,6 +1,11 @@
 import React from 'react'
+
+import { first, last } from 'lodash'
+
 // const classSet = React.addons.classSet;
 const classSet = require('classnames');
+
+const locale = 'ru';
 
 const HomeBannerTemplate = (data) => {
     if (!data) {
@@ -11,29 +16,30 @@ const HomeBannerTemplate = (data) => {
 }
 
 const desktopBanner = (data) => {
-    const locale = 'ru';
     const searchBar = 'searchBar';
     const fields = data._fields;
+    const bsnsCategory = first(fields.productCategories);
+    const homeCategory = last(fields.productCategories);
 
     return (
     <header className="homepage-hero-header-desktop">
     <div className="hero-header-inner">
         <div className="hero-side-col business"
             style={{
-                backgroundImage: 'url(/' + data.bsnsCategory.image + ')'
+                backgroundImage: 'url(/' + bsnsCategory.image + ')'
               }}
             >
             <div className="green-overlay business" data-test="homepage-banner--b2b"></div>
             <div className="side-cta-box business">
-                <a href="">{ data.bsnsCategory.type }</a>
-                <p>{ data.bsnsCategory.text1 }</p>
+                <a href="">{ bsnsCategory.type }</a>
+                <p>{ bsnsCategory.text1 }</p>
             </div>
             <div className="gray-overlay"></div>
             <div className="side-screen business">
-                <h2 data-test="homepage-label--b2b">{ data.bsnsCategory.type}</h2>
-                <h3>{data.bsnsCategory.text2}</h3>
+                <h2 data-test="homepage-label--b2b">{ bsnsCategory.type}</h2>
+                <h3>{bsnsCategory.text2}</h3>
                 <ul className="cta-list">
-                    { data.bsnsCategory.productType.map((type, locale, index)=> (
+                    { bsnsCategory.productType.map((type, locale, index)=> (
                             <li data-screen="mid-screen-business-{type.productClassIdentifier}">
                             <a className="cta" href={type.url}
                                 data-test="homepage-cta--{type.productClassIdentifier}">
@@ -50,12 +56,12 @@ const desktopBanner = (data) => {
                 </ul>
                 { locale === 'ja-jp' &&
                     <a className="all-products"
-                        href={data.homeCategory.buttonUrl}>
-                        {data.homeCategory.buttonText}
+                        href={homeCategory.buttonUrl}>
+                        {homeCategory.buttonText}
                     </a>
                 }
                 <p className="bottom-copy">
-                    { data.bsnsCategory.text3 }
+                    { bsnsCategory.text3 }
                 </p>
             </div>
         </div>
@@ -69,7 +75,7 @@ const desktopBanner = (data) => {
                     </label>
                     <div className="search-input-wrap">
                         <input type="text"
-                            placeholder={data.searchText}
+                            placeholder={searchBar}
                             id="homepage-header-search-input"
                             value={searchBar}
                             autocomplete="off"/>
@@ -87,8 +93,8 @@ const desktopBanner = (data) => {
                 </form>
 
                 <ul className="top-nav-hideonsearch">
-                    { data.topButtons.map((topButton, i) =>
-                        renderTopButton(topButton, i)
+                    { fields.topButtons.map((topButton, i) =>
+                        renderTopButton(topButton, i, fields)
                     )}
                 </ul>
             </div>
@@ -98,7 +104,7 @@ const desktopBanner = (data) => {
                     <h2>{ data.middleText }</h2>
                 </div>
                 
-                { data.productCategories.map((category, i) => (
+                { fields.productCategories.map((category, i) => (
                     <div>
                         { category.productType.map((type) => (
                             <div className={ getMidScreenClasses(type, i) }>
@@ -128,19 +134,19 @@ const desktopBanner = (data) => {
             </div>
         </div>
         <div className="hero-side-col home"
-             styles={{'background-image': 'url(/' + data.homeCategory.image + ')'}}>
+             style={{backgroundImage: 'url(/' + homeCategory.image + ')'}}>
             <div className="green-overlay home" data-test="homepage-banner--b2c"></div>
             <div className="side-cta-box home">
-                <a href="">{data.homeCategory.type}</a>
-                <p>{data.homeCategory.text1}</p>
+                <a href="">{homeCategory.type}</a>
+                <p>{homeCategory.text1}</p>
             </div>
             <div className="gray-overlay"></div>
             <div className="side-screen home">
-                <h2 data-test="homepage-label--b2c">{data.homeCategory.type}</h2>
-                <h3>{data.homeCategory.text2}</h3>
+                <h2 data-test="homepage-label--b2c">{homeCategory.type}</h2>
+                <h3>{homeCategory.text2}</h3>
                 <ul className="cta-list">
 
-                    { data.homeCategory.productType.map((type, i) => (
+                    { homeCategory.productType.map((type, i) => (
 
                         <li data-screen={`mid-screen-${type.productClassIdentifier}`}>
                             <a class="cta" href={type.url}
@@ -163,12 +169,12 @@ const desktopBanner = (data) => {
                 </ul>
                 { locale !== 'ja-jp' &&
                      <a className="all-products"
-                        href={data.homeCategory.buttonUrl}>
-                        {data.homeCategory.buttonText}
+                        href={homeCategory.buttonUrl}>
+                        {homeCategory.buttonText}
                     </a>
                 }
                 <p className="bottom-copy">
-                    {data.homeCategory.text3}
+                    {homeCategory.text3}
                 </p>
             </div>
         </div>
@@ -181,17 +187,16 @@ const mobileBanner = (data) => {
 
     return (
     <header className="homepage-hero-header-mobile">
-        <site-header>!</site-header>
         <div className="screen screen-intro" 
-            styles={{'background-image': 'url(' + data.mobileImage + ')'}}>
+            style={{backgroundImage: 'url(' + data.mobileImage + ')'}}>
             <div className="container">
                 <h2>{data.middleText}</h2>
                 <span className="solutions-for">{data.mobileText}</span>
 
                 <ul className="cta-list">
                      { fields.productCategories.map((category, i) => (
-                        <li>
-                            <a className={ getCtaClasses(caegory, i) } href="#">
+                        <li key={i}>
+                            <a className={ getCtaClasses(category, i) } href="#">
                                 {category.typeMobile}
                             </a>
                         </li>
@@ -201,15 +206,15 @@ const mobileBanner = (data) => {
         </div>
 
         { fields.productCategories.map((category, i) => (
-            <div className={getScreenClasses(category, i)} styles={{'background-image': 'url(' + category.imageMobile + ')'}}>
+            <div key={i} className={getScreenClasses(category, i)} style={{backgroundImage: 'url(' + category.imageMobile + ')'}}>
                 <i className="back-btn"></i>
                 <div className="container">
                     <h2>{category.type}</h2>
                     <h3>{category.text2}</h3>
                     <ul className="cta-list">
 
-                        { category.productType.map((type) => (
-                            <li className={ TypeClasses(i) }>
+                        { category.productType.map((type, j) => (
+                            <li key={j} className={ TypeClasses(i) }>
                                 <a className={ TypeLinkClasses(i)} href={type.url}>
                                     { getTabsOrder(i) === 0 &&
                                         <i className={ getJpTypeClasses(type, i)}></i>
@@ -273,7 +278,7 @@ const TypeClasses = (i) => {
 const getScreenClasses = (data, i) => {
     return classSet({
         screen: true,
-        'screen-business': getTabsOrder($index) === 0,
+        'screen-business': getTabsOrder(i) === 0,
         'screen-home': getTabsOrder(i) === 1
     });
 }
@@ -286,7 +291,7 @@ const getCtaClasses = (data, i) => {
 }
 
 function getTabsOrder(order) {
-    if (ctrl.locale === 'ja-jp') return Math.abs(order - 1);
+    if (locale === 'ja-jp') return Math.abs(order - 1);
     return order;
 }
 
@@ -317,7 +322,7 @@ const getMidScreenClasses = (type, i) => {
     });
 }
 
-const renderTopButton = (btn, i) => {
+const renderTopButton = (btn, i, fields) => {
     const classes = classSet({
         'top-nav-support': i==1,
         'top-nav-mykaspersky': i==2
@@ -350,7 +355,7 @@ const renderTopButton = (btn, i) => {
 
          { i = 2 &&
             <ul>
-                { data.mykasperskyLinks.map((link) =>
+                { fields.mykasperskyLinks.map((link) =>
                     <li>
                         <a href={ link.link } target="_blank">
                         <i className={linkClasses}></i>
@@ -376,113 +381,48 @@ const getLocale = (type, locale, index) => {
 export default HomeBannerTemplate
 
 // https://www.gatsbyjs.org/docs/querying-with-graphql/
-// export const query = graphql`
-//   fragment homepageBannerFragment on HomepageBanner {
-//     title
-//     pubdate
-//     _fields {
-//         klLogo
-//         searchText
-//         topButtons{
-//             text
-//             link
-//             class
-//             isExternal
-//         }
-//         mykasperskyLinks {
-//             text
-//             link
-//             isExternal
-//         }
-//         myKasperskyBalancer
-//         middleText
-//         mobileImage
-//         productCategories {
-//             type
-//             typeMobile
-//             image
-//             text1
-//             imageMobile
-//             text2
-//             text3
-//             productType {
-//             typeShort
-//             typeFull
-//             image
-//             employee
-//             text1
-//             url
-//             buttonText
-//             productClassIdentifier
-//             }
-//             buttonText
-//             buttonUrl
-//         }
-//         awardText
-//         awardsImages {
-//             image
-//             imageLink
-//             imageCaption
-//         }
-//         stats{
-//             statNumber
-//             protectedText
-//             byText
-//             textBlock
-//         }
-//         promotions {
-//             sectionClass
-//             backgroundImage
-//             textBlock
-//             ctaButton {
-//             text
-//             link
-//             class
-//             }
-//             backgroundImageForMobile
-//             backgroundImageForTablet
-//         }
-//         title
-//         description
-//         breadcrumbs {
-//             title
-//             link
-//         }
-//         aboutButtons {
-//             text
-//             link
-//             class
-//         }
-//         aboutQuoteImageMobile
-//         aboutQuoteImage
-//         aboutQuoteAuthorTitle
-//         aboutQuoteAuthor
-//         aboutQuoteText
-//         protectMobileButtons {
-//             text
-//             link
-//             class
-//         }
-//         protectMobileTextBlock
-//         protectMobileImage
-//         protectMobileTitle
-//         renewButtons {
-//             text
-//             link
-//             class
-//         }
-//         renewTextBlock
-//         renewTitle
-//         hmcImg
-//         hmcDesc
-//         hmcSubTitle
-//         hmcTitle
-//         linkedComponents{
-//             id
-//             title
-//             pubdate
-//             schemaName
-//         }
-//     }
-// }
-// `;
+export const query = graphql`
+  fragment homepageBannerFragment on HomepageBannerJson {
+    title
+    pubdate
+    _fields {
+        klLogo
+        searchText
+        topButtons{
+            text
+            link
+            class
+            isExternal
+        }
+        mykasperskyLinks {
+            text
+            link
+            isExternal
+        }
+        myKasperskyBalancer
+        middleText
+        mobileImage
+        productCategories {
+            type
+            typeMobile
+            image
+            text1
+            imageMobile
+            text2
+            text3
+            productType {
+                typeShort
+                typeFull
+                image
+                employee
+                text1
+                url
+                buttonText
+                productClassIdentifier
+            }
+            buttonText
+            buttonUrl
+        }
+    }
+}
+`;

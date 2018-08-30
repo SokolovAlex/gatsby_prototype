@@ -3,7 +3,7 @@
     "title": "languages",
     "pubdate": "2018-06-20T19:57:42Z",
     "schemaName": "languages",
-    "fields": {
+    "_fields": {
         "languages": [
             "ar: Arabic",
             "bg: Bulgarian",
