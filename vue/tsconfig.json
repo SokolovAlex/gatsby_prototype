@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "es2015",
+    "strict": true,
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    //"allowJs": true, //allow import JS files in TS files
+    "sourceMap": true,
+    "baseUrl": ".",
+    "types": [
+      "node",
+      "jest"
+    ],
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.vue"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

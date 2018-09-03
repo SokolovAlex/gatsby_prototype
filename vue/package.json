@@ -1,0 +1,33 @@
+{
+  "name": "vue-ssr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server",
+    "render": "node render",
+    "build": "npm run build:server && npm run build:client",
+    "build:client": "webpack --config webpack.config.js --progress --hide-modules",
+    "build:server": "cross-env NODE_ENV=production webpack --config webpack.server.config.js --progress --hide-modules"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-loader": "^8.0.2",
+    "cross-env": "^5.2.0",
+    "express": "^4.16.3",
+    "file-loader": "^2.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "qs": "^6.5.2",
+    "url-loader": "^1.1.1",
+    "vue": "^2.5.17",
+    "vue-loader": "^15.4.1",
+    "vue-router": "^3.0.1",
+    "vue-server-renderer": "^2.5.17",
+    "vue-ssr-webpack-plugin": "^3.0.0",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0"
+  }
+}
