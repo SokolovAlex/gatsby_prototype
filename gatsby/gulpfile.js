@@ -5,7 +5,7 @@ const fs = require('fs');
 const globby = require('globby');
 const config = require('./config');
 const del = require('del');
-const mapping = require('./src/data/mapping');
+const mapping = require('../content/mapping');
 
 const internal_field = {
     key: 'fields',
@@ -31,12 +31,14 @@ const clean = async () => {
 
 const repack = async () => {
     const paths = await globby([`${config.dataPathOrigin}**/*.json`]);
-    createFolder(`${__dirname}/src/data/new`);
-    createFolder(`${__dirname}/src/data/new/com`);
+
+    createFolder(`${__dirname}/../content/modified`);
+    createFolder(`${__dirname}/../content/modified/com`);
 
     paths.forEach(filepath => {
         const normalizePath = path.normalize(filepath)
             .replace(config.dataPathOrigin, '');
+
         const filename = path.basename(normalizePath, '.json');
         const dirs = path.dirname(normalizePath).split('\\');
         const lastDir = dirs.pop();
@@ -49,7 +51,6 @@ const repack = async () => {
 
         const newDir = path.join(config.dataPath, entityName);
         createFolder(newDir);
-
         fs.copyFileSync(
             filepath,
             path.join(newDir, `${filename}.json`)
