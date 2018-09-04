@@ -2,7 +2,7 @@
     <section class="notification-bar">
         <div class="container">
             <div class="notification-bar-content">
-                ctrl.data.desc
+                 id: {{JSON.stringify(data.id)}}
             </div>
             <div class="close">&#10006;&#xFE0E;</div>
         </div>
@@ -11,12 +11,7 @@
 
 <script>
     export default {
-        async asyncData ({ params }) {
-            debugger;
-            let { data } = await axios.get(`content/com/site-header/site-bar.json`);
-            debugger;
-            return data;
-        }
+        props: ['data']
     };
 </script>
 
