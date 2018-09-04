@@ -1,0 +1,40 @@
+/***************************************
+ Import Core Vendors
+***************************************/
+@import "vendors/bourbon/_bourbon";
+@import "vendors/neat/_neat";
+@import "vendors/plugins/magnific-popup";
+@import "vendors/plugins/slick";
+@import "vendors/plugins/_ng-dialog.scss";
+
+/***************************************
+ Import Core Base
+***************************************/
+@import "base/mixins";
+@import "base/reset";
+@import "base/colors";
+@import "base/base";
+@import "base/fonts";
+@import "base/typography";
+@import "base/key-frames-animations";
+
+/***************************************
+ Import Core Components
+***************************************/
+@import "components/icons";
+@import "components/grid";
+@import "modules/table-grid";
+@import "components/buttons";
+@import "components/inputs";
+@import "modules/header";
+@import "modules/header-mobile-nav";
+@import "../../../../modules/_shared/components/site-header/templates/site-header";
+@import "../../../../modules/_shared/components/site-footer/templates/site-footer";
+@import "../../../../modules/_shared/components/page-header/templates/page-header";
+@import "modules/global";
+@import "modules/pagination";
+@import "../../../../modules/_shared/components/search/components/templates/search";
+@import "../../../../modules/_shared/components/search/components/templates/articles";
+@import "../../../../modules/_shared/components/ajax-spinner/templates/ajax-spinner";
+@import "modules/error-404";
+@import "modules/accordion";

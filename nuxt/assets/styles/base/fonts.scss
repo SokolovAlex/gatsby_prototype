@@ -1,0 +1,20 @@
+/***************************************
+	Fonts
+***************************************/
+@include font-face("MuseoSans", "../fonts/museo-sans/museosans-900-webfont", 900, normal);
+@include font-face("MuseoSans", "../fonts/museo-sans/museosans-700-webfont", 700, normal);
+@include font-face("MuseoSans", "../fonts/museo-sans/museosans-500-webfont", 500, normal);
+@include font-face("MuseoSans", "../fonts/museo-sans/museosans-500italic-webfont", 500, italic);
+@include font-face("MuseoSans", "../fonts/museo-sans/museosans-300-webfont", 300, normal);
+@include font-face("MuseoSans", "../fonts/museo-sans/museosans-300italic-webfont", 300, italic);
+@include font-face("MuseoSans", "../fonts/museo-sans/museosans-100-webfont", 100, normal);
+@include font-face("MuseoSans", "../fonts/museo-sans/museosans-100italic-webfont", 100, italic);
+@include font-face("MuseoSlab", "../fonts/museo-slab/museoslab-300-webfont", 300, normal);
+@include font-face("MuseoSlab", "../fonts/museo-slab/museoslab-300italic-webfont", 300, italic);
+@include font-face("MuseoSlab", "../fonts/museo-slab/museoslab-500-webfont", 500, normal);
+@include font-face("SlowAttack", "../fonts/slow-attack/slow_attack_2-webfont", 400, normal);
+@include font-face("font-icons", "../fonts/font-icons/font-icons", normal, normal, $file-formats: svg eot ttf woff);
+
+$slowattack: "SlowAttack", Arial, Helvetica, sans-serif;
+$museosans: "MuseoSans", Arial, Helvetica, sans-serif;
+$museoslab: "MuseoSlab", "Georgia", Times, serif;

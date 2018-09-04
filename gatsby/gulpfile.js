@@ -26,7 +26,7 @@ const modify = async () => {
 };
 
 const clean = async () => {
-    await del([config.clearPath]);
+    await del([config.clearPath], { force: true });
 };
 
 const repack = async () => {
