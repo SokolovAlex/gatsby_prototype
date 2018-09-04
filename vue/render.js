@@ -1,24 +1,16 @@
 // Шаг 1: Создаём экземпляр Vue
-const { createPage } = require('./src/pages/homepage/homepage');
-
-const app = createPage().app;
+const fs = require('fs')
+const { createBundleRenderer } = require('vue-server-renderer');
 
 // Шаг 2: Создаём рендерер
-const renderer = require('vue-server-renderer').createRenderer({
-        template: require('fs').readFileSync('./index.template.html', 'utf-8')
-    }
-);
+const indexTemplate = fs.readFileSync('./src/index.html', 'utf-8');
 
+const renderer = createBundleRenderer('dist/vue-ssr-server-bundle.json', {
+    template: indexTemplate
+});
 
 // Шаг 3: Рендерим экземпляр Vue в HTML
-renderer.renderToString(app, (err, html) => {
-  if (err) throw err
-  console.log(html)
-  // => <div data-server-rendered="true">Hello World</div>
-})
-
-// с версии 2.5.0+, возвращает Promise если коллбэк не указан:
-renderer.renderToString(app).then(html => {
+renderer.renderToString({ title: '' }).then(html => {
   console.log(html)
 }).catch(err => {
   console.error(err)

@@ -47,6 +47,16 @@
             "console": "integratedTerminal",
             "sourceMaps": true,
             "outFiles": []
+        },
+        {
+            "name": "render",
+            "request": "launch",
+            "type": "node",
+            "protocol": "inspector",
+            "program": "${workspaceRoot}/vue/render",
+            "args": ["build"],
+            "stopOnEntry": false,
+            "cwd": "${workspaceRoot}/vue"
         }
     ]
 }

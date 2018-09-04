@@ -1,23 +1,31 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
-  "version": "1.0.0",
-  "author": "",
-  "dependencies": {
-    "ory-editor": "^0.3.1",
-    "react-tap-event-plugin": "^3.0.3"
-  },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write 'src/**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "devDependencies": {
-    "prettier": ""
+    "name": "ory-editor-examples",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+      "ory-editor-core": "0.0.0",
+      "ory-editor-plugins-default-native": "0.0.0",
+      "ory-editor-plugins-divider": "0.0.0",
+      "ory-editor-plugins-html5-video": "0.0.0",
+      "ory-editor-plugins-image": "0.0.0",
+      "ory-editor-plugins-parallax-background": "0.0.0",
+      "ory-editor-plugins-background": "0.0.0",
+      "ory-editor-plugins-slate": "0.0.0",
+      "ory-editor-plugins-spacer": "0.0.0",
+      "ory-editor-plugins-video": "0.0.0",
+      "ory-editor-renderer": "0.0.0",
+      "ory-editor-ui": "0.0.0",
+      "react": "^16.0.0",
+      "react-dom": "^16.0.0",
+      "@material-ui/core": "^1.5.1",
+      "@material-ui/icons": "^2.0.3",
+      "react-scripts": "1.1.4"
+    },
+    "devDependencies": {
+      "why-did-you-update": "0.0.8"
+    },
+    "scripts": {
+      "start": "react-scripts start",
+      "build": "react-scripts build"
+    }
   }
-}

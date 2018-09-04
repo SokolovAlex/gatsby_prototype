@@ -1,28 +1,22 @@
 const path = require('path')
 const webpack = require('webpack')
-// Load the Vue SSR plugin. Don't forget this. :P
-const VueSSRPlugin = require('vue-ssr-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+// const nodeExternals = require('webpack-node-externals')
+const VueSSRServerPlugin = require('vue-server-renderer/server-plugin')
 
 module.exports = {
-  // The target should be set to "node" to avoid packaging built-ins.
   target: 'node',
-  // The entry should be our server entry file, not the default one.
-  entry: './src/cl-server.js',
+  entry: './src/entry-server.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'build.js',
-    libraryTarget: 'commonjs2'
+    filename: 'build.js'
   },
   module: {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          loaders: {
-          }
-        }
+        loader: 'vue-loader'
       },
       {
         test: /\.js$/,
@@ -49,24 +43,18 @@ module.exports = {
   },
   // Avoids bundling external dependencies, so node can load them directly from node_modules/
   externals: Object.keys(require('./package.json').dependencies),
-  devtool: 'source-map',
-  // No need to put these behind a production env variable.
+//   externals: nodeExternals({
+//     // do not externalize CSS files in case we need to import it from a dep
+//     whitelist: /\.css$/
+//   }),
   plugins: [
     // Add the SSR plugin here.
-    new VueSSRPlugin(),
+    new VueSSRServerPlugin(),
+    new VueLoaderPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
       }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false
-      }
-    }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true
     })
   ]
 }

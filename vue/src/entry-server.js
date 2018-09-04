@@ -1,4 +1,4 @@
-import { createApp } from './app'
+import { createApp } from './app/app'
 
 export default context => {
   // поскольку могут быть асинхронные хуки маршрута или компоненты,
