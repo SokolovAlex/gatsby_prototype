@@ -1,7 +1,7 @@
 <template>
     <section>
         <site-bar v-bind:data="data.siteBar"></site-bar>
-        
+
         <div class="main no-bg">
             <renew-and-about v-bind:data="data.footer"></renew-and-about>
         </div>

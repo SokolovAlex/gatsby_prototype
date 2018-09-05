@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>web-components</title>
+    <meta name="description" content="web-components description">
+
+    <!-- See https://goo.gl/OOhYW5 -->
+    <link rel="manifest" href="/manifest.json">
+
+    <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+
+    <script type="module" src="/src/web-components-app/web-components-app.js" crossorigin></script>
+    <script type="module" src="/src/kl-button/kl-button.js" crossorigin></script>
+
+  </head>
+  <body>
+    <web-components-app></web-components-app>
+    <web-components-app prop1="test"></web-components-app>
+    <kl-button text="My first btn"></kl-button>
+    <kl-button text="My second btn" customclass="info" color="red"></kl-button>
+  </body>
+</html>

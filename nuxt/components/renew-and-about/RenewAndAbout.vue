@@ -8,7 +8,7 @@
                         <div class="row">
                             <div class="col-l-5">
                                 <img class="thumbnail" 
-                                    :src="data.hmcImg" :alt="data.hmcImg">
+                                    :src="`/${data.hmcImg}`" :alt="data.hmcImg">
                             </div>
                             <div class="col-l-7">
                                 <h5 class="text-green">{{data.hmcSubTitle}}</h5>
@@ -25,7 +25,7 @@
         <div class="renew-license mobile">
             <div class="container">
                 <h4>{{data.protectMobileTitle}}</h4>
-                <img class="photo" :src="data.protectMobileImage">
+                <img class="photo" :src="`/${data.protectMobileImage}`">
                 <div v-html="data.protectMobileTextBlock"></div>
                 <a v-for="(protectMobileButton, i) in data.protectMobileButtons"
                     class="button"
@@ -67,13 +67,13 @@
             <div class="container">
                 <div class="col renew-col">
                     <h4>{{data.renewTitle}}</h4>
-                    <div v-html="renewTextBlock"></div>
+                    <div v-html="data.renewTextBlock"></div>
                     <a v-for="(renewButton, i) in data.renewButtons" 
                         :href="renewButton.link"
                         :key="i"
                         class="button"
                         :class="renewButton.class"
-                        v-bind:data-test="`homepage-cta--lrc-${i}`">
+                        :data-test="`homepage-cta--lrc-${i}`">
                         {{renewButton.text}}</a>
                 </div>
                 <div class="col about-col">
@@ -86,7 +86,7 @@
                             </cite>
                         </blockquote>
                         <div class="footer-wrap">
-                            <img class="photo" :src="data.aboutQuoteImage">
+                            <img class="photo" :src="`/${data.aboutQuoteImage}`">
                             <a v-for="(aboutButton, i) in data.aboutButtons"
                                 :key="i"
                                 :href="aboutButton.link"

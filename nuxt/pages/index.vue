@@ -6,7 +6,7 @@
         {{ name }}
       </h1>
       <h2 class="subtitle">
-        {{ description }}
+         {{ description }}
       </h2>
       <div class="links">
         <a
@@ -29,9 +29,15 @@
 import AppLogo from "~/components/AppLogo.vue";
 
 export default {
-  components: {
-    AppLogo
-  }
+    data() {
+        return {
+            name: 'Nuxt Prototype',
+            description: 'Nuxt Prototype'
+        };
+    },
+    components: {
+        AppLogo
+    }
 };
 </script>
 

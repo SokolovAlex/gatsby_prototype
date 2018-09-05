@@ -11,6 +11,10 @@ module.exports = {
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      ],
+      script: [
+        // { src: 'web-components/webcomponents-loader.js' },
+        // { src: 'web-components/kl-button/kl-button.js' }
       ]
     },
     modules: [

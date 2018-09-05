@@ -1,0 +1,6 @@
+{
+  "name": "web-components",
+  "short_name": "web-components",
+  "start_url": "/",
+  "display": "standalone"
+}
