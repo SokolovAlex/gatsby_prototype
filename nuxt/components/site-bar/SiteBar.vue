@@ -1,17 +1,24 @@
 <template>
-    <section class="notification-bar">
+    <section class="notification-bar" v-bind:class="data.colour" v-if="data.active === 'Yes'">
         <div class="container">
-            <div class="notification-bar-content">
-                 id: {{JSON.stringify(data.id)}}
-            </div>
-            <div class="close">&#10006;&#xFE0E;</div>
+            <div class="notification-bar-content" v-html="data.desc"></div>
+            <div class="close" v-on:click="greet('NUXT')">&#10006;&#xFE0E;</div>
         </div>
     </section>
 </template>
 
 <script>
     export default {
-        props: ['data']
+        props: ['data'],
+        methods: {
+            greet: function (name) {
+                console.log(`Hello! ${name}`);
+                if (alert) {
+                    alert(`Hello! ${name}`);
+                }
+                this.data.active = 'no';
+            }
+        }
     };
 </script>
 

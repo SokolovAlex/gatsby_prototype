@@ -1,1 +1,49 @@
-{"id":"tcm:261-332417","title":"renew-and-about","pubdate":"2018-03-29T11:03:34Z","schemaName":"Renew and About Block","_fields":{"hmcTitle":"Which protection is right for you?","hmcSubTitle":"Find the right product!","hmcDesc":"The Kaspersky Help Me Choose tool makes it easy to decide.","hmcImg":"content/en-global/images/homepage/icon-find-the-right-product.png","renewTitle":"Renew your license","renewTextBlock":"<p>Renew your full-year license(s) here, or get discounts of up to 30% when you upgrade your Kaspersky security software.</p>","renewButtons":[{"text":"Renew home","link":"/renewal-center/home","class":"green","isExternal":[],"hide":[]},{"text":"Renew business","link":"/renewal-center/vsb","class":"transparent text-green","isExternal":[],"hide":[]}],"protectMobileTitle":"Protect your mobile devices","protectMobileImage":"content/en-global/images/homepage/photo-1.png","protectMobileTextBlock":"<p>Because your phones & tablets are as vulnerable as your computer – we help you do more to protect your mobile devices.</p>","protectMobileButtons":[{"text":"Download for Mobile","link":"/downloads","class":"green","isExternal":[],"hide":[]}],"aboutQuoteText":"Everyone has the right to be free of cybersecurity fears.","aboutQuoteAuthor":"Eugene Kaspersky","aboutQuoteAuthorTitle":"CEO of Kaspersky Lab","aboutQuoteImage":"content/en-global/images/homepage/photo-3.jpg","aboutQuoteImageMobile":"content/en-global/images/homepage/photo-2.jpg","aboutButtons":[{"text":"About Us","link":"about","class":"transparent text-green","isExternal":[],"hide":[]}]}}
+{
+  "id": "tcm:261-332417",
+  "title": "renew-and-about",
+  "pubdate": "2018-03-29T11:03:34Z",
+  "schemaName": "Renew and About Block",
+  "_fields": {
+    "hmcTitle": "Which protection is right for you?",
+    "hmcSubTitle": "Find the right product!",
+    "hmcDesc": "The Kaspersky Help Me Choose tool makes it easy to decide.",
+    "hmcImg": "content/en-global/images/homepage/icon-find-the-right-product.png",
+    "renewTitle": "Renew your license",
+    "renewTextBlock": "<p>Renew your full-year license(s) here, or get discounts of up to 30% when you upgrade your Kaspersky security software.</p>",
+    "renewButtons": [{
+      "text": "Renew home",
+      "link": "/renewal-center/home",
+      "class": "green",
+      "isExternal": [],
+      "hide": []
+    }, {
+      "text": "Renew business",
+      "link": "/renewal-center/vsb",
+      "class": "transparent text-green",
+      "isExternal": [],
+      "hide": []
+    }],
+    "protectMobileTitle": "Protect your mobile devices",
+    "protectMobileImage": "content/en-global/images/homepage/photo-1.png",
+    "protectMobileTextBlock": "<p>Because your phones & tablets are as vulnerable as your computer – we help you do more to protect your mobile devices.</p>",
+    "protectMobileButtons": [{
+      "text": "Download for Mobile",
+      "link": "/downloads",
+      "class": "green",
+      "isExternal": [],
+      "hide": []
+    }],
+    "aboutQuoteText": "Everyone has the right to be free of cybersecurity fears.",
+    "aboutQuoteAuthor": "Eugene Kaspersky",
+    "aboutQuoteAuthorTitle": "CEO of Kaspersky Lab",
+    "aboutQuoteImage": "content/en-global/images/homepage/photo-3.jpg",
+    "aboutQuoteImageMobile": "content/en-global/images/homepage/photo-2.jpg",
+    "aboutButtons": [{
+      "text": "About Us",
+      "link": "about",
+      "class": "transparent text-green",
+      "isExternal": [],
+      "hide": []
+    }]
+  }
+}

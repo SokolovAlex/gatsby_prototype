@@ -13,7 +13,7 @@
 </template>
 
 <script>
-    import { footer, siteBar } from '~/helpers/api'
+    import { getFooterData, getSiteBarData } from '~/helpers/api'
     import SiteBar from "~/components/site-bar/SiteBar.vue";
     import RenewAndAbout from "~/components/renew-and-about/RenewAndAbout.vue";
 
@@ -24,15 +24,17 @@
             RenewAndAbout
         },
         data() {
-            return { data: '' };
+            return { data: null };
         },
         async asyncData ({ params }) {
-            const [responseFooter, responseSiteBar] = [await footer(), await siteBar()];
-            console.log(responseFooter.data.id, responseSiteBar.data.id);
-            return { loaded: true, data: {
-                footer: responseFooter.data,
-                siteBar: responseSiteBar.data
-            }}
+            const [responseFooter, responseSiteBar] = [ await getFooterData(), await getSiteBarData() ];
+            return { 
+                loaded: true,
+                data: {
+                    footer: responseFooter.data._fields,
+                    siteBar: responseSiteBar.data._fields
+                }
+            }
         }
     };
 </script>
