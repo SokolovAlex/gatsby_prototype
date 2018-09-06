@@ -10,11 +10,12 @@ const compactFooter = (data) => {
     const year = now.getFullYear();
     const fields = data._fields;
 
-    return (<section id="site-footer" className="site-footer compact">
-            <div className="container">
-                <div>
-                    { data.footerTop }
-                </div>
+    return (
+    <section id="site-footer" className="site-footer compact">
+        <div className="container">
+            <div>
+                { data.footerTop }
+            </div>
 
             <div className="footer-links">
                 <footer>
@@ -32,7 +33,8 @@ const compactFooter = (data) => {
                             <li key={i}>
                                 <a href={link.link}>{ link.text }</a>
                             </li>
-                        ))}
+                        )
+                    )}
                     <li>
                         <a href={fields.rssLink.link}>
                             { fields.rssLink.text || 'RSS Feeds'}

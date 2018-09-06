@@ -12,7 +12,6 @@
         props: ['data'],
         methods: {
             greet: function (name) {
-                console.log(`Hello! ${name}`);
                 if (alert) {
                     alert(`Hello! ${name}`);
                 }

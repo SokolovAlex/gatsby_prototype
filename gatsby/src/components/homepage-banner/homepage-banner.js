@@ -174,7 +174,7 @@ const desktopBanner = (data) => {
                     </a>
                 }
                 <p className="bottom-copy">
-                    {homeCategory.text3}
+                    { homeCategory.text3 }
                 </p>
             </div>
         </div>
