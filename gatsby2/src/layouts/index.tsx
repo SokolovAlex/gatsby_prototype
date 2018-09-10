@@ -53,6 +53,7 @@ class DefaultLayout extends React.PureComponent<DefaultLayoutProps, void> {
             paddingTop: 0,
           }}
         >
+        { this.props.children}
         </div>
       </div>
     )
