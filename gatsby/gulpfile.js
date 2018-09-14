@@ -1,11 +1,13 @@
 const gulp = require('gulp');
-const path = require('path');
-const { createFolder, saveFile } = require('./src/utils/filesystem');
-const fs = require('fs');
 const globby = require('globby');
-const config = require('./config');
 const del = require('del');
-const mapping = require('../content/mapping');
+const path = require('path');
+const fs = require('fs');
+
+const { createFolder, saveFile, readJson } = require('./utils/filesystem');
+const config = require('./config');
+const { mapping, schemas } = require('../content/mapping');
+const merge = require('deepmerge')
 
 const internal_field = {
     key: 'fields',
@@ -15,8 +17,18 @@ const internal_field = {
 const modify = async () => {
     const paths = await globby([`${config.dataPath}**/*.json`])
     paths.forEach(filepath => {
-        const content = fs.readFileSync(filepath);
-        const json = JSON.parse(content);
+        let json = readJson(filepath);
+
+        // set defaults
+        const dirFields = filepath.split('/');
+        dirFields.pop(); // remove region en-global || ru-ru
+        const entityKey = dirFields.pop();
+        const schema = schemas[entityKey];
+        if (schema) {
+            const schemaJson = readJson(path.normalize(`${__dirname}/../content/schemas/${schema}`));
+            json = merge(json, schemaJson);
+        }
+
         if (internal_field.key in json) {
             json[internal_field.modified] = json[internal_field.key];
             delete json[internal_field.key];
@@ -25,15 +37,19 @@ const modify = async () => {
     });
 };
 
-const clean = async () => {
+const cleanData = async () => {
     await del([config.clearPath], { force: true });
+};
+
+const cleanCache = async () => {
+    await del(['.cache/'], { force: true });
 };
 
 const repack = async () => {
     const paths = await globby([`${config.dataPathOrigin}**/*.json`]);
 
     createFolder(`${__dirname}/../content/modified`);
-    createFolder(`${__dirname}/../content/modified/com`);
+    createFolder(`${__dirname}/../content/modified/${config.locale}`);
 
     paths.forEach(filepath => {
         const normalizePath = path.normalize(filepath)
@@ -41,31 +57,47 @@ const repack = async () => {
 
         const filename = path.basename(normalizePath, '.json');
         const dirs = path.dirname(normalizePath).split('\\');
-        const lastDir = dirs.pop();
-        const oneBeforeDir = dirs.pop();
-        const oneBeforeDirName = oneBeforeDir && oneBeforeDir !== 'en-global'
-            ? `${oneBeforeDir}_` : '';
-
-        const entityKey = `${oneBeforeDirName}${lastDir}_${filename}`;
+        dirs.shift();
+        const dirPath = dirs.join('_');
+        const entityKey = `${dirPath}_${filename}`;
         const entityName = mapping[entityKey] || entityKey;
 
-        const newDir = path.join(config.dataPath, entityName);
+        const firstDir = dirs[0];
+        createFolder(path.join(config.dataPath, firstDir));
+
+        const newDir = path.join(config.dataPath, firstDir, entityName);
         createFolder(newDir);
+
         fs.copyFileSync(
             filepath,
-            path.join(newDir, `${filename}.json`)
+            path.join(newDir, `${entityName}.json`)
         );
     });
 };
 
 gulp.task('modify', modify);
 
-gulp.task('clean', clean);
+gulp.task('cleanData', cleanData);
+
+gulp.task('clean', cleanCache);
 
 gulp.task('repack', repack);
 
 gulp.task('default', async () => {
-    await clean();
+    await cleanData();
     await repack();
     await modify();
+});
+
+gulp.task('static', () => {
+    const StaticServer = require('static-server');
+    const server = new StaticServer({
+        //rootPath: '../content/modified',
+        rootPath: '../content/data',
+        port: 9999,
+        cors: '*',
+    });
+    server.start(function () {
+        console.log('Server listening to', server.port);
+    });
 });

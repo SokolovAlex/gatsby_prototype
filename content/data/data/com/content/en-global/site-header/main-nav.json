@@ -1,0 +1,67 @@
+{
+    "id": "tcm:261-332854",
+    "title": "main-nav",
+    "pubdate": "2018-09-05T17:33:30Z",
+    "schemaName": "Main navigation",
+    "fields": {
+        "mainNavItem": [{
+            "text": "Products",
+            "link": "/home-security",
+            "megaMenuItem": "content/en-global/home-security/main-nav/mega-menu/mega-menu.json",
+            "mobile_nav_disable": [],
+            "isExternal": []
+        }, {
+            "text": "Renew",
+            "link": "/renewal-center/home",
+            "mobile_nav_disable": [],
+            "isExternal": []
+        }, {
+            "text": "Downloads",
+            "link": "/downloads",
+            "mobile_nav_disable": [],
+            "isExternal": []
+        }, {
+            "text": "Support",
+            "link": "http://support.kaspersky.com/",
+            "mobile_nav_disable": [],
+            "isExternal": []
+        }, {
+            "text": "Resource Center",
+            "link": "/resource-center",
+            "mobile_nav_disable": [],
+            "isExternal": []
+        }, {
+            "text": "Blog",
+            "link": "/blog/",
+            "megaMenuItem": "content/en-global/home-security/main-nav/mega-menu/blog-dropdown-general.json",
+            "mobile_nav_disable": [],
+            "isExternal": []
+        }],
+        "rightMenuItem": {
+            "cartLink": "https://store.kaspersky.com/store?Action=DisplayPage\u0026Locale=en_IE\u0026SiteID=kasper\u0026id=ThreePgCheckoutShoppingCartPage",
+            "menuText": "My Kaspersky",
+            "menuLink": "https://my.kaspersky.com/",
+            "menuItems": [{
+                "text": "My Devices",
+                "link": "https://my.kaspersky.com/MyDevices",
+                "class": "icon-devices",
+                "isExternal": [],
+                "hide": []
+            }, {
+                "text": "My Products / Subscriptions",
+                "link": "https://my.kaspersky.com/MyLicenses",
+                "class": "icon-subscriptions",
+                "isExternal": [],
+                "hide": []
+            }, {
+                "text": "My Orders",
+                "link": "https://my.kaspersky.com/MyAccount/OrdersHistory",
+                "class": "icon-card",
+                "isExternal": ["Yes"],
+                "hide": []
+            }]
+        },
+        "crimeStopperLogo": "content/en-global/images/Crimestoppers_cmyk.png",
+        "crimeStopperLogoAlt": "Partners in Cyber Safety"
+    }
+}
