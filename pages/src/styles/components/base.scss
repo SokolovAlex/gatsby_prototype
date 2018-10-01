@@ -1,0 +1,65 @@
+$site-width: 1030px;
+
+select {
+  max-width: 100%;
+}
+
+embed,
+iframe,
+object,
+video {
+  max-width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.clear {
+  @include clearfix;
+}
+
+.hide {
+  display: none;
+}
+
+.container {
+  @include clearfix;
+  width: 90%;
+  max-width: 1030px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.site-bg {
+  padding-top: 0 !important;
+  background-size: cover;
+  background-position: center;
+}
+
+.main {
+  .no-bottom-margin {
+    margin-bottom: 0;
+  }
+}
+
+// Google maps zoom fix
+
+.map.zoom-fix {
+  cursor: move;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+
+  &:active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+  }
+
+  & > div {
+    pointer-events: none;
+  }
+}

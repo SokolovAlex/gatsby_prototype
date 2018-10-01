@@ -1,0 +1,11 @@
+{
+    "id": "tcm:311-425939",
+    "title": "comparison-table",
+    "pubdate": "2018-03-12T13:08:50Z",
+    "schemaName": "compareTable",
+    "fields": {
+        "header": "Compare Products",
+        "rec": "RECOMMENDED",
+        "products": ["content/ru-ru/home-security/products/kav/kav.json", "content/ru-ru/home-security/products/kis/kis.json", "content/ru-ru/home-security/products/ktsmd/ktsmd.json"]
+    }
+}

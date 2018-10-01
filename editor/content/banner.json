@@ -1,0 +1,303 @@
+{
+    "id": "5e6c6ffd-12c2-4852-85f4-e1bdb3435fe5",
+    "cells": [{
+        "id": "8df8dc66-166d-426c-9556-008a93434408",
+        "inline": null,
+        "size": 4,
+        "rows": [{
+            "id": "f31b91b3-263c-476f-86e5-266364f98ef5",
+            "cells": [{
+                "id": "ecf50e75-f233-4438-99a1-9189cdb325c5",
+                "inline": null,
+                "size": 12,
+                "content": {
+                    "plugin": {
+                        "name": "ory/editor/core/content/slate",
+                        "version": "0.0.2"
+                    },
+                    "state": {
+                        "serialized": {
+                            "object": "value",
+                            "document": {
+                                "object": "document",
+                                "data": {},
+                                "nodes": [{
+                                    "object": "block",
+                                    "type": "PARAGRAPH/PARAGRAPH",
+                                    "isVoid": false,
+                                    "data": {},
+                                    "nodes": [{
+                                        "object": "text",
+                                        "leaves": [{
+                                            "object": "leaf",
+                                            "text": "{{MyNewKey}}",
+                                            "marks": []
+                                        }]
+                                    }]
+                                }]
+                            }
+                        }
+                    }
+                }
+            }]
+        }, {
+            "id": "d48c12a6-e3dd-4d33-81c8-0fa29db157ee",
+            "cells": [{
+                "id": "50e38c33-2cdd-4d7b-b5b3-08492b95a9fc",
+                "inline": null,
+                "size": 12,
+                "content": {
+                    "plugin": {
+                        "name": "example/content/input-text-field",
+                        "version": "0.0.1"
+                    },
+                    "state": {
+                        "value": "{{MyCustomKey}}"
+                    }
+                }
+            }]
+        }, {
+            "id": "258dd8c2-7882-4bfb-ba03-ac5e160de1ad",
+            "cells": [{
+                "id": "26ca49b5-e261-4836-9855-a857588df73d",
+                "inline": null,
+                "size": 12,
+                "layout": {
+                    "plugin": {
+                        "name": "ory/editor/core/layout/background",
+                        "version": "0.0.1"
+                    },
+                    "state": {
+                        "background": "https://d585tldpucybw.cloudfront.net/sfimages/default-source/default-album/react_blogreact_870x220_3.png",
+                        "isParallax": false
+                    }
+                },
+                "rows": [{
+                    "id": "4a4b67a2-1d4e-44e8-9006-c1e4551208db",
+                    "cells": [{
+                        "id": "b2561678-f72c-4a3a-b90a-ced51c930a7c",
+                        "inline": null,
+                        "size": 12,
+                        "content": {
+                            "plugin": {
+                                "name": "ory/editor/core/content/slate",
+                                "version": "0.0.2"
+                            },
+                            "state": {
+                                "serialized": {
+                                    "object": "value",
+                                    "document": {
+                                        "object": "document",
+                                        "data": {},
+                                        "nodes": [{
+                                            "object": "block",
+                                            "type": "PARAGRAPH/PARAGRAPH",
+                                            "isVoid": false,
+                                            "data": {},
+                                            "nodes": [{
+                                                "object": "text",
+                                                "leaves": [{
+                                                    "object": "leaf",
+                                                    "text": "{{BCG_Key}}",
+                                                    "marks": []
+                                                }]
+                                            }]
+                                        }]
+                                    }
+                                }
+                            }
+                        }
+                    }]
+                }]
+            }]
+        }, {
+            "id": "e68078e5-59c2-41d1-bdc8-afb69570579a",
+            "cells": [{
+                "id": "97bedb30-521c-4c87-b74c-b0fc885e9169",
+                "inline": null,
+                "size": 12,
+                "content": {
+                    "plugin": {
+                        "name": "ory/editor/core/content/image",
+                        "version": "0.0.1"
+                    },
+                    "state": {
+                        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFEchToUB1b_Dkwx_Q2Zvpt7fzs8neI3Da-Ev8Y0wcsiDbKleI"
+                    }
+                }
+            }]
+        }]
+    }, {
+        "id": "1c59d4af-8fe7-4464-a2b7-32d208f76ce7",
+        "inline": null,
+        "size": 8,
+        "rows": [{
+            "id": "26cae3ad-79bc-469f-9271-923f77950f55",
+            "cells": [{
+                "id": "076e7518-c514-40e3-bc40-3a59ba7e9bcb",
+                "inline": null,
+                "size": 6,
+                "content": {
+                    "plugin": {
+                        "name": "ory/editor/core/content/image",
+                        "version": "0.0.1"
+                    },
+                    "state": {
+                        "src": "https://hsto.org/getpro/habr/post_images/1b6/430/c4f/1b6430c4f1764ef597cd15270386b1a0.png"
+                    }
+                }
+            }, {
+                "id": "100942f2-fdd2-4503-b8fa-c9b71156e70e",
+                "inline": null,
+                "size": 6,
+                "rows": [{
+                    "id": "0fd314dd-d089-4ca0-97b0-210977affcea",
+                    "cells": [{
+                        "id": "660a611e-7a85-471d-a314-e6596ea20724",
+                        "inline": null,
+                        "size": 12,
+                        "content": {
+                            "plugin": {
+                                "name": "ory/editor/core/content/slate",
+                                "version": "0.0.2"
+                            },
+                            "state": {
+                                "serialized": {
+                                    "object": "value",
+                                    "document": {
+                                        "object": "document",
+                                        "data": {},
+                                        "nodes": [{
+                                            "object": "block",
+                                            "type": "PARAGRAPH/PARAGRAPH",
+                                            "isVoid": false,
+                                            "data": {},
+                                            "nodes": [{
+                                                "object": "text",
+                                                "leaves": [{
+                                                    "object": "leaf",
+                                                    "text": "{{MyKey}}",
+                                                    "marks": []
+                                                }]
+                                            }]
+                                        }]
+                                    }
+                                }
+                            }
+                        }
+                    }]
+                }, {
+                    "id": "e51acbef-2dd0-41c5-b657-27e0a75f223e",
+                    "cells": [{
+                        "id": "858812df-2b85-4c5c-8a40-af163e69b696",
+                        "inline": null,
+                        "size": 12,
+                        "content": {
+                            "plugin": {
+                                "name": "ory/editor/core/content/image",
+                                "version": "0.0.1"
+                            },
+                            "state": {
+                                "src": "https://koenig-media.raywenderlich.com/uploads/2018/01/React-feature-2.png"
+                            }
+                        }
+                    }]
+                }]
+            }]
+        }, {
+            "id": "490d6724-d011-44fc-ae14-43b4df3701f7",
+            "cells": [{
+                "id": "e9cc4cea-9866-4127-be42-7ebd59b9db56",
+                "inline": null,
+                "size": 12,
+                "content": {
+                    "plugin": {
+                        "name": "ory/editor/core/content/slate",
+                        "version": "0.0.2"
+                    },
+                    "state": {
+                        "serialized": {
+                            "object": "value",
+                            "document": {
+                                "object": "document",
+                                "data": {},
+                                "nodes": [{
+                                    "object": "block",
+                                    "type": "PARAGRAPH/PARAGRAPH",
+                                    "isVoid": false,
+                                    "data": {},
+                                    "nodes": [{
+                                        "object": "text",
+                                        "leaves": [{
+                                            "object": "leaf",
+                                            "text": "",
+                                            "marks": [{
+                                                "object": "mark",
+                                                "type": "EMPHASIZE/U",
+                                                "data": {}
+                                            }, {
+                                                "object": "mark",
+                                                "type": "EMPHASIZE/EM",
+                                                "data": {}
+                                            }, {
+                                                "object": "mark",
+                                                "type": "EMPHASIZE/STRONG",
+                                                "data": {}
+                                            }]
+                                        }]
+                                    }, {
+                                        "object": "inline",
+                                        "type": "LINK/LINK",
+                                        "isVoid": false,
+                                        "data": {
+                                            "href": "https://hsto.org/getpro/habr/post_images/1b6/430/c4f/1b6430c4f1764ef597cd15270386b1a0.png"
+                                        },
+                                        "nodes": [{
+                                            "object": "text",
+                                            "leaves": [{
+                                                "object": "leaf",
+                                                "text": "SomeHTML!",
+                                                "marks": [{
+                                                    "object": "mark",
+                                                    "type": "EMPHASIZE/U",
+                                                    "data": {}
+                                                }, {
+                                                    "object": "mark",
+                                                    "type": "EMPHASIZE/EM",
+                                                    "data": {}
+                                                }, {
+                                                    "object": "mark",
+                                                    "type": "EMPHASIZE/STRONG",
+                                                    "data": {}
+                                                }]
+                                            }]
+                                        }]
+                                    }, {
+                                        "object": "text",
+                                        "leaves": [{
+                                            "object": "leaf",
+                                            "text": "",
+                                            "marks": [{
+                                                "object": "mark",
+                                                "type": "EMPHASIZE/U",
+                                                "data": {}
+                                            }, {
+                                                "object": "mark",
+                                                "type": "EMPHASIZE/EM",
+                                                "data": {}
+                                            }, {
+                                                "object": "mark",
+                                                "type": "EMPHASIZE/STRONG",
+                                                "data": {}
+                                            }]
+                                        }]
+                                    }]
+                                }]
+                            }
+                        }
+                    }
+                }
+            }]
+        }]
+    }]
+}

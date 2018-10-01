@@ -1,0 +1,129 @@
+@import 'core';
+
+.page-headline {
+    margin-bottom: 0;
+    text-align: left;
+    padding-left: 15em;
+    margin: 50px 0;
+
+    .page-title,
+    h1 {
+        margin-bottom: .5em;
+        font-size: em(24);
+        font-weight: 900;
+        color: #333;
+        text-align: center;
+        text-shadow: 0 0 7px rgba(255, 255, 255, .7);
+        text-transform: uppercase;
+    }
+
+    .page-desc,
+    h2 {
+        text-shadow: 0 0 7px rgba(255, 255, 255, .7);
+    }
+
+    .page-surtitle,
+    h3 {
+        margin-bottom: 0;
+        font-size: em(20);
+        font-weight: 500;
+        color: $kgreen;
+        text-align: center;
+        text-shadow: 0 0 7px rgba(255, 255, 255, .7);
+    }
+
+    .page-desc {
+        font-size: em(20);
+        font-family: $museoslab;
+        position: relative;
+        margin-bottom: 1em;
+        padding: 0 0 .75em 1em;
+        text-align: left;
+        font-weight: 300;
+        line-height: 1.4;
+        color: #444;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: .25em;
+            bottom: 1em;
+            width: 4px;
+            background: $bordergreen;
+        }
+    }
+
+    figure {
+        position: relative;
+        left: -1em;
+        float: left;
+        width: 13em;
+        margin-left: -15em;
+        margin-bottom: 1em;
+        display: block;
+    }
+
+    .label {
+        margin-top: -.5em;
+        margin-bottom: 1em;
+
+        p {
+            display: inline-block;
+            margin-bottom: 0;
+            padding: .25em;
+            line-height: 1;
+            font-size: em(10);
+            font-weight: 500;
+            color: #fff;
+            text-transform: uppercase;
+            background: #aaa;
+        }
+
+        &.red {
+            p {
+                color: #fff;
+                background: $kred;
+                opacity: .8;
+            }
+        }
+    }
+
+    &.big-headline {
+        margin-bottom: 2em;
+
+        .page-title {
+            margin-bottom: 0;
+            text-transform: none;
+            font-family: $museosans;
+            font-size: 1.75em;
+            font-weight: 900;
+            line-height: 1.2;
+            color: #333;
+
+            &+.button {
+                margin-top: 1.5em;
+            }
+        }
+
+        .page-desc {
+            margin-bottom: 0;
+            line-height: 1.2;
+            text-align: center;
+            font-size: 1.25em;
+            font-weight: 100;
+            font-family: $museosans;
+            text-transform: none;
+
+            &+.button {
+                margin-top: 1.5em;
+            }
+        }
+
+        p {
+            margin: 1em 0 0;
+            text-align: center;
+            font-family: $museoslab;
+        }
+    }
+}

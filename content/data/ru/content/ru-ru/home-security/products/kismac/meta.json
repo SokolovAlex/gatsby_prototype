@@ -1,0 +1,254 @@
+{
+    "id": "tcm:311-331806",
+    "title": "meta",
+    "pubdate": "2018-05-11T11:20:14Z",
+    "schemaName": "Meta Data",
+    "fields": {
+        "title": null,
+        "description": "Надежная антивирусная защита для пользователей Mac с удобным интерфейсом. Включает функции \"безопасные платежи\", родительский контроль и анти-фишинг.",
+        "breadcrumbs": [{
+            "title": "Главная",
+            "link": "/"
+        }, {
+            "title": "Для дома",
+            "link": "/home-security"
+        }, {
+            "title": "Kaspersky Internet Security для Mac"
+        }],
+        "linkedComponents": [{
+            "id": "tcm:311-399833",
+            "title": "_USE_FOR_KSCLOUD_product-promo",
+            "pubdate": "2018-05-11T11:20:14Z",
+            "schemaName": "Product Promo",
+            "fields": {
+                "product": "content/ru-ru/home-security/products/kscloud/kscloud.json",
+                "bgImg": "content/ru-ru/images/b2c/header-kscloud-ver6.jpg",
+                "promoDesc": "\n\t\t\u003c!--[if gte mso 9]\u003e\u003cxml\u003e\n \u003co:OfficeDocumentSettings\u003e\n  \u003co:RelyOnVML/\u003e\n  \u003co:AllowPNG/\u003e\n \u003c/o:OfficeDocumentSettings\u003e\n\u003c/xml\u003e\u003c![endif]--\u003e\n\t\t\n\n\t\t\u003cp class=\"MsoNormal\" style=\"margin-bottom:0in;margin-bottom:.0001pt;line-height: normal\" xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\n\t\t\t\u003cspan style=\"font-size:10.0pt;font-family:\u0026quot;Arial\u0026quot;,sans-serif; mso-ansi-language:EN-US\"\u003eThe first adaptive security – sensing how to protect every click \u0026amp; connection\u003c/span\u003e\n\t\t\u003c/p\u003e\n\t",
+                "learnMore": {
+                    "text": "Learn more",
+                    "link": "/security-cloud",
+                    "class": "red",
+                    "isExternal": [],
+                    "hide": []
+                },
+                "freeTrial": {
+                    "text": "Free trial",
+                    "link": "/downloads/thank-you/ksc-family",
+                    "class": "transparent",
+                    "isExternal": [],
+                    "hide": []
+                }
+            }
+        }, {
+            "id": "tcm:311-332237",
+            "title": "comparison-table",
+            "pubdate": "2018-05-11T11:20:15Z",
+            "schemaName": "compareTable",
+            "fields": {
+                "header": "Сравнить продукты",
+                "rec": "Рекомендуем",
+                "products": ["content/ru-ru/home-security/products/kismac/kismac.json", "content/ru-ru/home-security/products/kis/kis.json", "content/ru-ru/home-security/products/ktsmd/ktsmd.json"]
+            }
+        }, {
+            "id": "tcm:311-331301",
+            "title": "kismac",
+            "pubdate": "2018-05-11T11:20:15Z",
+            "schemaName": "Product",
+            "fields": {
+                "title": "Kaspersky Internet Security for Mac",
+                "prodKasperskyTitle": "Kaspersky",
+                "prodMainTitle": "Internet Security",
+                "prodAddTitle": "для Mac",
+                "prodPageLink": "/mac-security",
+                "shortName": "kismac",
+                "promoM": [],
+                "summary": "ЗАЩИТА КОМПЬЮТЕРОВ MAC",
+                "description": "\n\t\t\u003cdiv class=\"excerpt\" xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\n\u003cp\u003eКиберпреступники не дремлют, но Kaspersky Internet Security для Mac надежно защищает ваш компьютер от растущего числа угроз, фишинга, поддельных веб-сайтов, а также обеспечивает безопасность ваших личных данных и конфиденциальность.\u003c/p\u003e\n\u003c/div\u003e\n\t\t\n\n\t\t\u003c!--p\u003eThat’s why we defend you from hackers, prevent your online activities being tracked, protect your kids from online dangers… and add extra security when you shop \u0026amp; bank online.\u003c/p--\u003e\n\t\t\n\n\t\t\u003cul class=\"check-list\" xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\n\u003cli\u003eЗащита от всех видов угроз для Мас\u003c/li\u003e\n\u003cli\u003eБезопасные платежи в интернете\u003c/li\u003e\n\u003cli\u003eЗащита от подглядывания через веб-камеру\u003c/li\u003e\n\u003cli\u003eМодуль Родительский контроль\u003c/li\u003e\n\u003cli\u003eВысокая производительность и удобный интерфейс\u003c/li\u003e\n\u003c/ul\u003e\n\t",
+                "shortDesc": "Надежная защита для пользователей Mac с удобным интерфейсом и множеством полезных инструментов.",
+                "fullSizeImage": "content/ru-ru/images/product-box-KISM.png",
+                "productFeatures": [{
+                    "name": "БЕЗОПАСНОСТЬ",
+                    "description": "Защитите себя в интернете от вирусов, фишинга и опасных веб-сайтов",
+                    "image": "content/ru-ru/images/icons/icon-security.svg"
+                }, {
+                    "name": "СКОРОСТЬ",
+                    "description": "Получите мощную защиту без замедления системы",
+                    "image": "content/ru-ru/images/icons/icon-performance.svg"
+                }, {
+                    "name": "УДОБСТВО",
+                    "description": "Управляйте безопасностью из любой точки и экономьте свое время",
+                    "image": "content/ru-ru/images/icons/icon-happy.svg"
+                }, {
+                    "name": "КОНФИДЕНЦИАЛЬНОСТЬ",
+                    "description": "Оградите свое личное пространство от вторжений",
+                    "image": "content/ru-ru/images/icons/icon-privacy.svg"
+                }, {
+                    "name": "ДЕНЬГИ",
+                    "description": "Исключите возможность кражи ваших финансовых данных",
+                    "image": "content/ru-ru/images/icons/icon-card.svg"
+                }, {
+                    "name": "РОДИТЕЛЬСКИЙ КОНТРОЛЬ",
+                    "description": "Заблокируйте неподходящий контент и контролируйте соцсети (Windows и Mac)",
+                    "image": "content/ru-ru/images/icons/icon-family.svg"
+                }],
+                "buyText": "КУПИТЬ",
+                "buyLink": "/downloads/thank-you/mac-security-free-trial",
+                "freeTrialText": "Попробовать бесплатно",
+                "freeTrialLink": "/downloads/thank-you/mac-security-free-trial",
+                "learnMoreText": "Подробнее",
+                "learnMoreLink": "/mac-security",
+                "updateText": "Скачать дистрибутив",
+                "updateLink": "/downloads/thank-you/mac-security",
+                "findPartnerIsExternal": [],
+                "screenshots": ["content/ru-ru/images/b2c/product-screenshot/screen-KISMAC-01.png", "content/ru-ru/images/b2c/product-screenshot/screen-KISMAC-02.png", "content/ru-ru/images/b2c/product-screenshot/screen-KISMAC-03.png", "content/ru-ru/images/b2c/product-screenshot/screen-KISMAC-04.png"],
+                "promo": "\n\t\t\u003cspan class=\"font-icons icon-check\" xmlns=\"http://www.w3.org/1999/xhtml\"\u003e \u003c/span\u003e\n\t\t\n\n\t\t\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eОптимальная защита для Mac\u003c/p\u003e\n\t",
+                "bbSettings": {
+                    "purchaseType": "Purchase",
+                    "selectedPack": 0,
+                    "button_group": [],
+                    "showAR": "true",
+                    "isChecked": "false"
+                },
+                "hideTrialFromProductPage": [],
+                "hideTrialFromB2C": ["True"],
+                "hideTrialFromVSB": [],
+                "hideTrialFromSMB": [],
+                "hideTrialFromLRC": ["True"],
+                "productCarouselSchema": {
+                    "showBuyButton": "Yes",
+                    "buyButtonTarget": "_self",
+                    "buyButtonColour": "green",
+                    "showTrialButton": "Yes",
+                    "trialButtonTarget": "_self",
+                    "trialButtonColour": "transparent",
+                    "badges": []
+                }
+            }
+        }, {
+            "id": "tcm:311-332931",
+            "title": "page-header",
+            "pubdate": "2018-05-11T11:20:15Z",
+            "schemaName": "Page Header",
+            "fields": {
+                "headerType": "Blank",
+                "bannerbuttons": [],
+                "quickmenuButtons": [{
+                    "text": "Сравнить продукты",
+                    "link": "compare-section",
+                    "isExternal": [],
+                    "hide": []
+                }],
+                "enableCallbackWidget": []
+            }
+        }, {
+            "id": "tcm:311-333313",
+            "title": "resources-section",
+            "pubdate": "2018-05-11T11:20:16Z",
+            "schemaName": "Resources section",
+            "fields": {
+                "title": "Материалы",
+                "resources": [{
+                    "resourceTitle": "Безопасность Wi-Fi-сетей",
+                    "resourceExcerpt": "Несколько простых шагов для защиты вашей беспроводной сети и маршрутизатора.",
+                    "resourceImage": "content/ru-ru/images/photo-article-15.jpg",
+                    "resourceImageAlt": "photo-article1",
+                    "resourceLink": "/resource-center/preemptive-safety/protecting-wireless-networks",
+                    "resourceLinkTarget": []
+                }, {
+                    "resourceTitle": "Что такое троянская программа?",
+                    "resourceExcerpt": "Троянцы - это вредоносные программы, совершающие действия на компьютере без ведома пользователя.",
+                    "resourceImage": "content/ru-ru/images/photo-article-16.jpg",
+                    "resourceImageAlt": "photo-article2",
+                    "resourceLink": "/resource-center/threats/trojan-virus",
+                    "resourceLinkTarget": []
+                }, {
+                    "resourceTitle": "Типы вирусов",
+                    "resourceExcerpt": "Узнайте о различных видах вредоносного ПО и широком наборе программ в рамках каждого вида.",
+                    "resourceImage": "content/ru-ru/images/photo-article-17.jpg",
+                    "resourceImageAlt": "photo-article3",
+                    "resourceLink": "/resource-center/threats",
+                    "resourceLinkTarget": []
+                }, {
+                    "resourceTitle": "Спам и фишинг",
+                    "resourceExcerpt": "Спам - это электронный эквивалент мусорной рекламы, которую кладут в ваш обычный почтовый ящик.",
+                    "resourceImage": "content/ru-ru/images/photo-article-18.jpg",
+                    "resourceImageAlt": "photo-article4",
+                    "resourceLink": "/resource-center/threats/spam-phishing",
+                    "resourceLinkTarget": []
+                }]
+            }
+        }, {
+            "id": "tcm:311-332353",
+            "title": "regular-section-tabbed",
+            "pubdate": "2018-05-11T11:20:16Z",
+            "schemaName": "Featured Product Section - Tab Section",
+            "fields": {
+                "tabs": [{
+                    "tabTitle": "КЛЮЧЕВЫЕ ФУНКЦИИ И ПРЕИМУЩЕСТВА",
+                    "accordions": [{
+                        "header": "БЕЗОПАСНОСТЬ – Защитите ваш Mac от интернет-угроз",
+                        "content": "\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eВсе мы нуждаемся в защите от интернет-угроз. Kaspersky Internet Security для Mac надежно защищает вас от вирусов, шпионского ПО и хакерских атак и предупреждает об опасных и подозрительных веб-сайтах.\u003c/p\u003e",
+                        "contentImages": []
+                    }, {
+                        "header": "КОНФИДЕНЦИАЛЬНОСТЬ – Оградите ваше личное пространство от вторжений",
+                        "content": "\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eС помощью фишинга, слежки и доступа к веб-камере киберпреступники могут бесцеремонно вторгнуться в вашу личную жизнь и даже украсть персональные и платежные данные. Защитите себя от кражи ценных данных, сбора сведений о вас в интернете и подглядывания через веб-камеру.\u003c/p\u003e",
+                        "contentImages": []
+                    }, {
+                        "header": "БЕЗОПАСНОЕ СОЕДИНЕНИЕ – Обеспечьте безопасность общения, персональных и ценных данных",
+                        "content": "\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eКогда вы делаете покупки в интернете или переписываетесь в социальных сетях, наше решение помогает сохранить в безопасности ваши персональные и платежные данные. А когда вы подключаетесь к Wi-Fi, решение автоматически проверяет подключение к сети, и, если сеть небезопасна, предлагает активировать защищенный VPN-канал*.\u003c/p\u003e\n\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\u003cem\u003eЕсли вы пользуетесь Безопасным соединением в Беларуси, Омане, Пакистане, Катаре, Иране, ОАЭ, Саудовской Аравии, Гонконге или Китае, просьба принять во внимание, что использование технологии VPN или ее элементов в составе Безопасного соединения должно осуществляться в соответствии с местными законодательными нормами. Пожалуйста, убедитесь, что вы используете Безопасное соединение в строгом соответствии с этими нормами.\u003c/em\u003e\u003c/p\u003e\n\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\u003csmall\u003e*Пользователи с действительной лицензией Kaspersky Internet Security для Mac могут бесплатно загрузить программу Kaspersky Secure Connection из Mac App Store.\u003c/small\u003e\u003c/p\u003e",
+                        "contentImages": []
+                    }, {
+                        "header": "ДЕНЬГИ - Дополнительный уровень безопасности при покупках и платежах в интернете",
+                        "content": "\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eИнтернет-банкинг и онлайн-платежи требуют особой защиты. Когда вы переходите в интернет-магазин или на сайт платежной системы, наша уникальная технология Безопасные платежи проверяет благонадежность ссылки на случай подделки и открывает страницу в особом защищенном режиме.\u003c/p\u003e",
+                        "contentImages": []
+                    }, {
+                        "header": "РОДИТЕЛЬСКИЙ КОНТРОЛЬ – Защитите своих детей от опасностей интернета",
+                        "content": "\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eЗащитите своего ребенка от опасностей интернета, заблокируйте нежелательные сайты и приложения и будьте в курсе его публикаций в социальных сетях.\u003c/p\u003e",
+                        "contentImages": []
+                    }, {
+                        "header": "СКОРОСТЬ – Получите мощную защиту без замедления системы",
+                        "content": "\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eБыстрые проверки в фоновом режиме не влияют на производительность вашего компьютера Mac и не мешают вам работать.\u003c/p\u003e",
+                        "contentImages": []
+                    }, {
+                        "header": "УДОБСТВО – Управляйте своей безопасностью из любой точки",
+                        "content": "\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eУправление защитой через портал My Kaspersky отовсюду, где есть подключение к интернету. Доступ к службе техподдержки в один клик.\u003c/p\u003e",
+                        "contentImages": []
+                    }]
+                }, {
+                    "tabTitle": "СИСТЕМНЫЕ ТРЕБОВАНИЯ",
+                    "tabTextBlock": "\u003cdiv class=\"regular-section row\" xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\n\u003cdiv class=\"content col-l\"\u003e\n\u003cdiv class=\"simple-table\"\u003e\n\u003cdiv class=\"row\"\u003e\n\u003cdiv class=\"cell col-l no-gutter\"\u003e\n\u003ch5\u003eКомпьютеры Mac\u003c/h5\u003e\n\u003cul\u003e\n\u003cli\u003eИнтернет-соединение для активации продукта и получения регулярных обновлений\u003c/li\u003e\n\u003cli\u003eЗащита от несанкционированного подключения к веб-камере доступна для популярных моделей камер. Полный список поддерживаемых устройств см. на: \u003ca href=\"http://support.kaspersky.ru/12476\"\u003ehttp://support.kaspersky.ru/12476\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e970 МБ свободного места на жестком диске\u003c/li\u003e\n\u003cli\u003eОперативная память: 2 ГБ\u003c/li\u003e\n\u003cli\u003eOS X 10.11 – macOS 10.13\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e",
+                    "accordions": []
+                }],
+                "sidebarHeader": "Другие продукты",
+                "relatedServices": [{
+                    "name": "Kaspersky Internet Security",
+                    "description": "\u003cp\u003eНадежное и удобное решение для защиты вашей жизни в интернете, совместимое с Windows, Mac и Android.\n\u003c/p\u003e",
+                    "link": "/internet-security"
+                }, {
+                    "name": "Kaspersky Total Security",
+                    "description": "\u003cp\u003eРешение для максимальной защиты вашей семьи онлайн на Windows, Mac OS X, Android и iOS.\n\u003c/p\u003e",
+                    "link": "/total-security"
+                }]
+            }
+        }, {
+            "id": "tcm:311-333214",
+            "title": "promo-section",
+            "pubdate": "2018-05-11T11:20:17Z",
+            "schemaName": "Promo Section",
+            "fields": {
+                "sectionClass": "grey-background",
+                "backgroundImage": "content/ru-ru/images/photo-promo2.jpg",
+                "header": "ЗАТРУДНЯЕТЕСЬ В ВЫБОРЕ ЗАЩИТНОГО РЕШЕНИЯ?",
+                "textBlock": "\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eМы поможем защитить ваши устройства от современных онлайн-угроз. Нажмите на кнопку ниже, и мы поможем вам решить, какой из продуктов «Лаборатории Касперского» вам нужен.\u003c/p\u003e",
+                "ctaButton": [{
+                    "text": "ВЫБЕРИТЕ ВАШ УРОВЕНЬ ЗАЩИТЫ",
+                    "link": "/help-me-choose",
+                    "class": "button transparent hmc-open hmc-show-start-screen",
+                    "isExternal": [],
+                    "hide": []
+                }],
+                "useToggling": []
+            }
+        }]
+    }
+}

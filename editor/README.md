@@ -1,8 +1,21 @@
-# ORY Editor Example(s)
+This project was bootstrapped with [Create React App]
+(https://github.com/facebookincubator/create-react-app).
 
-Please follow the [installation steps](../README.md) first, and then run:
+# Ory Editor
+  # manuals
+    https://ory.gitbooks.io/editor/content/walkthrough.html#ory-editor-ui
+    https://github.com/ory/editor/blob/master/docs/api/core.md
+  # material-ui/core
+    https://material-ui.com/getting-started/installation/
+  # material-ui/icons
+    https://material-ui.com/style/icons/
+    https://material.io/tools/icons/?style=baseline
+    https://github.com/MODX-Club/material-ui-icons
 
-* `npm run start` - a New York Times article that was rebuilt using the ORY Editor. This
-repository is primarily a tech demo and optimized for manual testing.
+# example
+  https://github.com/ory/editor/blob/master/examples
+  https://editor.ory.am/
 
-Please note that `start` scripts run in development mode, which has a negative impact on performance.
+# todo
+  https://material-ui.com/demos/dialogs/
+  https://www.npmjs.com/package/react-json-view

@@ -3,29 +3,27 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
-      "ory-editor-core": "0.0.0",
-      "ory-editor-plugins-default-native": "0.0.0",
-      "ory-editor-plugins-divider": "0.0.0",
-      "ory-editor-plugins-html5-video": "0.0.0",
-      "ory-editor-plugins-image": "0.0.0",
-      "ory-editor-plugins-parallax-background": "0.0.0",
-      "ory-editor-plugins-background": "0.0.0",
-      "ory-editor-plugins-slate": "0.0.0",
-      "ory-editor-plugins-spacer": "0.0.0",
-      "ory-editor-plugins-video": "0.0.0",
-      "ory-editor-renderer": "0.0.0",
-      "ory-editor-ui": "0.0.0",
-      "react": "^16.0.0",
-      "react-dom": "^16.0.0",
-      "@material-ui/core": "^1.5.1",
-      "@material-ui/icons": "^2.0.3",
-      "react-scripts": "1.1.4"
-    },
-    "devDependencies": {
-      "why-did-you-update": "0.0.8"
+        "@material-ui/core": "^3.1.0",
+        "@material-ui/icons": "^3.0.1",
+        "cross-env": "^5.2.0",
+        "koa": "^2.5.3",
+        "ory-editor-core": "^0.4.4",
+        "ory-editor-plugins-background": "^0.4.4",
+        "ory-editor-plugins-default-native": "^0.4.4",
+        "ory-editor-plugins-divider": "^0.4.4",
+        "ory-editor-plugins-image": "^0.4.4",
+        "ory-editor-plugins-slate": "^0.4.4",
+        "ory-editor-plugins-spacer": "^0.4.4",
+        "ory-editor-renderer": "^0.4.4",
+        "ory-editor-ui": "^0.4.4",
+        "react": "=16.3.0",
+        "react-dom": "=16.3.0",
+        "react-scripts": "1.1.5",
+        "react-tap-event-plugin": "^3.0.3"
     },
     "scripts": {
-      "start": "react-scripts start",
-      "build": "react-scripts build"
+        "start": "cross-env PORT=3001 react-scripts start",
+        "build": "react-scripts build",
+        "server": "node server"
     }
-  }
+}
