@@ -12,6 +12,7 @@
         "koa-router": "^7.4.0",
         "koa-static": "^5.0.0",
         "mkdirp": "^0.5.1",
+        "ncp": "^2.0.0",
         "ory-editor-core": "^0.4.4",
         "ory-editor-plugins-background": "^0.4.4",
         "ory-editor-plugins-default-native": "^0.4.4",
@@ -28,8 +29,9 @@
     },
     "scripts": {
         "start": "cross-env PORT=3001 react-scripts start",
+        "build": "react-scripts build",
         "api": "node src/server",
         "server": "node server/app",
-        "build": "react-scripts build"
+        "move": "node publish"
     }
 }

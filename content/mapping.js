@@ -17,10 +17,4 @@ const mapping = {
     'localization_general-translations': 'GeneralTranslations'
 };
 
-const schemas = {
-    HomeSecurityMegaMenuBlog: 'HomeSecurityMegaMenuBlog/blog-dropdown-general.json',
-    HomeSecurityMegaMenu: 'HomeSecurityMegaMenu/mega-menu.json',
-    SiteHeaderMainNav: 'SiteHeaderMainNav/main-nav.json'
-};
-
-module.exports = { mapping, schemas };
+module.exports = { mapping };

@@ -52,12 +52,12 @@ const editor = new Editor({
 
 const save = () => {
     saveItem();
+    saveTemplate(JSON.stringify(getCurrentItem()));
+    console.log(JSON.stringify(getCurrentItem()));
 }
 
 const viewSavedJson = () => {
     alert(JSON.stringify(getCurrentItem()));
-    // json viewer
-    saveTemplate(JSON.stringify(getCurrentItem()));
 }
 
 const clearJson = () => {
