@@ -1,9 +1,0 @@
-<div class="meta reviews">
-	<div ng-click="$ctrl.showReviews(true)" class="bazaarvoice-popup" ng-if="$ctrl.bv.TotalResults > 0">
-		<div class="starbar">
-			<span ng-repeat="star in $ctrl.getStars($ctrl.starsRange) track by $index"
-				  ng-class="$ctrl.litStars($index, $ctrl.bv.Includes.Products[$ctrl.productId].ReviewStatistics.AverageOverallRating)">{{star.Includes.Products[$ctrl.productId].ReviewStatistics.AverageOverallRating}}</span>
-		</div>
-		<p>({{$ctrl.bv.Results[0].ProductStatistics.ReviewStatistics.TotalReviewCount || $ctrl.bv.TotalResults}} {{$ctrl.bvData.bvLocReviews}})</p>
-	</div>
-</div>

@@ -1,8 +1,0 @@
-<li ng-class="{'open': $ctrl.openCurrencyMenu, 'hide': !$ctrl.showCurrencyMenu}" class="dropdown select-currency" ng-if="$ctrl.showCurrencySelector">
-    <a href ng-mousedown="$ctrl.openCurrencyMenu = !$ctrl.openCurrencyMenu" ng-blur="$ctrl.onMenuBlur()" data-test="header-currency--label">{{$ctrl.currentCurrency.currency}}</a>
-    <ul>
-        <li ng-repeat="currency in $ctrl.currencies | unique:'currency'">
-            <a href ng-mousedown="$ctrl.setCurrency(currency)">{{currency.displayName}}</a>
-        </li>
-    </ul>
-</li>
