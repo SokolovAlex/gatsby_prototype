@@ -5,8 +5,13 @@
     "dependencies": {
         "@material-ui/core": "^3.1.0",
         "@material-ui/icons": "^3.0.1",
+        "axios": "^0.18.0",
         "cross-env": "^5.2.0",
         "koa": "^2.5.3",
+        "koa-body": "^4.0.4",
+        "koa-router": "^7.4.0",
+        "koa-static": "^5.0.0",
+        "mkdirp": "^0.5.1",
         "ory-editor-core": "^0.4.4",
         "ory-editor-plugins-background": "^0.4.4",
         "ory-editor-plugins-default-native": "^0.4.4",
@@ -23,7 +28,8 @@
     },
     "scripts": {
         "start": "cross-env PORT=3001 react-scripts start",
-        "build": "react-scripts build",
-        "server": "node server"
+        "api": "node src/server",
+        "server": "node server/app",
+        "build": "react-scripts build"
     }
 }

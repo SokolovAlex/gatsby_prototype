@@ -30,6 +30,8 @@ import BugReportIcon from '@material-ui/icons/BugReport'
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever'
 
 import { getSavedItem, setItem, saveItem, getCurrentItem, clearState } from '../services/state';
+import { saveTemplate } from '../services/api';
+
 require('react-tap-event-plugin')() // not work with react >16.4
 
 const content = getSavedItem();
@@ -54,10 +56,12 @@ const save = () => {
 
 const viewSavedJson = () => {
     alert(JSON.stringify(getCurrentItem()));
+    // json viewer
+    saveTemplate(JSON.stringify(getCurrentItem()));
 }
 
 const clearJson = () => {
-    const isSure = false;// confirm("Are you sure ?");
+    const isSure = false; // confirm("Are you sure ?");
     if (isSure) {
         clearState();
     }
