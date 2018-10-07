@@ -4,23 +4,25 @@ const Router = require('koa-router');
 const bodyParser = require('koa-body');
 const static = require('koa-static');
 const { createReadStream } = require('fs');
+const cors = require('@koa/cors');
 
-const { publish } = require('./publish-api');
+const { publish, getTemplate } = require('./publish-api');
 
 const router = Router();
 const app = new koa();
 
 app.use(static('build'));
 app.use(bodyParser());
+app.use(cors());
 
 router
-    .get('/api/template', (ctx, next) => {
-        console.log(`get`, ctx.request.body);
-        next();
+    .get('/api/template', (ctx) => {
+        ctx.type = 'json';
+        ctx.response.body = getTemplate('banner');
     })
     .post('/api/template', (ctx) => {
         const body = ctx.request.body;
-        publish(body);
+        publish('banner', body);
         ctx.response.status = 200;
         ctx.response.body = "ok";
     });

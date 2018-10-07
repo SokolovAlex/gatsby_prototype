@@ -1,9 +1,9 @@
 const mkdirp = require('mkdirp');
-const { writeFileSync } = require('fs');
+const { writeFileSync, readFileSync } = require('fs');
 const ncp = require('ncp').ncp;
 
-const publish = async (body) => {
-    saveFile(body);
+const publish = async (name, body) => {
+    saveFile(name, body);
     await moveContent();
 }
 
@@ -21,11 +21,15 @@ const moveContent = () => {
     });
 }
 
-const saveFile = (body) => {
-    const dirPath = `${__dirname}/../content/banner`
+const saveFile = (name, body) => {
+    const dirPath = `${__dirname}/../content/${name}`
     mkdirp(dirPath);
-    writeFileSync(`${dirPath}/banner.json`,
+    writeFileSync(`${dirPath}/${name}.json`,
         JSON.stringify(body));
 }
 
-module.exports = { publish, moveContent };
+const getTemplate = (name) => {
+    return readFileSync(`${__dirname}/../content/${name}/${name}.json`);
+}
+
+module.exports = { publish, moveContent, getTemplate };

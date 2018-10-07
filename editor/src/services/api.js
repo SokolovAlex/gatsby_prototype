@@ -1,10 +1,16 @@
 import axios from 'axios';
 
+const root = 'http://localhost:4000';
+
 const saveTemplate = (data) => {
-    return axios.post('/api/template', {
+    return axios.post(`${root}/api/template`, {
         template: 'article',
         content: JSON.stringify(data)
     });
 };
 
-export { saveTemplate };
+const getBannerTemplate = () => {
+    return axios.get(`${root}/api/template`).then(response => response.data);
+};
+
+export { saveTemplate, getBannerTemplate };
