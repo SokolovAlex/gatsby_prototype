@@ -24,12 +24,11 @@ import divider from 'ory-editor-plugins-divider'
 import spacer from 'ory-editor-plugins-spacer'
 import 'ory-editor-plugins-spacer/lib/index.css'
 
-import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
 import PublishIcon from '@material-ui/icons/Publish'
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever'
 
-import { setItem, saveItem, getCurrentItem, clearState } from '../services/state';
-import { saveTemplate } from '../services/api';
+import { setItem, saveItem, getCurrentItem } from '../../services/state';
+import { saveTemplate } from '../../services/api';
 
 require('react-tap-event-plugin')() // not work with react >16.4
 
@@ -37,13 +36,6 @@ const save = () => {
     saveItem();
     saveTemplate(getCurrentItem());
     console.log(JSON.stringify(getCurrentItem()));
-}
-
-const clearJson = () => {
-    const isSure = false; // confirm("Are you sure ?");
-    if (isSure) {
-        clearState();
-    }
 }
 
 const plugins = {
@@ -57,31 +49,26 @@ const plugins = {
     native
 };
 
-const BannerManager = ({ content }) => {
+const PageActions = () => (
+  <div>
+    <IconButton onClick={() => save()} style={{marginLeft: 20}} variant="fab" aria-label="Edit">
+        <PublishIcon/>
+    </IconButton>
+  </div>
+);
+
+const PageManager = ({ content }) => {
     const editor = new Editor({
         plugins,
         editables: [content],
     });
-    
     return (
-        <div style={{marginTop: 30}}>
-            <h3>Banner Editor</h3>
-            <div>
-                <Button onClick={() => save()} style={{marginLeft: 20}} variant="fab" aria-label="Edit">
-                    <PublishIcon/>
-                </Button>
-                <Button onClick={() => clearJson()} variant="fab" style={{marginLeft: 20}}
-                    color="secondary"
-                    aria-label="Edit">
-                    <DeleteForeverIcon/>
-                </Button>
-            </div>
-            <hr/>
+        <div style={{margin: 20, border: '1px dotted grey'}}>
             <Editable
                 editor={editor}
                 id={content.id}
                 onChange={(editable) => {
-                    setItem('banner_state', editable);
+                    setItem('page_state', editable);
                 }} />
             <Trash editor={editor}/>
             <DisplayModeToggle editor={editor}/>
@@ -90,4 +77,4 @@ const BannerManager = ({ content }) => {
     );
 }
 
-export default BannerManager;
+export { PageManager, PageActions };

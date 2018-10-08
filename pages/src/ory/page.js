@@ -17,9 +17,9 @@ const plugins = {
     layout: [ ],
 }
 
-const createBanner = (state) => {
+const createPage = (state) => {
   const stateJson = JSON.parse(state);
   return <HTMLRenderer state={stateJson} plugins={plugins}/>
 }
 
-export { createBanner }
+export { createPage }

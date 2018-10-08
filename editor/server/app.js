@@ -18,11 +18,11 @@ app.use(cors());
 router
     .get('/api/template', (ctx) => {
         ctx.type = 'json';
-        ctx.response.body = getTemplate('banner');
+        ctx.response.body = getTemplate('page');
     })
     .post('/api/template', (ctx) => {
         const body = ctx.request.body;
-        publish('banner', body);
+        publish('page', body);
         ctx.response.status = 200;
         ctx.response.body = "ok";
     });

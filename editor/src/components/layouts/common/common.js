@@ -1,13 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import AttachmentIcon from '@material-ui/icons/Attachment';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import green from '@material-ui/core/colors/green';
 
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
@@ -17,21 +14,36 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import ReportIcon from '@material-ui/icons/Report';
 
-const mailFolderListItems = (
+import Badge from '@material-ui/core/Badge';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import NotificationsIcon from '@material-ui/icons/Notifications';
+import FormatShapesIcon from '@material-ui/icons/FormatShapes';
+import SettingsIcon from '@material-ui/icons/Settings';
+import ViewQuiltIcon from '@material-ui/icons/ViewQuilt';
+
+import { PageManager, PageActions } from '../../editors/page'
+import { getBannerTemplate } from '../../../services/api';
+import './common.css';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: { main: '#006d5c' },
+    secondary: { main: '#b2b2b2' },
+  },
+});
+
+const PageMenu = ({ onPageOpen }) => (
     <React.Fragment>
-      <ListItem button>
+      <ListItem button onClick={() => onPageOpen('Page')}>
         <ListItemIcon>
-          <InboxIcon />
+          <ViewQuiltIcon />
         </ListItemIcon>
         <ListItemText primary="Page" />
       </ListItem>
-      <ListItem button>
+      <ListItem button onClick={() => onPageOpen('Banner')}>
         <ListItemIcon>
-          <DraftsIcon />
+          <FormatShapesIcon />
         </ListItemIcon>
         <ListItemText primary="Banner" />
       </ListItem>
@@ -42,65 +54,123 @@ const otherMailFolderListItems = (
     <React.Fragment>
         <ListItem button>
         <ListItemIcon>
-            <ReportIcon />
+            <SettingsIcon />
         </ListItemIcon>
         <ListItemText primary="Setting" />
         </ListItem>
     </React.Fragment>
 );
 
-const styles = {
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginLeft: -18,
-    marginRight: 10,
-  },
-};
+class DenseAppBar extends React.PureComponent {
+  state = {
+    showSetting: false,
+    showHeader: true,
+    page: 'Page',
+    pageContent: null,
+    progress: true
+  }
 
-const theme = createMuiTheme({
-    palette: {
-      primary: { main: green[500] }, // Purple and green play nicely together.
-      secondary: { main: '#11cb5f' }, // This is just green.A700 as hex.
-    },
-});
+  componentDidMount() {
+    this.getPageData();
+  }
 
-function DenseAppBar(props) {
-  const { classes } = props;
-  return (
-    <MuiThemeProvider theme={theme}>
-        <div className={classes.root}>
-            <AppBar position="static">
-                <Toolbar variant="dense">
-                <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-                    <MenuIcon />
-                </IconButton>
-                <Typography variant="title" color="inherit">
-                    Photos
-                </Typography>
-                </Toolbar>
-            </AppBar>
+  getPageData(page) {
+    const checkedPage = page || this.state.page;
+    this.setState({ progress: true, pageContent: null });
+    if (checkedPage === 'Page') {
+      getBannerTemplate().then(template => {
+        const pageContent = JSON.parse(template.content);
+        this.setState({ pageContent, progress: false });
+      });
+    }
+  }
 
-             <Drawer
-                variant="persistent"
-                open={true}
-            >
-                <IconButton>
-                    <ChevronLeftIcon />
-                </IconButton>
-                <Divider />
-                <List>{mailFolderListItems}</List>
-                <Divider />
-                <List>{otherMailFolderListItems}</List>
-            </Drawer>
-        </div>
-    </MuiThemeProvider>
-  );
+  toogleSettings() {
+    this.setState({
+      showSetting: !this.state.showSetting,
+    });
+  }
+
+  toogleHeader() {
+    this.setState({
+      showHeader: !this.state.showHeader,
+    });
+  }
+
+  onPageOpen(page) {
+    if(page === this.state.page) {
+      return;
+    }
+    this.setState({ page, showSetting: false });
+    this.getPageData(page);
+  }
+
+  render() {
+    return (
+      <MuiThemeProvider theme={theme}>
+        <IconButton color="primary" aria-label="Menu"
+            className={ `menu-toggler ${ this.state.showHeader ? 'hide' : ''}` }
+            onClick={() => { this.toogleHeader() }}>
+            <AttachmentIcon />
+        </IconButton>
+        <AppBar position="static" className={ `main-header ${ this.state.showHeader ? '' : 'hide'}` }>
+          <Toolbar variant="dense">
+          <IconButton color="inherit" aria-label="Menu" 
+            onClick={() => { this.toogleSettings() }}>
+            <MenuIcon />
+          </IconButton>
+          <IconButton color="inherit" aria-label="Menu" 
+            onClick={() => { this.toogleHeader() }}>
+            <AttachmentIcon />
+          </IconButton>
+          <div>KL Marketing Editor</div>
+          <div style={{flexGrow: 1}} />
+          
+          { this.state.page === 'Page' &&
+            <PageActions></PageActions>
+          }
+          
+          <div>
+            <IconButton color="inherit">
+              <Badge badgeContent={3} color="secondary">
+                <NotificationsIcon />
+              </Badge>
+            </IconButton>
+            <IconButton aria-haspopup="true" color="inherit">
+              <AccountCircle />
+            </IconButton>
+          </div>
+
+          </Toolbar>
+        </AppBar>
+
+        <Drawer
+          variant="persistent"
+          open={ this.state.showSetting }>
+          <div style={{textAlign: 'center'}}>
+            <IconButton onClick={() => { this.toogleSettings() }}>
+              <ChevronLeftIcon color="primary" />
+            </IconButton>
+          </div>
+          <Divider />
+          <List>
+            <PageMenu onPageOpen={(page) => this.onPageOpen(page) }></PageMenu>
+          </List>
+          <Divider />
+          <List>{otherMailFolderListItems}</List>
+        </Drawer>
+
+        { this.state.page === 'Page' && this.state.pageContent &&
+          <PageManager content={ this.state.pageContent } />
+        }
+
+        { this.state.page !== 'Page' &&
+          <p>Not implemented yet.</p>
+        }
+        
+      </MuiThemeProvider>
+    );
+  };
 }
 
-DenseAppBar.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(DenseAppBar);
+export default DenseAppBar;

@@ -4,7 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import logo from '../logo.svg';
-import BannerManager from './banner'
+import { PageManager } from './banner'
 import { getBannerTemplate } from '../services/api';
 
 class EditManagment extends React.Component {

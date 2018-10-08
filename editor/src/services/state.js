@@ -1,6 +1,6 @@
 import { createEmptyState } from 'ory-editor-core'
 
-const storageKey = 'banner_state';
+const storageKey = 'page_state';
 const states = { };
 
 const setItem = (key = storageKey, state) => {

@@ -1,0 +1,18 @@
+.main-header {
+  height: 50px;
+  overflow: hidden;
+  transition: height ease-in 0.2s;
+}
+
+.main-header.hide {
+  height: 0;
+}
+
+.menu-toggler {
+  position: fixed !important;
+}
+
+.menu-toggler.hide {
+  transition: opacity ease-in 0.2s;
+  opacity: 0;
+}
