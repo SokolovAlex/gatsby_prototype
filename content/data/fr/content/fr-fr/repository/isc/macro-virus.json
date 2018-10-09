@@ -1,0 +1,40 @@
+{
+    "id":  "tcm:286-331112",
+    "title":  "macro-virus",
+    "pubdate":  "2017-09-05T16:09:30Z",
+    "schemaName":  "Repository Article",
+    "fields":  {
+                   "metaTitle":  "Qu\u0027est-ce qu\u0027un virus macro ? | Définition de virus macro ",
+                   "metaDesc":  "Définition du secteur pour le terme « virus macro ». Un virus macro est un virus informatique qui modifie ou remplace une macro, à savoir un ensemble de commandes utilisées par des logiciels… ",
+                   "title":  "Qu\u0027est-ce qu\u0027un virus macro ?",
+                   "repository_type":  "b2c",
+                   "subtitle":  "Qu\u0027est-ce qu\u0027un virus macro ?",
+                   "summary":  "Définition du secteur pour le terme « virus macro ». Un virus macro est un virus informatique qui modifie ou remplace une macro, à savoir un ensemble de commandes utilisées par des logiciels…",
+                   "body":  "\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\u003cstrong\u003eLes virus macro ajoutent leur code aux macros associées à des documents, feuilles de calcul et autres fichiers de données.\u003c/strong\u003e Concept, le premier virus macro, a été identifié en juillet 1995 et les virus de ce type (qui infectent principalement les documents Word) sont par la suite devenus le type de virus dominant jusqu\u0027au début du siècle, période à laquelle Microsoft a désactivé les macros par défaut dans Office (versions ultérieures à Office 2000) : depuis lors, les cybercriminels ont dû inciter leurs victimes à activer des macros avant que leur macro infectée ne puisse être en mesure de s\u0027exécuter.\u003c/p\u003e\n\u003ch2 xmlns=\"http://www.w3.org/1999/xhtml\"\u003eComment les virus macro se propagent-ils ?\u003c/h2\u003e\n\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eLes virus macro se trouvent principalement dans des documents ou intégrés en tant que code malveillant dans des logiciels de traitement de texte. Ils peuvent provenir de documents joints à des e-mails, ou le code peut être téléchargé dès lors que l\u0027utilisateur clique sur des liens de phishing dans des bannières publicitaires ou à partir d\u0027URL. Ils sont difficiles à détecter, car ils restent inactifs tant qu\u0027une macro infectée n\u0027est pas lancée. Ce n\u0027est qu\u0027à ce moment-là qu\u0027ils exécutent une série de commandes. Un virus macro est similaire à un cheval de Troie dans le sens où il peut paraître bénin et où les utilisateurs ne remarquent pas immédiatement d\u0027effets néfastes. En revanche, contrairement aux chevaux de Troie, les virus macro peuvent se reproduire et infecter d\u0027autres ordinateurs.\u003c/p\u003e\n\u003ch2 xmlns=\"http://www.w3.org/1999/xhtml\"\u003eRisques\u003c/h2\u003e\n\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eLe risque principal des virus macro est leur capacité à se propager rapidement. Dès qu\u0027une macro infectée est lancée, tous les autres documents sur l\u0027ordinateur de l\u0027utilisateur sont à leur tour infectés. Certains de ces virus provoquent des anomalies dans les documents de texte, comme l\u0027omission ou l\u0027ajout de mots, tandis que d\u0027autres accèdent aux comptes de messagerie et envoient des copies de fichiers infectés à tous les contacts de l\u0027utilisateur, qui vont à leur tour ouvrir ces fichiers et y accéder, puisqu\u0027ils sont envoyés par une source de confiance.\u003c/p\u003e\n\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eCes virus peuvent également être conçus dans le but d\u0027effacer ou de compromettre des données stockées. En outre, il est important de noter que les virus macro se propagent indépendamment de la plate-forme : ils peuvent infecter les systèmes Windows et Mac à l\u0027aide du même code. Tout logiciel utilisant des macros peut servir d\u0027hôte, et toute copie d\u0027un logiciel infecté, qu\u0027elle soit envoyée par e-mail, stockée sur un disque ou sur une clé USB, sera elle aussi porteuse du virus.\u003c/p\u003e\n\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003ePour supprimer ces virus, vous devez vous appuyer sur un logiciel de sécurité doté d\u0027outils spécifiques de détection et de suppression des virus macro. Effectuez des analyses régulières pour nettoyer tous les documents éventuellement infectés et vous assurer que de nouveaux virus informatiques ne sont pas téléchargés.\u003c/p\u003e\n\u003ch2 xmlns=\"http://www.w3.org/1999/xhtml\"\u003eTypes de virus macro\u003c/h2\u003e\n\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eLes virus macro peuvent revêtir différentes formes. Considérés comme une relique de la fin des années 90 par certaines personnes, ils sont pourtant réapparus ces dernières années, obligeant les utilisateurs à faire preuve de davantage de vigilance.\u003c/p\u003e\n\u003cul xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\n\u003cli\u003e\u003cstrong\u003eVirus Concept\u003c/strong\u003e\n\u003cbr /\u003e\nConcept a été le premier virus macro découvert en juillet 1995 et ciblant Microsoft Word. Il est par la suite devenu le type de virus dominant.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eVirus Melissa\u003c/strong\u003e\n\u003cbr /\u003e\nMelissa a fait date dans l\u0027histoire comme le premier virus macro à avoir utilisé la messagerie électronique. Il a commencé à se propager par e-mail le 26 mars 1999 infectant des dizaines de milliers d\u0027utilisateurs en quelques heures. Il s\u0027agit de l\u0027une des épidémies les plus graves dans l\u0027histoire d\u0027Internet.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eAutres articles et liens en rapport avec les définitions\u003c/p\u003e\n\u003cul xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\n\u003cli\u003e\u003ca href=\"/resource-center/threats/botnet-attacks\"\u003eQu’est-ce qu\u0027un botnet ?\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"/resource-center/infographics/vulnerable-software\"\u003eInfographie : Logiciels vulnérables\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"/internet-security\"\u003eKaspersky Internet Security\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"/anti-virus\"\u003eKaspersky Anti-Virus\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"/anti-virus\"\u003eKaspersky Total Security\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e",
+                   "thumbnail_image":  "content/fr-fr/images/repository/isc/2017-images/virus-img-04.jpg",
+                   "image":  [
+                                 "content/fr-fr/images/repository/isc/2017-images/virus-img-04.jpg"
+                             ],
+                   "category":  [
+                                    {
+                                        "id":  330348,
+                                        "key":  "2-4",
+                                        "title":  "04::definitions",
+                                        "description":  "Definitions"
+                                    }
+                                ],
+                   "subcategory":  [
+                                       {
+                                           "id":  330565,
+                                           "key":  "2-4-6",
+                                           "title":  "virus",
+                                           "description":  "Viris"
+                                       }
+                                   ],
+                   "labels":  [
+
+                              ],
+                   "boost":  0
+               },
+    "__index_type":  "ContentRepository"
+}

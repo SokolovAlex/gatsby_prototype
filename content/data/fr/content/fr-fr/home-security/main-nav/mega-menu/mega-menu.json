@@ -1,0 +1,67 @@
+{
+    "id": "tcm:286-331308",
+    "title": "mega-menu",
+    "pubdate": "2018-09-24T15:08:23Z",
+    "schemaName": "Mega menu",
+    "fields": {
+        "menuType": "b2c",
+        "product": ["content/fr-fr/home-security/products/kscloud/kscloud.json", "content/fr-fr/home-security/products/kis/kis.json", "content/fr-fr/home-security/products/kav/kav.json", "content/fr-fr/home-security/products/ktsmd/ktsmd.json", "content/fr-fr/home-security/products/kismac/kismac.json", "content/fr-fr/home-security/products/ksec/ksec.json"],
+        "megaMenuGroups": [],
+        "mega_menu_secondary_nav": {
+            "secondary_nav_side_title": "PLUS DE SÉCURITÉ",
+            "secondary_nav_side_links": [{
+                "text": "Clé USB de sauvegarde",
+                "link": "/usb-key",
+                "isExternal": [],
+                "hide": []
+            }, {
+                "text": "Porte-cartes sécurisé",
+                "link": "/rfid-protection",
+                "isExternal": [],
+                "hide": []
+            }, {
+                "text": "Cache webcam",
+                "link": "/webcam-cover",
+                "isExternal": [],
+                "hide": []
+            }, {
+                "text": "Kaspersky Security Cloud – Free",
+                "link": "/free-cloud-antivirus",
+                "isExternal": [],
+                "hide": [],
+                "new": "nouveau"
+            }, {
+                "text": "Kaspersky Safe Kids",
+                "link": "/safe-kids",
+                "isExternal": [],
+                "hide": [],
+                "new": "Nouveau"
+            }, {
+                "text": "Kaspersky Password Manager",
+                "link": "/password-manager",
+                "isExternal": [],
+                "hide": []
+            }, {
+                "text": "Kaspersky Software Updater",
+                "link": "/free-software-updater",
+                "isExternal": [],
+                "hide": []
+            }, {
+                "text": "Kaspersky Battery Life",
+                "link": "/battery-life-saver",
+                "isExternal": [],
+                "hide": []
+            }, {
+                "text": "En savoir plus",
+                "link": "/downloads#tools",
+                "isExternal": [],
+                "hide": []
+            }]
+        },
+        "megaSideBlock1": "\u003cul class=\"regular\" xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\n\u003cli class=\"title\"\u003e\n\u003ch6\u003eOUTILS GRATUITS\u003c/h6\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"/battery-life-saver\"\u003eKaspersky Battery Life\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"/password-manager\"\u003eKaspersky Password Manager\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"/free-software-updater\"\u003eKaspersky Software Updater\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"/qr-scanner\"\u003eKaspersky QR Scanner\u003c/a\u003e\u003c/li\u003e\n\u003cli class=\"all-products\"\u003e\u003ca href=\"/downloads#tools\"\u003eEn savoir plus\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e",
+        "megaSideBlock2": "\n          \u003c!-- \u003cul class=\"regular\"\u003e\n\u003cli class=\"title\"\u003e\n\u003ch6\u003eServices\u003c/h6\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#\"\u003eComprehensive PC/Network\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#\"\u003ePremium Installation\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#\"\u003eAdvanced Virus Removal\u003c/a\u003e\u003c/li\u003e\n\u003cli class=\"all-products\"\u003e\u003ca href=\"#\"\u003eView More\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n--\u003e\n        ",
+        "customLinks": [],
+        "blockItems": [],
+        "hasCustomHtmlSideBlock": []
+    }
+}

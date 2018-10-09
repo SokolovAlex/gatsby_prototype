@@ -1,0 +1,22 @@
+<svg width="65" height="65" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 58L58 0" transform="translate(4.59998 5.2)" stroke="#AECAD6" stroke-miterlimit="10"/>
+<path d="M0 0C0.2 3.6 1 7.1 2.7 10.6C9.2 24 25.3 29.7 38.7 23.2C41.2 22 43.4 20.5 45.3 18.7" transform="translate(5.5 37.7)" stroke="#AECAD6" stroke-miterlimit="10"/>
+<path d="M10.6 0C7.4 0.5 4.3 1.4 1.2 2.9C0.800001 3.1 0.4 3.3 0 3.5" transform="translate(17.3 4.8)" stroke="#AECAD6" stroke-miterlimit="10"/>
+<path d="M0 0C0.2 4.1 1.2 8.2 3.1 12.2C4.7 15.5 6.5 18.1 8.9 20.5" transform="translate(0.5 38.3)" stroke="#AECAD6" stroke-miterlimit="10"/>
+<path d="M1 0V0.5L0.799999 0H0.5L0 0.5H1L1.3 0H1Z" transform="translate(32.4 36.5)" stroke="#AECAD6" stroke-miterlimit="10"/>
+<path d="M19.1 28.3C19 24 17.9 19.6 15.9 15.4C12.5 8.3 6.7 3 0 0" transform="translate(45.3 7.1)" stroke="#AECAD6" stroke-miterlimit="10"/>
+<path d="M6 0H0V6H6V0Z" transform="translate(57.4982 16) rotate(-180)" fill="#F27179"/>
+<path d="M22 44C34.1503 44 44 34.1503 44 22C44 9.84974 34.1503 0 22 0C9.84974 0 0 9.84974 0 22C0 34.1503 9.84974 44 22 44Z" transform="translate(10.4 14.5)" fill="white"/>
+<path d="M17.3 0H0V4H24V0H17.3Z" transform="translate(24.4 30)" fill="#5C8495"/>
+<path d="M20.7 15L21.4 12.4L18.9 14.7C18.5 15 18.4 15 18.3 15H0C3.4 12.6 5.4 8.9 5.9 4.1V0H27.9C27.9 4.1 27.4 12.4 25.3 14.6C25 15 24.7 15 24.5 15H20.7Z" transform="translate(19.5 35)" fill="white"/>
+<path d="M31 2C30.9 8.9 29.7 14.5 28.5 15H26L27.2 10.4L22.2 15H6.7C9.1 12.5 10.5 9.2 10.9 5.2V5.1V5V2H27H31ZM32.9 0H27H8.9V5C8.6 8.6 7 14.4 0 17C0 17 21.8 17 22.3 17C22.7 17 23.1 16.8 23.5 16.5L23.4 17C23.4 17 27.4 17 28.5 17C33.3 17 32.9 0 32.9 0Z" transform="translate(15.5 34)" fill="#5C8495"/>
+<path d="M4 0H0V29H4V0Z" transform="translate(35.4)" fill="#5C8495"/>
+<path d="M14 0H0V2H14V0Z" transform="translate(30.4 28)" fill="#5C8495"/>
+<path d="M0 0H14.6" transform="translate(8.79999 23)" stroke="#5C8495" stroke-miterlimit="10"/>
+<path d="M0 0H12.5" transform="translate(1.70001 27.2)" stroke="#5C8495" stroke-miterlimit="10"/>
+<path d="M0 0H12" transform="translate(8.40002 32)" stroke="#5C8495" stroke-miterlimit="10"/>
+<path d="M2 0H0V2H2V0Z" transform="translate(56.4 42)" fill="#5C8495"/>
+<path d="M2 0H0V2H2V0Z" transform="translate(58.4 46)" fill="#5C8495"/>
+<path d="M2 0H0V2H2V0Z" transform="translate(62.4 43)" fill="#5C8495"/>
+<path d="M2 0H0V2H2V0Z" transform="translate(51.4 47)" fill="#5C8495"/>
+</svg>

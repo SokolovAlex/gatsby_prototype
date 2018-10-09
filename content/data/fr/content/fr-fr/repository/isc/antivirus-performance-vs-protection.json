@@ -1,0 +1,40 @@
+{
+    "id":  "tcm:286-333431",
+    "title":  "antivirus-performance-vs-protection",
+    "pubdate":  "2017-09-05T16:09:09Z",
+    "schemaName":  "Repository Article",
+    "fields":  {
+                   "metaTitle":  "Performance vs. Protection | Antivirus Software ",
+                   "metaDesc":  "Antivirus programs can impact the performance of computers, therefore, it is important to choose an antivirus protection that will not affect performance.",
+                   "title":  "Computer Protection Versus Computer Performance",
+                   "repository_type":  "b2c",
+                   "subtitle":  "",
+                   "summary":  "\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eAll software that runs on your computer will naturally place some load on the computer’s resources. Antivirus software is no exception to this rule. That’s why it’s important to choose an antivirus solution that delivers a suitable level of computer protection — without significantly affecting computer performance.\u003c/p\u003e",
+                   "body":  "\u003cdiv class=\"text\" xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eAll software that runs on your computer will naturally place some load on the computer’s resources. Antivirus software is no exception to this rule. That’s why it’s important to choose an antivirus solution that delivers a suitable level of computer protection — without significantly affecting computer performance.\u003c/p\u003e\u003ch2\u003eEnsuring an adequate level of protection against malware\u003c/h2\u003e\u003cp\u003eIn order to protect your computer, your antivirus program has to perform a wide range of activities, including:\u003c/p\u003e\u003cul\u003e\u003cli\u003eOpening files\u003c/li\u003e\u003cli\u003eReading data from those files\u003c/li\u003e\u003cli\u003eUnpacking archives\u003c/li\u003e\u003cli\u003eScanning the files in order to detect malicious software\u003c/li\u003e\u003cli\u003eAssessing the safety of websites — if your antivirus solution includes Internet protection features\u003c/li\u003e\u003cli\u003eManaging and receiving antivirus database updates... and running many other anti-malware functions\u003c/li\u003e\u003c/ul\u003e\u003cp\u003eTo a certain extent, the more thorough your antivirus software is in scanning, detecting and neutralising malware — the more of your computer’s processing power is likely to be used. However, if you only base your selection of an antivirus product on how it affects your computer’s performance — and you don’t consider the level of protection that the product is capable of delivering — your computer could be highly vulnerable to \u003ca href=\"/resource-center/threats/viruses-worms\"\u003ecomputer viruses\u003c/a\u003e, worms and \u003ca href=\"/resource-center/threats/trojans\"\u003eTrojan viruses\u003c/a\u003e.\u003c/p\u003e\u003ch2\u003eInnovative technologies improve efficiency — without compromising security\u003c/h2\u003e\u003cp\u003eExperience clearly shows that the fastest antivirus programs will often provide the weakest protection. Many such programs are much more likely to fail in detecting and preventing malware infections that other antivirus solutions will easily identify and neutralise.\u003c/p\u003e\u003cp\u003eThere are also antivirus programs that run slowly, absorb a lot of computing resources and also fail to provide adequate protection.\u003c/p\u003e\u003cp\u003eHowever, there are antivirus solutions that use innovative technologies that help to minimise the impact on the computer’s resources — to preserve more of the system’s performance, while also delivering rigorous protection against malicious software and Internet threats.\u003c/p\u003e\u003cdiv class=\"more-interest\"\u003e\u003cp class=\"franklin\"\u003eOther articles and links related to antivirus protection\u003c/p\u003e\u003cul\u003e\u003cli\u003e\u003ca href=\"/resource-center/preemptive-safety/antivirus-choices\"\u003eChoosing an Antivirus Solution\u003c/a\u003e\u003c/li\u003e\u003cli\u003e\u003ca href=\"/resource-center/preemptive-safety/antivirus-malware-detection\"\u003eMalware and Exploit Detection\u003c/a\u003e\u003c/li\u003e\u003cli\u003e\u003ca href=\"/resource-center/preemptive-safety/antivirus-updates\"\u003eRegular, Frequent Antivirus Updates\u003c/a\u003e\u003c/li\u003e\u003cli\u003e\u003ca href=\"/resource-center/preemptive-safety/removing-malicious-code\"\u003eRemoving Malicious Code\u003c/a\u003e\u003c/li\u003e\u003cli\u003e\u003ca href=\"/resource-center/preemptive-safety/multiple-antivirus-products\"\u003eRunning More Than One Antivirus Program\u003c/a\u003e\u003c/li\u003e\u003cli\u003e\u003ca href=\"/resource-center/threats/malware-creators\"\u003eWho Creates Malware?\u003c/a\u003e\u003c/li\u003e\u003cli\u003e\u003ca href=\"/resource-center/threats/malware-classifications\"\u003eMalware Classifications\u003c/a\u003e\u003c/li\u003e\u003c/ul\u003e\u003c/div\u003e\u003c/div\u003e",
+                   "thumbnail_image":  "content/fr-fr/images/repository/isc/2017-images/hardware-and-software-safety-img-05.jpg",
+                   "image":  [
+                                 "content/fr-fr/images/repository/isc/2017-images/hardware-and-software-safety-img-05.jpg"
+                             ],
+                   "category":  [
+                                    {
+                                        "id":  330522,
+                                        "key":  "2-1",
+                                        "title":  "01::preemptive-safety",
+                                        "description":  "Preemptive Safety"
+                                    }
+                                ],
+                   "subcategory":  [
+                                       {
+                                           "id":  330533,
+                                           "key":  "2-1-2",
+                                           "title":  "hardware and software safety",
+                                           "description":  "Hardware and software safety"
+                                       }
+                                   ],
+                   "labels":  [
+
+                              ],
+                   "boost":  0
+               },
+    "__index_type":  "ContentRepository"
+}

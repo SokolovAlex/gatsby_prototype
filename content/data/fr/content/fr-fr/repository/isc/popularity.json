@@ -1,0 +1,37 @@
+{
+    "id":  "tcm:286-357100",
+    "title":  "popularity",
+    "pubdate":  "2017-04-19T22:23:40Z",
+    "schemaName":  "Repository Article",
+    "fields":  {
+                   "title":  "Taux d\u0027adoption et popularité",
+                   "repository_type":  "b2c",
+                   "subtitle":  "Taux d\u0027adoption et popularité",
+                   "summary":  "\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eIf a specific operating system is going to attract the attention of hackers and cybercriminals – so that they are inspired to develop \u003ca href=\"#\"\u003ecomputer viruses, worms\u003c/a\u003e and \u003ca href=\"#\"\u003eTrojans\u003c/a\u003e to attack devices that are running that OS – the OS should be popular and in widespread use.\u003c/p\u003e",
+                   "body":  "\r\n    \u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003ePour qu\u0027un système d\u0027exploitation attire l\u0027attention des pirates informatiques et des \u003ca href=\"./../../internet-security-center/threats/cybercrime\"\u003ecyber-criminels\u003c/a\u003e, et les incite à développer \u003ca href=\"./../../internet-security-center/threats/viruses-worms\"\u003edes virus, des vers\u003c/a\u003e et des \u003ca href=\"./../../internet-security-center/threats/trojans\"\u003echevaux de Troie\u003c/a\u003e pour attaquer les ordinateurs ou appareils exécutant ce système d\u0027exploitation, celui-ci doit être largement utilisé.\u003c/p\u003e\r\n    \u003ch2 xmlns=\"http://www.w3.org/1999/xhtml\"\u003ePopularité des programmes malveillants\u003c/h2\u003e\r\n    \u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eUn système d\u0027exploitation peu répandu sera moins attaqué. Toutefois, si l\u0027utilisation de ce système d\u0027exploitation se généralise jusqu\u0027à atteindre une distribution de masse, il attirera l\u0027attention des \u003ca href=\"./../../internet-security-center/threats/malware-creators\"\u003ecréateurs de programmes malveillants\u003c/a\u003e qui tenteront de l\u0027attaquer pour en tirer profit.\u003c/p\u003e\r\n    \u003ch2 xmlns=\"http://www.w3.org/1999/xhtml\"\u003eQui dit systèmes d\u0027exploitation et applications populaires... dit programmes malveillants populaires\u003c/h2\u003e\r\n    \u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eEn effet, plus un système d\u0027exploitation ou une application sont répandus, plus ils sont exposés aux \u003ca href=\"./../../internet-security-center/threats/malware-system-penetration\"\u003eattaques de virus informatiques\u003c/a\u003e.\u003c/p\u003e\r\n    \u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eLe nombre de programmes malveillants créés pour les systèmes d\u0027exploitation Windows, Linux et \u003ca href=\"./../../internet-security-center/threats/mac\"\u003eMac\u003c/a\u003e est étroitement lié à la part de marché de ceux-ci.\u003c/p\u003e\r\n    \u003ch2 xmlns=\"http://www.w3.org/1999/xhtml\"\u003eAutres facteurs contribuant à la propagation des programmes malveillants\u003c/h2\u003e\r\n    \u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003ePour découvrir les autres facteurs qui contribuent à la propagation et à la survie des programmes malveillants, cliquez sur les liens suivants :\u003c/p\u003e\r\n    \u003cul xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\r\n      \u003cli\u003e\r\n        \u003ca href=\"./../../internet-security-center/threats/malware-documentation\"\u003eDisponibilité de la documentation\u003c/a\u003e\r\n      \u003c/li\u003e\r\n      \u003cli\u003e\r\n        \u003ca href=\"./../../internet-security-center/threats/malware-system-vulnerability\"\u003eVulnérabilités\u003c/a\u003e\r\n      \u003c/li\u003e\r\n    \u003c/ul\u003e\r\n    \u003cdiv class=\"more-interest\" xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\r\n      \u003cp class=\"franklin\"\u003eAutres articles et liens en rapport avec les programmes malveillants\u003c/p\u003e\r\n      \u003cul\u003e\r\n        \u003cli\u003e\r\n          \u003ca href=\"./../../internet-security-center/threats/malware-creators\"\u003eQui crée les programmes malveillants ?\u003c/a\u003e\r\n        \u003c/li\u003e\r\n        \u003cli\u003e\r\n          \u003ca href=\"./../../internet-security-center/threats/malware-system-penetration\"\u003eComment les programmes malveillants s\u0027introduisent-ils dans les systèmes ?\u003c/a\u003e\r\n        \u003c/li\u003e\r\n        \u003cli\u003e\r\n          \u003ca href=\"./../../internet-security-center/threats/trojans\"\u003eQu\u0027est-ce qu\u0027un cheval de Troie ?\u003c/a\u003e\r\n        \u003c/li\u003e\r\n        \u003cli\u003e\r\n          \u003ca href=\"./../../internet-security-center/threats/viruses-worms\"\u003eQu\u0027est-ce qu\u0027un virus ou un ver informatique ?\u003c/a\u003e\r\n        \u003c/li\u003e\r\n        \u003cli\u003e\r\n          \u003ca href=\"./../../internet-security-center/internet-safety/antivirus-choices\"\u003eChoix d\u0027une solution antivirus\u003c/a\u003e\r\n        \u003c/li\u003e\r\n      \u003c/ul\u003e\r\n    \u003c/div\u003e\r\n  ",
+                   "image":  [
+
+                             ],
+                   "category":  [
+                                    {
+                                        "id":  330399,
+                                        "key":  "2-2",
+                                        "title":  "02::threats",
+                                        "description":  "Treats"
+                                    }
+                                ],
+                   "subcategory":  [
+                                       {
+                                           "id":  330518,
+                                           "key":  "2-2-6",
+                                           "title":  "malware (threats)",
+                                           "description":  "Malware (threats)"
+                                       }
+                                   ],
+                   "labels":  [
+
+                              ],
+                   "boost":  0
+               },
+    "__index_type":  "ContentRepository"
+}

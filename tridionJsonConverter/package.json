@@ -1,0 +1,20 @@
+{
+  "name": "kl-static",
+  "description": "Static corp site",
+  "version": "1.0.0",
+  "author": "Sokolov",
+  "dependencies": {
+    "camelcase": "^5.0.0",
+    "cross-env": "^5.2.0",
+    "del": "^3.0.0",
+    "globby": "^8.0.1",
+    "make-dir": "^1.3.0"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "start": "node start"
+  }
+}

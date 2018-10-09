@@ -1,0 +1,66 @@
+{
+    "id": "tcm:286-332854_",
+    "title": "main-nav",
+    "pubdate": "2018-09-24T15:08:17Z",
+    "schemaName": "Main navigation",
+    "fields": {
+        "mainNavItem": [{
+            "text": "Produits",
+            "link": "/home-security",
+            "megaMenuItem": "content/fr-fr/home-security/main-nav/mega-menu/mega-menu.json",
+            "mobile_nav_disable": [],
+            "isExternal": []
+        }, {
+            "text": "Renouveler",
+            "link": "/renewal-center/home",
+            "mobile_nav_disable": [],
+            "isExternal": []
+        }, {
+            "text": "Téléchargements",
+            "link": "/downloads",
+            "mobile_nav_disable": [],
+            "isExternal": []
+        }, {
+            "text": "Support",
+            "link": "https://support.kaspersky.com/fr#s_tab2",
+            "mobile_nav_disable": [],
+            "isExternal": []
+        }, {
+            "text": "Conseils et informations",
+            "link": "/resource-center",
+            "mobile_nav_disable": [],
+            "isExternal": []
+        }, {
+            "text": "Blog",
+            "link": "/blog/",
+            "megaMenuItem": "content/fr-fr/home-security/main-nav/mega-menu/blog-dropdown.json",
+            "mobile_nav_disable": [],
+            "isExternal": []
+        }],
+        "rightMenuItem": {
+            "cartLink": "https://boutique.kaspersky.fr/qte_mvt.html",
+            "menuText": "Mon compte",
+            "menuLink": "https://boutique.kaspersky.fr/subscriber-login.html?next=subscription.html",
+            "menuItems": [{
+                "text": "My Kaspersky",
+                "link": "https://my.kaspersky.com/",
+                "class": "icon-devices",
+                "isExternal": ["Yes"],
+                "hide": []
+            }, {
+                "text": "Mes produits",
+                "link": "https://my.kaspersky.com/MyLicenses",
+                "class": "icon-subscriptions",
+                "isExternal": ["Yes"],
+                "hide": []
+            }, {
+                "text": "Mes commandes",
+                "link": "http://boutique.kaspersky.fr/subscriber-login.html",
+                "class": "icon-card",
+                "isExternal": ["Yes"],
+                "hide": []
+            }],
+            "partnerMenuItems": []
+        }
+    }
+}

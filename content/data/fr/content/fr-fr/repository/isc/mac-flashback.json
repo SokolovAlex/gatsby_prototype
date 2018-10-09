@@ -1,0 +1,39 @@
+{
+    "id":  "tcm:286-333010",
+    "title":  "mac-flashback",
+    "pubdate":  "2017-09-05T16:09:19Z",
+    "schemaName":  "Repository Article",
+    "fields":  {
+                   "metaTitle":  "Infographie : le cheval de Troie Flashback pour Mac",
+                   "metaDesc":  "Le cheval de Troie Flashback a infecté plus de 700 000 Mac OS X rien qu’en 2012. Découvrez comment protéger votre Mac du virus Flashback et des nouvelles cybermenaces.",
+                   "title":  "Les ordinateurs Mac sont la proie du cheval de Troie Flashback... Découvrez comment protéger votre Mac",
+                   "repository_type":  "b2c",
+                   "subtitle":  "",
+                   "summary":  "\u003cp\u003eFace à la multiplication des attaques de programmes malveillants contre les Mac, leurs utilisateurs ont compris qu\u0027ils n\u0027étaient plus à l\u0027abri du danger. Le cheval de Troie Flashback a infecté plus de 700 000 Mac. Découvrez si votre Mac est infecté et comment vous protéger des attaques de programmes malveillants Flashback et Mac OS X.\u003c/p\u003e",
+                   "body":  "\u003ch1 xmlns=\"http://www.w3.org/1999/xhtml\"\u003eLes ordinateurs Mac sont la proie du cheval de Troie Flashback... Découvrez comment protéger votre Mac\u003c/h1\u003e\n\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eFace à la multiplication des attaques de programmes malveillants contre les Mac, leurs utilisateurs ont compris qu\u0027ils n\u0027étaient plus à l\u0027abri du danger. Le cheval de Troie Flashback a infecté plus de 700 000 Mac. Découvrez si votre Mac est infecté et comment vous protéger des attaques de programmes malveillants Flashback et Mac OS X.\u003c/p\u003e\n\u003ca class=\"lightbox\" href=\"/content/fr-fr/images/repository/isc/infographics-zombie-mac.png\" xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\u003cimg src=\"/content/fr-fr/images/repository/isc/infographics-zombie-mac.png\" alt=\"mac flashback infographic\" /\u003e\u003c/a\u003e",
+                   "image":  [
+
+                             ],
+                   "category":  [
+                                    {
+                                        "id":  330375,
+                                        "key":  "2-3",
+                                        "title":  "03::infographics",
+                                        "description":  "Infographics"
+                                    }
+                                ],
+                   "subcategory":  [
+                                       {
+                                           "id":  330376,
+                                           "key":  "2-3-1",
+                                           "title":  "infographics (infographics)",
+                                           "description":  "Infographics (infographics)"
+                                       }
+                                   ],
+                   "labels":  [
+
+                              ],
+                   "boost":  0
+               },
+    "__index_type":  "ContentRepository"
+}

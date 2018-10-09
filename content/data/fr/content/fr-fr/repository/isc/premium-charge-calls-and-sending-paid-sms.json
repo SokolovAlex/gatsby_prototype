@@ -1,0 +1,37 @@
+{
+    "id":  "tcm:286-357092",
+    "title":  "premium-charge-calls-and-sending-paid-sms",
+    "pubdate":  "2017-04-19T22:23:48Z",
+    "schemaName":  "Repository Article",
+    "fields":  {
+                   "title":  "Appels et SMS payants",
+                   "repository_type":  "b2c",
+                   "subtitle":  "Appels et SMS payants",
+                   "summary":  "\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eLes cyber-criminels créent et distribuent souvent des \u003ca href=\"/internet-security-center/threats/trojans\"\u003echevaux de Troie\u003c/a\u003e qui infectent les téléphones mobiles qui passent alors des appels ou envoient des SMS à l\u0027insu des utilisateurs. Le programme malveillant dirige ces appels non autorisés vers des numéros de téléphone ou...\u003c/p\u003e",
+                   "body":  "\r\n    \u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eLes cyber-criminels créent et distribuent souvent des \u003ca href=\"./../../internet-security-center/threats/trojans\"\u003echevaux de Troie\u003c/a\u003e qui infectent les téléphones mobiles qui passent alors des appels ou envoient des SMS à l\u0027insu des utilisateurs. Le programme malveillant dirige ces appels non autorisés vers des numéros de téléphone ou services SMS payants contrôlés par les cyber-criminels.\u003c/p\u003e\r\n    \u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eEn infectant un grand nombre de téléphones et en leur faisant passer/envoyer plusieurs appels/SMS chacun, les criminels récoltent des fonds substantiels.\u003c/p\u003e\r\n    \u003ch2 xmlns=\"http://www.w3.org/1999/xhtml\"\u003eComment vous protéger des attaques contre les appareils mobiles ?\u003c/h2\u003e\r\n    \u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eL\u0027installation d\u0027un bon logiciel de protection contre les programmes malveillants vous permettra de protéger vos appareils mobiles des chevaux de Troie qui déclenchent ce type d\u0027attaque. \u003ca href=\"./../../android-security\"\u003eKaspersky Internet Security for Android\u003c/a\u003e offre une protection optimale aux smartphones et tablettes Android contre les chevaux de Troie et autres attaques de programmes malveillants.\u003c/p\u003e\r\n    \u003cdiv class=\"more-interest\" xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\r\n      \u003cp class=\"franklin\"\u003eAutres articles et liens en rapport avec les attaques contre les appareils mobiles\u003c/p\u003e\r\n      \u003cul\u003e\r\n        \u003cli\u003e\r\n          \u003ca href=\"./../../kaspersky_mobile_security\"\u003eMobile Threats\u003c/a\u003e\r\n        \u003c/li\u003e\r\n        \u003cli\u003e\r\n          \u003ca href=\"./../../internet-security-center/internet-safety/smartphones\"\u003eSécurité des smartphones\u003c/a\u003e\r\n        \u003c/li\u003e\r\n        \u003cli\u003e\r\n          \u003ca href=\"./../../internet-security-center/threats/spam-phishing\"\u003eCourriers indésirables et phishing\u003c/a\u003e\r\n        \u003c/li\u003e\r\n        \u003cli\u003e\r\n          \u003ca href=\"./../../internet-security-center/threats/malware-creators\"\u003eQui crée les programmes malveillants ?\u003c/a\u003e\r\n        \u003c/li\u003e\r\n      \u003c/ul\u003e\r\n    \u003c/div\u003e\r\n  ",
+                   "image":  [
+
+                             ],
+                   "category":  [
+                                    {
+                                        "id":  330399,
+                                        "key":  "2-2",
+                                        "title":  "02::threats",
+                                        "description":  "Treats"
+                                    }
+                                ],
+                   "subcategory":  [
+                                       {
+                                           "id":  330557,
+                                           "key":  "2-2-4",
+                                           "title":  "mobile",
+                                           "description":  "Mobile"
+                                       }
+                                   ],
+                   "labels":  [
+
+                              ],
+                   "boost":  0
+               },
+    "__index_type":  "ContentRepository"
+}

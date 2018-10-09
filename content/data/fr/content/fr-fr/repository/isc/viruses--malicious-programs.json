@@ -1,0 +1,37 @@
+{
+    "id":  "tcm:286-357085",
+    "title":  "viruses--malicious-programs",
+    "pubdate":  "2017-04-19T22:26:10Z",
+    "schemaName":  "Repository Article",
+    "fields":  {
+                   "title":  "Virus informatiques et autres programmes malveillants",
+                   "repository_type":  "b2c",
+                   "subtitle":  "Virus et programmes malveillants",
+                   "summary":  "\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eAu fil des ans, les programmes malveillants ont évolué pour se transformer en menaces d\u0027une gravité telle qu\u0027ils sont désormais capables de mettre votre ordinateur… vos données, photos, musique et informations financières… votre argent… et vos enfants… en péril. Vous pouvez toutefois prendre certaines mesures pour éviter de tomber dans les pièges de plus en plus sophistiqués des cyber-attaques et des cyber-menaces.\u003c/p\u003e",
+                   "body":  "\r\n    \u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eAu fil des ans, les programmes malveillants ont évolué pour se transformer en menaces d\u0027une gravité telle qu\u0027ils sont désormais capables de mettre votre ordinateur… vos données, photos, musique et informations financières… votre argent… et vos enfants… en péril. Vous pouvez toutefois prendre certaines mesures pour éviter de tomber dans les pièges de plus en plus sophistiqués des cyber-attaques et des cyber-menaces.\u003c/p\u003e\r\n    \u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eSi vous faites partie de ces nombreux utilisateurs d\u0027ordinateurs et d\u0027appareils mobiles qui se demandent « qu\u0027est-ce qu\u0027un virus informatique ? » ou « qu\u0027est-ce qu\u0027un programme malveillant ? », ou si vous souhaitez simplement en savoir plus sur les programmes malveillants contre lesquels les solutions de sécurité Internet primées de Kaspersky Lab peuvent vous protéger… ces pages Web sont faites pour vous. Les articles suivants contiennent de précieuses informations sur les types de menaces, l\u0027étendue du problème, les ruses employées par les cyber-criminels et les préjudices qu\u0027ils peuvent causer :\u003c/p\u003e\r\n    \u003cul xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\r\n      \u003cli\u003e\r\n        \u003ca title=\"Types of Malware\" href=\"./../../internet-security-center/threats/malware-classifications\"\u003e\r\n          \u003cstrong\u003eClassification des programmes malveillants\u003c/strong\u003e\r\n        \u003c/a\u003e – Découvrez les différents types de programmes malveillants.\u003c/li\u003e\r\n      \u003cli\u003e\r\n        \u003ca title=\"Malware Creators\" href=\"./../../internet-security-center/threats/malware-creators\"\u003e\r\n          \u003cstrong\u003eQui crée les programmes malveillants ?\u003c/strong\u003e\r\n        \u003c/a\u003e – Découvrez qui sont les auteurs des programmes malveillants… et ce qui les motive.\u003c/li\u003e\r\n      \u003cli\u003e\r\n        \u003ca title=\"What Malware Needs to Thrive\" href=\"./../../internet-security-center/threats/hacking-system-vulnerabilities\"\u003e\r\n          \u003cstrong\u003eConditions requises pour permettre aux programmes malveillants de se propager\u003c/strong\u003e\r\n        \u003c/a\u003e – Identifiez les conditions qui doivent être réunies pour permettre aux programmes malveillants de se propager.\u003c/li\u003e\r\n      \u003cli\u003e\r\n        \u003cstrong\u003e\r\n          \u003ca title=\"How Malware Penetrates Systems\" href=\"./../../internet-security-center/threats/malware-system-penetration\"\u003eComment les programmes malveillants s\u0027introduisent-ils dans les systèmes ?\u003c/a\u003e –\u003c/strong\u003e learn about the techniques that cybercriminals use to penetrate users’ computers and devices\u003c/li\u003e\r\n      \u003cli\u003e\r\n        \u003ca title=\"Malware Damage\" href=\"./../../internet-security-center/threats/malware-damages\"\u003e\r\n          \u003cstrong\u003ePréjudices causés par les programmes malveillants\u003c/strong\u003e\r\n        \u003c/a\u003e – read about the damage that malware can cause for home users and businesses\u003c/li\u003e\r\n    \u003c/ul\u003e\r\n  ",
+                   "image":  [
+
+                             ],
+                   "category":  [
+                                    {
+                                        "id":  330399,
+                                        "key":  "2-2",
+                                        "title":  "02::threats",
+                                        "description":  "Treats"
+                                    }
+                                ],
+                   "subcategory":  [
+                                       {
+                                           "id":  330551,
+                                           "key":  "2-2-1",
+                                           "title":  "viruses",
+                                           "description":  "Viruses"
+                                       }
+                                   ],
+                   "labels":  [
+
+                              ],
+                   "boost":  0
+               },
+    "__index_type":  "ContentRepository"
+}

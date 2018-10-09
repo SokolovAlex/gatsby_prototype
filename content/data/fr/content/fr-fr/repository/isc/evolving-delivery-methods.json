@@ -1,0 +1,37 @@
+{
+    "id":  "tcm:286-357096",
+    "title":  "evolving-delivery-methods",
+    "pubdate":  "2017-04-19T22:19:39Z",
+    "schemaName":  "Repository Article",
+    "fields":  {
+                   "title":  "Évolution des méthodes de diffusion des virus",
+                   "repository_type":  "b2c",
+                   "subtitle":  "Évolution des méthodes de diffusion des virus",
+                   "summary":  "\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003ePour commettre leurs forfaits (\u003ca href=\"/internet-security-center/threats/online-banking-theft\"\u003evol d\u0027informations bancaires\u003c/a\u003e, \u003ca href=\"/internet-security-center/threats/sms-attacks\"\u003egénération de revenus à partir de numéros de téléphone payants\u003c/a\u003e\u003ca href=\"/internet-security-center/threats/ransomeware\"\u003edemandes de rançons\u003c/a\u003e , etc.), les cyber-criminels créent et distribuent des vers qui infectent les réseaux… et peuvent déclencher des épidémies sur Internet.\u003c/p\u003e",
+                   "body":  "\r\n    \u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003ePour commettre leurs forfaits (\u003ca href=\"./../../internet-security-center/threats/online-banking-theft\"\u003evol d\u0027informations bancaires\u003c/a\u003e, \u003ca href=\"./../../internet-security-center/threats/sms-attacks\"\u003egénération de revenus à partir de numéros de téléphone payants\u003c/a\u003e\u003ca href=\"./../../internet-security-center/threats/ransomeware\"\u003edemandes de rançons\u003c/a\u003e , etc.), les cyber-criminels créent et distribuent des vers qui infectent les réseaux… et peuvent déclencher des épidémies sur Internet.\u003c/p\u003e\r\n    \u003ch2 xmlns=\"http://www.w3.org/1999/xhtml\"\u003eAttaques massives de virus informatiques\u003c/h2\u003e\r\n    \u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eLes méthodes utilisées par les cyber-criminels pour diffuser leurs virus informatiques dépendent de leur objectif. Souvent, leur but est d\u0027installer des chevaux de Troie sur le plus grand nombre d\u0027ordinateurs possible à travers le monde. Exemples passés de vers de ce type :\u003c/p\u003e\r\n    \u003cul xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\r\n      \u003cli\u003eMydoom\u003c/li\u003e\r\n      \u003cli\u003eBagle\u003c/li\u003e\r\n      \u003cli\u003eWarezov (ver d\u0027e-mail)\u003c/li\u003e\r\n    \u003c/ul\u003e\r\n    \u003ch2 xmlns=\"http://www.w3.org/1999/xhtml\"\u003eComment limiter la propagation d\u0027un virus informatique ?\u003c/h2\u003e\r\n    \u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eDans certains cas, au lieu d\u0027essayer de propager les virus informatiques sur les ordinateurs d\u0027un maximum d\u0027utilisateurs, le cyber-criminel peut délibérément limiter le nombre d\u0027ordinateurs à infecter. Il évite ainsi une publicité excessive qui attirerait l\u0027attention des autorités.\u003c/p\u003e\r\n    \u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003ePour limiter le nombre d\u0027infections, le cyber-criminel évite alors d\u0027utiliser un ver dont la propagation sera incontrôlable. Il peut par exemple choisir d\u0027utiliser un site Web préalablement infecté par un cheval de Troie. Le cyber-criminel surveille le nombre de visiteurs du site et fixe une limite quant au nombre d\u0027ordinateurs à attaquer par le cheval de Troie.\u003c/p\u003e\r\n    \u003ch2 xmlns=\"http://www.w3.org/1999/xhtml\"\u003eProtection de vos ordinateurs, appareils et données\u003c/h2\u003e\r\n    \u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003ePour en savoir plus sur la protection contre les chevaux de Troie, les vers et les virus, cliquez sur les liens ci-dessous :\u003c/p\u003e\r\n    \u003cul xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\r\n      \u003cli\u003e\r\n        \u003ca href=\"./../../internet-security-center/threats/trojans\"\u003eQu\u0027est-ce qu\u0027un cheval de Troie ?\u003c/a\u003e\r\n      \u003c/li\u003e\r\n      \u003cli\u003e\r\n        \u003ca href=\"./../../internet-security-center/threats/viruses-worms\"\u003eQu\u0027est-ce qu\u0027un virus ou un ver informatique ?\u003c/a\u003e\r\n      \u003c/li\u003e\r\n    \u003c/ul\u003e\r\n    \u003cdiv class=\"more-interest\" xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\r\n      \u003cp class=\"franklin\"\u003eOther articles and links related to virus delivery methods\u003c/p\u003e\r\n      \u003cul\u003e\r\n        \u003cli\u003e\r\n          \u003ca href=\"./../../internet-security-center/threats/cybercrime\"\u003eCyber-criminalité\u003c/a\u003e\r\n        \u003c/li\u003e\r\n        \u003cli\u003e\r\n          \u003ca href=\"./../../internet-security-center/threats/petty-theft\"\u003eFormes mineures de cyber-vol\u003c/a\u003e\r\n        \u003c/li\u003e\r\n        \u003cli\u003e\r\n          \u003ca href=\"./../../internet-security-center/threats/computer-vandalism\"\u003eVandalisme informatique\u003c/a\u003e\r\n        \u003c/li\u003e\r\n        \u003cli\u003e\r\n          \u003ca href=\"./../../internet-security-center/threats/online-banking-theft\"\u003eVol d\u0027informations bancaires en ligne\u003c/a\u003e\r\n        \u003c/li\u003e\r\n        \u003cli\u003e\r\n          \u003ca href=\"./../../internet-security-center/threats/sms-attacks\"\u003eAppels et SMS payants\u003c/a\u003e\r\n        \u003c/li\u003e\r\n        \u003cli\u003e\r\n          \u003ca href=\"./../../internet-security-center/threats/ransomeware\"\u003eRansomware et cyber-chantage\u003c/a\u003e\r\n        \u003c/li\u003e\r\n        \u003cli\u003e\r\n          \u003ca href=\"./../../internet-security-center/threats/data-theft\"\u003ePerte et vol de données\u003c/a\u003e\r\n        \u003c/li\u003e\r\n      \u003c/ul\u003e\r\n    \u003c/div\u003e\r\n  ",
+                   "image":  [
+
+                             ],
+                   "category":  [
+                                    {
+                                        "id":  330399,
+                                        "key":  "2-2",
+                                        "title":  "02::threats",
+                                        "description":  "Treats"
+                                    }
+                                ],
+                   "subcategory":  [
+                                       {
+                                           "id":  330518,
+                                           "key":  "2-2-6",
+                                           "title":  "malware (threats)",
+                                           "description":  "Malware (threats)"
+                                       }
+                                   ],
+                   "labels":  [
+
+                              ],
+                   "boost":  0
+               },
+    "__index_type":  "ContentRepository"
+}

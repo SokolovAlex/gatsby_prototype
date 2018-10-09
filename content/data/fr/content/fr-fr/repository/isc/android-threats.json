@@ -1,0 +1,40 @@
+{
+    "id":  "tcm:286-332869",
+    "title":  "android-threats",
+    "pubdate":  "2017-09-05T16:09:18Z",
+    "schemaName":  "Repository Article",
+    "fields":  {
+                   "metaTitle":  "Infographie : menaces sur Android | Infographie : menaces sur les mobiles",
+                   "metaDesc":  "Les cybercriminels ont développé un grand nombre de menaces sur Android au travers de logiciels malveillants capables de cibler les tablettes et les smartphones. Découvrez ces nouvelles cyberattaques.",
+                   "title":  "Les appareils Android sont attaqués",
+                   "repository_type":  "b2c",
+                   "subtitle":  "",
+                   "summary":  " \u003cp\u003eLes cybercriminels redoublent d\u0027efforts pour développer des logiciels malveillants capables de cibler les tablettes et les smartphones, notamment les appareils Android. Découvrez comment de plus en plus de chevaux de Troie apparaissent chaque mois pour accéder, à votre insu, à vos appareils mobiles, voler vos mots de passe ou vous extorquer de l\u0027argent en envoyant automatiquement des messages texte.\u003c/p\u003e",
+                   "body":  "\u003ch1 xmlns=\"http://www.w3.org/1999/xhtml\"\u003eLes appareils Android sont attaqués\u003c/h1\u003e\n\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eLes cybercriminels redoublent d\u0027efforts pour développer des logiciels malveillants capables de cibler les tablettes et les smartphones, notamment les appareils Android. Découvrez comment de plus en plus de chevaux de Troie apparaissent chaque mois pour accéder, à votre insu, à vos appareils mobiles, voler vos mots de passe ou vous extorquer de l\u0027argent en envoyant automatiquement des messages texte.\u003c/p\u003e\n\u003ca class=\"lightbox\" href=\"/content/fr-fr/images/repository/isc/Kaspersky-Lab-Infographics-Android-Threats-in-2012.png\" xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\u003cimg src=\"/content/fr-fr/images/repository/isc/Kaspersky-Lab-Infographics-Android-Threats-in-2012.png\" alt=\"android threats in 2012 infographic\" /\u003e\u003c/a\u003e",
+                   "thumbnail_image":  "content/fr-fr/images/repository/isc/Kaspersky-Lab-Infographics-Android-Threats-in-2012.png",
+                   "image":  [
+
+                             ],
+                   "category":  [
+                                    {
+                                        "id":  330375,
+                                        "key":  "2-3",
+                                        "title":  "03::infographics",
+                                        "description":  "Infographics"
+                                    }
+                                ],
+                   "subcategory":  [
+                                       {
+                                           "id":  330376,
+                                           "key":  "2-3-1",
+                                           "title":  "infographics (infographics)",
+                                           "description":  "Infographics (infographics)"
+                                       }
+                                   ],
+                   "labels":  [
+
+                              ],
+                   "boost":  0
+               },
+    "__index_type":  "ContentRepository"
+}

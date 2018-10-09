@@ -1,0 +1,37 @@
+{
+    "id":  "tcm:286-357095",
+    "title":  "ransomware--cyber-blackmail",
+    "pubdate":  "2017-04-19T22:24:57Z",
+    "schemaName":  "Repository Article",
+    "fields":  {
+                   "title":  "Ransomware et cyber-chantage",
+                   "repository_type":  "b2c",
+                   "subtitle":  "Ransomware et cyber-chantage",
+                   "summary":  "\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eLes ransomware sont des chevaux de Troie conçus pour extorquer de l\u0027argent à une victime. Ils exigent souvent un paiement en échange de...\u003c/p\u003e",
+                   "body":  "\r\n    \u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eLes ransomware sont des chevaux de Troie conçus pour extorquer de l\u0027argent à une victime. Ils exigent souvent un paiement en échange de l\u0027annulation des modifications apportées par le cheval de Troie sur l\u0027ordinateur de la victime. Ces modifications peuvent être les suivantes :\u003c/p\u003e\r\n    \u003cul xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\r\n      \u003cli\u003eChiffrage des données stockées sur le disque de la victime pour l\u0027empêcher d\u0027accéder à ses informations\u003c/li\u003e\r\n      \u003cli\u003eBlocage de l\u0027accès normal au système de la victime\u003c/li\u003e\r\n    \u003c/ul\u003e\r\n    \u003ch2 xmlns=\"http://www.w3.org/1999/xhtml\"\u003eComment les ransomware s\u0027introduisent-ils sur un ordinateur ?\u003c/h2\u003e\r\n    \u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eLes techniques les plus répandues pour installer ce type de chevaux de Troie sont les suivantes :\u003c/p\u003e\r\n    \u003cul xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\r\n      \u003cli\u003eE-mails de phishing\u003c/li\u003e\r\n      \u003cli\u003eConsultation d\u0027un site Web contenant un programme malveillant\u003c/li\u003e\r\n    \u003c/ul\u003e\r\n    \u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eUne fois le cheval de Troie installé, il chiffre les informations stockées sur l\u0027ordinateur de la victime ou bloque le fonctionnement normal de celui-ci ; il affiche également un message exigeant le paiement d\u0027une rançon en échange du déchiffrage des fichiers ou de la restauration du système. Dans la plupart des cas, le message de rançon apparaît lorsque l\u0027utilisateur redémarre son ordinateur, à l\u0027issue de l\u0027infection.\u003c/p\u003e\r\n    \u003ch2 xmlns=\"http://www.w3.org/1999/xhtml\"\u003eMéthodes de ransomware à travers le monde\u003c/h2\u003e\r\n    \u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eLes ransomware se développent de plus en plus à travers le monde. En revanche, les messages de rançon et les méthodes d\u0027extorsion de fonds peuvent varier d\u0027un pays à l\u0027autre. Par exemple :\u003c/p\u003e\r\n    \u003cul xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\r\n      \u003cli\u003e\r\n        \u003cstrong\u003eFaux messages signalant la présence d\u0027applications sans licence\u003c/strong\u003e\r\n        \u003cbr /\u003e\r\nDans certains pays, les chevaux de Troie peuvent prétendre avoir identifié un logiciel sans licence sur l\u0027ordinateur de la victime. Le message exige alors un paiement.\u003c/li\u003e\r\n      \u003cli\u003e\r\n        \u003cstrong\u003eFausses notifications de contenu illégal\u003c/strong\u003e\r\n        \u003cbr /\u003e\r\nDans les pays où le piratage logiciel est moins répandu, cette approche n\u0027est pas aussi fructueuse pour les cyber-criminels. Le ransomware peut alors afficher un message soi-disant officiel pour faire croire à l\u0027utilisateur que du contenu pédophile (ou tout autre contenu illégal) a été découvert sur son ordinateur. Ce message est accompagné d\u0027une demande de paiement d\u0027une amende.\u003c/li\u003e\r\n    \u003c/ul\u003e\r\n    \u003ch2 xmlns=\"http://www.w3.org/1999/xhtml\"\u003eComment vous protéger contre les ransomware et le cyber-chantage ?\u003c/h2\u003e\r\n    \u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003ePour en savoir plus sur la protection contre les chevaux de Troie, les vers et les virus, cliquez sur les liens ci-dessous :\u003c/p\u003e\r\n    \u003cul xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\r\n      \u003cli\u003e\r\n        \u003ca href=\"./../../internet-security-center/threats/trojans\"\u003eQu\u0027est-ce qu\u0027un cheval de Troie ?\u003c/a\u003e\r\n      \u003c/li\u003e\r\n      \u003cli\u003e\r\n        \u003ca href=\"./../../internet-security-center/threats/viruses-worms\"\u003eQu\u0027est-ce qu\u0027un virus ou un ver informatique ?\u003c/a\u003e\r\n      \u003c/li\u003e\r\n    \u003c/ul\u003e\r\n    \u003cdiv class=\"more-interest\" xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\r\n      \u003cp class=\"franklin\"\u003eAutres articles et liens en rapport avec les ransomware et le cyber-chantage\u003c/p\u003e\r\n      \u003cul\u003e\r\n        \u003cli\u003e\r\n          \u003ca href=\"./../../internet-security-center/threats/malware-system-penetration\"\u003eComment les programmes malveillants s\u0027introduisent-ils dans les systèmes ?\u003c/a\u003e\r\n        \u003c/li\u003e\r\n        \u003cli\u003e\r\n          \u003ca href=\"./../../internet-security-center/internet-safety/antivirus-choices\"\u003eChoix d\u0027une solution antivirus\u003c/a\u003e\r\n        \u003c/li\u003e\r\n        \u003cli\u003e\r\n          \u003ca href=\"./../../internet-security-center/threats/cybercrime\"\u003eCyber-criminalité\u003c/a\u003e\r\n        \u003c/li\u003e\r\n        \u003cli\u003e\r\n          \u003ca href=\"./../../internet-security-center/threats/computer-vandalism\"\u003eVandalisme informatique\u003c/a\u003e\r\n        \u003c/li\u003e\r\n        \u003cli\u003e\r\n          \u003ca href=\"./../../internet-security-center/threats/petty-theft\"\u003eFormes mineures de cyber-vol\u003c/a\u003e\r\n        \u003c/li\u003e\r\n        \u003cli\u003e\r\n          \u003ca href=\"./../../internet-security-center/threats/spam-phishing\"\u003eCourriers indésirables et phishing\u003c/a\u003e\r\n        \u003c/li\u003e\r\n      \u003c/ul\u003e\r\n    \u003c/div\u003e\r\n  ",
+                   "image":  [
+
+                             ],
+                   "category":  [
+                                    {
+                                        "id":  330399,
+                                        "key":  "2-2",
+                                        "title":  "02::threats",
+                                        "description":  "Treats"
+                                    }
+                                ],
+                   "subcategory":  [
+                                       {
+                                           "id":  330518,
+                                           "key":  "2-2-6",
+                                           "title":  "malware (threats)",
+                                           "description":  "Malware (threats)"
+                                       }
+                                   ],
+                   "labels":  [
+
+                              ],
+                   "boost":  0
+               },
+    "__index_type":  "ContentRepository"
+}

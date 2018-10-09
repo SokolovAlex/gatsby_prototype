@@ -1,0 +1,37 @@
+{
+    "id":  "tcm:286-383876",
+    "title":  "svchost-exe-virus-attack",
+    "pubdate":  "2017-04-19T22:25:32Z",
+    "schemaName":  "Repository Article",
+    "fields":  {
+                   "title":  "Svchost.exe Virus Sneak Attacks",
+                   "repository_type":  "b2c",
+                   "summary":  "\u003cp\u003e\u003cstrong\u003eThe svchost.exe file is commonly used by many Windows applications. However, cybercriminals have been known to attach \u003ca href=\"/internet-security-center/internet-safety/what-is-malware-and-how-to-protect-against-it\"\u003emalware\u003c/a\u003e to this file in hopes of catching users off-guard. Thus, it becomes vital to keep an eye out for any \"sneak attacks\" by cybercriminals and malware creators using the svchost.exe file for Windows.\u003c/strong\u003e\u003c/p\u003e",
+                   "body":  "\u003cdiv class=\"articles-featured-article-wrapper\" xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\n\u003ch1\u003eWhat is a Smurf Attack? - Definition\u003c/h1\u003e\n\u003cdiv class=\"threats-featured-article-title\" style=\"margin-left:20px; margin-top:-10px; margin-bottom:20px;\"\u003eSECURITY DEFINITION\u003c/div\u003e\n\u003cimg title=\"Learn about what a Smurf attack is, the threat associated with it, and how to mitigate \" alt=\"Smurf Attack Definition\" style=\"float: right; width: 250px; height: auto; margin:0 20px 0 20px; border:1px solid #333\" src=\"/content/fr-fr/images/repository/isc/smurf-attack.png\" /\u003e\n\u003cdiv class=\"articles-featured-article-text\"\u003e\n\u003cp\u003e\u003cstrong\u003eA Smurf attack is a form of a \u003ca href=\"/resource-center/threats/ddos-attacks\"\u003edistributed denial of service (DDoS) attack\u003c/a\u003e that renders computer networks inoperable.\u003c/strong\u003e The Smurf program accomplishes this by \u003ca href=\"/resource-center/threats/malware-system-vulnerability\"\u003eexploiting vulnerabilities\u003c/a\u003e of the Internet Protocol (IP) and Internet Control Message Protocols (ICMP).\u003c/p\u003e\n\u003cp\u003eThe steps in a Smurf attack are as follows:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eFirst, the \u003ca href=\"/resource-center/internet-safety/what-is-malware-and-how-to-protect-against-it\"\u003emalware\u003c/a\u003e creates a network packet attached to a false IP address — a technique known as \"spoofing.\"\u003c/li\u003e\n\u003cli\u003eInside the packet is an ICMP ping message, asking network nodes that receive the packet to send back a reply\u003c/li\u003e\n\u003cli\u003eThese replies, or \"echoes,\" are then sent back to network IP addresses again, setting up an infinite loop.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eWhen combined with IP broadcasting — which sends the malicious packet to every IP address in a network — the Smurf attack can quickly cause a complete denial of service.\u003c/p\u003e\n\u003c/div\u003e\n\u003ch2\u003eSmurf Attack Transmission and Effects\u003c/h2\u003e\n\u003cdiv class=\"articles-featured-article-text\"\u003e\n\u003cp\u003eIt\u0027s possible to accidentally download the Smurf \u003ca href=\"/resource-center/threats/trojans\"\u003eTrojan\u003c/a\u003e from an unverified website or via an infected email link. Typically, the program will remain dormant on a computer until activated by a remote user; as a result, many Smurfs come bundled with rootkits, allowing hackers to create backdoors for easy system access. One way to combat a Smurf attack is to turn off IP broadcast addressing on every network router. This function is rarely used, and if turned off it is not possible for the attack to overwhelm a network.\u003c/p\u003e\n\u003cp\u003eIf a Smurf DDoS attack does succeed, it can cripple company servers for hours or days, resulting in lost revenue and customer frustration — what\u0027s more, this kind of attack may also be a cover-up for something more sinister, such as theft of files or other intellectual property (IP). Dealing with Smurf and similar DDoS attacks requires a robust prevention strategy that is able to monitor network traffic and detect any oddities, for example packet volume, behavior and signature; many malware bots exhibit specific characteristics, and the right security service can help shut down a Smurf or other DDoS attack before it begins.\u003c/p\u003e\n\u003c/div\u003e\n\u003ch2\u003eHow to Protect Yourself\u003c/h2\u003e\n\u003cdiv class=\"articles-featured-article-text\"\u003e\n\u003cp\u003eThe Smurf Attack sounds cute but poses real risks if servers are overwhelmed. Disabled IP broadcasting and reliable detection tools help limit the chance and impact of this attack. Here are a couple of steps to for Smurf attack mitigation:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003emake sure to block directed broadcast traffic coming into the network\u003c/li\u003e\n\u003cli\u003econfigure hosts and routers not to respond to ICMP echo requests.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eA variation to the Smurf attack is the Fraggle attack. The attack is essentially the same as the Smurf attack but instead of sending an ICMP echo request to the direct broadcast address, it sends UDP packets. For the Fraggle attack, it is the same mitigation process.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"articles-featured-article-text\"\u003e\n\u003cdiv class=\"hr\"\u003e\n\u003chr /\u003e\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e",
+                   "thumbnail_image":  "content/fr-fr/images/repository/isc/smurf-attack-thumbnail.jpg",
+                   "image":  [
+
+                             ],
+                   "category":  [
+                                    {
+                                        "id":  330399,
+                                        "key":  "2-2",
+                                        "title":  "02::threats",
+                                        "description":  "Treats"
+                                    }
+                                ],
+                   "subcategory":  [
+                                       {
+                                           "id":  330551,
+                                           "key":  "2-2-1",
+                                           "title":  "viruses",
+                                           "description":  "Viruses"
+                                       }
+                                   ],
+                   "labels":  [
+
+                              ],
+                   "boost":  0
+               },
+    "__index_type":  "ContentRepository"
+}

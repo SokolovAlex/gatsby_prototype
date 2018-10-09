@@ -1,0 +1,37 @@
+{
+    "id":  "tcm:286-357091",
+    "title":  "botnets",
+    "pubdate":  "2017-05-29T18:49:41Z",
+    "schemaName":  "Repository Article",
+    "fields":  {
+                   "title":  "Qu\u0027est-ce qu\u0027un botnet ?",
+                   "repository_type":  "b2c",
+                   "subtitle":  "Qu\u0027est-ce qu\u0027un botnet ?",
+                   "summary":  "\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003e« Botnet » est une contraction des termes « robot » et « network » (réseau). Les cyber-criminels utilisent des...\u003c/p\u003e",
+                   "body":  "\u003cdiv class=\"infographic-thumb\" xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\u003ca href=\"./../../internet-security-center/infographics/botnet\"\u003e\u003cimg src=\"http://media.kaspersky.com/de/Kaspersky-Lab-Inforgaphic_Botnet.png\" alt=\"Botnet Infographic\" title=\"Botnet Infographic\" /\u003e\u003c/a\u003e\n\u003cp\u003eInfographie - Botnets\u003c/p\u003e\n\u003c/div\u003e\n\u003c!--\u003ch2\u003eQu\u0027est-ce qu\u0027un botnet ?\u003c/h2\u003e--\u003e\n\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003e« Botnet » est une contraction des termes « robot » et « network » (réseau). Les cyber-criminels utilisent des chevaux de Troie spéciaux pour violer la sécurité des ordinateurs de différents utilisateurs, prendre le contrôle de chacun de ces ordinateurs infectés et les regrouper au sein d\u0027un réseau de « bots » gérables à distance.\u003c/p\u003e\n\u003ch2 xmlns=\"http://www.w3.org/1999/xhtml\"\u003eQuel peut être l\u0027impact des botnets sur vous ?\u003c/h2\u003e\n\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eLes cyber-criminels cherchent souvent à infecter et à prendre le contrôle de milliers, de dizaines de milliers, voire de millions d\u0027ordinateurs pour agir en maîtres absolus sur un immense « réseau zombie » (ou « bot-network ») capable de lancer une attaque DDoS (\u003ca href=\"./../../internet-security-center/threats/ddos-attacks\"\u003eDistributed Denial of Service (DDoS) attack\u003c/a\u003e, déni de service distribué), une \u003ca href=\"./../../internet-security-center/threats/spam-phishing\"\u003ecampagne de spam\u003c/a\u003e à grande échelle ou tout autre type de cyber-attaque.\u003c/p\u003e\n\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eDans certains cas, les cyber-criminels établissent un vaste réseau d\u0027ordinateurs zombies, puis vendent ou louent l\u0027accès à ce réseau à d\u0027autres criminels. Les \u003ca href=\"./../../internet-security-center/threats/spammer-support\"\u003espammeurs\u003c/a\u003e peuvent louer ou acheter un réseau pour lancer une campagne de spam à grande échelle.\u003c/p\u003e\n\u003ch2 xmlns=\"http://www.w3.org/1999/xhtml\"\u003eComment empêcher que votre ordinateur ne devienne membre d\u0027un botnet ?\u003c/h2\u003e\n\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eL\u0027installation d\u0027un bon logiciel de protection contre les programmes malveillants vous permettra de protéger votre ordinateur des chevaux de Troie et autres menaces.\u003c/p\u003e\n\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eKaspersky Lab propose des solutions de protection primées pour les ordinateurs suivants :\u003c/p\u003e\n\u003cul xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\n\u003cli\u003ePC Windows\u003c/li\u003e\n\u003cli\u003eMac\u003c/li\u003e\n\u003cli\u003eOrdinateurs Linux\u003c/li\u003e\n\u003c/ul\u003e\n\u003cdiv class=\"more-interest\" xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\n\u003cp class=\"franklin\"\u003eAutres articles et liens en rapport avec les botnets\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"./../../internet-security-center/threats/trojans\"\u003eQu\u0027est-ce qu\u0027un cheval de Troie ?\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"./../../internet-security-center/internet-safety/antivirus-choices\"\u003eChoix d\u0027une solution antivirus\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"./../../internet-security-center/threats/malware-classifications\"\u003eClassification des programmes malveillants\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"./../../internet-security-center/threats/malware-creators\"\u003eQui crée les programmes malveillants ?\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c!--\n                \u003cp class=\"franklin\"\u003eYou may also be interested in:\u003c/p\u003e\n                \u003cul\u003e\n                        \u003cli\u003e\u003ca href=\"#\"\u003eNew ‘Gauss’ virus found by Russia’s...\u003c/a\u003e\u003c/li\u003e\n                        \u003cli\u003e\u003ca href=\"#\"\u003eKaspersky discovers IT-virus designed for Middle East\u003c/a\u003e\u003c/li\u003e\n                        \u003cli\u003e\u003ca href=\"#\"\u003eKaspersky finds powerful Cyber Weapon\u003c/a\u003e\u003c/li\u003e\n                \u003c/ul\u003e\n--\u003e\u003c/div\u003e",
+                   "image":  [
+
+                             ],
+                   "category":  [
+                                    {
+                                        "id":  330399,
+                                        "key":  "2-2",
+                                        "title":  "02::threats",
+                                        "description":  "Treats"
+                                    }
+                                ],
+                   "subcategory":  [
+                                       {
+                                           "id":  330579,
+                                           "key":  "2-2-3",
+                                           "title":  "web",
+                                           "description":  "Web"
+                                       }
+                                   ],
+                   "labels":  [
+
+                              ],
+                   "boost":  0
+               },
+    "__index_type":  "ContentRepository"
+}

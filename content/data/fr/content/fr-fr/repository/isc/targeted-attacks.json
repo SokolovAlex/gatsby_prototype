@@ -1,0 +1,37 @@
+{
+    "id":  "tcm:286-357097",
+    "title":  "targeted-attacks",
+    "pubdate":  "2017-04-19T22:21:54Z",
+    "schemaName":  "Repository Article",
+    "fields":  {
+                   "title":  "Attaques de virus contre un ordinateur ciblé",
+                   "repository_type":  "b2c",
+                   "subtitle":  "Attaques de virus contre un ordinateur ciblé",
+                   "summary":  "\u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eContrairement aux attaques massives de virus informatiques qui visent à infecter le plus grand nombre d\u0027ordinateurs possible, les attaques ciblées ont recours à une approche radicalement différente. Les attaques ciblées tentent d\u0027infecter le réseau d\u0027une société ou d\u0027un organisme donné, ou...\u003c/p\u003e",
+                   "body":  "\r\n    \u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eContrairement aux attaques massives de virus informatiques qui visent à infecter le plus grand nombre d\u0027ordinateurs possible, les attaques ciblées ont recours à une approche radicalement différente. Les attaques ciblées tentent d\u0027infecter le réseau d\u0027une société ou d\u0027un organisme donné, ou d\u0027introduire un cheval de Troie particulier sur un serveur de l\u0027infrastructure réseau de la société ou de l\u0027organisme en question.\u003c/p\u003e\r\n    \u003ch2 xmlns=\"http://www.w3.org/1999/xhtml\"\u003eQui est visé ?\u003c/h2\u003e\r\n    \u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eLes cyber-criminels visent souvent des entreprises traitant ou stockant des informations afin de les exploiter pour leur propre profit. Principales cibles :\u003c/p\u003e\r\n    \u003cul xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\r\n      \u003cli\u003e\r\n        \u003cstrong\u003eBanques\u003c/strong\u003e\r\n        \u003cbr /\u003e\r\nLes cyber-criminels attaquent les serveurs ou le réseau d\u0027une banque afin d\u0027accéder aux informations et aux fonds transférés illégalement depuis les comptes bancaires des clients.\u003c/li\u003e\r\n      \u003cli\u003e\r\n        \u003cstrong\u003eSociétés de facturation, telles que les sociétés de téléphonie\u003c/strong\u003e\r\n        \u003cbr /\u003e\r\nLorsqu\u0027une société de facturation est visée par une attaque, les cyber-criminels cherchent généralement à accéder aux comptes des clients afin de dérober de précieuses informations telles que les bases de données de clients, les informations financières ou les données techniques.\u003c/li\u003e\r\n    \u003c/ul\u003e\r\n    \u003ch2 xmlns=\"http://www.w3.org/1999/xhtml\"\u003eContournement de la sécurité de l\u0027entreprise\u003c/h2\u003e\r\n    \u003cp xmlns=\"http://www.w3.org/1999/xhtml\"\u003eDans la mesure où les grandes entreprises, qui sont généralement visées par les attaques de virus informatiques, sont souvent dotées d\u0027une sécurité informatique performante, les cyber-criminels sont contraints d\u0027employer des méthodes particulièrement ingénieuses. Comme la plupart des entreprises disposent d\u0027un pare-feu et d\u0027autres mesures de protection contre les attaques extérieures, le cyber-criminel peut rechercher de l\u0027aide à l\u0027intérieur de l\u0027entreprise :\u003c/p\u003e\r\n    \u003cul xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\r\n      \u003cli\u003e\r\n        \u003cstrong\u003ePhishing\u003c/strong\u003e\r\n        \u003cbr /\u003e\r\nLes employés peuvent, à leur insu, aider le cyber-criminel en répondant à des e-mails de phishing prétendant provenir du service informatique de l\u0027entreprise et leur demandant d\u0027entrer leur mot de passe d\u0027accès au système à des fins de test.\u003c/li\u003e\r\n      \u003cli\u003e\r\n        \u003cstrong\u003eUtilisation d\u0027une fausse identité\u003c/strong\u003e\r\n        \u003cbr /\u003e\r\nDans certains cas, les cyber-criminels utilisent des informations personnelles recueillies sur les réseaux sociaux pour se faire passer pour un collègue des employés afin que les demandes de noms d\u0027utilisateur et de mots de passe semblent plus authentiques. Cette méthode évite d\u0027éveiller les soupçons des employés.\u003c/li\u003e\r\n    \u003c/ul\u003e\r\n    \u003cdiv class=\"more-interest\" xmlns=\"http://www.w3.org/1999/xhtml\"\u003e\r\n      \u003cp class=\"franklin\"\u003eAutres articles et liens en rapport avec les attaques ciblées\u003c/p\u003e\r\n      \u003cul\u003e\r\n        \u003cli\u003e\r\n          \u003ca href=\"./../../internet-security-center/threats/cybercrime\"\u003eCyber-criminalité\u003c/a\u003e\r\n        \u003c/li\u003e\r\n        \u003cli\u003e\r\n          \u003ca href=\"./../../internet-security-center/threats/computer-vandalism\"\u003eVandalisme informatique\u003c/a\u003e\r\n        \u003c/li\u003e\r\n        \u003cli\u003e\r\n          \u003ca href=\"./../../internet-security-center/threats/petty-theft\"\u003eFormes mineures de cyber-vol\u003c/a\u003e\r\n        \u003c/li\u003e\r\n        \u003cli\u003e\r\n          \u003ca href=\"./../../internet-security-center/threats/trojans\"\u003eQu\u0027est-ce qu\u0027un cheval de Troie ?\u003c/a\u003e\r\n        \u003c/li\u003e\r\n        \u003cli\u003e\r\n          \u003ca href=\"./../../internet-security-center/threats/data-theft\"\u003ePerte et vol de données\u003c/a\u003e\r\n        \u003c/li\u003e\r\n        \u003cli\u003e\r\n          \u003ca href=\"./../../internet-security-center/threats/spam-phishing\"\u003eCourriers indésirables et phishing\u003c/a\u003e\r\n        \u003c/li\u003e\r\n      \u003c/ul\u003e\r\n    \u003c/div\u003e\r\n  ",
+                   "image":  [
+
+                             ],
+                   "category":  [
+                                    {
+                                        "id":  330399,
+                                        "key":  "2-2",
+                                        "title":  "02::threats",
+                                        "description":  "Treats"
+                                    }
+                                ],
+                   "subcategory":  [
+                                       {
+                                           "id":  330518,
+                                           "key":  "2-2-6",
+                                           "title":  "malware (threats)",
+                                           "description":  "Malware (threats)"
+                                       }
+                                   ],
+                   "labels":  [
+
+                              ],
+                   "boost":  0
+               },
+    "__index_type":  "ContentRepository"
+}
