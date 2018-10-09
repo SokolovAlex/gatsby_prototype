@@ -33,6 +33,7 @@
         "build": "react-scripts build",
         "api": "node src/server",
         "server": "node server/app",
-        "move": "node publish"
+        "move": "node publish",
+        "build-pages": "node build-pages"
     }
 }

@@ -37,36 +37,5 @@ module.exports = {
             path: config.dataPath,
         },
     },
-    {
-      resolve: "gatsby-plugin-sitemap",
-      options: {
-        output: "/sitemap.xml",
-          query: `
-          {
-            site {
-              siteMetadata {
-                siteUrl
-              }
-            }
-            allSitePage {
-              edges {
-                node {
-                  path
-                }
-              }
-            }
-        }`
-      }
-    },
-    {
-      resolve: `gatsby-plugin-postcss`,
-      options: {
-        postCssPlugins: [
-          autoprefixer({
-            browsers: ['last 2 versions']
-          })
-        ]
-      }
-    },
   ],
 }

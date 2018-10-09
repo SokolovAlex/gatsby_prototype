@@ -10,5 +10,8 @@ yarn-error.log
 .DS_Store
 
 /content/modified
+build
+/editor/build
+.vscode
 
 npm-debug.log
