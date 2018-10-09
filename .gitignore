@@ -11,7 +11,7 @@ yarn-error.log
 
 /content/modified
 build
-/editor/build
+/editor/buildgit
 .vscode
 
 npm-debug.log

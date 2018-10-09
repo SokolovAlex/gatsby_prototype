@@ -1,0 +1,60 @@
+.button {
+    display: inline-block;
+    min-width: 12em;
+    cursor: pointer;
+    color: #FFF;
+    font-size: 12px;
+    border: 0;
+    border-radius: 1px;
+    background-color: #FFF;
+    border: 1px solid #00A88E;
+    color: #00A88E;
+    text-align: center;
+    text-decoration: none;
+    word-spacing: normal;
+    font: 400 13.3333px Arial;
+}
+
+.disabled,
+.button:disabled {
+    cursor: normal;
+    opacity: 0.3;
+}
+
+.normal {
+    composes: button;
+}
+
+.button span {
+    margin: auto;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.primary {
+    composes: button;
+    background-color: #006D5C;
+    border: 1px solid #006D5C;
+    color: #FFF;
+}
+
+.danger {
+    composes: button;
+    background-color: #ED2939;
+    border: 1px solid #ED2939;
+    color: #FFF;
+}
+
+.size_sm {
+    padding: 5px 10px;
+}
+
+.size_md {
+    padding: 10px 15px;
+}
+
+.size_lg {
+    padding: 15px 20px;
+}
