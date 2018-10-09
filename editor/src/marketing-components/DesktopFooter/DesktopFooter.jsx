@@ -1,6 +1,5 @@
 /* eslint-disable */
 import React from 'react';
-import Icon from '@org/Icon/Icon';
 import styles from './DesktopFooter.module.scss';
 
 const DesktopFooter = ({ data, country, isCountrySelectorOpen, onToogleCountrySelector }) => {
@@ -38,7 +37,6 @@ const DesktopFooter = ({ data, country, isCountrySelectorOpen, onToogleCountrySe
                 <div>
                   {data.socialIcons.map((item, i) => (
                     <a key={i} href={item.link} target="_blank" className={styles.socialIcon}>
-                      <Icon size={16} name={ item.icon }></Icon>
                     </a>
                   ))}
                 </div>
@@ -56,10 +54,8 @@ const DesktopFooter = ({ data, country, isCountrySelectorOpen, onToogleCountrySe
           <div
             className={`${styles.coutrySelectButton} ${isCountrySelectorOpen ? styles.active : '' }`}
             onClick={() => onToogleCountrySelector()}>
-            <Icon size={20} name="globe" className={styles.globe}></Icon>
             <span className={styles.countyTitle}>{country}</span>
             <span className={styles.buttonArrow}>
-              <Icon size={10} name="arrowUp"></Icon>
             </span>
           </div>
         </footer>
