@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "cd editor && node scripts/start",
-    "build:ory": "node start --ory --cmd build",
+    "build:ory": "cd editor && node scripts/build",
     "build": "cd pages && gatsby build",
     "dev": "cd pages && gatsby develop",
     "server": "node editor/server/app",
