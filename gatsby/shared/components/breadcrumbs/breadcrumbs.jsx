@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './breadcrumbs.css';
+import './breadcrumbs.module.scss';
 
 const data = [
   {

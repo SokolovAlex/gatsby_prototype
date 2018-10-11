@@ -23,7 +23,7 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import ViewQuiltIcon from '@material-ui/icons/ViewQuilt';
 
 import { PageManager, PageActions } from '../../editors/page'
-import { getBannerTemplate } from '../../../services/api';
+import { getBannerTemplate } from '../../services/api';
 import './common.css';
 
 const theme = createMuiTheme({
