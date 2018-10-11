@@ -31,7 +31,7 @@ app.use(router.routes());
 
 app.use(async (ctx) => {
     ctx.type = 'html';
-    ctx.body = createReadStream('build/index.html');
+    ctx.body = createReadStream(`${__dirname}/../build/index.html`);
 });
 
 const port = 4000;

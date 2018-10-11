@@ -30,7 +30,7 @@ import PublishIcon from '@material-ui/icons/Publish'
 import { setItem, saveItem, getCurrentItem } from '../../services/state';
 import { saveTemplate } from '../../services/api';
 
-require('react-tap-event-plugin')() // not work with react >16.4
+//require('react-tap-event-plugin')() // not work with react >16.4
 
 const save = () => {
     saveItem();
