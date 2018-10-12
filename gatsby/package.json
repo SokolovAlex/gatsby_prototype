@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "cd editor && node scripts/start",
+    "editor": "cd editor && node scripts/start",
     "build:ory": "cd editor && node scripts/build",
     "build": "cd pages && gatsby build",
     "dev": "cd pages && gatsby develop",
@@ -13,7 +13,7 @@
     "format": "prettier --write '**/*.js'",
     "clear": "rimraf pages/.cache && rimraf pages/public",
 
-    "shared": "node shared/publish"
+    "shared": "node scripts/shared"
   },
   "dependencies": {
     "@koa/cors": "2",

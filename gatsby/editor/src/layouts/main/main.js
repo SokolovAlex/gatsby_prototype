@@ -23,8 +23,8 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import ViewQuiltIcon from '@material-ui/icons/ViewQuilt';
 
 import { PageManager, PageActions } from '../../editors/page'
-import { getBannerTemplate } from '../../services/api';
-import './common.css';
+import { getTemplate } from '../../services/api';
+import './main.css';
 
 const theme = createMuiTheme({
   palette: {
@@ -35,11 +35,17 @@ const theme = createMuiTheme({
 
 const PageMenu = ({ onPageOpen }) => (
     <React.Fragment>
-      <ListItem button onClick={() => onPageOpen('Page')}>
+      <ListItem button onClick={() => onPageOpen('EmptyPage')}>
         <ListItemIcon>
           <ViewQuiltIcon />
         </ListItemIcon>
-        <ListItemText primary="Page" />
+        <ListItemText primary="Empty Page" />
+      </ListItem>
+      <ListItem button onClick={() => onPageOpen('LayoutPage')}>
+        <ListItemIcon>
+          <FormatShapesIcon />
+        </ListItemIcon>
+        <ListItemText primary="Layout Page" />
       </ListItem>
       <ListItem button onClick={() => onPageOpen('Banner')}>
         <ListItemIcon>
@@ -47,17 +53,23 @@ const PageMenu = ({ onPageOpen }) => (
         </ListItemIcon>
         <ListItemText primary="Banner" />
       </ListItem>
+      <ListItem button onClick={() => onPageOpen('NewPage')}>
+        <ListItemIcon>
+          <FormatShapesIcon />
+        </ListItemIcon>
+        <ListItemText primary="New" />
+      </ListItem>
     </React.Fragment>
   );
   
 const otherMailFolderListItems = (
     <React.Fragment>
-        <ListItem button>
+      <ListItem button>
         <ListItemIcon>
             <SettingsIcon />
         </ListItemIcon>
         <ListItemText primary="Setting" />
-        </ListItem>
+      </ListItem>
     </React.Fragment>
 );
 
@@ -78,7 +90,7 @@ class DenseAppBar extends React.PureComponent {
     const checkedPage = page || this.state.page;
     this.setState({ progress: true, pageContent: null });
     if (checkedPage === 'Page') {
-      getBannerTemplate().then(template => {
+      getTemplate().then(template => {
         const pageContent = JSON.parse(template.content);
         this.setState({ pageContent, progress: false });
       });

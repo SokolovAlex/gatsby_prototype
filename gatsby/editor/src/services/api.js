@@ -9,8 +9,8 @@ const saveTemplate = (data) => {
     });
 };
 
-const getBannerTemplate = () => {
+const getTemplate = () => {
     return axios.get(`${root}/api/template`).then(response => response.data);
 };
 
-export { saveTemplate, getBannerTemplate };
+export { saveTemplate, getTemplate };

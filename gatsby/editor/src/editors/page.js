@@ -27,7 +27,7 @@ import PublishIcon from '@material-ui/icons/Publish'
 import { setItem, saveItem, getCurrentItem } from '../services/state';
 import { saveTemplate } from '../services/api';
 
-import breadcrumbs from '../shared/components/breadcrumbs/plugin'
+import sharedPlugins from '../shared/components/plugins'
 
 const save = () => {
     saveItem();
@@ -36,7 +36,7 @@ const save = () => {
 }
 
 const plugins = {
-    content: [slate(), image, divider, spacer, breadcrumbs],
+    content: [slate(), image, divider, spacer, ...sharedPlugins],
     layout: [
         background({
             defaultPlugin: slate(),
@@ -49,7 +49,7 @@ const plugins = {
 const PageActions = () => (
   <div>
     <IconButton onClick={() => save()} style={{marginLeft: 20}} variant="fab" aria-label="Edit">
-        <PublishIcon/>
+      <PublishIcon/>
     </IconButton>
   </div>
 );
