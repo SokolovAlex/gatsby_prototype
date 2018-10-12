@@ -1,0 +1,559 @@
+@import './_animation.scss';
+
+.ma0 {
+  margin: 0;
+}
+
+.mt1 {
+  margin-top: 10px;
+}
+
+.mt05 {
+  margin-top: 5px;
+}
+
+.mb05 {
+  margin-bottom: 5px;
+}
+
+.mr1 {
+  margin-right: 10px;
+}
+
+.mb0 {
+  margin-bottom: 0;
+}
+
+.mb1 {
+  margin-bottom: 10px;
+}
+
+.pt2 {
+  padding-top: 20px;
+}
+
+.pb2 {
+  padding-bottom: 20px;
+}
+
+.header {
+  font-weight: 300;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.topNav {
+  display: none;
+}
+
+.logo {
+  display: block;
+  width: 140px;
+  height: 32px;
+  color: transparent;
+  background: url("./kaspersky-logo.svg") no-repeat 0 0;
+  background-size: 100% auto;
+  
+  &:visited,
+  &:hover,
+  &:active {
+    color: transparent;
+  }
+}
+
+@media (min-device-width: 768px) {
+  .container {
+    flex: 0 1 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 90%;
+    max-width: 1030px;
+    margin: 0 auto;
+  }
+  
+  .topNav {
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    color: #ddd;
+    background-color: #333;
+    font-size: 12px;
+    white-space: nowrap;
+    
+    &Label {
+      align-self: center;
+      color: #a9a9a9;
+    }
+  
+    &Items {
+      display: flex;
+      list-style-type: none;
+      border-left: 1px solid #444;
+      margin: 0;
+      padding: 0;
+    }
+    
+    &Item {
+      display: flex;
+      
+      &Link,
+      &Current {
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        color: #ddd;
+        border-right: 1px solid #444;
+        text-decoration: none;
+        transition: background-color .2s ease-in;
+      }
+  
+      &Link {
+        &:hover,
+        &:active {
+          color: #ddd;
+          background-color: #444;
+        }
+        
+        &:visited {
+          color: #ddd;
+        }
+      }
+  
+      &Current {
+        background-color: #444;
+      }
+      
+      &Icon {
+        fill: #717171;
+      }
+    }
+  }
+  
+  .combobox {
+    white-space: nowrap;
+    
+    &:after {
+      content: "";
+      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGZpbGw9IiM3RjdGN0YiIGQ9Ik05NjEuNzE0IDQ3MC44NTdsLTQyNCA0MjMuNDI5UTUyNi44NTcgOTA1LjE0MyA1MTIgOTA1LjE0M3QtMjUuNzE0LTEwLjg1N2wtNDI0LTQyMy40MjlxLTEwLjg1Ny0xMC44NTctMTAuODU3LTI2dDEwLjg1Ny0yNmw5NC44NTctOTQuMjg2cTEwLjg1Ny0xMC44NTcgMjUuNzE0LTEwLjg1N3QyNS43MTQgMTAuODU3TDUxMiA2MjhsMzAzLjQyOS0zMDMuNDI5cTEwLjg1Ny0xMC44NTcgMjUuNzE0LTEwLjg1N3QyNS43MTQgMTAuODU3bDk0Ljg1NyA5NC4yODZxMTAuODU3IDEwLjg1NyAxMC44NTcgMjZ0LTEwLjg1NyAyNnoiLz48L3N2Zz4=') no-repeat center right;
+      background-size: contain;
+      display: inline-block;
+      width: 16px;
+      height: 7px;
+    }
+  }
+  
+  .utilityNav {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    
+    &Cart {
+      display: flex;
+      width: 50px;
+      
+      &Link {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  
+  .currency {
+    position: relative;
+    
+    &Link {
+      display: block;
+      box-shadow: 0 1px 1px 0 rgba(0,0,0,.2);
+      background: #fafafa;
+      color: #333;
+      font-size: 14px;
+      padding: 10px;
+      cursor: pointer;
+      
+      &:visited,
+      &:hover {
+        color: #333;
+      }
+    }
+    
+    &List {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      width: 180px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background-color: rgb(250, 250, 250);
+      box-shadow: 0 1px 1px 0 rgba(0,0,0,.2);
+      z-index: 1;
+      animation: swing-out-top-bck 200ms both;
+      animation-delay: 100ms;
+      pointer-events: none;
+  
+      &.isVisible {
+        animation: swing-in-top-fwd 200ms both;
+        animation-delay: 500ms;
+        pointer-events: all;
+      }
+    }
+    
+    &Item {
+      border: 0;
+      font-size: 12px;
+      color: #333;
+      font-weight: 300;
+      background-color: rgb(250, 250, 250);
+      text-align: left;
+      padding: 6px 30px;
+      white-space: nowrap;
+      
+      &:hover,
+      &:focus {
+        cursor: pointer;
+        color: #006D5C;
+      }
+      
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  
+  .myKaspersky {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    margin-left: 10px;
+    
+    &Link {
+      display: flex;
+      align-items: center;
+      color: #333;
+      font-size: 14px;
+      text-decoration: none;
+      
+      &:visited,
+      &:hover,
+      &:active {
+        color: #333;
+      }
+    }
+  
+    &List {
+      position: absolute;
+      width: 330px;
+      top: 100%;
+      right: 0;
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      background: #fafafa;
+      border-top: 1px solid #eee;
+      border-bottom: 2px solid #ddd;
+      box-shadow: 0 1px 1px 0 rgba(0,0,0,.2);
+      animation: swing-out-top-bck 200ms both;
+      animation-delay: 100ms;
+      pointer-events: none;
+      z-index: 1;
+      
+      &.isVisible {
+        animation: swing-in-top-fwd 200ms both;
+        animation-delay: 500ms;
+        pointer-events: all;
+      }
+  
+      &Item {
+        display: flex;
+        align-items: stretch;
+        flex: 1 0 0;
+        border: solid #e5e5e5;
+        border-width: 0 1px;
+        
+        & + & {
+          border-left: none;
+        }
+  
+        &Icon {
+          fill: rgba(74,74,74,1);
+        }
+        
+        &Link {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          font-size: 12px;
+          width: 100%;
+          padding: 10px 2px;
+          transition: color 200ms;
+          color: #333;
+          
+          &:visited {
+            color: #333;
+          }
+          
+          &:hover,
+          &:active {
+            color: rgb(0, 109, 92);
+          }
+        }
+        
+        &Link:hover &Icon {
+          fill: rgba(0, 109, 92, 1);
+        }
+      }
+    }
+  }
+  
+  .mainNav {
+    &List {
+      display: flex;
+      height: 50px;
+      width: 100%;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid #efefef;
+    }
+    
+    &ListItem {
+      position: relative;
+      display: flex;
+      
+      &Link {
+        position: relative;
+        text-decoration: none;
+        color: #333;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        transition: color 100ms ease-in-out 0s;
+  
+        &:before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 3px;
+          bottom: 0;
+          left: 0;
+          background-color: #ddd;
+          opacity: 0;
+          transform: scaleX(0);
+          transition: transform 100ms ease-in-out 0s, opacity 100ms ease-in-out 0s;
+          transform-origin: left;
+        }
+        
+        &:hover,
+        &:active {
+          color: #006D5C;
+        }
+        
+        &:hover:before {
+          opacity: 1;
+          transform: scaleX(1);
+        }
+        
+        &.isActive:before {
+          background-color: #009981;
+          opacity: 1;
+          transform: scaleX(1);
+        }
+      }
+    }
+    
+    &Dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      display: flex;
+      list-style: none;
+      margin: 0;
+      background: #fafafa;
+      border-top: 1px solid #eee;
+      border-bottom: 2px solid #ddd;
+      box-shadow: 0 1px 1px 0 rgba(0,0,0,.2);
+      animation: swing-out-top-bck 200ms both;
+      animation-delay: 100ms;
+      pointer-events: none;
+      z-index: 1;
+      max-width: 1030px;
+      width: auto;
+  
+      &.isVisible {
+        animation: swing-in-top-fwd 200ms both;
+        animation-delay: 500ms;
+        pointer-events: all;
+      }
+      
+      &Products {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-gap: 1px 1px;
+        background-color: #eee;
+        border-right: 1px solid #eee;
+  
+        // IE10/11
+        @media all and (-ms-high-contrast:none) {
+          display: -ms-grid;
+          -ms-grid-columns: 1fr 1px 1fr 1px 1fr;
+          -ms-grid-rows: 1fr 1px 1fr;
+        }
+      }
+      
+      &ProductItem {
+        $padding: 25px;
+        position: relative;
+        background-color: #fafafa;
+        padding: $padding;
+        width: 260px;
+        
+        & .placemarkNew {
+          position: absolute;
+          top: 0;
+          left: $padding;
+          background: #ED2939;
+          font-size: 10px;
+          font-weight: 500;
+          padding: 3px;
+          border-radius: 0 0 3px 3px;
+          
+          &:before,
+          &:after {
+            content: '"';
+          }
+        }
+        
+        &.isNew {
+          color: #fff;
+          background: #006D5C;
+          background:
+            linear-gradient(221deg, rgb(13, 111, 98) 0%, rgb(13, 111, 98) 30%, transparent 31%, transparent 100%) no-repeat border-box,
+            linear-gradient(310deg, rgba(15,118,103,1) 0%, rgb(16, 126, 109) 12%, transparent 13%, transparent 100%) no-repeat border-box,
+            linear-gradient(90deg, rgba(15,123,108,1) 0%, rgba(15,123,108,1) 14%, #0f7667 15%, #0f7667 100%);
+          
+          h1,
+          h2,
+          a {
+            color: #fff;
+          }
+          
+          p {
+            color: rgba(255,255,255,.75);
+          }
+        }
+  
+        &Name {
+          font-size: 20px;
+          font-weight: 700;
+          white-space: nowrap;
+        }
+        
+        &Brand {
+          font-size: 13px;
+          font-weight: 500;
+          color: #006D5C;
+        }
+        
+        &ShortDescription {
+          font-size: 12px;
+          line-height: 1.3;
+          color: #888;
+        }
+        
+        &LearnMoreLink,
+        &FreeTrialLink {
+          font-size: 12px;
+        }
+  
+        &LearnMoreLink {
+          &:after {
+            content: ' / ';
+          }
+        }
+      }
+      
+      &Links {
+        background: #F6FBFD;
+        padding: 25px;
+        border-left: 1px solid #eee;
+        width: 230px;
+        
+        &Header {
+          font-weight: 700;
+          text-transform: uppercase;
+          color: #80A3B3;
+          line-height: 1.3;
+          font-size: 12px;
+          white-space: nowrap;
+        }
+        
+        &Link {
+          display: block;
+          color: #666;
+          font-size: 14px;
+          font-weight: 500;
+          padding-top: 10px;
+          line-height: 1.2;
+          
+          & .placemarkNew {
+            background: #ED2939;
+            font-size: 8px;
+            font-weight: 500;
+            padding: 3px;
+            color: #fff;
+            text-transform: uppercase;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+    
+    &DropdownBlog {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      margin: 0;
+      padding: 10px 10px 10px 0;
+      background: #fafafa;
+      border-top: 1px solid #eee;
+      border-bottom: 2px solid #ddd;
+      box-shadow: 0 1px 1px 0 rgba(0,0,0,.2);
+      animation: swing-out-top-bck 200ms both;
+      animation-delay: 100ms;
+      pointer-events: none;
+      z-index: 1;
+      
+      &.isVisible {
+        animation: swing-in-top-fwd 200ms both;
+        animation-delay: 500ms;
+        pointer-events: all;
+      }
+      
+      &Link {
+        display: flex;
+        align-items: center;
+        height: 30px;
+        color: #666;
+        font-size: 14px;
+        transition: border-color 200ms;
+        border-left: 3px solid transparent;
+        padding-left: 10px;
+        
+        &:hover {
+          border-color: #ddd;
+        }
+      }
+    }
+  }
+}

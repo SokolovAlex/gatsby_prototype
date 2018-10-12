@@ -1,0 +1,28 @@
+.host {
+  display: block;
+  background-color: #f8f8f8;
+  background-size: auto;
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid #cadce6;
+
+  .container {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+
+  .description {
+    width: 35%;
+    text-align: left;
+    margin-top: 20px;
+    line-height: 22px;
+  }
+
+  .actions {
+    margin: 40px 0 10px;
+
+    > a {
+      margin-right: 20px;
+    }
+  }
+}

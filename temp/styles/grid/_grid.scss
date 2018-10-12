@@ -1,0 +1,1584 @@
+@import 'private';
+@import 'direction-context';
+
+.row {
+  @include outer-container;
+
+  > * {
+    @include span-columns(12);
+  }
+
+  &.no-gutter {
+    margin-left: auto;
+    margin-right: auto;
+
+    > * {
+      @include span-columns(12, no-gutter);
+    }
+  }
+}
+
+/*****
+Cell layouts
+*****/
+
+.col-1 {
+  @include span-columns(1);
+}
+
+.col-2 {
+  @include span-columns(2);
+}
+
+.col-3 {
+  @include span-columns(3);
+}
+
+.col-4 {
+  @include span-columns(4);
+}
+
+.col-5 {
+  @include span-columns(5);
+}
+
+.col-6 {
+  @include span-columns(6);
+}
+
+.col-7 {
+  @include span-columns(7);
+}
+
+.col-8 {
+  @include span-columns(8);
+}
+
+.col-9 {
+  @include span-columns(9);
+}
+
+.col-10 {
+  @include span-columns(10);
+}
+
+.col-11 {
+  @include span-columns(11);
+}
+
+.col-12 {
+  @include span-columns(12);
+}
+
+.no-gutter {
+  > .col-1 {
+    @include span-columns(1, no-gutter);
+  }
+
+  > .col-2 {
+    @include span-columns(2, no-gutter);
+  }
+
+  > .col-3 {
+    @include span-columns(3, no-gutter);
+  }
+
+  > .col-4 {
+    @include span-columns(4, no-gutter);
+  }
+
+  > .col-5 {
+    @include span-columns(5, no-gutter);
+  }
+
+  > .col-6 {
+    @include span-columns(6, no-gutter);
+  }
+
+  > .col-7 {
+    @include span-columns(7, no-gutter);
+  }
+
+  > .col-8 {
+    @include span-columns(8, no-gutter);
+  }
+
+  > .col-9 {
+    @include span-columns(9, no-gutter);
+  }
+
+  > .col-10 {
+    @include span-columns(10, no-gutter);
+  }
+
+  > .col-11 {
+    @include span-columns(11, no-gutter);
+  }
+
+  > .col-12 {
+    @include span-columns(12, no-gutter);
+  }
+}
+
+.shift-1 {
+  @include shift(1);
+}
+
+.shift-2 {
+  @include shift(2);
+}
+
+.shift-3 {
+  @include shift(3);
+}
+
+.shift-4 {
+  @include shift(4);
+}
+
+.shift-5 {
+  @include shift(5);
+}
+
+.shift-6 {
+  @include shift(6);
+}
+
+.shift-7 {
+  @include shift(7);
+}
+
+.shift-8 {
+  @include shift(8);
+}
+
+.shift-9 {
+  @include shift(9);
+}
+
+.shift-10 {
+  @include shift(10);
+}
+
+.shift-11 {
+  @include shift(11);
+}
+
+.shift-12 {
+  @include shift(12);
+}
+
+@include media(481px) {
+  .col-s-1 {
+    @include span-columns(1);
+  }
+
+  .col-s-2 {
+    @include span-columns(2);
+  }
+
+  .col-s-3 {
+    @include span-columns(3);
+  }
+
+  .col-s-4 {
+    @include span-columns(4);
+  }
+
+  .col-s-5 {
+    @include span-columns(5);
+  }
+
+  .col-s-6 {
+    @include span-columns(6);
+  }
+
+  .col-s-7 {
+    @include span-columns(7);
+  }
+
+  .col-s-8 {
+    @include span-columns(8);
+  }
+
+  .col-s-9 {
+    @include span-columns(9);
+  }
+
+  .col-s-10 {
+    @include span-columns(10);
+  }
+
+  .col-s-11 {
+    @include span-columns(11);
+  }
+
+  .col-s-12 {
+    @include span-columns(12);
+  }
+
+  .no-gutter {
+    > .col-s-1 {
+      @include span-columns(1, no-gutter);
+    }
+
+    > .col-s-2 {
+      @include span-columns(2, no-gutter);
+    }
+
+    > .col-s-3 {
+      @include span-columns(3, no-gutter);
+    }
+
+    > .col-s-4 {
+      @include span-columns(4, no-gutter);
+    }
+
+    > .col-s-5 {
+      @include span-columns(5, no-gutter);
+    }
+
+    > .col-s-6 {
+      @include span-columns(6, no-gutter);
+    }
+
+    > .col-s-7 {
+      @include span-columns(7, no-gutter);
+    }
+
+    > .col-s-8 {
+      @include span-columns(8, no-gutter);
+    }
+
+    > .col-s-9 {
+      @include span-columns(9, no-gutter);
+    }
+
+    > .col-s-10 {
+      @include span-columns(10, no-gutter);
+    }
+
+    > .col-s-11 {
+      @include span-columns(11, no-gutter);
+    }
+
+    > .col-s-12 {
+      @include span-columns(12, no-gutter);
+    }
+  }
+
+  .shift-s-1 {
+    @include shift(1);
+  }
+
+  .shift-s-2 {
+    @include shift(2);
+  }
+
+  .shift-s-3 {
+    @include shift(3);
+  }
+
+  .shift-s-4 {
+    @include shift(4);
+  }
+
+  .shift-s-5 {
+    @include shift(5);
+  }
+
+  .shift-s-6 {
+    @include shift(6);
+  }
+
+  .shift-s-7 {
+    @include shift(7);
+  }
+
+  .shift-s-8 {
+    @include shift(8);
+  }
+
+  .shift-s-9 {
+    @include shift(9);
+  }
+
+  .shift-s-10 {
+    @include shift(10);
+  }
+
+  .shift-s-11 {
+    @include shift(11);
+  }
+
+  .shift-s-12 {
+    @include shift(12);
+  }
+
+  .row.reverse-order {
+    > * {
+      float: right;
+    }
+  }
+}
+
+@include media(661px) {
+  .col-m-1 {
+    @include span-columns(1);
+  }
+
+  .col-m-2 {
+    @include span-columns(2);
+  }
+
+  .col-m-3 {
+    @include span-columns(3);
+  }
+
+  .col-m-4 {
+    @include span-columns(4);
+  }
+
+  .col-m-5 {
+    @include span-columns(5);
+  }
+
+  .col-m-6 {
+    @include span-columns(6);
+  }
+
+  .col-m-7 {
+    @include span-columns(7);
+  }
+
+  .col-m-8 {
+    @include span-columns(8);
+  }
+
+  .col-m-9 {
+    @include span-columns(9);
+  }
+
+  .col-m-10 {
+    @include span-columns(10);
+  }
+
+  .col-m-11 {
+    @include span-columns(11);
+  }
+
+  .col-m-12 {
+    @include span-columns(12);
+  }
+
+  .no-gutter {
+    > .col-m-1 {
+      @include span-columns(1, no-gutter);
+    }
+
+    > .col-m-2 {
+      @include span-columns(2, no-gutter);
+    }
+
+    > .col-m-3 {
+      @include span-columns(3, no-gutter);
+    }
+
+    > .col-m-4 {
+      @include span-columns(4, no-gutter);
+    }
+
+    > .col-m-5 {
+      @include span-columns(5, no-gutter);
+    }
+
+    > .col-m-6 {
+      @include span-columns(6, no-gutter);
+    }
+
+    > .col-m-7 {
+      @include span-columns(7, no-gutter);
+    }
+
+    > .col-m-8 {
+      @include span-columns(8, no-gutter);
+    }
+
+    > .col-m-9 {
+      @include span-columns(9, no-gutter);
+    }
+
+    > .col-m-10 {
+      @include span-columns(10, no-gutter);
+    }
+
+    > .col-m-11 {
+      @include span-columns(11, no-gutter);
+    }
+
+    > .col-m-12 {
+      @include span-columns(12, no-gutter);
+    }
+  }
+
+  > .shift-m-1 {
+    @include shift(1);
+  }
+
+  > .shift-m-2 {
+    @include shift(2);
+  }
+
+  > .shift-m-3 {
+    @include shift(3);
+  }
+
+  > .shift-m-4 {
+    @include shift(4);
+  }
+
+  > .shift-m-5 {
+    @include shift(5);
+  }
+
+  > .shift-m-6 {
+    @include shift(6);
+  }
+
+  > .shift-m-7 {
+    @include shift(7);
+  }
+
+  > .shift-m-8 {
+    @include shift(8);
+  }
+
+  > .shift-m-9 {
+    @include shift(9);
+  }
+
+  > .shift-m-10 {
+    @include shift(10);
+  }
+
+  > .shift-m-11 {
+    @include shift(11);
+  }
+
+  > .shift-m-12 {
+    @include shift(12);
+  }
+
+  .row.reverse-order {
+    > * {
+      float: right;
+    }
+  }
+}
+
+@include media(769px) {
+  .col-l-1 {
+    @include span-columns(1);
+  }
+
+  .col-l-2 {
+    @include span-columns(2);
+  }
+
+  .col-l-3 {
+    @include span-columns(3);
+  }
+
+  .col-l-4 {
+    @include span-columns(4);
+  }
+
+  .col-l-5 {
+    @include span-columns(5);
+  }
+
+  .col-l-6 {
+    @include span-columns(6);
+  }
+
+  .col-l-7 {
+    @include span-columns(7);
+  }
+
+  .col-l-8 {
+    @include span-columns(8);
+  }
+
+  .col-l-9 {
+    @include span-columns(9);
+  }
+
+  .col-l-10 {
+    @include span-columns(10);
+  }
+
+  .col-l-11 {
+    @include span-columns(11);
+  }
+
+  .col-l-12 {
+    @include span-columns(12);
+  }
+
+  .no-gutter {
+    > .col-l-1 {
+      @include span-columns(1, no-gutter);
+    }
+
+    > .col-l-2 {
+      @include span-columns(2, no-gutter);
+    }
+
+    > .col-l-3 {
+      @include span-columns(3, no-gutter);
+    }
+
+    > .col-l-4 {
+      @include span-columns(4, no-gutter);
+    }
+
+    > .col-l-5 {
+      @include span-columns(5, no-gutter);
+    }
+
+    > .col-l-6 {
+      @include span-columns(6, no-gutter);
+    }
+
+    > .col-l-7 {
+      @include span-columns(7, no-gutter);
+    }
+
+    > .col-l-8 {
+      @include span-columns(8, no-gutter);
+    }
+
+    > .col-l-9 {
+      @include span-columns(9, no-gutter);
+    }
+
+    > .col-l-10 {
+      @include span-columns(10, no-gutter);
+    }
+
+    > .col-l-11 {
+      @include span-columns(11, no-gutter);
+    }
+
+    > .col-l-12 {
+      @include span-columns(12, no-gutter);
+    }
+  }
+
+  .shift-l-1 {
+    @include shift(1);
+  }
+
+  .shift-l-2 {
+    @include shift(2);
+  }
+
+  .shift-l-3 {
+    @include shift(3);
+  }
+
+  .shift-l-4 {
+    @include shift(4);
+  }
+
+  .shift-l-5 {
+    @include shift(5);
+  }
+
+  .shift-l-6 {
+    @include shift(6);
+  }
+
+  .shift-l-7 {
+    @include shift(7);
+  }
+
+  .shift-l-8 {
+    @include shift(8);
+  }
+
+  .shift-l-9 {
+    @include shift(9);
+  }
+
+  .shift-l-10 {
+    @include shift(10);
+  }
+
+  .shift-l-11 {
+    @include shift(11);
+  }
+
+  .shift-l-12 {
+    @include shift(12);
+  }
+
+  .row.reverse-order {
+    > * {
+      float: right;
+    }
+  }
+}
+
+@include media(993px) {
+  .col-xl-1 {
+    @include span-columns(1);
+  }
+
+  .col-xl-2 {
+    @include span-columns(2);
+  }
+
+  .col-xl-3 {
+    @include span-columns(3);
+  }
+
+  .col-xl-4 {
+    @include span-columns(4);
+  }
+
+  .col-xl-5 {
+    @include span-columns(5);
+  }
+
+  .col-xl-6 {
+    @include span-columns(6);
+  }
+
+  .col-xl-7 {
+    @include span-columns(7);
+  }
+
+  .col-xl-8 {
+    @include span-columns(8);
+  }
+
+  .col-xl-9 {
+    @include span-columns(9);
+  }
+
+  .col-xl-10 {
+    @include span-columns(10);
+  }
+
+  .col-xl-11 {
+    @include span-columns(11);
+  }
+
+  .col-xl-12 {
+    @include span-columns(12);
+  }
+
+  .no-gutter {
+    > .col-xl-1 {
+      @include span-columns(1, no-gutter);
+    }
+
+    > .col-xl-2 {
+      @include span-columns(2, no-gutter);
+    }
+
+    > .col-xl-3 {
+      @include span-columns(3, no-gutter);
+    }
+
+    > .col-xl-4 {
+      @include span-columns(4, no-gutter);
+    }
+
+    > .col-xl-5 {
+      @include span-columns(5, no-gutter);
+    }
+
+    > .col-xl-6 {
+      @include span-columns(6, no-gutter);
+    }
+
+    > .col-xl-7 {
+      @include span-columns(7, no-gutter);
+    }
+
+    > .col-xl-8 {
+      @include span-columns(8, no-gutter);
+    }
+
+    > .col-xl-9 {
+      @include span-columns(9, no-gutter);
+    }
+
+    > .col-xl-10 {
+      @include span-columns(10, no-gutter);
+    }
+
+    > .col-xl-11 {
+      @include span-columns(11, no-gutter);
+    }
+
+    > .col-xl-12 {
+      @include span-columns(12, no-gutter);
+    }
+  }
+
+  .shift-xl-1 {
+    @include shift(1);
+  }
+
+  .shift-xl-2 {
+    @include shift(2);
+  }
+
+  .shift-xl-3 {
+    @include shift(3);
+  }
+
+  .shift-xl-4 {
+    @include shift(4);
+  }
+
+  .shift-xl-5 {
+    @include shift(5);
+  }
+
+  .shift-xl-6 {
+    @include shift(6);
+  }
+
+  .shift-xl-7 {
+    @include shift(7);
+  }
+
+  .shift-xl-8 {
+    @include shift(8);
+  }
+
+  .shift-xl-9 {
+    @include shift(9);
+  }
+
+  .shift-xl-10 {
+    @include shift(10);
+  }
+
+  .shift-xl-11 {
+    @include shift(11);
+  }
+
+  .shift-xl-12 {
+    @include shift(12);
+  }
+
+  .row.reverse-order {
+    > * {
+      float: right;
+    }
+  }
+}
+
+/*****
+Section layouts
+*****/
+
+[class*="section-col-"] {
+  @include list-reset;
+  @include outer-container;
+
+  > * {
+    right: 0;
+    margin-left: 3%;
+    width: 97%;
+  }
+
+  &.no-gutter {
+    @include outer-container-no-gutter;
+
+    > * {
+      margin-left: auto;
+      width: 100%;
+    }
+  }
+}
+
+.section-col-2 {
+  > * {
+    @include span-columns(6);
+    @include omega(2n);
+  }
+
+  &.no-gutter {
+    > * {
+      @include span-columns(6, no-gutter);
+    }
+  }
+}
+
+.section-col-3 {
+  > * {
+    @include span-columns(4);
+    @include omega(3n);
+  }
+
+  &.no-gutter {
+    > * {
+      @include span-columns(4, no-gutter);
+    }
+  }
+}
+
+.section-col-4 {
+  > * {
+    @include span-columns(3);
+    @include omega(4n);
+  }
+
+  &.no-gutter {
+    > * {
+      @include span-columns(3, no-gutter);
+    }
+  }
+}
+
+.section-col-5 {
+  > * {
+    @include span-columns(2.4);
+    @include omega(5n);
+  }
+
+  &.no-gutter {
+    > * {
+      @include span-columns(2.4, no-gutter);
+    }
+  }
+}
+
+.section-col-6 {
+  > * {
+    @include span-columns(2);
+    @include omega(6n);
+  }
+
+  &.no-gutter {
+    > * {
+      @include span-columns(2, no-gutter);
+    }
+  }
+}
+
+.section-col-7 {
+  > * {
+    @include span-columns(1.7143);
+    @include omega(7n);
+  }
+
+  &.no-gutter {
+    > * {
+      @include span-columns(1.7143, no-gutter);
+    }
+  }
+}
+
+.section-col-8 {
+  > * {
+    @include span-columns(1.5);
+    @include omega(8n);
+  }
+
+  &.no-gutter {
+    > * {
+      @include span-columns(1.5, no-gutter);
+    }
+  }
+}
+
+.section-col-9 {
+  > * {
+    @include span-columns(1.3334);
+    @include omega(9n);
+  }
+
+  &.no-gutter {
+    > * {
+      @include span-columns(1.3334, no-gutter);
+    }
+  }
+}
+
+.section-col-10 {
+  > * {
+    @include span-columns(1.2);
+    @include omega(10n);
+  }
+
+  &.no-gutter {
+    > * {
+      @include span-columns(1.2, no-gutter);
+    }
+  }
+}
+
+.section-col-11 {
+  > * {
+    @include span-columns(1.09091);
+    @include omega(11n);
+  }
+
+  &.no-gutter {
+    > * {
+      @include span-columns(1.09091, no-gutter);
+    }
+  }
+}
+
+.section-col-12 {
+  > * {
+    @include span-columns(1);
+    @include omega(12n);
+  }
+
+  &.no-gutter {
+    > * {
+      @include span-columns(1, no-gutter);
+    }
+  }
+}
+
+@include media(481px) {
+  .reset-s {
+    > * {
+      @include omega-reset-all;
+    }
+  }
+
+  .section-col-s-1 {
+    > * {
+      @include span-columns(12);
+      @include omega();
+    }
+  }
+
+  .section-col-s-2 {
+    > * {
+      @include span-columns(6);
+      @include omega(2n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(6, no-gutter);
+      }
+    }
+  }
+
+  .section-col-s-3 {
+    > * {
+      @include span-columns(4);
+      @include omega(3n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(4, no-gutter);
+      }
+    }
+  }
+
+  .section-col-s-4 {
+    > * {
+      @include span-columns(3);
+      @include omega(4n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(3, no-gutter);
+      }
+    }
+  }
+
+  .section-col-s-5 {
+    > * {
+      @include span-columns(2.4);
+      @include omega(5n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(2.4, no-gutter);
+      }
+    }
+  }
+
+  .section-col-s-6 {
+    > * {
+      @include span-columns(2);
+      @include omega(6n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(2, no-gutter);
+      }
+    }
+  }
+
+  .section-col-s-7 {
+    > * {
+      @include span-columns(1.7143);
+      @include omega(7n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(1.7143, no-gutter);
+      }
+    }
+  }
+
+  .section-col-s-8 {
+    > * {
+      @include span-columns(1.5);
+      @include omega(8n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(1.5, no-gutter);
+      }
+    }
+  }
+
+  .section-col-s-9 {
+    > * {
+      @include span-columns(1.3334);
+      @include omega(9n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(1.3334, no-gutter);
+      }
+    }
+  }
+
+  .section-col-s-10 {
+    > * {
+      @include span-columns(1.2);
+      @include omega(10n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(1.2, no-gutter);
+      }
+    }
+  }
+
+  .section-col-s-11 {
+    > * {
+      @include span-columns(1.09091);
+      @include omega(11n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(1.09091, no-gutter);
+      }
+    }
+  }
+
+  .section-col-s-12 {
+    > * {
+      @include span-columns(1);
+      @include omega(12n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(1, no-gutter);
+      }
+    }
+  }
+}
+
+@include media(661px) {
+  .reset-m {
+    > * {
+      @include omega-reset-all;
+    }
+  }
+
+  .section-col-m-1 {
+    > * {
+      @include span-columns(12);
+      @include omega();
+    }
+  }
+
+  .section-col-m-2 {
+    > * {
+      @include span-columns(6);
+      @include omega(2n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(6, no-gutter);
+      }
+    }
+  }
+
+  .section-col-m-3 {
+    > * {
+      @include span-columns(4);
+      @include omega(3n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(4, no-gutter);
+      }
+    }
+  }
+
+  .section-col-m-4 {
+    > * {
+      @include span-columns(3);
+      @include omega(4n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(3, no-gutter);
+      }
+    }
+  }
+
+  .section-col-m-5 {
+    > * {
+      @include span-columns(2.4);
+      @include omega(5n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(2.4, no-gutter);
+      }
+    }
+  }
+
+  .section-col-m-6 {
+    > * {
+      @include span-columns(2);
+      @include omega(6n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(2, no-gutter);
+      }
+    }
+  }
+
+  .section-col-m-7 {
+    > * {
+      @include span-columns(1.7143);
+      @include omega(7n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(1.7143, no-gutter);
+      }
+    }
+  }
+
+  .section-col-m-8 {
+    > * {
+      @include span-columns(1.5);
+      @include omega(8n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(1.5, no-gutter);
+      }
+    }
+  }
+
+  .section-col-m-9 {
+    > * {
+      @include span-columns(1.3334);
+      @include omega(9n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(1.3334, no-gutter);
+      }
+    }
+  }
+
+  .section-col-m-10 {
+    > * {
+      @include span-columns(1.2);
+      @include omega(10n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(1.2, no-gutter);
+      }
+    }
+  }
+
+  .section-col-m-11 {
+    > * {
+      @include span-columns(1.09091);
+      @include omega(11n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(1.09091, no-gutter);
+      }
+    }
+  }
+
+  .section-col-m-12 {
+    > * {
+      @include span-columns(1);
+      @include omega(12n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(1, no-gutter);
+      }
+    }
+  }
+}
+
+@include media(769px) {
+  .reset-l {
+    > * {
+      @include omega-reset-all;
+    }
+  }
+
+  .section-col-l-1 {
+    > * {
+      @include span-columns(12);
+      @include omega();
+    }
+  }
+
+  .section-col-l-2 {
+    > * {
+      @include span-columns(6);
+      @include omega(2n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(6, no-gutter);
+      }
+    }
+  }
+
+  .section-col-l-3 {
+    > * {
+      @include span-columns(4);
+      @include omega(3n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(4, no-gutter);
+      }
+    }
+  }
+
+  .section-col-l-4 {
+    > * {
+      @include span-columns(3);
+      @include omega(4n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(3, no-gutter);
+      }
+    }
+  }
+
+  .section-col-l-5 {
+    > * {
+      @include span-columns(2.4);
+      @include omega(5n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(2.4, no-gutter);
+      }
+    }
+  }
+
+  .section-col-l-6 {
+    > * {
+      @include span-columns(2);
+      @include omega(6n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(2, no-gutter);
+      }
+    }
+  }
+
+  .section-col-l-7 {
+    > * {
+      @include span-columns(1.7143);
+      @include omega(7n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(1.7143, no-gutter);
+      }
+    }
+  }
+
+  .section-col-l-8 {
+    > * {
+      @include span-columns(1.5);
+      @include omega(8n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(1.5, no-gutter);
+      }
+    }
+  }
+
+  .section-col-l-9 {
+    > * {
+      @include span-columns(1.3334);
+      @include omega(9n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(1.3334, no-gutter);
+      }
+    }
+  }
+
+  .section-col-l-10 {
+    > * {
+      @include span-columns(1.2);
+      @include omega(10n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(1.2, no-gutter);
+      }
+    }
+  }
+
+  .section-col-l-11 {
+    > * {
+      @include span-columns(1.09091);
+      @include omega(11n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(1.09091, no-gutter);
+      }
+    }
+  }
+
+  .section-col-l-12 {
+    > * {
+      @include span-columns(1);
+      @include omega(12n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(1, no-gutter);
+      }
+    }
+  }
+}
+
+@include media(993px) {
+  .reset-xl {
+    > * {
+      @include omega-reset-all;
+    }
+  }
+
+  .section-col-xl-1 {
+    > * {
+      @include span-columns(12);
+      @include omega();
+    }
+  }
+
+  .section-col-xl-2 {
+    > * {
+      @include span-columns(6);
+      @include omega(2n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(6, no-gutter);
+      }
+    }
+  }
+
+  .section-col-xl-3 {
+    > * {
+      @include span-columns(4);
+      @include omega(3n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(4, no-gutter);
+      }
+    }
+  }
+
+  .section-col-xl-4 {
+    > * {
+      @include span-columns(3);
+      @include omega(4n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(3, no-gutter);
+      }
+    }
+  }
+
+  .section-col-xl-5 {
+    > * {
+      @include span-columns(2.4);
+      @include omega(5n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(2.4, no-gutter);
+      }
+    }
+  }
+
+  .section-col-xl-6 {
+    > * {
+      @include span-columns(2);
+      @include omega(6n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(2, no-gutter);
+      }
+    }
+  }
+
+  .section-col-xl-7 {
+    > * {
+      @include span-columns(1.7143);
+      @include omega(7n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(1.7143, no-gutter);
+      }
+    }
+  }
+
+  .section-col-xl-8 {
+    > * {
+      @include span-columns(1.5);
+      @include omega(8n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(1.5, no-gutter);
+      }
+    }
+  }
+
+  .section-col-xl-9 {
+    > * {
+      @include span-columns(1.3334);
+      @include omega(9n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(1.3334, no-gutter);
+      }
+    }
+  }
+
+  .section-col-xl-10 {
+    > * {
+      @include span-columns(1.2);
+      @include omega(10n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(1.2, no-gutter);
+      }
+    }
+  }
+
+  .section-col-xl-11 {
+    > * {
+      @include span-columns(1.09091);
+      @include omega(11n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(1.09091, no-gutter);
+      }
+    }
+  }
+
+  .section-col-xl-12 {
+    > * {
+      @include span-columns(1);
+      @include omega(12n);
+    }
+
+    &.no-gutter {
+      > * {
+        @include span-columns(1, no-gutter);
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+/***************************************
+	Table Grid
+***************************************/
+
+.table-grid {
+  display: table;
+
+  .row {
+    display: table-row;
+  }
+
+  .cell {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  &.full-width {
+    width: 100%;
+  }
+
+  &.v-top {
+    .cell {
+      vertical-align: top;
+    }
+  }
+
+  &.v-bottom {
+    .cell {
+      vertical-align: bottom;
+    }
+  }
+}
+
+@include media(769px) {
+  .table-grid-l {
+    display: table;
+
+    .row {
+      display: table-row;
+    }
+
+    .cell {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    &.full-width {
+      width: 100%;
+    }
+
+    &.v-top {
+      .cell {
+        vertical-align: top;
+      }
+    }
+
+    &.v-bottom {
+      .cell {
+        vertical-align: bottom;
+      }
+    }
+  }
+}
+

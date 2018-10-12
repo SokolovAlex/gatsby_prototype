@@ -1,0 +1,147 @@
+/***************************************
+	Accordion
+***************************************/
+
+.accordion-section,
+ul.accordion-section {
+  @include list-reset;
+  margin-bottom: .75em;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 2px 0 0 rgba(0, 0, 0, .05);
+
+  .accordion-wrapper {
+    list-style-type: none;
+    margin-left: 0;
+  }
+
+  > li {
+    font-size: 1em;
+    border-top: 1px solid #e5e5e5;
+
+    &:first-child {
+      border-top: 0;
+    }
+
+    > h4 {
+      position: relative;
+      margin: 0;
+      padding: .75em 2em .75em 1.15em;
+      font-size: em(14);
+      color: $kgreen;
+      text-transform: none;
+      cursor: pointer;
+
+      .locale--ja-jp & {
+        font-size: 1em;
+      }
+
+      &:after {
+        content: "\e91a";
+        font-size: 10px;
+        color: #aaa;
+        float: right;
+        margin: .5em -1em 0 0;
+      }
+
+      &:hover {
+        background: #f8f8f8;
+
+        &:after {
+          color: $kgreen;
+        }
+      }
+    }
+
+    .accordion-content {
+      display: none;
+      margin: -1px 1em 0;
+      padding-top: 1em;
+      border-top: 1px solid #eee;
+
+      li,
+      p {
+        font-size: .875em;
+
+        .locale--ja-jp & {
+          line-height: 1.63em;
+          font-size: 1em;
+        }
+      }
+
+      & li {
+        display: block;
+        list-style: none;
+        margin-left: 3%;
+      }
+    }
+
+    &.open {
+      > h4 {
+        &:after {
+          content: "\e91b";
+          color: $kgreen;
+        }
+      }
+    }
+  }
+
+  &.variant-2 {
+    background: none;
+    border: none;
+    box-shadow: none;
+
+    & > li {
+      border-top: none;
+      border-bottom: 1px solid #e5e5e5;
+
+      & > h4 {
+        padding-left: 2.5em;
+        padding-right: 0;
+        color: #777;
+        font-weight: normal;
+
+        &:after {
+          content: "\f078";
+          position: absolute;
+          top: .8em;
+          left: .8em;
+        }
+
+        span {
+          font-size: 1.125em;
+          color: #444;
+        }
+
+        &:hover {
+          background: none;
+
+          span {
+            color: $kgreen;
+          }
+        }
+      }
+
+      .accordion-content {
+        padding-top: .5em;
+        margin-left: 2.1875em;
+        border-top: none;
+      }
+    }
+  }
+}
+
+@include media(769px) {
+  .accordion-section.accordion-section-mobile,
+  ul.accordion-section.accordion-section-mobile {
+    box-shadow: none;
+    border: 0;
+
+    li {
+      .accordion-content.accordion-content-mobile {
+        display: block !important;
+        margin: 0;
+      }
+    }
+  }
+}

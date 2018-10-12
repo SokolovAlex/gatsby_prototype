@@ -1,0 +1,287 @@
+/* stylelint-disable block-no-empty */
+
+// Default @media feature for the breakpoint() mixin
+
+/***
+	Overwrite outer-container to allow for instance when we want masonry layout.
+***/
+@mixin outer-container($local-max-width: $max-width) {
+  $direction: get-direction($layout-direction, $default-layout-direction);
+  $opposite-direction: get-opposite-direction($direction);
+
+  @include clearfix;
+  max-width: $local-max-width;
+  margin-#{$opposite-direction}: -3.0927%;
+  margin-#{$direction}: auto;
+}
+
+@mixin outer-container-no-gutter($local-max-width: $max-width) {
+  $direction: get-direction($layout-direction, $default-layout-direction);
+  $opposite-direction: get-opposite-direction($direction);
+
+  @include clearfix;
+  max-width: $local-max-width;
+  margin-#{$opposite-direction}: auto;
+  margin-#{$direction}: auto;
+}
+
+/***
+	Overwrite span-columns to allow for instance when we don't want gutters between columns.
+***/
+@mixin span-columns($span: $columns of $container-columns, $display: block) {
+  $columns: nth($span, 1);
+  $container-columns: container-span($span);
+  $parent-columns: get-parent-columns($container-columns) !global;
+  $direction: get-direction($layout-direction, $default-layout-direction);
+  $opposite-direction: get-opposite-direction($direction);
+  $display-table: is-display-table($container-display-table, $display);
+
+  @if $display-table {
+    display: table-cell;
+    width: percentage($columns / $container-columns);
+  }
+
+  @else {
+    float: #{$opposite-direction};
+
+    @if $display != no-display {
+      display: block;
+    }
+
+    @if $display == collapse {
+      @include -neat-warn("The 'collapse' argument will be deprecated. Use 'block-collapse' instead.");
+    }
+
+    @if $display == collapse or $display == block-collapse {
+      width: flex-grid($columns, $container-columns) + flex-gutter($container-columns);
+
+      &:last-child {
+        width: flex-grid($columns, $container-columns);
+      }
+    }
+
+    @else if $display == no-gutter {
+      margin-#{$opposite-direction}: 0;
+      width: percentage($columns / $container-columns);
+    }
+
+    @else {
+      margin-#{$opposite-direction}: 3%;
+      width: percentage($columns / $container-columns) - 3;
+    }
+  }
+}
+
+/***
+	Overwrite Shift.
+***/
+@mixin shift($n-columns: 1, $variant: block) {
+  @if $variant == no-gutter {
+    @include shift-in-context-no-gutter($n-columns);
+  }
+
+  @else {
+    @include shift-in-context($n-columns);
+  }
+}
+
+@mixin shift-in-context-no-gutter($shift: $columns of $container-columns) {
+  $n-columns: nth($shift, 1);
+  $parent-columns: container-shift($shift) !global;
+  $direction: get-direction($layout-direction, $default-layout-direction);
+  $opposite-direction: get-opposite-direction($direction);
+  margin-#{$opposite-direction}: percentage($n-columns / $parent-columns);
+  // Reset nesting context
+  $parent-columns: $grid-columns !global;
+}
+
+@mixin shift-in-context($shift: $columns of $container-columns) {
+  $n-columns: nth($shift, 1);
+  $parent-columns: container-shift($shift) !global;
+  $direction: get-direction($layout-direction, $default-layout-direction);
+  $opposite-direction: get-opposite-direction($direction);
+  margin-#{$opposite-direction}: percentage($n-columns / $parent-columns) + 3;
+  // Reset nesting context
+  $parent-columns: $grid-columns !global;
+}
+
+/***
+	Overwrite Omega.
+***/
+@mixin omega($query: block, $direction: default) {
+  $table: belongs-to(table, $query);
+  $auto: belongs-to(auto, $query);
+
+  @if $direction != default {
+    @include -neat-warn("The omega mixin will no longer take a $direction argument. To change the layout direction, use the direction(){...} mixin.");
+  }
+
+  @else {
+    $direction: get-direction($layout-direction, $default-layout-direction);
+  }
+
+  @if $table {
+    @include -neat-warn("The omega mixin no longer removes padding in table layouts.");
+  }
+
+  @if length($query) == 1 {
+    @if $auto {
+    }
+
+    @else if contains-display-value($query) and $table == false {
+    }
+
+    @else {
+      @include nth-child($query, $direction);
+    }
+  }
+
+  @else if length($query) == 2 {
+    @if $auto{
+    }
+
+    @else {
+      @include nth-child(nth($query, 1), $direction);
+    }
+  }
+
+  @else {
+    @include -neat-warn("Too many arguments passed to the omega() mixin.");
+  }
+}
+
+@mixin nth-child($query, $direction) {
+  $opposite-direction: get-opposite-direction($direction);
+
+  @if type-of($query) == number and unit($query) == "n" {
+    &:nth-child(#{$query}+#{1}) {
+      clear: $opposite-direction;
+    }
+  }
+}
+
+/***
+	Introducing mixin which resets omega.
+***/
+@mixin omega-reset($nth) {
+  &:nth-child(#{$nth}+#{1}) {
+    clear: none;
+  }
+}
+
+/***
+	Reseting all omegas.
+***/
+@mixin omega-reset-all {
+  @include omega-reset(2n);
+  @include omega-reset(3n);
+  @include omega-reset(4n);
+  @include omega-reset(5n);
+  @include omega-reset(6n);
+  @include omega-reset(7n);
+  @include omega-reset(8n);
+  @include omega-reset(9n);
+  @include omega-reset(10n);
+  @include omega-reset(11n);
+  @include omega-reset(12n);
+}
+
+/***
+	Reseting list item styling.
+***/
+@mixin list-reset {
+  margin-bottom: 0;
+
+  & > li {
+    padding-left: 0;
+    margin-bottom: 0;
+    line-height: 1;
+    font-size: 1em;
+    position: inherit;
+
+    &:before {
+      @include prefixer(border-radius, 0, webkit moz spec);
+      content: none;
+      list-style: none;
+      float: none;
+      width: auto;
+      height: auto;
+      margin: 0;
+      background: none;
+      border: 0;
+    }
+  }
+}
+
+/***
+	Overwrite Placeholder, added .placeholder class for IE8/9.
+***/
+// @mixin placeholder {
+// 	$placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
+// 	@each $placeholder in $placeholders {
+// 		&:#{$placeholder}-placeholder {
+// 			@content;
+// 		}
+// 	}
+//
+// 	&.placeholder {
+// 		@content;
+// 	}
+// }
+
+/***
+	Overwrite clearfix mixin for IE8
+***/
+
+.cf {
+  &:after,
+  &:before {
+    content: "";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin media($query: $feature $value $columns, $total-columns: $grid-columns) {
+  @if length($query) == 1 {
+    @media screen and ($default-feature: nth($query, 1)) {
+      $default-grid-columns: $grid-columns;
+      $grid-columns: $total-columns !global;
+
+      @content;
+      $grid-columns: $default-grid-columns !global;
+    }
+  }
+
+  @else {
+    $loop-to: length($query);
+    $media-query: "screen and ";
+    $default-grid-columns: $grid-columns;
+    $grid-columns: $total-columns !global;
+
+    @if is-not(is-even(length($query))) {
+      $grid-columns: nth($query, $loop-to) !global;
+      $loop-to: $loop-to - 1;
+    }
+
+    $i: 1;
+
+    @while $i <= $loop-to {
+      $media-query: $media-query + "(" + nth($query, $i) + ": " + nth($query, $i + 1) + ") ";
+
+      @if ($i + 1) != $loop-to {
+        $media-query: $media-query + "and ";
+      }
+
+      $i: $i + 2;
+    }
+
+    @media #{$media-query} {
+      @content;
+      $grid-columns: $default-grid-columns !global;
+    }
+  }
+}

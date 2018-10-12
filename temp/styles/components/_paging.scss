@@ -1,0 +1,184 @@
+/***************************************
+	Pagination
+***************************************/
+
+.pagination {
+    margin: 3em 0;
+    position: relative;
+    background: #f8f8f8;
+    font-size: em(15);
+
+    >a {
+        position: absolute;
+        top: 0;
+        width: 3em;
+        height: 3em;
+        text-align: center;
+        color: #777;
+        cursor: pointer;
+
+        span {
+            @include transition(background-color .15s ease-in);
+            display: block;
+            font-size: 1.5em;
+            width: 2em;
+            line-height: 2em;
+        }
+
+        &.prev {
+            left: 0;
+        }
+
+        &.next {
+            right: 0;
+        }
+
+        &:hover {
+            span {
+                color: $kgreen;
+                background: #e5e5e5;
+            }
+        }
+    }
+
+    .pagination-list {
+        @include list-reset;
+        margin: 0 3em;
+        text-align: center;
+
+        li {
+            display: inline-block;
+
+            &.disabled {
+                a {
+                    &:hover {
+                        background-color: initial;
+                    }
+
+                    content {
+                        display: block;
+                        cursor: default;
+                    }
+                }
+            }
+
+            span {
+                display: none;
+                padding: 0 .25em;
+                line-height: 3em;
+                color: #777;
+            }
+
+            a {
+                @include transition(background-color .15s ease-in);
+                display: block;
+                padding: 0 .25em;
+                min-width: 3.5em;
+                line-height: 3em;
+                color: #777;
+                font-weight: 500;
+
+                &:hover {
+                    color: #444;
+                    background: #e5e5e5;
+                }
+            }
+
+            &.prev {
+                float: left;
+
+                a {
+                    display: inline-block;
+                }
+            }
+
+            &.active {
+                a {
+                    display: block;
+                    position: relative;
+                    color: $kgreen;
+                    background: #fff;
+
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        height: 2px;
+                        background: #e5e5e5;
+                    }
+                }
+            }
+
+            &.next {
+                float: right;
+
+                a {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}
+
+@include media(481px) {
+    .pagination {
+        >a {
+            &.prev {
+                span {
+                    border-right: 1px solid #fff;
+                }
+            }
+
+            &.next {
+                span {
+                    border-left: 1px solid #fff;
+                }
+            }
+        }
+
+        .pagination-list {
+            li {
+                span {
+                    display: block;
+                }
+
+                a {
+                    min-width: 3.2em;
+                }
+
+                &.first {
+                    a {
+                        display: block;
+                    }
+                }
+
+                &.prev {
+                    float: none;
+                }
+
+                &.next {
+                    float: none;
+                }
+
+                &.last {
+                    a {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include media(769px) {
+    .pagination {
+        font-size: em(13);
+    }
+}
+
+.pagination.pagination-no-margin,
+.pagination-no-margin .pagination {
+    margin-bottom: 0;
+}
