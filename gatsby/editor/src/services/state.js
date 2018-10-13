@@ -1,6 +1,6 @@
 import { createEmptyState } from 'ory-editor-core'
 
-const storageKey = 'page_state';
+const storageKey = 'page';
 const states = { };
 
 const setItem = (key = storageKey, state) => {

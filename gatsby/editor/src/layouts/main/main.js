@@ -22,7 +22,9 @@ import FormatShapesIcon from '@material-ui/icons/FormatShapes';
 import SettingsIcon from '@material-ui/icons/Settings';
 import ViewQuiltIcon from '@material-ui/icons/ViewQuilt';
 
-import { PageManager, PageActions } from '../../editors/page'
+import { PageManager, PageActions } from '../../editors/page';
+import { ArticleManager, ArticlesActions } from '../../editors/article';
+
 import { getTemplate } from '../../services/api';
 import './main.css';
 
@@ -35,17 +37,17 @@ const theme = createMuiTheme({
 
 const PageMenu = ({ onPageOpen }) => (
     <React.Fragment>
-      <ListItem button onClick={() => onPageOpen('EmptyPage')}>
+      <ListItem button onClick={() => onPageOpen('page')}>
         <ListItemIcon>
           <ViewQuiltIcon />
         </ListItemIcon>
         <ListItemText primary="Empty Page" />
       </ListItem>
-      <ListItem button onClick={() => onPageOpen('LayoutPage')}>
+      <ListItem button onClick={() => onPageOpen('article')}>
         <ListItemIcon>
           <FormatShapesIcon />
         </ListItemIcon>
-        <ListItemText primary="Layout Page" />
+        <ListItemText primary="Article" />
       </ListItem>
       <ListItem button onClick={() => onPageOpen('Banner')}>
         <ListItemIcon>
@@ -53,7 +55,7 @@ const PageMenu = ({ onPageOpen }) => (
         </ListItemIcon>
         <ListItemText primary="Banner" />
       </ListItem>
-      <ListItem button onClick={() => onPageOpen('NewPage')}>
+      <ListItem button onClick={() => onPageOpen('new')}>
         <ListItemIcon>
           <FormatShapesIcon />
         </ListItemIcon>
@@ -77,7 +79,7 @@ class DenseAppBar extends React.PureComponent {
   state = {
     showSetting: false,
     showHeader: true,
-    page: 'Page',
+    page: 'page',
     pageContent: null,
     progress: true
   }
@@ -88,9 +90,15 @@ class DenseAppBar extends React.PureComponent {
 
   getPageData(page) {
     const checkedPage = page || this.state.page;
-    this.setState({ progress: true, pageContent: null });
-    if (checkedPage === 'Page') {
-      getTemplate().then(template => {
+    this.setState({ progress: true, page: checkedPage, pageContent: null });
+    if (checkedPage === 'page') {
+      getTemplate('page').then(template => {
+        const pageContent = JSON.parse(template.content);
+        this.setState({ pageContent, progress: false });
+      });
+    }
+    if (checkedPage === 'article') {
+      getTemplate('article').then(template => {
         const pageContent = JSON.parse(template.content);
         this.setState({ pageContent, progress: false });
       });
@@ -110,7 +118,7 @@ class DenseAppBar extends React.PureComponent {
   }
 
   onPageOpen(page) {
-    if(page === this.state.page) {
+    if (page === this.state.page) {
       return;
     }
     this.setState({ page, showSetting: false });
@@ -125,21 +133,24 @@ class DenseAppBar extends React.PureComponent {
             onClick={() => { this.toogleHeader() }}>
             <AttachmentIcon />
         </IconButton>
-        <AppBar position="static" className={ `main-header ${ this.state.showHeader ? '' : 'hide'}` }>
+        <AppBar position="static" className={`main-header ${ this.state.showHeader ? '' : 'hide'}` }>
           <Toolbar variant="dense">
-          <IconButton color="inherit" aria-label="Menu" 
+          <IconButton color="inherit" aria-label="Menu"
             onClick={() => { this.toogleSettings() }}>
             <MenuIcon />
           </IconButton>
-          <IconButton color="inherit" aria-label="Menu" 
+          <IconButton color="inherit" aria-label="Menu"
             onClick={() => { this.toogleHeader() }}>
             <AttachmentIcon />
           </IconButton>
           <div>KL Marketing Editor</div>
           <div style={{flexGrow: 1}} />
           
-          { this.state.page === 'Page' &&
+          { this.state.page === 'page' &&
             <PageActions></PageActions>
+          }
+          { this.state.page === 'article' &&
+            <ArticlesActions></ArticlesActions>
           }
           
           <div>
@@ -172,11 +183,15 @@ class DenseAppBar extends React.PureComponent {
           <List>{otherMailFolderListItems}</List>
         </Drawer>
 
-        { this.state.page === 'Page' && this.state.pageContent &&
+        { this.state.page === 'page' && this.state.pageContent &&
           <PageManager content={ this.state.pageContent } />
         }
 
-        { this.state.page !== 'Page' &&
+        { this.state.page === 'article' && this.state.pageContent &&
+          <ArticleManager content={ this.state.pageContent } />
+        }
+
+        { (this.state.page !== 'article' && this.state.page !== 'page') &&
           <p>Not implemented yet.</p>
         }
         

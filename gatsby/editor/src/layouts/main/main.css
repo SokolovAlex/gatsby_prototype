@@ -9,6 +9,7 @@
 }
 
 .menu-toggler {
+  z-index: 10;
   position: fixed !important;
 }
 

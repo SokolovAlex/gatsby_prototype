@@ -16,13 +16,19 @@ app.use(bodyParser());
 app.use(cors());
 
 router
-  .get('/api/template', (ctx) => {
+  .get('/api/template/:template', (ctx) => {
+      const template = ctx.params.template;
       ctx.type = 'json';
-      ctx.response.body = getTemplate('page');
+      ctx.response.body = getTemplate(template);
   })
   .post('/api/template', (ctx) => {
       const body = ctx.request.body;
-      publish('page', body);
+      if (!body.template) {
+          ctx.response.status = 400;
+          ctx.response.body = "error";
+          return;
+      }
+      publish(body.template, body);
       ctx.response.status = 200;
       ctx.response.body = "ok";
   });

@@ -1,5 +1,5 @@
 const mkdirp = require('mkdirp');
-const { writeFileSync, readFileSync } = require('fs');
+const { writeFileSync, readFileSync, existsSync } = require('fs');
 const ncp = require('ncp').ncp;
 const exec = require('child_process').exec;
 
@@ -28,12 +28,11 @@ const moveContent = () => {
 const saveFile = (name, body) => {
   const dirPath = `${__dirname}/../content/${name}`
   mkdirp(dirPath);
-  writeFileSync(`${dirPath}/${name}.json`,
-    JSON.stringify(body));
+  writeFileSync(`${dirPath}/${name}.json`, JSON.stringify(body));
 }
 
 const startBuild = () => {
-  const thread = exec('yarn clear && gatsby build', { cwd: `${__dirname}/../../pages` }, (error, stdout) => {
+  const thread = exec('yarn clear && yarn build', { cwd: `${__dirname}/../../` }, (error, stdout) => {
     console.log('error: ', error);
     console.log('stdout: ', stdout);
   });
@@ -42,8 +41,12 @@ const startBuild = () => {
   thread.stderr.on('data', console.error);
 }
 
-const getTemplate = (name) => {
-  return readFileSync(`${__dirname}/../content/${name}/${name}.json`);
+const getTemplate = (template) => {
+  const filePath = `${__dirname}/../content/${template}/${template}.json`;
+  if (!existsSync(filePath)) {
+    return { template, content: null };
+  }
+  return readFileSync(filePath);
 }
 
 module.exports = { publish, moveContent, getTemplate, startBuild };
