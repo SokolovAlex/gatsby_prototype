@@ -1,4 +1,5 @@
 import React from 'react';
+import { Provider } from 'react-redux'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -26,12 +27,18 @@ import { PageManager, PageActions } from '../../editors/page';
 import { ArticleManager, ArticlesActions } from '../../editors/article';
 
 import { getTemplate } from '../../services/api';
+import createStore from '../../store';
 import './main.css';
+
+const store = createStore()
 
 const theme = createMuiTheme({
   palette: {
     primary: { main: '#006d5c' },
     secondary: { main: '#b2b2b2' },
+  },
+  typography: {
+    useNextVariants: true,
   },
 });
 
@@ -127,75 +134,77 @@ class DenseAppBar extends React.PureComponent {
 
   render() {
     return (
-      <MuiThemeProvider theme={theme}>
-        <IconButton color="primary" aria-label="Menu"
-            className={ `menu-toggler ${ this.state.showHeader ? 'hide' : ''}` }
-            onClick={() => { this.toogleHeader() }}>
-            <AttachmentIcon />
-        </IconButton>
-        <AppBar position="static" className={`main-header ${ this.state.showHeader ? '' : 'hide'}` }>
-          <Toolbar variant="dense">
-          <IconButton color="inherit" aria-label="Menu"
-            onClick={() => { this.toogleSettings() }}>
-            <MenuIcon />
+      <Provider store={store}>
+        <MuiThemeProvider theme={theme}>
+          <IconButton color="primary" aria-label="Menu"
+              className={ `menu-toggler ${ this.state.showHeader ? 'hide' : ''}` }
+              onClick={() => { this.toogleHeader() }}>
+              <AttachmentIcon />
           </IconButton>
-          <IconButton color="inherit" aria-label="Menu"
-            onClick={() => { this.toogleHeader() }}>
-            <AttachmentIcon />
-          </IconButton>
-          <div>KL Marketing Editor</div>
-          <div style={{flexGrow: 1}} />
-          
-          { this.state.page === 'page' &&
-            <PageActions></PageActions>
+          <AppBar position="static" className={`main-header ${ this.state.showHeader ? '' : 'hide'}` }>
+            <Toolbar variant="dense">
+            <IconButton color="inherit" aria-label="Menu"
+              onClick={() => { this.toogleSettings() }}>
+              <MenuIcon />
+            </IconButton>
+            <IconButton color="inherit" aria-label="Menu"
+              onClick={() => { this.toogleHeader() }}>
+              <AttachmentIcon />
+            </IconButton>
+            <div>KL Marketing Editor</div>
+            <div style={{flexGrow: 1}} />
+            
+            { this.state.page === 'page' &&
+              <PageActions></PageActions>
+            }
+            { this.state.page === 'article' &&
+              <ArticlesActions></ArticlesActions>
+            }
+            
+            <div>
+              <IconButton color="inherit">
+                <Badge badgeContent={3} color="secondary">
+                  <NotificationsIcon />
+                </Badge>
+              </IconButton>
+              <IconButton aria-haspopup="true" color="inherit">
+                <AccountCircle />
+              </IconButton>
+            </div>
+
+            </Toolbar>
+          </AppBar>
+
+          <Drawer
+            variant="persistent"
+            open={ this.state.showSetting }>
+            <div style={{textAlign: 'center'}}>
+              <IconButton onClick={() => { this.toogleSettings() }}>
+                <ChevronLeftIcon color="primary" />
+              </IconButton>
+            </div>
+            <Divider />
+            <List>
+              <PageMenu onPageOpen={(page) => this.onPageOpen(page) }></PageMenu>
+            </List>
+            <Divider />
+            <List>{otherMailFolderListItems}</List>
+          </Drawer>
+
+          { this.state.page === 'page' && this.state.pageContent &&
+            <PageManager content={ this.state.pageContent } />
           }
-          { this.state.page === 'article' &&
-            <ArticlesActions></ArticlesActions>
+
+          { this.state.page === 'article' && this.state.pageContent &&
+            <ArticleManager content={ this.state.pageContent } />
+          }
+
+          { (this.state.page !== 'article' && this.state.page !== 'page') &&
+            <p>Not implemented yet.</p>
           }
           
-          <div>
-            <IconButton color="inherit">
-              <Badge badgeContent={3} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton aria-haspopup="true" color="inherit">
-              <AccountCircle />
-            </IconButton>
-          </div>
-
-          </Toolbar>
-        </AppBar>
-
-        <Drawer
-          variant="persistent"
-          open={ this.state.showSetting }>
-          <div style={{textAlign: 'center'}}>
-            <IconButton onClick={() => { this.toogleSettings() }}>
-              <ChevronLeftIcon color="primary" />
-            </IconButton>
-          </div>
-          <Divider />
-          <List>
-            <PageMenu onPageOpen={(page) => this.onPageOpen(page) }></PageMenu>
-          </List>
-          <Divider />
-          <List>{otherMailFolderListItems}</List>
-        </Drawer>
-
-        { this.state.page === 'page' && this.state.pageContent &&
-          <PageManager content={ this.state.pageContent } />
-        }
-
-        { this.state.page === 'article' && this.state.pageContent &&
-          <ArticleManager content={ this.state.pageContent } />
-        }
-
-        { (this.state.page !== 'article' && this.state.page !== 'page') &&
-          <p>Not implemented yet.</p>
-        }
-        
-      </MuiThemeProvider>
+        </MuiThemeProvider>
+      </Provider>
     );
   };
 }

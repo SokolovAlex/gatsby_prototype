@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from '../../components/organisms/Header/Header';
+import { Header } from '../../components/organisms/Header2/Header';
 
 class Layout extends React.PureComponent {
   render() {

@@ -10,10 +10,19 @@
 
 .menu-toggler {
   z-index: 10;
+  opacity: 1;
   position: fixed !important;
 }
 
 .menu-toggler.hide {
   transition: opacity ease-in 0.2s;
   opacity: 0;
+  display: none;
+  animation: display-none-transition 1s both;
+}
+
+@keyframes display-none-transition {
+  0% {
+    opacity: 0;
+  }
 }
