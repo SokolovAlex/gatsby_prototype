@@ -6,7 +6,6 @@ const exec = require('child_process').exec;
 const publish = async (name, body) => {
   saveFile(name, body);
   await moveContent();
-
   startBuild();
 }
 

@@ -1,0 +1,293 @@
+.ma0 {
+  margin: 0;
+}
+
+.mt1 {
+  margin-top: 10px;
+}
+
+.mr1 {
+  margin-right: 10px;
+}
+
+.pt2 {
+  padding-top: 20px;
+}
+
+.pb2 {
+  padding-bottom: 20px;
+}
+
+@keyframes swing-out-top-bck {
+  0% {
+    transform: rotateX(0deg);
+    transform-origin: top;
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(-100deg);
+    transform-origin: top;
+    opacity: 0;
+  }
+}
+
+@keyframes swing-in-top-fwd {
+  0% {
+    transform: rotateX(-100deg);
+    transform-origin: top;
+    opacity: 0;
+  }
+  100% {
+    transform: rotateX(0deg);
+    transform-origin: top;
+    opacity: 1;
+  }
+}
+
+.header {
+  font-family: 'Museo Sans',MuseoSans,Helvetica,Arial,sans-serif;
+  font-weight: 300;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.topNav {
+  display: none;
+}
+
+.logo {
+  display: block;
+  width: 140px;
+  height: 32px;
+  color: transparent;
+  background: url("./kaspersky-logo.svg") no-repeat 0 0;
+  background-size: 100% auto;
+}
+
+@media (min-device-width: 768px) {
+  .container {
+    flex: 0 1 1024px;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 1024px;
+    margin: 0 auto;
+  }
+  
+  .topNav {
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    color: #ddd;
+    background-color: blue;
+    font-size: 12px;
+    white-space: nowrap;
+    
+    &Label {
+      align-self: center;
+      color: #a9a9a9;
+    }
+  
+    &Links {
+      display: flex;
+      list-style-type: none;
+      border-left: 1px solid #444;
+      margin: 0;
+      padding: 0;
+    }
+    
+    &LinkItem {
+      display: flex;
+      
+      a,
+      span {
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        color: #ddd;
+        border-right: 1px solid #444;
+        text-decoration: none;
+        transition: background-color .2s ease-in;
+      }
+      
+      a {
+        &:hover,
+        &:active {
+          color: #ddd;
+          background-color: #444;
+        }
+        
+        &:visited {
+          color: #ddd;
+        }
+      }
+      
+      span {
+        background-color: #444;
+      }
+    }
+  }
+  
+  .combobox {
+    white-space: nowrap;
+    
+    &:after {
+      content: "";
+      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGZpbGw9IiM3RjdGN0YiIGQ9Ik05NjEuNzE0IDQ3MC44NTdsLTQyNCA0MjMuNDI5UTUyNi44NTcgOTA1LjE0MyA1MTIgOTA1LjE0M3QtMjUuNzE0LTEwLjg1N2wtNDI0LTQyMy40MjlxLTEwLjg1Ny0xMC44NTctMTAuODU3LTI2dDEwLjg1Ny0yNmw5NC44NTctOTQuMjg2cTEwLjg1Ny0xMC44NTcgMjUuNzE0LTEwLjg1N3QyNS43MTQgMTAuODU3TDUxMiA2MjhsMzAzLjQyOS0zMDMuNDI5cTEwLjg1Ny0xMC44NTcgMjUuNzE0LTEwLjg1N3QyNS43MTQgMTAuODU3bDk0Ljg1NyA5NC4yODZxMTAuODU3IDEwLjg1NyAxMC44NTcgMjZ0LTEwLjg1NyAyNnoiLz48L3N2Zz4=') no-repeat center right;
+      background-size: contain;
+      display: inline-block;
+      width: 16px;
+      height: 7px;
+    }
+  }
+  
+  .utilityNav {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .currency {
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.2);
+    background: #f8f8f8;
+    padding: 10px;
+    color: #333;
+    font-size: 14px;
+  }
+  
+  .myKaspersky {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    margin-left: 10px;
+    
+    &Link {
+      display: flex;
+      align-items: center;
+      color: #333;
+      font-size: 14px;
+      text-decoration: none;
+    }
+  
+    &List {
+      position: absolute;
+      width: 330px;
+      top: 100%;
+      right: 0;
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      background: #fafafa;
+      border-top: 1px solid #eee;
+      border-bottom: 2px solid #ddd;
+      box-shadow: 0 1px 1px 0 rgba(0,0,0,.2);
+      animation: swing-out-top-bck 200ms cubic-bezier(0.600, -0.280, 0.735, 0.045) both;
+      animation-delay: 100ms;
+      
+      &.isVisible {
+        animation: swing-in-top-fwd 200ms cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+        animation-delay: 500ms;
+      }
+  
+      &Item {
+        display: flex;
+        align-items: stretch;
+        flex: 1 0 0;
+        border: solid #e5e5e5;
+        border-width: 0 1px;
+        
+        & + & {
+          border-left: none;
+        }
+  
+        &Icon {
+          fill: rgba(74,74,74,1);
+        }
+        
+        &Link {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          font-size: 12px;
+          width: 100%;
+          padding: 10px 2px;
+          transition: color 200ms;
+          color: #333;
+          
+          &:visited {
+            color: #333;
+          }
+          
+          &:hover,
+          &:active {
+            color: rgb(0, 109, 92);
+          }
+        }
+        
+        &Link:hover &Icon {
+          fill: rgba(0, 109, 92, 1);
+        }
+      }
+    }
+  }
+  
+  .mainNav {
+    &List {
+      display: flex;
+      height: 50px;
+      width: 100%;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid #efefef;
+    }
+    
+    &ListItem {
+      display: flex;
+      
+      a {
+        position: relative;
+        text-decoration: none;
+        color: #333;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        transition: color 100ms ease-in-out 0s;
+  
+        &:before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 3px;
+          bottom: 0;
+          left: 0;
+          background-color: #ddd;
+          opacity: 0;
+          transform: scaleX(0);
+          transition: transform 100ms ease-in-out 0s, opacity 100ms ease-in-out 0s;
+          transform-origin: left;
+        }
+        
+        &:hover,
+        &:active {
+          color: #006D5C;
+        }
+        
+        &:hover:before {
+          opacity: 1;
+          transform: scaleX(1);
+        }
+        
+        &.isActive:before {
+          background-color: #009981;
+          opacity: 1;
+          transform: scaleX(1);
+        }
+      }
+    }
+  
+  }
+}

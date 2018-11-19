@@ -1,0 +1,22 @@
+.host {
+  text-align: left;
+  overflow: hidden;
+  display: flex;
+  font-size: 20px;
+
+  .productImage {
+    float: left;
+    height: 120px;
+    margin-right: 20px;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  .name {
+    margin: auto 0;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}

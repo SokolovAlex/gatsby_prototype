@@ -25,6 +25,7 @@ import ViewQuiltIcon from '@material-ui/icons/ViewQuilt';
 
 import { PageManager, PageActions } from '../../editors/page';
 import { ArticleManager, ArticlesActions } from '../../editors/article';
+import { ComponentSettings } from '../../editors/ComponentSettings';
 
 import { getTemplate } from '../../services/api';
 import createStore from '../../store';
@@ -56,17 +57,17 @@ const PageMenu = ({ onPageOpen }) => (
         </ListItemIcon>
         <ListItemText primary="Article" />
       </ListItem>
-      <ListItem button onClick={() => onPageOpen('Banner')}>
-        <ListItemIcon>
-          <FormatShapesIcon />
-        </ListItemIcon>
-        <ListItemText primary="Banner" />
-      </ListItem>
       <ListItem button onClick={() => onPageOpen('new')}>
         <ListItemIcon>
           <FormatShapesIcon />
         </ListItemIcon>
         <ListItemText primary="New" />
+      </ListItem>
+      <ListItem button onClick={() => onPageOpen('componentSettings')}>
+        <ListItemIcon>
+          <FormatShapesIcon />
+        </ListItemIcon>
+        <ListItemText primary="Components" />
       </ListItem>
     </React.Fragment>
   );
@@ -108,6 +109,12 @@ class DenseAppBar extends React.PureComponent {
       getTemplate('article').then(template => {
         const pageContent = JSON.parse(template.content);
         this.setState({ pageContent, progress: false });
+      });
+    }
+    if (checkedPage === 'componentSettings') {
+      getTemplate('components').then(template => {
+        const pageContent = JSON.parse(template.content);
+        this.setState({ pageContent: pageContent });
       });
     }
   }
@@ -160,7 +167,6 @@ class DenseAppBar extends React.PureComponent {
             { this.state.page === 'article' &&
               <ArticlesActions></ArticlesActions>
             }
-            
             <div>
               <IconButton color="inherit">
                 <Badge badgeContent={3} color="secondary">
@@ -198,8 +204,11 @@ class DenseAppBar extends React.PureComponent {
           { this.state.page === 'article' && this.state.pageContent &&
             <ArticleManager content={ this.state.pageContent } />
           }
+          { this.state.page === 'componentSettings' && this.state.pageContent &&
+            <ComponentSettings content={ this.state.pageContent }></ComponentSettings>
+          }
 
-          { (this.state.page !== 'article' && this.state.page !== 'page') &&
+          { (this.state.page !== 'article' && this.state.page !== 'page' && this.state.page !== 'componentSettings') &&
             <p>Not implemented yet.</p>
           }
           

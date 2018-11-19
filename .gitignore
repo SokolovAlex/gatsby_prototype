@@ -12,7 +12,8 @@ yarn-error.log
 /content/modified
 build
 /editor/build
-gatsby/**/shared
+gatsby/pages/**/shared
+gatsby/editor/**/shared
 .vscode
 
 npm-debug.log
