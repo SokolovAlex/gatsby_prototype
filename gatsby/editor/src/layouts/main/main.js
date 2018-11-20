@@ -36,7 +36,7 @@ const store = createStore()
 const theme = createMuiTheme({
   palette: {
     primary: { main: '#006d5c' },
-    secondary: { main: '#b2b2b2' },
+    secondary: { main: '#b2b2b2', contrastText: '#000' },
   },
   typography: {
     useNextVariants: true,

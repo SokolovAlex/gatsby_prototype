@@ -2,5 +2,7 @@
   "name": "kl-marketing-editor",
   "version": "0.1.0",
   "private": true,
-  "dependencies": { }
+  "dependencies": {
+    "gatsby": "^2.0.53"
+  }
 }

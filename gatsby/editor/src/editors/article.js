@@ -37,7 +37,7 @@ const save = () => {
   saveTemplate('article', getCurrentItem('article'));
 }
 
-const ArticlesActionsBase = ({layoutType, changeLayout}) => (
+const ArticlesActionsBase = ({layoutType, changeLayout }) => (
   <div>
     <Select
       value={layoutType}
@@ -69,7 +69,7 @@ class ArticleManagerBase extends React.Component {
 
     return (
       <LayoutComponent>
-        <div style={{margin: 20, border: '1px dotted grey'}}>
+        <div style={{ border: '1px dotted grey', maxWidth: '1000px', margin: '0 auto' }}>
           <Editable
             editor={this.editor}
             id={this.content.id}
