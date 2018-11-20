@@ -43,8 +43,8 @@ const ArticlesActionsBase = ({layoutType, changeLayout }) => (
       value={layoutType}
       onChange={(e) => changeLayout(e.target.value)}
     >
-      <MenuItem value={LayoutTypes.simple}>simple</MenuItem>
-      <MenuItem value={LayoutTypes.blue}>blue</MenuItem>
+      <MenuItem value={LayoutTypes.simple}>kaspersky</MenuItem>
+      <MenuItem value={LayoutTypes.blue}>dr.web</MenuItem>
     </Select>
     <IconButton onClick={() => save()} style={{marginLeft: 20}}
       color="inherit" variant="fab" aria-label="Edit">
