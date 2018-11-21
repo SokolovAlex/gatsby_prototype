@@ -1,14 +1,12 @@
 import React from 'react'
-import Layout from '~/components/layout'
+import Layout from '../shared/layouts/Layout/Layout'
 import { graphql } from 'gatsby'
 import { createPage } from '../ory/page';
 
 const IndexPage = ({ data }) => {
-    const page = createPage(data.pageJson.content);
+    const page = createPage(data.articleJson.content);
     return (
-        <Layout>
-            { page }
-        </Layout>
+      <div>!!</div>
     );
 };
 
@@ -16,7 +14,7 @@ export default IndexPage
 
 export const query = graphql`
   query Page {
-    pageJson {
+    articleJson {
       template
       content
     }

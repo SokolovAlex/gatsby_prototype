@@ -42,32 +42,33 @@ class ComponentSettings extends React.Component {
     const { content } = this.props;
     return (
       <React.Fragment>
-        <form>
-          <TextField
-            label="Product Name"
-            value={this.state.name}
-            onChange={this.handleChange('name')}
-            margin="normal"
-          />
-          <br/>
-          <TextField
-            label="Brand"
-            value={this.state.brand}
-            onChange={this.handleChange('brand')}
-            margin="normal"
-          />
-          <br/>
-          <Button variant="outlined" color="primary" onClick={() => this.save()}>
-            Save
-          </Button>
-        </form>
-        <div style={{margin: 20, border: '1px dotted grey'}}>
-          <ProductPromo data={content}
-            brand={this.state.brand}
-            productName={this.state.name}
-            text={"Text of instance"}></ProductPromo>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <form>
+            <TextField
+              label="Product Name"
+              value={this.state.name}
+              onChange={this.handleChange('name')}
+              margin="normal"
+            />
+            <br/>
+            <TextField
+              label="Brand"
+              value={this.state.brand}
+              onChange={this.handleChange('brand')}
+              margin="normal"
+            />
+            <br/>
+            <Button variant="outlined" color="primary" onClick={() => this.save()}>
+              Save
+            </Button>
+          </form>
+          <div style={{margin: 20, border: '1px dotted grey'}}>
+            <ProductPromo data={content}
+              brand={this.state.brand}
+              productName={this.state.name}
+              text={"Text of instance"}></ProductPromo>
+          </div>
         </div>
-
       </React.Fragment>
     );
   }
